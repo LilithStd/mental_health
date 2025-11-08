@@ -1,9 +1,9 @@
-import Image from "next/image";
+import { titleBaseStyles } from "./globalConsts/globalStyles";
 
 export default function Main() {
   return (
     <main>
-
-    </main>
+      <h1 className={titleBaseStyles}>Mental Health</h1>
+    </main >
   );
 }
