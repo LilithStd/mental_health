@@ -6,9 +6,13 @@ interface TextComponentInterface {
     callback?: () => void
 }
 export const TextComponent = ({ content, additionStyles, callback }: TextComponentInterface) => {
-    <div onClick={callback} className={`${additionStyles}`}>
-        <p className={textBaseStyles}>
+    return (
+        <p
+            className={`${additionStyles} ${textBaseStyles}`}
+            onClick={callback}
+        >
             {content}
         </p>
-    </div>
+    )
+
 }
