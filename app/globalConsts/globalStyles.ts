@@ -1,9 +1,13 @@
 export const THEME_COLOR_SCHEME = {
 	LIGHT: {
 		activeElement: 'bg-teal-300',
+		container: 'bg-cyan-500',
+		element: '',
 	},
 	DARK: {
-		activeElement: 'bg-blue-300',
+		activeElement: 'bg-violet-300',
+		container: 'bg-indigo-500',
+		element: '',
 	},
 };
 
@@ -11,7 +15,7 @@ export const indents = {
 	text: '',
 	title: 'm-2 p-2',
 	button: '',
-	container: 'm-1 p-1',
+	container: 'm-1 p-2',
 	subContainer: '',
 };
 
@@ -24,7 +28,7 @@ export const shadow = {
 };
 
 export const rounded = {
-	high: 'rounded-xl',
+	high: 'rounded-3xl',
 	medium: 'rounded-lg',
 	low: 'rounded-sm',
 };

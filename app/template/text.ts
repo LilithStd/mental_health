@@ -1,6 +1,9 @@
+import {APP_PATH_ROUTER} from '../globalConsts/globalEnum';
+
 export const LIST_LINKS = {
 	MAIN: {
 		label: 'main',
+		path: APP_PATH_ROUTER.MAIN,
 		translate: {
 			EN: 'main',
 			LV: 'galvenais',
@@ -9,22 +12,25 @@ export const LIST_LINKS = {
 	},
 	NEWS: {
 		label: 'news',
+		path: APP_PATH_ROUTER.NEWS,
 		translate: {
 			EN: 'news',
 			LV: 'ziņas',
 			RU: 'новости',
 		},
 	},
-	TESTS: {
+	TEST: {
 		label: 'tests',
+		path: APP_PATH_ROUTER.TEST,
 		translate: {
-			EN: 'tests',
-			LV: 'testi',
-			RU: 'тесты',
+			EN: 'test',
+			LV: 'tests',
+			RU: 'тест',
 		},
 	},
 	CONSULTATION: {
 		label: 'consultation',
+		path: APP_PATH_ROUTER.CONSULTATION,
 		translate: {
 			EN: 'main',
 			LV: 'konsultācija',
@@ -32,3 +38,10 @@ export const LIST_LINKS = {
 		},
 	},
 };
+
+export const LINKS = [
+	LIST_LINKS.MAIN,
+	LIST_LINKS.NEWS,
+	LIST_LINKS.TEST,
+	LIST_LINKS.CONSULTATION,
+];
