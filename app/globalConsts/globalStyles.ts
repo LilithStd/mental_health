@@ -33,6 +33,23 @@ export const rounded = {
 	low: 'rounded-sm',
 };
 
+export const font = {
+	title: {
+		size: {
+			large: 'text-5xl',
+			medium: 'text-2xl',
+			small: 'text-xl',
+		},
+	},
+	text: {
+		size: {
+			large: 'text-2xl',
+			medium: 'text-lg',
+			small: 'text-base',
+		},
+	},
+};
+
 export const textBaseStyles = '';
 export const buttonBaseStyles = `${indents.container} ${rounded.medium}`;
 export const containerBaseStyles = `${indents.container}`;

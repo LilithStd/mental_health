@@ -32,9 +32,9 @@ export const LIST_LINKS = {
 		label: 'consultation',
 		path: APP_PATH_ROUTER.CONSULTATION,
 		translate: {
-			EN: 'main',
+			EN: 'consultation',
 			LV: 'konsultācija',
-			RU: 'главная',
+			RU: 'консультация',
 		},
 	},
 };
