@@ -1,10 +1,14 @@
 export const THEME_COLOR_SCHEME = {
 	LIGHT: {
+		background: 'bg-white',
+		text: 'text-black',
 		activeElement: 'bg-teal-300',
 		container: 'bg-cyan-500',
 		element: '',
 	},
 	DARK: {
+		background: 'bg-gray-900',
+		text: 'text-white',
 		activeElement: 'bg-violet-300',
 		container: 'bg-indigo-500',
 		element: '',
