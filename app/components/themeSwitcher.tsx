@@ -10,10 +10,10 @@ export default function ThemeSwitcher() {
     const setCurrentTheme = useGlobalStore((state) => state.setCurrentTheme)
     const currentTheme = useGlobalStore((state) => state.currentTheme)
     return (
-        <div className={`flex items-center ${indents.container}`}>
+        <div className={`flex items-center cursor-pointer ${indents.container.sub}`}>
             {currentTheme === THEME.LIGHT ?
 
-                <LightThemeIcon fill={'orange'} stroke={'teal'} onClick={() => setCurrentTheme(THEME.DARK)} /> : <DarkThemeIcon fill={'redmediumSlateBlue'} stroke={'#483D8B'} onClick={() => setCurrentTheme(THEME.LIGHT)} />}
+                <LightThemeIcon className={`cursor-pointer`} fill={'orange'} stroke={'teal'} onClick={() => setCurrentTheme(THEME.DARK)} /> : <DarkThemeIcon className="cursor-pointer" fill={'mediumSlateBlue'} stroke={'#483D8B'} onClick={() => setCurrentTheme(THEME.LIGHT)} />}
         </div>
 
     )

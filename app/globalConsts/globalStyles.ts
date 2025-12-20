@@ -19,8 +19,11 @@ export const indents = {
 	text: '',
 	title: 'm-2 p-2',
 	button: '',
-	container: 'm-1 p-2',
-	subContainer: '',
+	container:{
+		main:'m-4 p-2',
+		sub:'m-2 p-1'
+	} 
+	
 };
 
 export const shadow = {

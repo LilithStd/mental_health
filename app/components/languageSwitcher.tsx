@@ -1,6 +1,6 @@
 'use client'
 import { LANGUAGE_APP } from "../globalConsts/globalConsts"
-import { rounded, THEME_COLOR_SCHEME } from "../globalConsts/globalStyles"
+import { indents, rounded, THEME_COLOR_SCHEME } from "../globalConsts/globalStyles"
 import { useGlobalStore } from "../store/globalStore"
 import ButtonComponent from "./shared/button"
 
@@ -9,9 +9,9 @@ export default function LanguageSwitcher() {
     const setCurrentLanguage = useGlobalStore((state) => state.setCurrentLanguage)
     const currentTheme = useGlobalStore((state) => state.currentTheme)
     return (
-        <div className={`flex`}>
+        <div className={`flex ${rounded.medium} ${indents.container.sub}`}>
             {LANGUAGE_APP.map((item) =>
-                <div key={item} className={`${currentLanguage === item ? THEME_COLOR_SCHEME[currentTheme].activeElement : ''} ${rounded.medium}`}>
+                <div key={item} className={`${currentLanguage === item ? THEME_COLOR_SCHEME[currentTheme].activeElement : ''} ${rounded.medium} gap-2 p-1`}>
                     <ButtonComponent callBack={() => setCurrentLanguage(item)} content={item} />
                 </div>
 
