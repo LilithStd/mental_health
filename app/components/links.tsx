@@ -21,8 +21,8 @@ export default function ListLinks() {
                         key={link.label}
                         href={link.path}
                         className={`
-                            ${font.text.size.medium} text-center ${rounded.medium} p-2 hover:underline hover:underline-offset-4
-                            ${isActive ? `${THEME_COLOR_SCHEME[currentTheme].activeElement} font-bold ` : 'text-gray-500'}
+                            ${font.text.size.medium} gap-2 min-w-10 text-center ${rounded.medium} p-2 hover:underline hover:underline-offset-4
+                            ${isActive ? `${THEME_COLOR_SCHEME[currentTheme].activeElement} ` : 'text-gray-500'}
                         `}
                     >
                         {link.translate[currentLanguage]}
