@@ -2,7 +2,7 @@
 import { indents, rounded, screenSizes, THEME_COLOR_SCHEME, titleBaseStyles } from "../globalConsts/globalStyles";
 import { useGlobalStore } from "../store/globalStore";
 import AdditionalPanel from "./additionalPanel";
-import Authorization from "./autorization";
+import Authorization from "./authorization";
 import ListLinks from "./links";
 
 
