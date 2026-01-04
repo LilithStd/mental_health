@@ -2,6 +2,7 @@
 import { indents, rounded, screenSizes, THEME_COLOR_SCHEME, titleBaseStyles } from "../globalConsts/globalStyles";
 import { useGlobalStore } from "../store/globalStore";
 import AdditionalPanel from "./additionalPanel";
+import Authorization from "./autorization";
 import ListLinks from "./links";
 
 
@@ -14,11 +15,14 @@ export default function Header() {
                 <h1 className={`${titleBaseStyles} text-center`}>Mental Health</h1>
 
             </div>
-            <div className={`flex justify-center w-1/2 `}>
+            <div className={`flex justify-center lg:w-1/2  xl:w-1/3 `}>
                 <ListLinks />
             </div>
             <div className={`flex justify-end`}>
                 <AdditionalPanel />
+            </div>
+            <div>
+                <Authorization />
             </div>
         </nav>
     )
