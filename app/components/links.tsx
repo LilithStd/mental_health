@@ -12,7 +12,7 @@ export default function ListLinks() {
     const pathname = usePathname();
 
     return (
-        <div className="flex gap-4 items-center justify-center">
+        <div className="flex m-10 w-full items-center justify-center">
             {LINKS.map((link) => {
                 const isActive = pathname === link.path;
 
@@ -21,7 +21,7 @@ export default function ListLinks() {
                         key={link.label}
                         href={link.path}
                         className={`
-                            ${font.text.size.medium} gap-2 min-w-10 text-center ${rounded.medium} p-2 hover:underline hover:underline-offset-4
+                            ${font.text.size.medium} gap-2 w-full text-center ${rounded.medium} p-2 hover:underline hover:underline-offset-4
                             ${isActive ? `${THEME_COLOR_SCHEME[currentTheme].activeElement} ` : 'text-gray-500'}
                         `}
                     >

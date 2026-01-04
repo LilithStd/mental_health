@@ -57,6 +57,12 @@ export const font = {
 	},
 };
 
+export const screenSizes = {
+	mobile: 'max-w-md',
+	tablet: 'max-w-lg',
+	desktop: 'max-w-4xl',
+};
+
 export const textBaseStyles = '';
 export const buttonBaseStyles = `${indents.container} ${rounded.medium}`;
 export const containerBaseStyles = `${indents.container}`;
