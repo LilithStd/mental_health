@@ -5,6 +5,7 @@ export const THEME_COLOR_SCHEME = {
 		activeElement: 'bg-teal-300',
 		container: 'bg-cyan-500',
 		element: '',
+		hover: 'hover:bg-gray-200',
 	},
 	DARK: {
 		background: 'bg-gray-900',
@@ -12,6 +13,7 @@ export const THEME_COLOR_SCHEME = {
 		activeElement: 'bg-violet-300',
 		container: 'bg-indigo-500',
 		element: '',
+		hover: 'hover:bg-amber-700',
 	},
 };
 

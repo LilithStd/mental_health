@@ -1,4 +1,4 @@
-import {APP_PATH_ROUTER} from '../globalConsts/globalEnum';
+import {APP_PATH_ROUTER, AUTHORIZATION_STATUS} from '../globalConsts/globalEnum';
 
 export const LIST_LINKS = {
 	MAIN: {
@@ -36,6 +36,26 @@ export const LIST_LINKS = {
 			LV: 'konsultācija',
 			RU: 'консультация',
 		},
+	},
+};
+
+export const AUTHORIZATION_TEXT = {
+	REGISTRATION: {
+		label:AUTHORIZATION_STATUS.REGISTRATION,
+		translate: {
+			EN: 'Registration',
+			LV: 'Reģistrācija',
+			RU: 'Регистрация',
+	},
+		},
+		
+	SIGN_IN: {
+		label:AUTHORIZATION_STATUS.SIGN_IN,
+		translate: {
+			EN: 'Sign in',
+			LV: 'Pierakstīties',
+			RU: 'Войти',
+		}
 	},
 };
 

@@ -1,4 +1,8 @@
 'use client'
+
+import { THEME_COLOR_SCHEME } from "../globalConsts/globalStyles";
+import { useGlobalStore } from "../store/globalStore";
+
 interface ModalWindowProps {
     openStatusCallBack: boolean
     closeStatusCallBack: () => void
@@ -6,16 +10,41 @@ interface ModalWindowProps {
 }
 
 export default function ModalWindowMain(props: ModalWindowProps) {
+    //stores
+    const currentTheme = useGlobalStore((state) => state.currentTheme);
+    // 
     if (!props.openStatusCallBack) {
         return null
     }
     return (
 
-        <div className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50}`}>
-            <h2 className="text-white" >modalWindow</h2>
-            <button className="absolute top-4 right-4 text-white text-2xl font-bold" onClick={props.closeStatusCallBack}>×</button>
-            {props.children}
-        </div >
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+            <div className="relative">
+                {/* Кнопка закрытия */}
+                <button
+                    onClick={props.closeStatusCallBack}
+                    className={` absolute -top-3 -right-3
+                            w-8 h-8
+                            flex items-center justify-center
+                            rounded-full
+                            text-xl font-bold
+                            cursor-pointer
+                            ${THEME_COLOR_SCHEME[currentTheme].activeElement}
+                            ${THEME_COLOR_SCHEME[currentTheme].hover}
+                            
+                           `}
+
+
+                    aria-label="Close modal"
+                >
+                    ×
+                </button>
+
+                {/* Контент модалки */}
+                {props.children}
+            </div>
+        </div>
+
 
 
     )

@@ -5,34 +5,36 @@ import { THEME_COLOR_SCHEME } from "../globalConsts/globalStyles";
 import { useState } from "react";
 import ModalWindowMain from "./modalWindowMain";
 import ModalWindowAuthorization from "./modalWindows/modalWindowAuthorization";
+import { AUTHORIZATION_STATUS } from "../globalConsts/globalEnum";
+import { AUTHORIZATION_TEXT } from "../template/text";
 
 
 
 export default function Authorization() {
     // stores
+    const currentLanguage = useGlobalStore((state) => state.currentLanguage);
     const currentTheme = useGlobalStore((state) => state.currentTheme);
     //state
     const [isOpenModalWindow, setIsOpenModalWindow] = useState(false);
+    const [authorizationType, setAuthorizationType] = useState<AUTHORIZATION_STATUS>(AUTHORIZATION_STATUS.SIGN_IN);
     //
     //handlers
     const closeModalWindowHandler = () => {
         setIsOpenModalWindow(false);
     }
 
-    console.log(isOpenModalWindow)
-
     return (
         <div
-            className={`flex flex-col items-center justify-center gap-2 p-4 cursor-pointer ${THEME_COLOR_SCHEME[currentTheme].container}`}
+            className={`flex flex-col items-center justify-center gap-2 p-4 ${THEME_COLOR_SCHEME[currentTheme].container}`}
 
         >
             <div className={`flex flex-col items-center justify-center gap-2`} onClick={() => setIsOpenModalWindow(true)}>
                 <WithOutAutorizationIcon width={48} height={48} />
-                <h2>Sign</h2>
+                <h2>{AUTHORIZATION_TEXT.SIGN_IN.translate[currentLanguage]}</h2>
             </div>
             {isOpenModalWindow &&
                 <ModalWindowMain openStatusCallBack={isOpenModalWindow} closeStatusCallBack={closeModalWindowHandler} >
-                    <ModalWindowAuthorization typeAuthorization="signIn" />
+                    <ModalWindowAuthorization typeAuthorization={AUTHORIZATION_TEXT[authorizationType].translate[currentLanguage]} />
                 </ModalWindowMain>
             }
         </div>

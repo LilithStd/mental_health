@@ -8,6 +8,11 @@ export enum THEME {
 	LIGHT = 'LIGHT',
 }
 
+export enum AUTHORIZATION_STATUS {
+	REGISTRATION = 'REGISTRATION',
+	SIGN_IN = 'SIGN_IN',
+}
+
 export enum APP_PATH_ROUTER {
 	MAIN = '/',
 	NEWS = '/news',
