@@ -59,6 +59,35 @@ export const AUTHORIZATION_TEXT = {
 	},
 };
 
+export const INPUT_PLACEHOLDERS = {
+	EMAIL: {
+		EN: 'Email',
+		LV: 'E-pasts',
+		RU: 'Электронная почта',
+	},
+	PASSWORD: {
+		EN: 'Password',
+		LV: 'Parole',
+		RU: 'Пароль',
+	},
+	REPEAT_PASSWORD: {
+		EN: 'Repeat Password',
+		LV: 'Atkārtot paroli',
+		RU: 'Повторите пароль',
+	},
+	USERNAME: {
+		EN: 'Username',
+		LV: 'Lietotājvārds',
+		RU: 'Имя пользователя',
+	},
+	SUBMIT:{
+		EN: 'Submit',
+		LV: 'Iesniegt',
+		RU: 'Отправить',
+	}
+
+}
+
 export const LINKS = [
 	LIST_LINKS.MAIN,
 	LIST_LINKS.NEWS,
