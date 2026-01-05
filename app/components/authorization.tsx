@@ -34,7 +34,9 @@ export default function Authorization() {
             </div>
             {isOpenModalWindow &&
                 <ModalWindowMain openStatusCallBack={isOpenModalWindow} closeStatusCallBack={closeModalWindowHandler} >
-                    <ModalWindowAuthorization typeAuthorization={AUTHORIZATION_TEXT[authorizationType].translate[currentLanguage]} />
+                    <ModalWindowAuthorization
+                        typeAuthorization={authorizationType}
+                        contentTypeAuthorization={AUTHORIZATION_TEXT[authorizationType].translate[currentLanguage]} />
                 </ModalWindowMain>
             }
         </div>
