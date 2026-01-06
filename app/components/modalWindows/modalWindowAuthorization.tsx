@@ -49,9 +49,10 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
         <div>
             <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} items-center justify-center gap-2 p-4 cursor-pointer`}>
                 <form action="" className={`flex flex-col items-center justify-center gap-2`}>
-                    <input type="text" placeholder="Username" className="mb-2 p-2 rounded-md w-64" />
-                    <input type="text" placeholder="Email" className="mb-2 p-2 rounded-md w-64" />
-                    <input type="password" placeholder="Password" className="mb-2 p-2 rounded-md w-64" />
+                    <input type="text" placeholder={INPUT_PLACEHOLDERS.USERNAME[currentLanguage]} className="mb-2 p-2 rounded-md w-64" />
+                    <input type="text" placeholder={INPUT_PLACEHOLDERS.EMAIL[currentLanguage]} className="mb-2 p-2 rounded-md w-64" />
+                    <input type="password" placeholder={INPUT_PLACEHOLDERS.PASSWORD[currentLanguage]} className="mb-2 p-2 rounded-md w-64" />
+                    <input type="password" placeholder={INPUT_PLACEHOLDERS.REPEAT_PASSWORD[currentLanguage]} className="mb-2 p-2 rounded-md w-64" />
                     <button type="submit" className="bg-green-500 text-white p-2 rounded-md w-64">Register</button>
                 </form>
                 <div className={`flex  items-center justify-center gap-2`}>

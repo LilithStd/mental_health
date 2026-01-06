@@ -21,6 +21,7 @@ export default function Authorization() {
     //handlers
     const closeModalWindowHandler = () => {
         setIsOpenModalWindow(false);
+        setAuthorizationType(AUTHORIZATION_STATUS.SIGN_IN);
     }
 
     return (
