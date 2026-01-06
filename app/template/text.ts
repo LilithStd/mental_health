@@ -84,8 +84,35 @@ export const INPUT_PLACEHOLDERS = {
 		EN: 'Submit',
 		LV: 'Iesniegt',
 		RU: 'Отправить',
-	}
+	},
+}
 
+export const AUTH_METHODS_SYSTEM_MESSAGES = {
+	ALREADY_REGISTERED: {
+		EN: 'You are already registered. Please sign in.',
+		LV: 'Jūs jau esat reģistrējies. Lūdzu, pierakstieties.',
+		RU: 'Вы уже зарегистрированы. Пожалуйста, войдите.',
+	},
+	NOT_REGISTERED_YET: {
+		EN: 'Not registered yet? Please register.',
+		LV: 'Vēl neesat reģistrējies? Lūdzu, reģistrējieties.',
+		RU: 'Ещё не зарегистрированы? Пожалуйста, зарегистрируйтесь.',
+	},
+	PASSWORD_MISMATCH: {
+		EN: 'Passwords do not match. Please try again.',
+		LV: 'Paroles nesakrīt. Lūdzu, mēģiniet vēlreiz.',
+		RU: 'Пароли не совпадают. Пожалуйста, попробуйте снова.',
+	},
+	HAVE_ACCOUNT_SIGN_IN: {
+		EN: 'Have an account? Sign in here.',
+		LV: 'Ir konts? Pierakstieties šeit.',
+		RU: 'Есть аккаунт? Войдите.',
+	},
+	HERE_LINK: {
+		EN: 'here',
+		LV: 'šeit',
+		RU: 'здесь',
+	},
 }
 
 export const LINKS = [

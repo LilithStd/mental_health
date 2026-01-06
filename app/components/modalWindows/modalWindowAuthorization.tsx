@@ -2,7 +2,7 @@
 import { AUTHORIZATION_STATUS } from "@/app/globalConsts/globalEnum";
 import { THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import { useGlobalStore } from "@/app/store/globalStore";
-import { INPUT_PLACEHOLDERS } from "@/app/template/text";
+import { AUTH_METHODS_SYSTEM_MESSAGES, INPUT_PLACEHOLDERS } from "@/app/template/text";
 
 interface ModalWindowProps {
     typeAuthorization: string,
@@ -25,6 +25,14 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
                         {INPUT_PLACEHOLDERS.SUBMIT[currentLanguage]}
                     </button>
                 </form>
+                <div>
+                    <div>
+                        <h2>{AUTH_METHODS_SYSTEM_MESSAGES.NOT_REGISTERED_YET[currentLanguage]}</h2>
+                    </div>
+                    <div>
+                        <h2>{AUTH_METHODS_SYSTEM_MESSAGES.HAVE_ACCOUNT_SIGN_IN[currentLanguage]}</h2>
+                    </div>
+                </div>
             </div>
         </div>
     )
@@ -37,6 +45,9 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
                     <input type="password" placeholder="Password" className="mb-2 p-2 rounded-md w-64" />
                     <button type="submit" className="bg-green-500 text-white p-2 rounded-md w-64">Register</button>
                 </form>
+                <div>
+                    <h2>{AUTH_METHODS_SYSTEM_MESSAGES.ALREADY_REGISTERED[currentLanguage]}</h2>
+                </div>
             </div>
 
         </div>
