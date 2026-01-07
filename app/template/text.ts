@@ -89,24 +89,61 @@ export const INPUT_PLACEHOLDERS = {
 
 export const AUTH_METHODS_SYSTEM_MESSAGES = {
 	ALREADY_REGISTERED: {
-		EN: 'You are already registered. Please sign in',
-		LV: 'Jūs jau esat reģistrējies. Lūdzu, pierakstieties.',
-		RU: 'Вы уже зарегистрированы. Пожалуйста, войдите ',
+		EN: {
+			part1: 'You are already registered.',
+			part2: ' Please, sign in ',
+		},
+		LV:{
+			part1: 'Jūs jau esat reģistrējies.',
+			part2: ' Lūdzu, pierakstieties šeit ',
+		},
+		RU: {
+			part1: 'Вы уже зарегистрированы.',
+			part2: ' Пожалуйста, войдите ',
+		}
 	},
 	NOT_REGISTERED_YET: {
-		EN: 'Not registered yet? Please register',
-		LV: 'Vēl neesat reģistrējies? Lūdzu, reģistrējieties.',
-		RU: 'Ещё не зарегистрированы? Пожалуйста, зарегистрируйтесь.',
+		EN: {
+			part1: 'Not registered yet?',
+			part2: ' Please, register ',
+		},
+		LV: {
+			part1: 'Vēl neesat reģistrējies?',
+			part2: ' Lūdzu, reģistrējieties.',
+		},
+		RU: {
+			part1: 'Ещё не зарегистрированы?',
+			part2: ' Пожалуйста, зарегистрируйтесь.',
+		},
 	},
 	PASSWORD_MISMATCH: {
-		EN: 'Passwords do not match. Please try again.',
-		LV: 'Paroles nesakrīt. Lūdzu, mēģiniet vēlreiz.',
-		RU: 'Пароли не совпадают. Пожалуйста, попробуйте снова.',
+		EN: {
+			part1: 'Passwords do not match.',
+			part2: ' Please, try again.',
+		},
+		LV: {
+			part1: 'Paroles nesakrīt.',
+			part2: ' Lūdzu, mēģiniet vēlreiz.',
+		},
+		RU: {
+			part1: 'Пароли не совпадают.',
+			part2: ' Пожалуйста, попробуйте снова.',
+		},
 	},
 	HAVE_ACCOUNT_SIGN_IN: {
-		EN: 'Have an account? Sign in',
-		LV: 'Ir konts? Pierakstieties šeit ',
-		RU: 'Есть аккаунт? Войдите',
+		EN: {
+			part1: 'Have an account?',
+			part2: ' Sign in ',
+		},
+	
+		LV: {
+			part1: 'Ir konts?',
+			part2: ' Pierakstīties ',
+		},
+		RU: {
+			part1: 'Есть аккаунт?',
+			part2: ' Войдите ',
+		},
 	},
 	HERE_LINK: {
 		EN: 'here',
