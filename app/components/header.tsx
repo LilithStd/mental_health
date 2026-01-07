@@ -21,7 +21,7 @@ export default function Header() {
             <div className={`flex justify-end`}>
                 <AdditionalPanel />
             </div>
-            <div>
+            <div className={`flex justify-end w-1/10`}>
                 <Authorization />
             </div>
         </nav>
