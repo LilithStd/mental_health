@@ -132,7 +132,7 @@ export const AUTH_METHODS_SYSTEM_MESSAGES = {
 	},
 	HAVE_ACCOUNT_SIGN_IN: {
 		EN: {
-			part1: 'Have an account?',
+			part1: 'Already have an account?',
 			part2: ' Sign in ',
 		},
 	

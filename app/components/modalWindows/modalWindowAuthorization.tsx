@@ -32,14 +32,18 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
                     {INPUT_PLACEHOLDERS.SUBMIT[currentLanguage]}
                 </button>
             </form>
-            <div>
-                <div className={`flex  items-center justify-center gap-2`}>
-                    <h2 className={``}>{AUTH_METHODS_SYSTEM_MESSAGES.NOT_REGISTERED_YET[currentLanguage].part1}. </h2>
+            <div className={`flex  items-center justify-center gap-2 flex-col`}>
+
+                <h2 className={``}>{AUTH_METHODS_SYSTEM_MESSAGES.NOT_REGISTERED_YET[currentLanguage].part1}</h2>
+                <div className={`flex  items-center justify-center gap-2 flex-row`}>
+                    <h2>{AUTH_METHODS_SYSTEM_MESSAGES.NOT_REGISTERED_YET[currentLanguage].part2}</h2>
                     <h2 className={`${THEME_COLOR_SCHEME[currentTheme].activeElement} cursor-pointer ${rounded.low} p-1 `}
                         onClick={setAuthRegType}
                     >{AUTH_METHODS_SYSTEM_MESSAGES.HERE_LINK[currentLanguage]}</h2>
                 </div>
+
             </div>
+
         </div>
 
     )
@@ -52,11 +56,15 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
                 <input type="password" placeholder={INPUT_PLACEHOLDERS.REPEAT_PASSWORD[currentLanguage]} className={`mb-2 p-2 rounded-md w-64 border`} />
                 <button type="submit" className="bg-green-500 text-white p-2 rounded-md w-64">Register</button>
             </form>
-            <div className={`flex  items-center justify-center gap-2`}>
-                <h2 className={`w-64`}>{AUTH_METHODS_SYSTEM_MESSAGES.HAVE_ACCOUNT_SIGN_IN[currentLanguage].part1} </h2>
-                <h2 className={`${THEME_COLOR_SCHEME[currentTheme].activeElement} ${rounded.low} p-1 cursor-pointer`}
-                    onClick={setAuthSignType}
-                >{AUTH_METHODS_SYSTEM_MESSAGES.HERE_LINK[currentLanguage]}</h2>
+            <div className={`flex  items-center justify-center gap-2 flex-col`}>
+                <h2 className={``}>{AUTH_METHODS_SYSTEM_MESSAGES.HAVE_ACCOUNT_SIGN_IN[currentLanguage].part1} </h2>
+                <div className={`flex  items-center justify-center gap-2 flex-row`}>
+                    <h2>{AUTH_METHODS_SYSTEM_MESSAGES.HAVE_ACCOUNT_SIGN_IN[currentLanguage].part2}</h2>
+                    <h2 className={`${THEME_COLOR_SCHEME[currentTheme].activeElement} ${rounded.low} p-1 cursor-pointer`}
+                        onClick={setAuthSignType}
+                    >{AUTH_METHODS_SYSTEM_MESSAGES.HERE_LINK[currentLanguage]}</h2>
+                </div>
+
             </div>
         </div>
 
