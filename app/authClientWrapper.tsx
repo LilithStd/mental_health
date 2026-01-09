@@ -1,6 +1,5 @@
 // app/layout.tsx (client wrapper)
 'use client';
-
 import { useEffect } from 'react';
 import { useAuthStore } from './store/authorizationStore';
 
