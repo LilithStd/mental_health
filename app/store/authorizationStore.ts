@@ -1,15 +1,31 @@
-import { create } from "zustand";
+// store/auth.store.ts
+import { create } from 'zustand';
 
-interface AuthorizationState {
-    isAuthorized: boolean;
-    auuthorizeRole: string;
-    setIsAuthorized: (isAuthorized: boolean) => void;
-}
+type User = {
+  id: string;
+  email: string;
+};
 
-export const useAuthorizationStore = create<AuthorizationState>((set,get) => ({
-    isAuthorized: false,
-    auuthorizeRole: '',
-    setIsAuthorized: (isAuthorized: boolean) => {
-        set({ isAuthorized });
-    },
+type AuthState = {
+  user: User | null;
+  isAuth: boolean;
+  setUser: (user: User | null) => void;
+  logout: () => void;
+};
+
+export const useAuthStore = create<AuthState>((set) => ({
+  user: null,
+  isAuth: false,
+
+  setUser: (user) =>
+    set({
+      user,
+      isAuth: !!user,
+    }),
+
+  logout: () =>
+    set({
+      user: null,
+      isAuth: false,
+    }),
 }));

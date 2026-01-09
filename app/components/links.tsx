@@ -22,7 +22,7 @@ export default function ListLinks() {
                         href={link.path}
                         className={`
                             ${font.text.size.medium} gap-2 w-full text-center ${rounded.medium} p-2 
-                            ${isActive ? `${THEME_COLOR_SCHEME[currentTheme].activeElement} ` : 'text-gray-500'}
+                            ${isActive ? `${THEME_COLOR_SCHEME[currentTheme].activeElement} ` : `${THEME_COLOR_SCHEME[currentTheme].container} `}
                         `}
                     >
                         {link.translate[currentLanguage]}
