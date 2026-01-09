@@ -18,10 +18,10 @@ export default function Header() {
             <div className={`flex justify-center lg:w-1/2  xl:w-1/3 `}>
                 <ListLinks />
             </div>
-            <div className={`flex justify-end`}>
+            <div className={`flex justify-end w-1/4 md:w-1/5 lg:w-1/6`}>
                 <AdditionalPanel />
             </div>
-            <div className={`flex justify-end w-1/10`}>
+            <div className={`flex justify-end w-1/4 md:w-1/5 lg:w-1/6`}>
                 <Authorization />
             </div>
         </nav>

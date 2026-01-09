@@ -26,7 +26,7 @@ export default function Authorization() {
 
     return (
         <div
-            className={`flex flex-col items-center justify-center gap-2 p-4 ${THEME_COLOR_SCHEME[currentTheme].container}`}
+            className={`flex w-full flex-col items-center justify-center gap-2 p-4 ${THEME_COLOR_SCHEME[currentTheme].container}`}
 
         >
             <div className={`flex flex-col items-center justify-center gap-2`} onClick={() => setIsOpenModalWindow(true)}>
