@@ -17,6 +17,8 @@ export default function Authorization() {
     //state
     const [isOpenModalWindow, setIsOpenModalWindow] = useState(false);
     const [authorizationType, setAuthorizationType] = useState<AUTHORIZATION_STATUS>(AUTHORIZATION_STATUS.SIGN_IN);
+    const [login, setLogin] = useState('');
+    const [password, setPassword] = useState('');
     //
     //handlers
     const closeModalWindowHandler = () => {
