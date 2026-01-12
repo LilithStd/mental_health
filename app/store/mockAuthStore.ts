@@ -13,6 +13,7 @@ type MockAuthStore = {
   createUser: (email: string, password: string) => User | null
   authenticateUser: (email: string, password: string) => User | null
   logoutUser: (id: string) => void
+  resetStore: () => void
 }
 
 export const useMockAuthStore = create<MockAuthStore>()(
@@ -23,6 +24,7 @@ export const useMockAuthStore = create<MockAuthStore>()(
       createUser: (email: string, password: string) => {
         const newUser: User = { id: Date.now().toString(), email, password }
         set((state) => ({ users: [...state.users, newUser] }))
+        console.log('User created:', newUser)
         return newUser
       },
       authenticateUser: (email: string, password: string) => {
@@ -40,6 +42,7 @@ export const useMockAuthStore = create<MockAuthStore>()(
           authUsers: state.authUsers.filter((user) => user.id !== id),
         }))
       },
+        resetStore: () => set({ users: [], authUsers: [] }),
     }),
     {
       name: 'mock-auth-storage', // name of the item in the storage (must be unique)

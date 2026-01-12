@@ -2,7 +2,10 @@
 import { AUTHORIZATION_STATUS } from "@/app/globalConsts/globalEnum";
 import { indents, rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import { useGlobalStore } from "@/app/store/globalStore";
+import { useMockAuthStore } from "@/app/store/mockAuthStore";
 import { AUTH_METHODS_SYSTEM_MESSAGES, INPUT_PLACEHOLDERS } from "@/app/template/text";
+import { log } from "console";
+import { useFormState } from "react-dom";
 
 interface ModalWindowProps {
     typeAuthorization: string,
@@ -10,9 +13,15 @@ interface ModalWindowProps {
     setAuthorizationType: (type: AUTHORIZATION_STATUS) => void
 }
 export default function ModalWindowAuthorization(props: ModalWindowProps) {
+    //state
+
+    // 
     // stores
     const currentTheme = useGlobalStore((state) => state.currentTheme);
     const currentLanguage = useGlobalStore((state) => state.currentLanguage);
+    const createUser = useMockAuthStore((state) => state.createUser);
+    const authenticateUser = useMockAuthStore((state) => state.authenticateUser);
+    const logoutUser = useMockAuthStore((state) => state.logoutUser);
     // 
     //functions
     const setAuthSignType = () => {
@@ -22,12 +31,20 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
         props.setAuthorizationType(AUTHORIZATION_STATUS.REGISTRATION);
     }
     // 
+    const createUserHandler = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const formData = new FormData(event.currentTarget);
+        const email = formData.get('email') as string;
+        const password = formData.get('password') as string;
+        console.log('Creating user with email:', email, 'and password:', password);
+    }
+
     // components
     const AuthSignInComponent = (
         <div className={`flex flex-col  ${THEME_COLOR_SCHEME[currentTheme].container} items-center justify-center gap-2 p-4 `}>
             <form action="" className={`flex flex-col items-center justify-center gap-2`}>
-                <input type="text" placeholder={INPUT_PLACEHOLDERS.EMAIL[currentLanguage]} className={`mb-2 p-2 ${rounded.low} w-64 border`} />
-                <input type="password" placeholder={INPUT_PLACEHOLDERS.PASSWORD[currentLanguage]} className={`mb-2 p-2 ${rounded.low} w-64 border`} />
+                <input type="text" placeholder={INPUT_PLACEHOLDERS.EMAIL[currentLanguage]} className={`mb-2 p-2 ${rounded.low} w-64 border`} required />
+                <input type="password" placeholder={INPUT_PLACEHOLDERS.PASSWORD[currentLanguage]} className={`mb-2 p-2 ${rounded.low} w-64 border`} required />
                 <button type="submit" className="bg-blue-500 text-white p-2 rounded-md w-64 cursor-pointer">
                     {INPUT_PLACEHOLDERS.SUBMIT[currentLanguage]}
                 </button>
@@ -49,13 +66,46 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
     )
     const AuthRegistrationComponent = (
         <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} items-center justify-center gap-2 p-4`}>
-            <form action="" className={`flex flex-col items-center justify-center gap-2`}>
-                <input type="text" placeholder={INPUT_PLACEHOLDERS.USERNAME[currentLanguage]} className={`mb-2 p-2 rounded-md w-64 border`} />
-                <input type="text" placeholder={INPUT_PLACEHOLDERS.EMAIL[currentLanguage]} className={`mb-2 p-2 rounded-md w-64 border`} />
-                <input type="password" placeholder={INPUT_PLACEHOLDERS.PASSWORD[currentLanguage]} className={`mb-2 p-2 rounded-md w-64 border`} />
-                <input type="password" placeholder={INPUT_PLACEHOLDERS.REPEAT_PASSWORD[currentLanguage]} className={`mb-2 p-2 rounded-md w-64 border`} />
-                <button type="submit" className="bg-green-500 text-white p-2 rounded-md w-64">Register</button>
+            <form
+                className="flex flex-col items-center justify-center gap-2"
+                onSubmit={createUserHandler}
+            >
+                <input
+                    name="username"
+                    type="text"
+                    placeholder={INPUT_PLACEHOLDERS.USERNAME[currentLanguage]}
+                    className="mb-2 p-2 rounded-md w-64 border"
+                />
+
+                <input
+                    name="email"
+                    type="email"
+                    placeholder={INPUT_PLACEHOLDERS.EMAIL[currentLanguage]}
+                    className="mb-2 p-2 rounded-md w-64 border"
+                    required
+                />
+
+                <input
+                    name="password"
+                    type="password"
+                    placeholder={INPUT_PLACEHOLDERS.PASSWORD[currentLanguage]}
+                    className="mb-2 p-2 rounded-md w-64 border"
+                    required
+                />
+
+                <input
+                    name="repeatPassword"
+                    type="password"
+                    placeholder={INPUT_PLACEHOLDERS.REPEAT_PASSWORD[currentLanguage]}
+                    className="mb-2 p-2 rounded-md w-64 border"
+                    required
+                />
+
+                <button type="submit" className="bg-green-500 text-white p-2 rounded-md w-64">
+                    Register
+                </button>
             </form>
+
             <div className={`flex  items-center justify-center gap-2 flex-col`}>
                 <h2 className={``}>{AUTH_METHODS_SYSTEM_MESSAGES.HAVE_ACCOUNT_SIGN_IN[currentLanguage].part1} </h2>
                 <div className={`flex  items-center justify-center gap-2 flex-row`}>
@@ -71,7 +121,6 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
 
     )
     // 
-    console.log('typeAuthorization', props.typeAuthorization);
     return (
         <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} items-center justify-center gap-2 p-4 ${rounded.high}`}>
             <h2 className={``}>{props.contentTypeAuthorization}</h2>
