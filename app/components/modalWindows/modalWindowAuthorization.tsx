@@ -37,7 +37,8 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
     // 
     const createUserHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const formData = new FormData(event.currentTarget);
+        const formCurrentData = event.currentTarget;
+        const formData = new FormData(formCurrentData);
         const email = formData.get('email') as string;
         const password = formData.get('password') as string;
         if (checkAlreadyExists(email)) {
@@ -45,19 +46,41 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
             return;
         } else {
             createUser(email, password);
+            formCurrentData.reset();
             props.closeCallback();
         }
 
 
+    }
+
+    const signInUserHandler = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const formCurrentData = event.currentTarget;
+        const formData = new FormData(formCurrentData);
+        const email = formData.get('email') as string;
+        const password = formData.get('password') as string;
+        if (checkAlreadyExists(email) === false) {
+            alert('No user found with this email.');
+            console.log(checkAlreadyExists(email));
+            return;
+        }
+        const authenticatedUser = authenticateUser(email, password);
+        if (authenticatedUser) {
+            alert('Successfully signed in!');
+            formCurrentData.reset();
+            props.closeCallback();
+        } else {
+            alert('Invalid email or password.');
+        }
     }
     console.log('Current users in store:', users);
 
     // components
     const AuthSignInComponent = (
         <div className={`flex flex-col  ${THEME_COLOR_SCHEME[currentTheme].container} items-center justify-center gap-2 p-4 `}>
-            <form action="" className={`flex flex-col items-center justify-center gap-2`}>
-                <input type="text" placeholder={INPUT_PLACEHOLDERS.EMAIL[currentLanguage]} className={`mb-2 p-2 ${rounded.low} w-64 border`} required />
-                <input type="password" placeholder={INPUT_PLACEHOLDERS.PASSWORD[currentLanguage]} className={`mb-2 p-2 ${rounded.low} w-64 border`} required />
+            <form action="" className={`flex flex-col items-center justify-center gap-2`} key={props.typeAuthorization} onSubmit={signInUserHandler}>
+                <input name="email" type="email" placeholder={INPUT_PLACEHOLDERS.EMAIL[currentLanguage]} className={`mb-2 p-2 ${rounded.low} w-64 border`} required />
+                <input name="password" type="password" placeholder={INPUT_PLACEHOLDERS.PASSWORD[currentLanguage]} className={`mb-2 p-2 ${rounded.low} w-64 border`} required />
                 <button type="submit" className="bg-blue-500 text-white p-2 rounded-md w-64 cursor-pointer">
                     {INPUT_PLACEHOLDERS.SUBMIT[currentLanguage]}
                 </button>
@@ -82,6 +105,7 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
             <form
                 className="flex flex-col items-center justify-center gap-2"
                 onSubmit={createUserHandler}
+                key={props.typeAuthorization}
             >
                 <input
                     name="username"
