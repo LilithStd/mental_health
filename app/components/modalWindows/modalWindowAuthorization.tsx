@@ -22,6 +22,7 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
     const createUser = useMockAuthStore((state) => state.createUser);
     const authenticateUser = useMockAuthStore((state) => state.authenticateUser);
     const logoutUser = useMockAuthStore((state) => state.logoutUser);
+    const resetUserStore = useMockAuthStore((state) => state.resetStore);
     // 
     //functions
     const setAuthSignType = () => {
@@ -124,6 +125,7 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
     return (
         <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} items-center justify-center gap-2 p-4 ${rounded.high}`}>
             <h2 className={``}>{props.contentTypeAuthorization}</h2>
+            <h2 className="p-2 bg-amber-600" onClick={resetUserStore}>Res</h2>
             {props.typeAuthorization === AUTHORIZATION_STATUS.SIGN_IN ? AuthSignInComponent : AuthRegistrationComponent}
         </div>
     )

@@ -42,7 +42,10 @@ export const useMockAuthStore = create<MockAuthStore>()(
           authUsers: state.authUsers.filter((user) => user.id !== id),
         }))
       },
-        resetStore: () => set({ users: [], authUsers: [] }),
+        resetStore: () => {
+            set({ users: [], authUsers: [] })
+            console.log('Mock auth store has been reset');
+    },
     }),
     {
       name: 'mock-auth-storage', // name of the item in the storage (must be unique)
