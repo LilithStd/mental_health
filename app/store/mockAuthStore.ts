@@ -23,9 +23,12 @@ export const useMockAuthStore = create<MockAuthStore>()(
       users: [],
       authUsers: [],
       createUser: (email: string, password: string) => {
+        if (get().checkUserExists(email)) {
+            console.log('User already exists with email:', email);
+          return null
+        }
         const newUser: User = { id: Date.now().toString(), email, password }
         set((state) => ({ users: [...state.users, newUser] }))
-        console.log('User created:', newUser)
         return newUser
       },
       authenticateUser: (email: string, password: string) => {

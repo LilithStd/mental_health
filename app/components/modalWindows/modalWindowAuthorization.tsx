@@ -24,6 +24,7 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
     const users = useMockAuthStore((state) => state.users);
     const authenticateUser = useMockAuthStore((state) => state.authenticateUser);
     const logoutUser = useMockAuthStore((state) => state.logoutUser);
+    const checkAlreadyExists = useMockAuthStore((state) => state.checkUserExists);
     const resetUserStore = useMockAuthStore((state) => state.resetStore);
     // 
     //functions
@@ -39,8 +40,15 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
         const formData = new FormData(event.currentTarget);
         const email = formData.get('email') as string;
         const password = formData.get('password') as string;
-        createUser(email, password);
-        props.closeCallback();
+        if (checkAlreadyExists(email)) {
+            alert('User already exists with this email.');
+            return;
+        } else {
+            createUser(email, password);
+            props.closeCallback();
+        }
+
+
     }
     console.log('Current users in store:', users);
 
