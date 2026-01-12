@@ -4,13 +4,14 @@ import { indents, rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalS
 import { useGlobalStore } from "@/app/store/globalStore";
 import { useMockAuthStore } from "@/app/store/mockAuthStore";
 import { AUTH_METHODS_SYSTEM_MESSAGES, INPUT_PLACEHOLDERS } from "@/app/template/text";
-import { log } from "console";
-import { useFormState } from "react-dom";
+import { use } from "react";
+
 
 interface ModalWindowProps {
     typeAuthorization: string,
     contentTypeAuthorization: string,
-    setAuthorizationType: (type: AUTHORIZATION_STATUS) => void
+    setAuthorizationType: (type: AUTHORIZATION_STATUS) => void,
+    closeCallback: () => void,
 }
 export default function ModalWindowAuthorization(props: ModalWindowProps) {
     //state
@@ -20,6 +21,7 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
     const currentTheme = useGlobalStore((state) => state.currentTheme);
     const currentLanguage = useGlobalStore((state) => state.currentLanguage);
     const createUser = useMockAuthStore((state) => state.createUser);
+    const users = useMockAuthStore((state) => state.users);
     const authenticateUser = useMockAuthStore((state) => state.authenticateUser);
     const logoutUser = useMockAuthStore((state) => state.logoutUser);
     const resetUserStore = useMockAuthStore((state) => state.resetStore);
@@ -37,8 +39,10 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
         const formData = new FormData(event.currentTarget);
         const email = formData.get('email') as string;
         const password = formData.get('password') as string;
-        console.log('Creating user with email:', email, 'and password:', password);
+        createUser(email, password);
+        props.closeCallback();
     }
+    console.log('Current users in store:', users);
 
     // components
     const AuthSignInComponent = (

@@ -41,6 +41,7 @@ export default function Authorization() {
                         typeAuthorization={authorizationType}
                         contentTypeAuthorization={AUTHORIZATION_TEXT[authorizationType].translate[currentLanguage]}
                         setAuthorizationType={setAuthorizationType}
+                        closeCallback={closeModalWindowHandler}
                     />
                 </ModalWindowMain>
             }
