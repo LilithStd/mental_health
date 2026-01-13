@@ -4,7 +4,7 @@ import { indents, rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalS
 import { useGlobalStore } from "@/app/store/globalStore";
 import { useMockAuthStore } from "@/app/store/mockAuthStore";
 import { AUTH_METHODS_SYSTEM_MESSAGES, INPUT_PLACEHOLDERS } from "@/app/template/text";
-import { use } from "react";
+
 
 
 interface ModalWindowProps {
@@ -18,11 +18,14 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
 
     // 
     // stores
+    // global store
     const currentTheme = useGlobalStore((state) => state.currentTheme);
     const currentLanguage = useGlobalStore((state) => state.currentLanguage);
+    // user auth store
     const createUser = useMockAuthStore((state) => state.createUser);
     const users = useMockAuthStore((state) => state.users);
     const authenticateUser = useMockAuthStore((state) => state.authenticateUser);
+
     const logoutUser = useMockAuthStore((state) => state.logoutUser);
     const checkAlreadyExists = useMockAuthStore((state) => state.checkUserExists);
     const resetUserStore = useMockAuthStore((state) => state.resetStore);

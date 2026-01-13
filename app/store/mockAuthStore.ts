@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 
-type User = {
+export type User = {
   id: string
   email: string
   password: string
@@ -13,7 +13,7 @@ type MockAuthStore = {
   createUser: (email: string, password: string) => User | null
   authenticateUser: (email: string, password: string) => User | null
   logoutUser: (id: string) => void
-    currentAuthUser: (userData: User) => User
+  currentAuthUser: (userData: User) => User
   resetStore: () => void
   checkUserExists: (email: string) => boolean
 }
