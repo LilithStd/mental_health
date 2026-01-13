@@ -14,7 +14,7 @@ type MockAuthStore = {
   authenticateUser: (email: string, password: string) => User | null
   logoutUser: (id: string) => void
   currentAuthUser: User | null
-  setCurrentAuthUser: (userData: User) => User
+  setCurrentAuthUser: (userData: User) => void
   resetStore: () => void
   checkUserExists: (email: string) => boolean
 }
@@ -47,8 +47,12 @@ export const useMockAuthStore = create<MockAuthStore>()(
       setCurrentAuthUser: (userData) => {
         const currentAuthUserData = get().authUsers.find((user) => user.id === userData.id)
         if(currentAuthUserData){
+            set({ currentAuthUser: currentAuthUserData })
             return currentAuthUserData
-        }else {{return userData}}
+        }
+        // if(currentAuthUserData){
+        //     return currentAuthUserData
+        // }else {{return userData}}
       },
      checkUserExists: (email: string) => {
         const normalizedEmail = email.trim().toLowerCase()

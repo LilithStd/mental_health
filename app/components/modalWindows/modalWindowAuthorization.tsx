@@ -25,6 +25,8 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
     const createUser = useMockAuthStore((state) => state.createUser);
     const users = useMockAuthStore((state) => state.users);
     const authenticateUser = useMockAuthStore((state) => state.authenticateUser);
+    const setAuthUser = useMockAuthStore((state) => state.setCurrentAuthUser);
+    // 
 
     const logoutUser = useMockAuthStore((state) => state.logoutUser);
     const checkAlreadyExists = useMockAuthStore((state) => state.checkUserExists);
@@ -69,7 +71,8 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
         }
         const authenticatedUser = authenticateUser(email, password);
         if (authenticatedUser) {
-            alert('Successfully signed in!');
+            // alert('Successfully signed in!');
+            setAuthUser(authenticatedUser);
             formCurrentData.reset();
             props.closeCallback();
         } else {
