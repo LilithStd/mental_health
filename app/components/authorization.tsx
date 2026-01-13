@@ -9,6 +9,7 @@ import ModalWindowAuthorization from "./modalWindows/modalWindowAuthorization";
 import { AUTHORIZATION_STATUS } from "../globalConsts/globalEnum";
 import { AUTHORIZATION_TEXT } from "../template/text";
 import { useMockAuthStore, User } from "../store/mockAuthStore";
+import { log } from "console";
 
 
 
@@ -19,6 +20,7 @@ export default function Authorization() {
     const currentTheme = useGlobalStore((state) => state.currentTheme);
     //user auth store
     const currentAuthUser = useMockAuthStore((state) => state.currentAuthUser);
+    const logoutUser = useMockAuthStore((state) => state.logoutUser);
     // 
     //state
     const [isOpenModalWindow, setIsOpenModalWindow] = useState(false);
@@ -36,7 +38,7 @@ export default function Authorization() {
     const isAuthorizedComponent = (authUser: User) => {
         return (
             <div className={`flex flex-col items-center justify-center gap-2`}>
-                <AuthorisationIcon width={48} height={48} />
+                <AuthorisationIcon width={48} height={48} onClick={() => { logoutUser(authUser.id) }} />
                 <h2>{authUser.email}</h2>
             </div>
         )

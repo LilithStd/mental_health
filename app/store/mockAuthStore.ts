@@ -63,6 +63,7 @@ export const useMockAuthStore = create<MockAuthStore>()(
       logoutUser: (id: string) => {
         set((state) => ({
           authUsers: state.authUsers.filter((user) => user.id !== id),
+          currentAuthUser: null,
         }))
       },
         resetStore: () => {
