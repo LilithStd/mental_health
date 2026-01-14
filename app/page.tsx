@@ -10,6 +10,7 @@ export default function Main() {
   return (
     <main className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main}`}>
       <p>main</p>
+      <h2>test</h2>
     </main>
   );
 }

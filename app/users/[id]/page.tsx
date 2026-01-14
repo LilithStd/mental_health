@@ -2,6 +2,7 @@
 import { use } from 'react'
 import { THEME_COLOR_SCHEME, rounded, indents } from "@/app/globalConsts/globalStyles"
 import { useGlobalStore } from "@/app/store/globalStore";
+import CurrentUser from '@/app/components/currentUser';
 
 
 export default function Users({
@@ -11,5 +12,8 @@ export default function Users({
 }) {
     const { id } = use(params)
     const currentTheme = useGlobalStore((state) => state.currentTheme);
-    return <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main}`}>{id}</div>
+    return <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1  ${indents.container.main}`}>
+        <h1>User Page</h1>
+        <CurrentUser id={id} />
+    </div>
 }
