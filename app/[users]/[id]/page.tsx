@@ -1,4 +1,5 @@
-import React from 'react'
+import CurrentUser from "@/app/components/currentUser"
+
 interface UsersProps {
     params: Promise<{
         id: string
@@ -7,5 +8,8 @@ interface UsersProps {
 export default async function User({ params }: UsersProps) {
     const { id } = await params
 
-    return <div>User id: {id}</div>
+    return <div>
+        <h1>User Page</h1>
+        <CurrentUser id={id} />
+    </div>
 }
