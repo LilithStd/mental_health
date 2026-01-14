@@ -154,7 +154,6 @@ export const AUTH_METHODS_SYSTEM_MESSAGES = {
 
 export const ROLE_AUTHORIZED_USER_TRANSLATE = {
 	USER: {
-		LABLE:ROLE_AUTHORIZED_USER.USER,
 		translate: {
 			EN: 'User',
 			LV: 'Lietotājs',
@@ -162,7 +161,6 @@ export const ROLE_AUTHORIZED_USER_TRANSLATE = {
 		},
 	},
 	ADMIN: {
-		LABLE:ROLE_AUTHORIZED_USER.ADMIN,
 		translate: {
 			EN: 'Admin',
 			LV: 'Admins',
@@ -170,7 +168,6 @@ export const ROLE_AUTHORIZED_USER_TRANSLATE = {
 		},
 	},
 	OTHER: {
-		LABLE:ROLE_AUTHORIZED_USER.OTHER,
 		translate: {
 			EN: 'Other',
 			LV: 'Cits',

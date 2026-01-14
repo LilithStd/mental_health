@@ -7,9 +7,9 @@ import { useEffect, useState } from "react";
 import ModalWindowMain from "./modalWindowMain";
 import ModalWindowAuthorization from "./modalWindows/modalWindowAuthorization";
 import { AUTHORIZATION_STATUS } from "../globalConsts/globalEnum";
-import { AUTHORIZATION_TEXT } from "../template/text";
+import { AUTHORIZATION_TEXT, ROLE_AUTHORIZED_USER_TRANSLATE } from "../template/text";
 import { useMockAuthStore, User } from "../store/mockAuthStore";
-import { log } from "console";
+
 
 
 
@@ -40,6 +40,8 @@ export default function Authorization() {
             <div className={`flex flex-col items-center justify-center gap-2`}>
                 <AuthorisationIcon width={48} height={48} onClick={() => { logoutUser(authUser.id) }} />
                 <h2>{authUser.email}</h2>
+                {/* <h2>{authUser.role}</h2> */}
+                <h2>{ROLE_AUTHORIZED_USER_TRANSLATE[authUser.role].translate[currentLanguage]}</h2>
             </div>
         )
     }
@@ -58,10 +60,6 @@ export default function Authorization() {
             className={`flex w-full flex-col items-center justify-center gap-2 p-4 ${THEME_COLOR_SCHEME[currentTheme].container}`}
         >
             {currentAuthUser ? isAuthorizedComponent(currentAuthUser) : notAuthorizedComponent()}
-            {/* <div className={`flex flex-col items-center justify-center gap-2`} onClick={() => setIsOpenModalWindow(true)}>
-                <WithOutAuthorizationIcon width={48} height={48} />
-                <h2>{AUTHORIZATION_TEXT.SIGN_IN.translate[currentLanguage]}</h2>
-            </div> */}
             {isOpenModalWindow &&
                 <ModalWindowMain openStatusCallBack={isOpenModalWindow} closeStatusCallBack={closeModalWindowHandler} >
                     <ModalWindowAuthorization
