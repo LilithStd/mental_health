@@ -13,6 +13,12 @@ export enum AUTHORIZATION_STATUS {
 	SIGN_IN = 'SIGN_IN',
 }
 
+export enum ROLE_AUTHORIZED_USER {
+	USER = 'USER',
+	ADMIN = 'ADMIN',
+	OTHER = 'OTHER',
+}	
+
 export enum APP_PATH_ROUTER {
 	MAIN = '/',
 	NEWS = '/news',

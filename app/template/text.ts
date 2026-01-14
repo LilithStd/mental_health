@@ -1,4 +1,4 @@
-import {APP_PATH_ROUTER, AUTHORIZATION_STATUS} from '../globalConsts/globalEnum';
+import {APP_PATH_ROUTER, AUTHORIZATION_STATUS, ROLE_AUTHORIZED_USER} from '../globalConsts/globalEnum';
 
 export const LIST_LINKS = {
 	MAIN: {
@@ -150,6 +150,33 @@ export const AUTH_METHODS_SYSTEM_MESSAGES = {
 		LV: 'šeit',
 		RU: 'здесь',
 	},
+}
+
+export const ROLE_AUTHORIZED_USER_TRANSLATE = {
+	USER: {
+		LABLE:ROLE_AUTHORIZED_USER.USER,
+		translate: {
+			EN: 'User',
+			LV: 'Lietotājs',
+			RU: 'Пользователь',
+		},
+	},
+	ADMIN: {
+		LABLE:ROLE_AUTHORIZED_USER.ADMIN,
+		translate: {
+			EN: 'Admin',
+			LV: 'Admins',
+			RU: 'Админ',
+		},
+	},
+	OTHER: {
+		LABLE:ROLE_AUTHORIZED_USER.OTHER,
+		translate: {
+			EN: 'Other',
+			LV: 'Cits',
+			RU: 'Другой',
+		},
+	}
 }
 
 export const LINKS = [

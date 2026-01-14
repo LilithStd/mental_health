@@ -7,6 +7,8 @@ export type User = {
   password: string
 }
 
+
+
 type MockAuthStore = {
   users: User[]
   authUsers: User[]
