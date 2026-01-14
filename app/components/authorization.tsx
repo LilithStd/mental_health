@@ -2,13 +2,14 @@
 import WithOutAuthorizationIcon from "@/public/icons/user/UserCircle.svg";
 import AuthorisationIcon from "@/public/icons/user/UserLogout.svg";
 import { useGlobalStore } from "../store/globalStore";
-import { THEME_COLOR_SCHEME } from "../globalConsts/globalStyles";
+import { indents, THEME_COLOR_SCHEME } from "../globalConsts/globalStyles";
 import { useEffect, useState } from "react";
 import ModalWindowMain from "./modalWindowMain";
 import ModalWindowAuthorization from "./modalWindows/modalWindowAuthorization";
-import { AUTHORIZATION_STATUS } from "../globalConsts/globalEnum";
+import { APP_PATH_ROUTER, AUTHORIZATION_STATUS } from "../globalConsts/globalEnum";
 import { AUTHORIZATION_TEXT, ROLE_AUTHORIZED_USER_TRANSLATE } from "../template/text";
 import { useMockAuthStore, User } from "../store/mockAuthStore";
+import Link from "next/link";
 
 
 
@@ -39,9 +40,11 @@ export default function Authorization() {
         return (
             <div className={`flex flex-col items-center justify-center gap-2`}>
                 <AuthorisationIcon width={48} height={48} onClick={() => { logoutUser(authUser.id) }} />
-                <h2>{authUser.email}</h2>
-                {/* <h2>{authUser.role}</h2> */}
-                <h2>{ROLE_AUTHORIZED_USER_TRANSLATE[authUser.role].translate[currentLanguage]}</h2>
+                <div className={`min-h-12 cursor-pointer`}>
+                    <Link href={`${APP_PATH_ROUTER.USERS}/${authUser.id}`} className={`${THEME_COLOR_SCHEME[currentTheme].hover} cursor-pointer ${indents.container}`} >{authUser.email}</Link>
+                    <h2>{ROLE_AUTHORIZED_USER_TRANSLATE[authUser.role].translate[currentLanguage]}</h2>
+                </div>
+
             </div>
         )
     }
@@ -49,7 +52,10 @@ export default function Authorization() {
         return (
             <div className={`flex flex-col items-center justify-center gap-2`} onClick={() => setIsOpenModalWindow(true)}>
                 <WithOutAuthorizationIcon width={48} height={48} />
-                <h2>{AUTHORIZATION_TEXT.SIGN_IN.translate[currentLanguage]}</h2>
+                <div className={`min-h-12 cursor-pointer`}>
+                    <h2>{AUTHORIZATION_TEXT.SIGN_IN.translate[currentLanguage]}</h2>
+                </div>
+
             </div>
         )
     }
