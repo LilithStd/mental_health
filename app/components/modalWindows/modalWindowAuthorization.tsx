@@ -4,6 +4,7 @@ import { indents, rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalS
 import { useGlobalStore } from "@/app/store/globalStore";
 import { useMockAuthStore } from "@/app/store/mockAuthStore";
 import { AUTH_METHODS_SYSTEM_MESSAGES, INPUT_PLACEHOLDERS } from "@/app/template/text";
+import { useEffect, useState } from "react";
 
 
 
@@ -15,7 +16,7 @@ interface ModalWindowProps {
 }
 export default function ModalWindowAuthorization(props: ModalWindowProps) {
     //state
-
+    const [succerssfullyCreated, setSuccessfullyCreated] = useState<boolean>(false);
     // 
     // stores
     // global store
@@ -39,7 +40,10 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
     const setAuthRegType = () => {
         props.setAuthorizationType(AUTHORIZATION_STATUS.REGISTRATION);
     }
+    // Effect
+
     // 
+    // handlers
     const createUserHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const formCurrentData = event.currentTarget;
@@ -51,12 +55,20 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
             return;
         } else {
             createUser(email, password);
+            setSuccessfullyCreated(true);
             formCurrentData.reset();
-            props.closeCallback();
+            // props.closeCallback();
         }
 
 
     }
+
+    const successfullyUserCreatedHandler = () => {
+        
+        setSuccessfullyCreated(false);
+        props.closeCallback();
+    }
+
 
     const signInUserHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -79,7 +91,6 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
             alert('Invalid email or password.');
         }
     }
-    console.log('Current users in store:', users);
 
     // components
     const AuthSignInComponent = (
@@ -163,12 +174,23 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
 
 
     )
+    const successfullyUserCreatedComponent = () => (
+        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} items-center justify-center gap-2 p-4`}>
+            <h2>User successfully created!</h2>
+            <button onClick={successfullyUserCreatedHandler} className="bg-blue-500 text-white p-2 rounded-md w-64 cursor-pointer">
+                Return
+            </button>
+        </div>
+    )
     // 
     return (
         <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} items-center justify-center gap-2 p-4 ${rounded.high}`}>
-            <h2 className={``}>{props.contentTypeAuthorization}</h2>
-            <h2 className="p-2 bg-amber-600" onClick={resetUserStore}>Res</h2>
-            {props.typeAuthorization === AUTHORIZATION_STATUS.SIGN_IN ? AuthSignInComponent : AuthRegistrationComponent}
+            {succerssfullyCreated ? successfullyUserCreatedComponent() : <>
+                <h2 className={``}>{props.contentTypeAuthorization}</h2>
+                <h2 className="p-2 bg-amber-600" onClick={resetUserStore}>Res</h2>
+                {props.typeAuthorization === AUTHORIZATION_STATUS.SIGN_IN ? AuthSignInComponent : AuthRegistrationComponent}
+            </>}
+
         </div>
     )
 }
