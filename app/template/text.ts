@@ -1,3 +1,4 @@
+
 import {APP_PATH_ROUTER, AUTHORIZATION_STATUS} from '../globalConsts/globalEnum';
 
 export const LIST_LINKS = {
@@ -28,6 +29,16 @@ export const LIST_LINKS = {
 			RU: 'тест',
 		},
 	},
+	ARTICLES: {
+		label: 'articles',
+		path: APP_PATH_ROUTER.ARTICLES,
+		translate: {
+			EN: 'articles',
+			LV: 'raksti',
+			RU: 'статьи',
+		},
+	},
+
 	CONSULTATION: {
 		label: 'consultation',
 		path: APP_PATH_ROUTER.CONSULTATION,
@@ -180,5 +191,6 @@ export const LINKS = [
 	LIST_LINKS.MAIN,
 	LIST_LINKS.NEWS,
 	LIST_LINKS.TEST,
+	LIST_LINKS.ARTICLES,
 	LIST_LINKS.CONSULTATION,
 ];

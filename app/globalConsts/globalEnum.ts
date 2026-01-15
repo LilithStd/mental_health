@@ -32,6 +32,7 @@ export enum APP_PATH_ROUTER {
 	MAIN = '/',
 	NEWS = '/news',
 	TEST = '/test',
+	ARTICLES = '/articles',
 	CONSULTATION = '/consultation',
 	USERS = '/users',
 	AUTHORIZATION = '/authorization',
