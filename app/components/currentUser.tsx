@@ -1,5 +1,6 @@
 'use client'
 
+import { useGlobalStore } from "../store/globalStore";
 import { useMockAuthStore } from "../store/mockAuthStore"
 
 interface UserProps {
@@ -7,8 +8,8 @@ interface UserProps {
 }
 export default function CurrentUser({ id }: UserProps) {
     // stores
-    const currentUsers = useMockAuthStore((state) => state.currentAuthUser)
-    console.log('Current Users in CurrentUser component:', currentUsers);
+    const currentUsers = useMockAuthStore((state) => state.currentAuthUser);
+    const currentTheme = useGlobalStore((state) => state.currentTheme);
     // 
     return (
         <div>
