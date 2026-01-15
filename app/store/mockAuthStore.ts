@@ -1,14 +1,18 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
-import { ROLE_AUTHORIZED_USER } from '../globalConsts/globalEnum'
+import { ROLE_AUTH_USER_PRIVILEGE, ROLE_AUTHORIZED_USER } from '../globalConsts/globalEnum'
 
 export type User = {
   id: string
   email: string
   password: string
   role: ROLE_AUTHORIZED_USER
+  privilege: ROLE_AUTH_USER_PRIVILEGE
 }
 
+const listCMSEmailUsers = [
+  '2@2.com',
+]
 
 
 type MockAuthStore = {
@@ -33,7 +37,8 @@ export const useMockAuthStore = create<MockAuthStore>()(
             console.log('User already exists with email:', email);
           return null
         }
-        const newUser: User = { id: Date.now().toString(), email, password, role: ROLE_AUTHORIZED_USER.USER }
+        const checkCMSUser = listCMSEmailUsers.includes(email)
+        const newUser: User = { id: Date.now().toString(), email, password, role: ROLE_AUTHORIZED_USER.USER, privilege:  checkCMSUser ? ROLE_AUTH_USER_PRIVILEGE.EDIT_CONTENT : ROLE_AUTH_USER_PRIVILEGE.READ_ONLY }
         set((state) => ({ users: [...state.users, newUser] }))
         return newUser
       },

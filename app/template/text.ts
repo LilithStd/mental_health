@@ -1,4 +1,4 @@
-import {APP_PATH_ROUTER, AUTHORIZATION_STATUS, ROLE_AUTHORIZED_USER} from '../globalConsts/globalEnum';
+import {APP_PATH_ROUTER, AUTHORIZATION_STATUS} from '../globalConsts/globalEnum';
 
 export const LIST_LINKS = {
 	MAIN: {
