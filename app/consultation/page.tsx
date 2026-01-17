@@ -1,6 +1,7 @@
 'use client'
 
-import Form from "../components/consultation/form";
+import ConsultationForm from "../components/consultation/consultationForm";
+import Form from "../components/tests/form";
 import { THEME_COLOR_SCHEME, rounded, indents } from "../globalConsts/globalStyles";
 import { useGlobalStore } from "../store/globalStore";
 
@@ -11,7 +12,7 @@ export default function Consultation() {
     return (
         <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main}`}>
             <h2>Consultation</h2>
-            <Form />
+            <ConsultationForm />
         </div>
     )
 }
