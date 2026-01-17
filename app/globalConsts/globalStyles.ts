@@ -4,7 +4,9 @@ export const THEME_COLOR_SCHEME = {
 		text: 'text-black',
 		activeElement: 'bg-teal-300',
 		container: 'bg-cyan-500',
+		subContaiuner: 'bg-cyan-400',
 		element: '',
+		input: 'bg-white',
 		hover: 'hover:bg-gray-200',
 	},
 	DARK: {
@@ -12,7 +14,9 @@ export const THEME_COLOR_SCHEME = {
 		text: 'text-white',
 		activeElement: 'bg-violet-300',
 		container: 'bg-indigo-500',
+		subContaiuner: 'bg-indigo-400',
 		element: '',
+		input: 'bg-gray-800',
 		hover: 'hover:bg-amber-700',
 	},
 };
