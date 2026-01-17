@@ -1,5 +1,6 @@
 'use client';
 
+import Search from "../components/shared/search";
 import { THEME_COLOR_SCHEME, rounded, indents } from "../globalConsts/globalStyles";
 import { useGlobalStore } from "../store/globalStore";
 
@@ -10,6 +11,8 @@ export default function News() {
 
     //
     return (
-        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main}`}> news</ div>
+        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main}`}>
+            <Search />
+        </ div>
     )
 }

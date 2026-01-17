@@ -6,6 +6,7 @@ import { indents, rounded, THEME_COLOR_SCHEME } from "../globalConsts/globalStyl
 import { canEditContent } from "../serverActions/permissions";
 import { useGlobalStore } from "../store/globalStore";
 import { useMockAuthStore } from "../store/mockAuthStore";
+import Search from "../components/shared/search";
 
 export default function Articles() {
     const currentTheme = useGlobalStore((state) => state.currentTheme);
@@ -23,6 +24,7 @@ export default function Articles() {
     return (
         <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main}`}>
             <h2>Articles</h2>
+            <Search />
             {currentAuthUser && userPrivilege && (
                 <div>
                     <button>New Articles</button>

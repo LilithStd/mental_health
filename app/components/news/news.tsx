@@ -1,6 +1,6 @@
 'use client'
 
-import Favorites from "./favorites"
+import Favorites from "../shared/favorites"
 
 type NewsTypes = {
     id: string
