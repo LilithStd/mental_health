@@ -31,7 +31,7 @@ export enum ROLE_AUTH_USER_PRIVILEGE {
 export enum APP_PATH_ROUTER {
 	MAIN = '/',
 	NEWS = '/news',
-	TEST = '/test',
+	TESTS = '/tests',
 	ARTICLES = '/articles',
 	CONSULTATION = '/consultation',
 	USERS = '/users',

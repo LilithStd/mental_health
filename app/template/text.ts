@@ -20,13 +20,13 @@ export const LIST_LINKS = {
 			RU: 'новости',
 		},
 	},
-	TEST: {
+	TESTS: {
 		label: 'tests',
-		path: APP_PATH_ROUTER.TEST,
+		path: APP_PATH_ROUTER.TESTS,
 		translate: {
-			EN: 'test',
+			EN: 'tests',
 			LV: 'tests',
-			RU: 'тест',
+			RU: 'тесты',
 		},
 	},
 	ARTICLES: {
@@ -190,7 +190,7 @@ export const ROLE_AUTHORIZED_USER_TRANSLATE = {
 export const LINKS = [
 	LIST_LINKS.MAIN,
 	LIST_LINKS.NEWS,
-	LIST_LINKS.TEST,
+	LIST_LINKS.TESTS,
 	LIST_LINKS.ARTICLES,
 	LIST_LINKS.CONSULTATION,
 ];
