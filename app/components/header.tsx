@@ -15,13 +15,13 @@ export default function Header() {
                 <h1 className={`${titleBaseStyles} text-center`}>Mental Health</h1>
 
             </div>
-            <div className={`flex justify-center lg:w-1/2  xl:w-1/3 `}>
+            <div className={`flex justify-center lg:w-1/2  xl:w-1/2 md:w-2/5 sm:w-3/5 w-2/5`}>
                 <ListLinks />
             </div>
-            <div className={`flex justify-end w-1/4 md:w-1/5 lg:w-1/6`}>
+            <div className={`flex justify-end w-1/4 md:w-1/5 lg:w-1/7`}>
                 <AdditionalPanel />
             </div>
-            <div className={`flex justify-end w-1/4 md:w-1/5 lg:w-1/6`}>
+            <div className={`flex justify-end w-1/4 md:w-1/5 lg:w-1/7`}>
                 <Authorization />
             </div>
         </nav>
