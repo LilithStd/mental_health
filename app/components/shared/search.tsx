@@ -1,7 +1,7 @@
 'use client'
 import { THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles";
 import { useGlobalStore } from "@/app/store/globalStore";
-import { use } from "react";
+
 
 
 export default function Search() {
