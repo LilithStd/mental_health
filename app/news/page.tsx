@@ -11,7 +11,7 @@ export default function News() {
 
     //
     return (
-        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main}`}>
+        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main}  items-center text-center`}>
             <Search />
         </ div>
     )

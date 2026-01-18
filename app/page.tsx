@@ -8,7 +8,7 @@ export default function Main() {
   const currentTheme = useGlobalStore((state) => state.currentTheme);
   // 
   return (
-    <main className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main}`}>
+    <main className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main} items-center text-center`}>
       <p>main</p>
     </main>
   );
