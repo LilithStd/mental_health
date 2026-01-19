@@ -10,7 +10,7 @@ export default function ConsultationForm() {
     // 
     return (
         <div className={`flex flex-col  items-center justify-center p-4 gap-4  ${rounded.medium}`}>
-            <form className={`flex flex-col items-center justify-center gap-4 border-2 p-4 rounded-md ${THEME_COLOR_SCHEME[currentTheme].subContaiuner} `}>
+            <form className={`flex flex-col items-center justify-center gap-4 border-2 p-4 rounded-md ${THEME_COLOR_SCHEME[currentTheme].subContainer} `}>
                 <label className={`text-center mb-2`}>Contact Information</label>
                 <div className={`flex gap-4`}>
 

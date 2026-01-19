@@ -63,7 +63,13 @@ export default function Articles() {
                     {isCreateArticleVisible && <CreateArticle onClose={CloseFormHandler} />}
                 </div>
             )}
-            {articles.map((article) => <Article key={article.id} id={article.id} title={article.title} content={article.content} createdAt={article.createdAt} />)}
+            {articles.map((article) =>
+                <Article
+                    key={article.id}
+                    id={article.id}
+                    title={article.title}
+                    content={article.content}
+                    createdAt={article.createdAt} />)}
         </div>
     )
 }
