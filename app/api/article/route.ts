@@ -17,9 +17,10 @@ export async function POST(request: Request) {
   const formData = await request.formData()
 
   const title = formData.get('title')
+  const author = formData.get('author')
   const content = formData.get('content')
 
-  if (!title || !content) {
+  if (!title  || !content) {
     return NextResponse.json(
       { error: 'Missing fields' },
       { status: 400 }
@@ -34,6 +35,7 @@ export async function POST(request: Request) {
   const newArticle = {
     id: Date.now(),
     title,
+    author,
     content,
     createdAt: new Date().toISOString(),
   }

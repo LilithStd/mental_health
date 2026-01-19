@@ -13,6 +13,7 @@ import Article from "../components/articles/article";
 type Article = {
     id: number
     title: string
+    author: string
     content: string
     createdAt: string
 }
@@ -74,6 +75,7 @@ export default function Articles() {
                     key={article.id}
                     id={article.id}
                     title={article.title}
+                    author={article.author}
                     content={article.content}
                     createdAt={article.createdAt} />)}
         </div>

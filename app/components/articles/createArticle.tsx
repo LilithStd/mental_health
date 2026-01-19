@@ -41,7 +41,12 @@ export default function CreateArticle({ onClose }: CreateArticleProps) {
                 required
                 className={`border p-2 ${THEME_COLOR_SCHEME[currentTheme].input} ${rounded.medium}`}
             />
-
+            <input
+                name="author"
+                placeholder="Author"
+                required
+                className={`border p-2 ${THEME_COLOR_SCHEME[currentTheme].input} ${rounded.medium}`}
+            />
             <textarea
                 name="content"
                 placeholder="Content"
