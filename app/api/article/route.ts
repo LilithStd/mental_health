@@ -51,3 +51,26 @@ export async function POST(request: Request) {
     article: newArticle,
   })
 }
+
+function ensureFileExists() {
+  if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true })
+  }
+
+  if (!fs.existsSync(filePath)) {
+    fs.writeFileSync(filePath, '[]', 'utf-8')
+  }
+}
+
+// ✅ GET — получить список статей
+export async function GET() {
+  ensureFileExists()
+
+  const fileData = fs.readFileSync(filePath, 'utf-8')
+  const articles = JSON.parse(fileData)
+
+  return NextResponse.json({
+    success: true,
+    articles,
+  })
+}
