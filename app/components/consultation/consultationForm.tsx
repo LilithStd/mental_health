@@ -9,10 +9,10 @@ export default function ConsultationForm() {
     const currentLanguage = useGlobalStore((state) => state.currentLanguage);
     // 
     return (
-        <div className={`flex flex-col items-center justify-center w-full mt-8 mb-8`}>
-            <form className={`flex flex-col items-center justify-center gap-4 border-2 p-4 rounded-md `}>
+        <div className={`flex flex-col  items-center justify-center p-4 gap-4  ${rounded.medium}`}>
+            <form className={`flex flex-col items-center justify-center gap-4 border-2 p-4 rounded-md ${THEME_COLOR_SCHEME[currentTheme].subContaiuner} `}>
                 <label className={`text-center mb-2`}>Contact Information</label>
-                <div className={`flex gap-4 w-full`}>
+                <div className={`flex gap-4`}>
 
                     <div className={`flex flex-col gap-2 w-1/2`}>
                         <input placeholder="name" type="text" className={`border-2 w-full p-2 ${THEME_COLOR_SCHEME[currentTheme].input} ${rounded.medium}`} />
