@@ -52,9 +52,9 @@ export default function Articles() {
         checkPrivilege();
     }, [currentAuthUser]);
 
-    if (loading) {
-        return <div>Загрузка...</div>
-    }
+    // if (loading) {
+    //     return <div>Загрузка...</div>
+    // }
     return (
         <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main} items-center text-center`}>
             <Search />
@@ -70,7 +70,7 @@ export default function Articles() {
                 </div>
 
             )}
-            {!isCreateArticleVisible && articles.map((article) =>
+            {loading ? <div>Loading...</div> : !isCreateArticleVisible && articles.map((article) =>
                 <Article
                     key={article.id}
                     id={article.id}
