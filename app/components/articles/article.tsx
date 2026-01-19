@@ -1,17 +1,19 @@
 import Favorites from "../shared/favorites"
 
 interface ArticleProps {
-    id: string
+    id: number
     title: string
     content: string
-    date: string
+    createdAt: string
 }
-export default function Article({ id, title, content, date }: ArticleProps) {
+
+
+export default function Article({ id, title, content, createdAt }: ArticleProps) {
     return (
         <div key={id}>
             <h2>{title}</h2>
             <p>{content}</p>
-            <span>{date}</span>
+            <span>{createdAt}</span>
             <Favorites isFavorite={false} />
         </div>
     )

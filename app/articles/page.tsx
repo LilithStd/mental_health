@@ -8,6 +8,14 @@ import { useGlobalStore } from "../store/globalStore";
 import { useMockAuthStore } from "../store/mockAuthStore";
 import Search from "../components/shared/search";
 import CreateArticle from "../components/articles/createArticle";
+import Article from "../components/articles/article";
+
+type Article = {
+    id: number
+    title: string
+    content: string
+    createdAt: string
+}
 
 export default function Articles() {
     const currentTheme = useGlobalStore((state) => state.currentTheme);
@@ -15,9 +23,24 @@ export default function Articles() {
     const currentAuthUser = useMockAuthStore((state) => state.currentAuthUser);
     const [userPrivilege, setUserPrivilege] = useState(false);
     const [isCreateArticleVisible, setIsCreateArticleVisible] = useState(false);
+    const [articles, setArticles] = useState<Article[]>([])
+    const [loading, setLoading] = useState(true)
     const CloseFormHandler = () => {
         setIsCreateArticleVisible(false);
     }
+
+
+
+    useEffect(() => {
+        fetch('/api/article')
+            .then(res => res.json())
+            .then(data => {
+                setArticles(data.articles)
+                setLoading(false)
+            })
+    }, [])
+
+
 
 
     useEffect(() => {
@@ -27,6 +50,10 @@ export default function Articles() {
         };
         checkPrivilege();
     }, [currentAuthUser]);
+
+    if (loading) {
+        return <div>Загрузка...</div>
+    }
     return (
         <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main} items-center text-center`}>
             <Search />
@@ -36,6 +63,7 @@ export default function Articles() {
                     {isCreateArticleVisible && <CreateArticle onClose={CloseFormHandler} />}
                 </div>
             )}
+            {articles.map((article) => <Article key={article.id} id={article.id} title={article.title} content={article.content} createdAt={article.createdAt} />)}
         </div>
     )
 }
