@@ -58,12 +58,18 @@ export default function Articles() {
         <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main} items-center text-center`}>
             <Search />
             {currentAuthUser && userPrivilege && (
-                <div className={`mt-4 mb-4 bg-amber-400 p-2 rounded ${rounded.medium}`}>
-                    <button onClick={() => setIsCreateArticleVisible(true)}>New Articles</button>
+                <div>
+
+                    {
+                        !isCreateArticleVisible && <button className={`mt-4 mb-4 ${THEME_COLOR_SCHEME[currentTheme].buttonContainer} p-2 rounded ${rounded.medium}`} onClick={() => setIsCreateArticleVisible(true)}>New Articles</button>
+                    }
+
+
                     {isCreateArticleVisible && <CreateArticle onClose={CloseFormHandler} />}
                 </div>
+
             )}
-            {articles.map((article) =>
+            {!isCreateArticleVisible && articles.map((article) =>
                 <Article
                     key={article.id}
                     id={article.id}
