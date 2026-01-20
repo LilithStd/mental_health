@@ -10,7 +10,7 @@ import Search from "../components/shared/search";
 import CreateArticle from "../components/articles/createArticle";
 import Article from "../components/articles/article";
 
-type Article = {
+export type Article = {
     id: number
     title: string
     author: string
