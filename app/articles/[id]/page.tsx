@@ -1,6 +1,12 @@
 'use client'
 import { useEffect, useState, use } from 'react'
-import { Article } from '../page'
+import { ArticleType } from '../page'
+import Article from '@/app/components/articles/article'
+import { ARTICLE_TYPE } from '@/app/globalConsts/globalEnum'
+import { THEME_COLOR_SCHEME, rounded, indents } from '@/app/globalConsts/globalStyles'
+import { useGlobalStore } from '@/app/store/globalStore'
+import { canEditContent } from '@/app/serverActions/permissions'
+import { useMockAuthStore } from '@/app/store/mockAuthStore'
 
 export default function ArticlePage({
     params,
@@ -8,8 +14,26 @@ export default function ArticlePage({
     params: Promise<{ id: string }>
 }) {
     const { id } = use(params)
-    const [article, setArticle] = useState<Article | null>(null)
+    const [article, setArticle] = useState<ArticleType | null>(null)
     const [error, setError] = useState(false)
+    const [isEditArticle, setIsEditArticle] = useState(false)
+    const [userPrivilege, setUserPrivilege] = useState(false);
+    const currentAuthUser = useMockAuthStore((state) => state.currentAuthUser);
+    const currentTheme = useGlobalStore((state) => state.currentTheme);
+
+    // components
+    const editArticleComponent = <div>
+        <button>Edit</button>
+    </div>;
+
+    // 
+    useEffect(() => {
+        const checkPrivilege = async () => {
+            const privilege = await canEditContent(currentAuthUser);
+            setUserPrivilege(privilege);
+        };
+        checkPrivilege();
+    }, [currentAuthUser]);
 
     useEffect(() => {
         fetch(`/api/articles?id=${id}`)
@@ -36,12 +60,8 @@ export default function ArticlePage({
     }
 
     return (
-        <article className="max-w-2xl mx-auto">
-            <h1 className="text-2xl font-bold">{article.title}</h1>
-
-            <h2 className="text-lg italic mb-4">By {article.author}</h2>
-
-            <p>{article.content}</p>
-        </article>
+        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main} items-center text-center`}>
+            <Article article={article} typeArticle={ARTICLE_TYPE.FULL} />
+        </div>
     )
 }

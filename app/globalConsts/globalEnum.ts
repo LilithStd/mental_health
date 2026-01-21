@@ -28,6 +28,11 @@ export enum ROLE_AUTH_USER_PRIVILEGE {
 
 }
 
+export enum ARTICLE_TYPE {
+	PREVIEW = 'PREVIEW',
+	FULL = 'FULL',
+}
+
 export enum APP_PATH_ROUTER {
 	MAIN = '/',
 	NEWS = '/news',

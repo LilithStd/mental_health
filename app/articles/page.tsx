@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { ROLE_AUTH_USER_PRIVILEGE } from "../globalConsts/globalEnum";
+import { ARTICLE_TYPE, ROLE_AUTH_USER_PRIVILEGE } from "../globalConsts/globalEnum";
 import { indents, rounded, THEME_COLOR_SCHEME } from "../globalConsts/globalStyles";
 import { canEditContent } from "../serverActions/permissions";
 import { useGlobalStore } from "../store/globalStore";
@@ -10,7 +10,7 @@ import Search from "../components/shared/search";
 import CreateArticle from "../components/articles/createArticle";
 import Article from "../components/articles/article";
 
-export type Article = {
+export type ArticleType = {
     id: number
     title: string
     author: string
@@ -24,7 +24,7 @@ export default function Articles() {
     const currentAuthUser = useMockAuthStore((state) => state.currentAuthUser);
     const [userPrivilege, setUserPrivilege] = useState(false);
     const [isCreateArticleVisible, setIsCreateArticleVisible] = useState(false);
-    const [articles, setArticles] = useState<Article[]>([])
+    const [articles, setArticles] = useState<ArticleType[]>([])
     const [loading, setLoading] = useState(true)
     const CloseFormHandler = () => {
         setIsCreateArticleVisible(false);
@@ -44,13 +44,7 @@ export default function Articles() {
 
 
 
-    useEffect(() => {
-        const checkPrivilege = async () => {
-            const privilege = await canEditContent(currentAuthUser);
-            setUserPrivilege(privilege);
-        };
-        checkPrivilege();
-    }, [currentAuthUser]);
+
 
     // if (loading) {
     //     return <div>Загрузка...</div>
@@ -73,11 +67,9 @@ export default function Articles() {
             {loading ? <div>Loading...</div> : !isCreateArticleVisible && articles.map((article) =>
                 <Article
                     key={article.id}
-                    id={article.id}
-                    title={article.title}
-                    author={article.author}
-                    content={article.content}
-                    createdAt={article.createdAt} />)}
+                    article={article}
+                    typeArticle={ARTICLE_TYPE.PREVIEW}
+                />)}
         </div>
     )
 }
