@@ -42,11 +42,23 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     }
     // 
     // components
-    const editArticleComponent = <div>
-        <button>Edit</button>
-    </div>;
+    const editArticleComponent =
+        <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
+            onClick={editArticleHandler}>
+            Edit
+        </button>;
+    const canselEditArticleComponent =
+        <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer ${!isEditArticle ? `${THEME_COLOR_SCHEME[currentTheme].inactiveElement}` : ''}`}
+            onClick={() => setIsEditArticle(false)}>
+            Cansel
+        </button>;
+    const editArticleButtonsComponent =
+        <div className={`flex justify-end gap-4 mt-4`}>
+            {editArticleComponent}
+            {canselEditArticleComponent}
+        </div>
     const previewArticleComponent =
-        <>
+        <div>
             <div>
                 <h1 className="text-2xl font-bold mb-2">{article.title}</h1><h2>{article.title}</h2>
             </div>
@@ -67,11 +79,17 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                 </button>
             </div>
             <Favorites isFavorite={isFavorite} callBackIsFavorite={() => setIsFavorite(!isFavorite)} />
-        </>
+        </div>
     const fullArticleComponent = <div>
         <h1 className="text-3xl font-bold mb-4">{article.title}</h1>
         <h2 className="text-xl mb-2">By {article.author}</h2>
         <p className="mb-4">{article.content}</p>
+        <Favorites isFavorite={isFavorite} callBackIsFavorite={() => setIsFavorite(!isFavorite)} />
+        <div>
+            {userPrivilege &&
+                editArticleButtonsComponent
+            }
+        </div>
         <span className="text-sm text-gray-500">Published on: {formattedDate}</span>
     </div>;
 
