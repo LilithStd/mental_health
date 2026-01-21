@@ -1,20 +1,39 @@
-export default async function ArticlePage({
+'use client'
+import { useEffect, useState, use } from 'react'
+import { Article } from '../page'
+
+export default function ArticlePage({
     params,
 }: {
     params: Promise<{ id: string }>
 }) {
-    const { id } = await params // ✅ ОБЯЗАТЕЛЬНО
+    const { id } = use(params)
+    const [article, setArticle] = useState<Article | null>(null)
+    const [error, setError] = useState(false)
 
-    const res = await fetch(
-        `http://localhost:3000/api/articles?id=${id}`,
-        { cache: 'no-store' }
-    )
+    useEffect(() => {
+        fetch(`/api/articles?id=${id}`)
+            .then(r => {
+                if (!r.ok) {
+                    setError(true)
+                    return null
+                }
+                return r.json()
+            })
+            .then(data => {
+                if (data) {
+                    setArticle(data.article)
+                }
+            })
+    }, [id])
 
-    if (!res.ok) {
+    if (error) {
         return <div>Статья не найдена</div>
     }
 
-    const { article } = await res.json()
+    if (!article) {
+        return <div>Загрузка...</div>
+    }
 
     return (
         <article className="max-w-2xl mx-auto">
