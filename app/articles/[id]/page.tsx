@@ -6,7 +6,7 @@ export default async function ArticlePage({
     const { id } = await params // ✅ ОБЯЗАТЕЛЬНО
 
     const res = await fetch(
-        `http://localhost:3000/api/article/${id}`,
+        `http://localhost:3000/api/articles?id=${id}`,
         { cache: 'no-store' }
     )
 

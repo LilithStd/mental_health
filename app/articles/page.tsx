@@ -33,7 +33,7 @@ export default function Articles() {
 
 
     useEffect(() => {
-        fetch('/api/article')
+        fetch('/api/articles')
             .then(res => res.json())
             .then(data => {
                 setArticles(data.articles)

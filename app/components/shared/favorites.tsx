@@ -8,7 +8,7 @@ interface FavoritesProps {
 
 
 export default function Favorites({ isFavorite, callBackIsFavorite }: FavoritesProps) {
-    console.log('Favorites component rendered with isFavorite:', isFavorite);
+    // console.log('Favorites component rendered with isFavorite:', isFavorite);
     return (
         <div className="cursor-pointer" onClick={callBackIsFavorite}>
             {isFavorite ? <IsFavoritesIcon width={24} height={24} /> : <WithOutFavoritesIcon width={24} height={24} />}
