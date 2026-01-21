@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import fs from 'fs'
 import path from 'path'
+import { updateArticle } from '@/app/serverActions/articleStorage'
 
 type Article = {
   id: number
@@ -45,4 +46,37 @@ export async function GET(req: Request) {
 
   // 👉 Получение всех статей
   return NextResponse.json({ articles })
+}
+
+export async function PUT(req: Request) {
+  const body = await req.json()
+
+  const { id, title, content, image } = body
+
+  if (!id) {
+    return NextResponse.json(
+      { error: 'id is required' },
+      { status: 400 }
+    )
+  }
+
+  // 🔐 тут может быть проверка прав
+  // if (!isAdmin(req)) return 403
+
+  const updated = updateArticle(Number(id), {
+    title,
+    content,
+  })
+
+  if (!updated) {
+    return NextResponse.json(
+      { error: 'Article not found' },
+      { status: 404 }
+    )
+  }
+
+  return NextResponse.json({
+    success: true,
+    article: updated,
+  })
 }
