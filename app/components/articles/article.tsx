@@ -17,7 +17,8 @@ interface ArticleProps {
 
 export default function Article({ article, typeArticle }: ArticleProps) {
     const currentTheme = useGlobalStore((state) => state.currentTheme);
-    const [isEditArticle, setIsEditArticle] = useState(false)
+    const [isEditArticle, setIsEditArticle] = useState(false);
+    const [isChanged, setIsChanged] = useState(false);
     const [userPrivilege, setUserPrivilege] = useState(false);
     const currentAuthUser = useMockAuthStore((state) => state.currentAuthUser);
     //state
@@ -47,15 +48,15 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             onClick={editArticleHandler}>
             Edit
         </button>;
-    const canselEditArticleComponent =
-        <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer ${!isEditArticle ? `${THEME_COLOR_SCHEME[currentTheme].inactiveElement}` : ''}`}
+    const cancelEditArticleComponent =
+        <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer ${!isChanged ? `${THEME_COLOR_SCHEME[currentTheme].inactiveElement}` : ''}`}
             onClick={() => setIsEditArticle(false)}>
-            Cansel
+            Cancel
         </button>;
     const editArticleButtonsComponent =
         <div className={`flex justify-end gap-4 mt-4`}>
             {editArticleComponent}
-            {canselEditArticleComponent}
+            {isEditArticle && cancelEditArticleComponent}
         </div>
     const previewArticleComponent =
         <div>
