@@ -26,6 +26,8 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     const [editTitle, setEditTitle] = useState(article.title);
     const [isEditTtitle, setIsEditTitle] = useState(false);
     const [editContent, setEditContent] = useState(article.content);
+    const [isEditContent, setIsEditContent] = useState(false);
+    const [isEditAuthor, setIsEditAuthor] = useState(false);
     const [editAuthor, setEditAuthor] = useState(article.author);
     const currentAuthUser = useMockAuthStore((state) => state.currentAuthUser);
     //state
@@ -52,6 +54,16 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         setEditTitle(e.target.value);
         setIsChanged(true);
     }
+    const editAuthorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEditAuthor(e.target.value);
+        setIsChanged(true);
+    }
+    const editContentHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setEditContent(e.target.value);
+        setIsChanged(true);
+    }
+
+    console.log('content status:', isEditContent);
     // 
     // components
     const editArticleComponent =
@@ -61,9 +73,20 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         </button>;
     const cancelEditArticleComponent =
         <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer ${!isChanged ? `${THEME_COLOR_SCHEME[currentTheme].inactiveElement}` : ''}`}
-            onClick={() => setIsEditArticle(false)}>
+            onClick={() => (
+                setIsEditArticle(false),
+                setIsChanged(false),
+                setIsEditArticle(false),
+                setIsEditAuthor(false),
+                setIsEditContent(false),
+                setIsEditTitle(false),
+                setEditTitle(article.title),
+                setEditContent(article.content),
+                setEditAuthor(article.author)
+            )
+            }>
             Cancel
-        </button>;
+        </button >;
     const editArticleButtonsComponent =
         <div className={`flex justify-end gap-4 mt-4`}>
             {editArticleComponent}
@@ -94,14 +117,16 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         </div>
     const fullArticleComponent = <div>
         <div className={`flex items-center justify-center gap-4`}>
-            {isEditTtitle ? <input type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold mb-4" /> : <h1 className="text-3xl font-bold mb-4">{editTitle}</h1>}
+            {isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold" /> : <h1 className="text-3xl font-bold">{editTitle}</h1>}
             {isEditTtitle && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditTitle(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditTitle(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
         </div>
-        <div>
-            <h2 className="text-xl mb-2">By {editAuthor}</h2>
+        <div className={`flex items-center justify-center gap-4 mb-4`}>
+            {isEditAuthor ? <input name="author" type="text" value={editAuthor} onChange={editAuthorHandler} className="text-xl " /> : <h2 className="text-xl">By {editAuthor}</h2>}
+            {isEditAuthor && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditAuthor(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditAuthor(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
         </div>
-        <div>
-            <p className="mb-4">{editContent}</p>
+        <div className={`flex flex-col items-center justify-center gap-4 mb-4`}>
+            {isEditContent ? <textarea name="content" value={editContent} onChange={editContentHandler} className="" /> : <p className="mb-4">{editContent}</p>}
+            {isEditContent && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditContent(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditContent(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
         </div>
         <Favorites isFavorite={isFavorite} callBackIsFavorite={() => setIsFavorite(!isFavorite)} />
         <div>
