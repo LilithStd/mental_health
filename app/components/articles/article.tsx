@@ -10,7 +10,6 @@ import { useMockAuthStore } from "@/app/store/mockAuthStore"
 import { canEditContent } from "@/app/serverActions/permissions"
 import EditActiveIcon from "@/public/icons/EditActive.svg"
 import EditInactiveIcon from "@/public/icons/EditInactive.svg"
-import { updateArticle } from "@/app/serverActions/articleStorage"
 import { updateArticleAction } from "@/app/serverActions/updateArticle"
 
 
@@ -182,7 +181,27 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             {isEditAuthor && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditAuthor(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditAuthor(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
         </div>
         <div className={`flex flex-col items-center justify-center gap-4 mb-4`}>
-            {isEditContent ? <textarea name="content" value={editContent} onChange={editContentHandler} className="" /> : <p className="mb-4">{editContent}</p>}
+            {isEditContent ? (
+                <textarea
+                    value={editContent}
+                    onChange={editContentHandler}
+                    className="
+                                w-full
+                                min-h-[300px]
+                                resize-none
+                                border-none
+                                outline-none
+                                bg-transparent
+                                text-base
+                                leading-relaxed
+                                "
+                />
+            ) : (
+                <p className="whitespace-pre-wrap leading-relaxed">
+                    {editContent}
+                </p>
+            )}
+
             {isEditContent && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditContent(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditContent(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
         </div>
         <Favorites isFavorite={isFavorite} callBackIsFavorite={() => setIsFavorite(!isFavorite)} />
