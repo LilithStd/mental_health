@@ -49,9 +49,11 @@ export async function GET(req: Request) {
 }
 
 export async function PUT(req: Request) {
+  console.log('PUT /api/articles called');
+  ensureFileExists()
   const body = await req.json()
 
-  const { id, title, content, image } = body
+  const { id, title, content } = body
 
   if (!id) {
     return NextResponse.json(

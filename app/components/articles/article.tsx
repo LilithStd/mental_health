@@ -10,6 +10,7 @@ import { useMockAuthStore } from "@/app/store/mockAuthStore"
 import { canEditContent } from "@/app/serverActions/permissions"
 import EditActiveIcon from "@/public/icons/EditActive.svg"
 import EditInactiveIcon from "@/public/icons/EditInactive.svg"
+import { updateArticle } from "@/app/serverActions/articleStorage"
 
 
 interface ArticleProps {
@@ -32,6 +33,10 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     const currentAuthUser = useMockAuthStore((state) => state.currentAuthUser);
     //state
     const [isFavorite, setIsFavorite] = useState(false);
+    const [isSavedChanges, setIsSavedChanges] = useState(false);
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState<string | null>(null)
+    const [success, setSuccess] = useState(false)
     //
     const date = new Date(article.createdAt);
 
@@ -62,14 +67,49 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         setEditContent(e.target.value);
         setIsChanged(true);
     }
+    async function saveChangesHandler() {
+        setLoading(true)
+        setError(null)
+        setSuccess(false)
 
-    console.log('content status:', isEditContent);
+        try {
+            const res = await fetch('/api/articles', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    id: article.id,
+                    title: editTitle,
+                    content: editContent,
+                }),
+            })
+
+            if (!res.ok) {
+                throw new Error('Failed to update article')
+            }
+
+            setSuccess(true)
+        } catch (err) {
+            setError('Ошибка сохранения')
+        } finally {
+            setLoading(false)
+            setIsEditContent(false)
+            setIsEditTitle(false)
+            setIsEditArticle(false)
+            setIsChanged(false)
+        }
+    }
+
     // 
     // components
     const editArticleComponent =
         <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
             onClick={editArticleHandler}>
             Edit
+        </button>;
+    const saveArticleComponent =
+        <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
+            onClick={saveChangesHandler}>
+            Save
         </button>;
     const cancelEditArticleComponent =
         <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer ${!isChanged ? `${THEME_COLOR_SCHEME[currentTheme].inactiveElement}` : ''}`}
@@ -89,7 +129,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         </button >;
     const editArticleButtonsComponent =
         <div className={`flex justify-end gap-4 mt-4`}>
-            {editArticleComponent}
+            {isChanged ? saveArticleComponent : editArticleComponent}
             {isEditArticle && cancelEditArticleComponent}
         </div>
     const previewArticleComponent =
@@ -138,7 +178,25 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     </div>;
 
     // 
+    useEffect(() => {
+        const updateArticle = async () => {
+            await fetch('/api/articles', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    id: article.id,
+                    title: editTitle,
+                    content: editContent,
+                }),
+            })
+        }
 
+        if (isChanged && !isEditArticle) {
+            updateArticle();
+        }
+    }, [isSavedChanges])
     return (
         <article key={article.id} className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 m-4 ${rounded.high} w-full max-w-2xl flex flex-col gap-2`}>
             {typeArticle === ARTICLE_TYPE.PREVIEW ? previewArticleComponent : fullArticleComponent}
