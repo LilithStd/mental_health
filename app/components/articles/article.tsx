@@ -2,7 +2,7 @@
 import { rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import Favorites from "../shared/favorites"
 import { useGlobalStore } from "@/app/store/globalStore"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
 import { APP_PATH_ROUTER, ARTICLE_TYPE } from "@/app/globalConsts/globalEnum"
 import { ArticleType } from "@/app/articles/page"
@@ -11,6 +11,7 @@ import { canEditContent } from "@/app/serverActions/permissions"
 import EditActiveIcon from "@/public/icons/EditActive.svg"
 import EditInactiveIcon from "@/public/icons/EditInactive.svg"
 import { updateArticle } from "@/app/serverActions/articleStorage"
+import { updateArticleAction } from "@/app/serverActions/updateArticle"
 
 
 interface ArticleProps {
@@ -33,6 +34,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     const currentAuthUser = useMockAuthStore((state) => state.currentAuthUser);
     //state
     const [isFavorite, setIsFavorite] = useState(false);
+    const [pending, startTransition] = useTransition()
     const [isSavedChanges, setIsSavedChanges] = useState(false);
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
@@ -108,9 +110,24 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         </button>;
     const saveArticleComponent =
         <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
-            onClick={saveChangesHandler}>
-            Save
+            onClick={() => {
+                startTransition(() =>
+                    updateArticleAction(article.id, editTitle, editContent)
+                )
+                setIsEditContent(false)
+                setIsEditTitle(false)
+                setIsEditArticle(false)
+                setIsChanged(false)
+
+            }}
+            disabled={pending}>
+            {pending ? 'Saving...' : 'Save'}
         </button>;
+    // const saveArticleComponent =
+    //     <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
+    //         onClick={saveChangesHandler}>
+    //         Save
+    //     </button>;
     const cancelEditArticleComponent =
         <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer ${!isChanged ? `${THEME_COLOR_SCHEME[currentTheme].inactiveElement}` : ''}`}
             onClick={() => (
@@ -178,25 +195,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     </div>;
 
     // 
-    useEffect(() => {
-        const updateArticle = async () => {
-            await fetch('/api/articles', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    id: article.id,
-                    title: editTitle,
-                    content: editContent,
-                }),
-            })
-        }
 
-        if (isChanged && !isEditArticle) {
-            updateArticle();
-        }
-    }, [isSavedChanges])
     return (
         <article key={article.id} className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 m-4 ${rounded.high} w-full max-w-2xl flex flex-col gap-2`}>
             {typeArticle === ARTICLE_TYPE.PREVIEW ? previewArticleComponent : fullArticleComponent}
