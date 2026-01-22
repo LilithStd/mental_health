@@ -8,6 +8,9 @@ import { APP_PATH_ROUTER, ARTICLE_TYPE } from "@/app/globalConsts/globalEnum"
 import { ArticleType } from "@/app/articles/page"
 import { useMockAuthStore } from "@/app/store/mockAuthStore"
 import { canEditContent } from "@/app/serverActions/permissions"
+import EditActiveIcon from "@/public/icons/EditActive.svg"
+import EditInactiveIcon from "@/public/icons/EditInactive.svg"
+
 
 interface ArticleProps {
     article: ArticleType
@@ -20,9 +23,10 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     const [isEditArticle, setIsEditArticle] = useState(false);
     const [isChanged, setIsChanged] = useState(false);
     const [userPrivilege, setUserPrivilege] = useState(false);
-    const [editTitle, setEditTitle] = useState('');
-    const [editContent, setEditContent] = useState('');
-    const [editAuthor, setEditAuthor] = useState('');
+    const [editTitle, setEditTitle] = useState(article.title);
+    const [isEditTtitle, setIsEditTitle] = useState(false);
+    const [editContent, setEditContent] = useState(article.content);
+    const [editAuthor, setEditAuthor] = useState(article.author);
     const currentAuthUser = useMockAuthStore((state) => state.currentAuthUser);
     //state
     const [isFavorite, setIsFavorite] = useState(false);
@@ -43,6 +47,10 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     // functions
     const editArticleHandler = () => {
         setIsEditArticle(true);
+    }
+    const editTitleHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEditTitle(e.target.value);
+        setIsChanged(true);
     }
     // 
     // components
@@ -85,9 +93,16 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             <Favorites isFavorite={isFavorite} callBackIsFavorite={() => setIsFavorite(!isFavorite)} />
         </div>
     const fullArticleComponent = <div>
-        <h1 className="text-3xl font-bold mb-4">{article.title}</h1>
-        <h2 className="text-xl mb-2">By {article.author}</h2>
-        <p className="mb-4">{article.content}</p>
+        <div className={`flex items-center justify-center gap-4`}>
+            {isEditTtitle ? <input type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold mb-4" /> : <h1 className="text-3xl font-bold mb-4">{editTitle}</h1>}
+            {isEditTtitle && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditTitle(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditTitle(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
+        </div>
+        <div>
+            <h2 className="text-xl mb-2">By {editAuthor}</h2>
+        </div>
+        <div>
+            <p className="mb-4">{editContent}</p>
+        </div>
         <Favorites isFavorite={isFavorite} callBackIsFavorite={() => setIsFavorite(!isFavorite)} />
         <div>
             {userPrivilege &&
@@ -100,7 +115,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     // 
 
     return (
-        <article key={article.id} className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 m-4 rounded-md w-full max-w-2xl flex flex-col gap-2`}>
+        <article key={article.id} className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 m-4 ${rounded.high} w-full max-w-2xl flex flex-col gap-2`}>
             {typeArticle === ARTICLE_TYPE.PREVIEW ? previewArticleComponent : fullArticleComponent}
         </article>
 
