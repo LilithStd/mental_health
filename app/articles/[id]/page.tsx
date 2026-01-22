@@ -16,15 +16,12 @@ export default function ArticlePage({
     const { id } = use(params)
     const [article, setArticle] = useState<ArticleType | null>(null)
     const [error, setError] = useState(false)
-    const [isEditArticle, setIsEditArticle] = useState(false)
     const [userPrivilege, setUserPrivilege] = useState(false);
     const currentAuthUser = useMockAuthStore((state) => state.currentAuthUser);
     const currentTheme = useGlobalStore((state) => state.currentTheme);
 
     // components
-    const editArticleComponent = <div>
-        <button>Edit</button>
-    </div>;
+
 
     // 
     useEffect(() => {

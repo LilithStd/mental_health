@@ -20,6 +20,9 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     const [isEditArticle, setIsEditArticle] = useState(false);
     const [isChanged, setIsChanged] = useState(false);
     const [userPrivilege, setUserPrivilege] = useState(false);
+    const [editTitle, setEditTitle] = useState('');
+    const [editContent, setEditContent] = useState('');
+    const [editAuthor, setEditAuthor] = useState('');
     const currentAuthUser = useMockAuthStore((state) => state.currentAuthUser);
     //state
     const [isFavorite, setIsFavorite] = useState(false);
