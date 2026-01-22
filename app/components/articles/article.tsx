@@ -180,7 +180,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             {isEditAuthor ? <input name="author" type="text" value={editAuthor} onChange={editAuthorHandler} className="text-xl " /> : <h2 className="text-xl">By {editAuthor}</h2>}
             {isEditAuthor && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditAuthor(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditAuthor(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
         </div>
-        <div className={`flex flex-col items-center justify-center gap-4 mb-4`}>
+        <div className={`flex flex-col items-center p-10  gap-4 mb-4`}>
             {isEditContent ? (
                 <textarea
                     value={editContent}
