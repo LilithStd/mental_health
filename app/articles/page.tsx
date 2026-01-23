@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { ARTICLE_TYPE, ROLE_AUTH_USER_PRIVILEGE } from "../globalConsts/globalEnum";
 import { indents, rounded, THEME_COLOR_SCHEME } from "../globalConsts/globalStyles";
 import { canEditContent } from "../serverActions/permissions";
@@ -19,13 +19,18 @@ export type ArticleType = {
 }
 
 export default function Articles() {
+    //stores
     const currentTheme = useGlobalStore((state) => state.currentTheme);
     const currentLanguage = useGlobalStore((state) => state.currentLanguage);
     const currentAuthUser = useMockAuthStore((state) => state.currentAuthUser);
+    // state
     const [userPrivilege, setUserPrivilege] = useState(false);
     const [isCreateArticleVisible, setIsCreateArticleVisible] = useState(false);
     const [articles, setArticles] = useState<ArticleType[]>([])
+    const [searchedArticles, setSearchedArticles] = useState<ArticleType[]>([])
+    const [isSearchActive, setIsSearchActive] = useState(false)
     const [loading, setLoading] = useState(true)
+    // functions
     const CloseFormHandler = () => {
         setIsCreateArticleVisible(false);
     }
@@ -41,10 +46,8 @@ export default function Articles() {
             })
     }, [])
 
-
-
-
-    console.log('Current Auth User in Articles Page:', currentAuthUser);
+    // console.log('Current Auth User in Articles Page:', currentAuthUser);
+    console.log('searchedArticles:', searchedArticles);
     useEffect(() => {
         const checkPrivilege = async () => {
             const privilege = await canEditContent(currentAuthUser);
@@ -52,13 +55,12 @@ export default function Articles() {
         };
         checkPrivilege();
     }, [currentAuthUser]);
-
     // if (loading) {
     //     return <div>Загрузка...</div>
     // }
     return (
         <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main} items-center text-center`}>
-            <Search />
+            <Search callBackResultAfterSearch={setSearchedArticles} isSearchActive={setIsSearchActive} arrayForSearch={articles} />
             {currentAuthUser && userPrivilege && (
                 <div>
 
@@ -71,7 +73,13 @@ export default function Articles() {
                 </div>
 
             )}
-            {loading ? <div>Loading...</div> : !isCreateArticleVisible && articles.map((article) =>
+            {loading ? <div>Loading...</div> : !isCreateArticleVisible && !isSearchActive && articles.map((article) =>
+                <Article
+                    key={article.id}
+                    article={article}
+                    typeArticle={ARTICLE_TYPE.PREVIEW}
+                />)}
+            {!loading && isSearchActive && searchedArticles.map((article) =>
                 <Article
                     key={article.id}
                     article={article}
