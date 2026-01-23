@@ -1,5 +1,5 @@
 'use client'
-import { rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
+import { indents, rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import Favorites from "../shared/favorites"
 import { useGlobalStore } from "@/app/store/globalStore"
 import { useEffect, useState, useTransition } from "react"
@@ -11,6 +11,8 @@ import { canEditContent } from "@/app/serverActions/permissions"
 import EditActiveIcon from "@/public/icons/EditActive.svg"
 import EditInactiveIcon from "@/public/icons/EditInactive.svg"
 import { updateArticleAction } from "@/app/serverActions/updateArticle"
+import { CROP_CONTAINER_SIZE } from "@/app/globalConsts/globalConsts"
+import { cropContent } from "@/app/helpers/helpersFunctions"
 
 
 interface ArticleProps {
@@ -150,26 +152,30 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         </div>
     const previewArticleComponent =
         <div>
-            <div>
-                <h1 className="text-2xl font-bold mb-2">{article.title}</h1><h2>{article.title}</h2>
+            <div className={`flex gap-4  w-full rounded ${rounded.medium} mb-2`}>
+                <h2 className={`flex text-2xl p-4 ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].container} font-bold mb-2`}>{article.title}</h2>
             </div>
             <div>
-                <h2>{article.author}</h2>
+                <h2>Author: {!article.author || article.author === '' ? 'unknown' : article.author}</h2>
             </div>
             <div>
-                <p>{article.content}</p>
+                <p>{cropContent(article.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
+            </div>
+            <div className={`flex justify-between items-center mt-4 `}>
+                <span className={`text-sm ${indents.text} ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].elementAccent} flex p-2 `}>{formattedDate}</span>
             </div>
 
-            <span>{formattedDate}</span>
-            <div>
+            <div className={`flex items-center justify-between mt-4`}>
+                <Favorites isFavorite={isFavorite} callBackIsFavorite={() => setIsFavorite(!isFavorite)} />
                 <button
                     className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
                     onClick={() => router.push(`${APP_PATH_ROUTER.ARTICLES}/${article.id}`)}
                 >
                     read more
                 </button>
+
             </div>
-            <Favorites isFavorite={isFavorite} callBackIsFavorite={() => setIsFavorite(!isFavorite)} />
+
         </div>
     const fullArticleComponent = <div>
         <div className={`flex items-center justify-center gap-4`}>

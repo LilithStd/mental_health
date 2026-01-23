@@ -28,3 +28,11 @@ export const searchElementsInArray = <T>(
     })
   )
 }
+
+export const cropContent = (content: string, maxLength: number): string => {
+  if (content.length <= maxLength) {
+    return content;
+  }
+
+  return content.slice(0, maxLength) + '...';
+}
