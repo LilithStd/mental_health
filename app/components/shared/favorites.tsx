@@ -3,7 +3,7 @@ import WithOutFavoritesIcon from "@/public/icons/HeartEmpty.svg"
 
 interface FavoritesProps {
     isFavorite: boolean,
-    callBackIsFavorite: () => void
+    callBackIsFavorite?: () => void
 }
 
 

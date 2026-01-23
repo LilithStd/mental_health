@@ -92,35 +92,46 @@ export const useMockAuthStore = create<MockAuthStore>()(
           currentAuthUser: null,
         }))
       },
-      updateUserData: (updateUserData: UserUpdateData) => {
-        set((state) => {
-          const updatedUsers = state.users.map((user) => {  
-            if (user.id === updateUserData.id) {
-              if (updateUserData.typeUpdate === UPDATE_USER_DATA_TYPE.FAVORITES && updateUserData.favoriteAction) {
-                const favorites = { ...user.favorites }
-                const articleId = updateUserData.dataUpdate
-                if (updateUserData.favoriteAction === USER_FAVORITES_ACTION.ADD) {
-                  if (!favorites.ARTICLES.includes(articleId)) {
-                    favorites.ARTICLES.push(articleId)
-                  }
-                } else if (updateUserData.favoriteAction === USER_FAVORITES_ACTION.REMOVE) {
-                  favorites.ARTICLES = favorites.ARTICLES.filter(id => id !== articleId)
-                }
-                return { ...user, favorites }
-              } else if (updateUserData.typeUpdate === UPDATE_USER_DATA_TYPE.NAME) {
-                return { ...user, email: updateUserData.dataUpdate }
-              } else if (updateUserData.typeUpdate === UPDATE_USER_DATA_TYPE.PASSWORD) {
-                return { ...user, password: updateUserData.dataUpdate }
-              }
-            }
-            return user
-          })
-          return { users: updatedUsers }
-        })
-      },
-        resetStore: () => {
-            set({ users: [], authUsers: [] })
-            console.log('Mock auth store has been reset');
+    updateUserData: (updateUserData: UserUpdateData) => {
+      set(state => {
+      const user = state.currentAuthUser
+      if (!user) return {}
+
+      if (updateUserData.typeUpdate !== UPDATE_USER_DATA_TYPE.FAVORITES) {
+        return {}
+      }
+
+      const currentArticles = user.favorites.ARTICLES
+      const id = updateUserData.dataUpdate
+
+      let updatedArticles = currentArticles
+
+      if (updateUserData.favoriteAction === USER_FAVORITES_ACTION.ADD) {
+        // ✅ без дубликатов
+        if (!currentArticles.includes(id)) {
+          updatedArticles = [...currentArticles, id]
+        }
+      }
+
+      if (updateUserData.favoriteAction === USER_FAVORITES_ACTION.REMOVE) {
+        updatedArticles = currentArticles.filter(a => a !== id)
+      }
+      
+      return {
+        currentAuthUser: {
+          ...user,
+          favorites: {
+            ...user.favorites,
+            ARTICLES: updatedArticles,
+          },
+        },
+      }
+      console.log('Updated user favorites:', get().currentAuthUser?.favorites);
+  })
+    },
+    resetStore: () => {
+      set({ users: [], authUsers: [] })
+      console.log('Mock auth store has been reset');
     },
     }),
     {

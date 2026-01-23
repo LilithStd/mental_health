@@ -47,7 +47,7 @@ export default function Articles() {
     }, [])
 
     // console.log('Current Auth User in Articles Page:', currentAuthUser);
-    console.log('searchedArticles:', searchedArticles);
+    // console.log('searchedArticles:', searchedArticles);
     useEffect(() => {
         const checkPrivilege = async () => {
             const privilege = await canEditContent(currentAuthUser);

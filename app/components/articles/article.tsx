@@ -2,9 +2,9 @@
 import { indents, rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import Favorites from "../shared/favorites"
 import { useGlobalStore } from "@/app/store/globalStore"
-import { useEffect, useState, useTransition } from "react"
+import { use, useEffect, useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
-import { APP_PATH_ROUTER, ARTICLE_TYPE } from "@/app/globalConsts/globalEnum"
+import { APP_PATH_ROUTER, ARTICLE_TYPE, UPDATE_USER_DATA_TYPE, USER_FAVORITES_ACTION, USER_FAVORITES_TYPE } from "@/app/globalConsts/globalEnum"
 import { ArticleType } from "@/app/articles/page"
 import { useMockAuthStore } from "@/app/store/mockAuthStore"
 import { canEditContent } from "@/app/serverActions/permissions"
@@ -33,8 +33,9 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     const [isEditAuthor, setIsEditAuthor] = useState(false);
     const [editAuthor, setEditAuthor] = useState(article.author);
     const currentAuthUser = useMockAuthStore((state) => state.currentAuthUser);
+    const updateUserData = useMockAuthStore((state) => state.updateUserData);
     //state
-    const [isFavorite, setIsFavorite] = useState(false);
+    // const [isFavorite, setIsFavorite] = useState(false);
     const [pending, startTransition] = useTransition()
     const [isSavedChanges, setIsSavedChanges] = useState(false);
     const [loading, setLoading] = useState(false)
@@ -44,8 +45,11 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     const date = new Date(article.createdAt);
 
     const formattedDate = date.toLocaleDateString('sv-SE');
+    const favorites = currentAuthUser?.favorites.ARTICLES
 
+    const isFavorite = favorites?.includes(String(article.id)) ?? false
     const router = useRouter();
+
     useEffect(() => {
         const checkPrivilege = async () => {
             const privilege = await canEditContent(currentAuthUser);
@@ -70,37 +74,37 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         setEditContent(e.target.value);
         setIsChanged(true);
     }
-    async function saveChangesHandler() {
-        setLoading(true)
-        setError(null)
-        setSuccess(false)
+    // async function saveChangesHandler() {
+    //     setLoading(true)
+    //     setError(null)
+    //     setSuccess(false)
 
-        try {
-            const res = await fetch('/api/articles', {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    id: article.id,
-                    title: editTitle,
-                    content: editContent,
-                }),
-            })
+    //     try {
+    //         const res = await fetch('/api/articles', {
+    //             method: 'PUT',
+    //             headers: { 'Content-Type': 'application/json' },
+    //             body: JSON.stringify({
+    //                 id: article.id,
+    //                 title: editTitle,
+    //                 content: editContent,
+    //             }),
+    //         })
 
-            if (!res.ok) {
-                throw new Error('Failed to update article')
-            }
+    //         if (!res.ok) {
+    //             throw new Error('Failed to update article')
+    //         }
 
-            setSuccess(true)
-        } catch (err) {
-            setError('Ошибка сохранения')
-        } finally {
-            setLoading(false)
-            setIsEditContent(false)
-            setIsEditTitle(false)
-            setIsEditArticle(false)
-            setIsChanged(false)
-        }
-    }
+    //         setSuccess(true)
+    //     } catch (err) {
+    //         setError('Ошибка сохранения')
+    //     } finally {
+    //         setLoading(false)
+    //         setIsEditContent(false)
+    //         setIsEditTitle(false)
+    //         setIsEditArticle(false)
+    //         setIsChanged(false)
+    //     }
+    // }
 
     // 
     // components
@@ -166,7 +170,17 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             </div>
 
             <div className={`flex items-center justify-between mt-4`}>
-                <Favorites isFavorite={isFavorite} callBackIsFavorite={() => setIsFavorite(!isFavorite)} />
+                <Favorites isFavorite={isFavorite} callBackIsFavorite={() => {
+                    const userData = {
+                        id: String(article.id),
+                        typeUpdate: UPDATE_USER_DATA_TYPE.FAVORITES,
+                        dataUpdate: String(article.id),
+                        favoritesAction: USER_FAVORITES_ACTION.ADD
+
+                    }
+                    updateUserData(userData)
+                    // console.log('Favorite updated', currentAuthUser?.favorites.ARTICLES)
+                }} />
                 <button
                     className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
                     onClick={() => router.push(`${APP_PATH_ROUTER.ARTICLES}/${article.id}`)}
@@ -210,7 +224,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
             {isEditContent && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditContent(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditContent(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
         </div>
-        <Favorites isFavorite={isFavorite} callBackIsFavorite={() => setIsFavorite(!isFavorite)} />
+        <Favorites isFavorite={isFavorite} callBackIsFavorite={() => ({})} />
         <div>
             {userPrivilege &&
                 editArticleButtonsComponent
@@ -218,9 +232,12 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         </div>
         <span className="text-sm text-gray-500">Published on: {formattedDate}</span>
     </div>;
+    useEffect(() => {
+        console.log('Favorites changed:', currentAuthUser?.favorites.ARTICLES)
+        console.log('isFavorite state:', currentAuthUser)
+    }, [currentAuthUser?.favorites.ARTICLES])
 
     // 
-
     return (
         <article key={article.id} className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 m-4 ${rounded.high} w-full max-w-2xl flex flex-col gap-2`}>
             {typeArticle === ARTICLE_TYPE.PREVIEW ? previewArticleComponent : fullArticleComponent}
