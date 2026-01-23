@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
-import { ROLE_AUTH_USER_PRIVILEGE, ROLE_AUTHORIZED_USER } from '../globalConsts/globalEnum'
+import { ROLE_AUTH_USER_PRIVILEGE, ROLE_AUTHORIZED_USER, UPDATE_USER_DATA_TYPE, USER_FAVORITES_ACTION } from '../globalConsts/globalEnum'
 
 export type User = {
   id: string
@@ -8,6 +8,22 @@ export type User = {
   password: string
   role: ROLE_AUTHORIZED_USER
   privilege: ROLE_AUTH_USER_PRIVILEGE
+  favorites: USER_FAVORITES
+}
+
+type USER_FAVORITES = {
+  ARTICLES:string[],
+  TESTS:string[],
+  NEWS:string[],
+
+}
+
+type UserUpdateData = {
+  id: string,
+  typeUpdate: UPDATE_USER_DATA_TYPE
+  dataUpdate:string,
+  favoriteAction?: USER_FAVORITES_ACTION
+
 }
 
 const listCMSEmailUsers = [
@@ -21,6 +37,7 @@ type MockAuthStore = {
   createUser: (email: string, password: string) => User | null
   authenticateUser: (email: string, password: string) => User | null
   logoutUser: (id: string) => void
+  updateUserData:(updateUserData: UserUpdateData) => void
   currentAuthUser: User | null
   setCurrentAuthUser: (userData: User) => void
   resetStore: () => void
@@ -38,7 +55,7 @@ export const useMockAuthStore = create<MockAuthStore>()(
           return null
         }
         const checkCMSUser = listCMSEmailUsers.includes(email)
-        const newUser: User = { id: Date.now().toString(), email, password, role: ROLE_AUTHORIZED_USER.USER, privilege:  checkCMSUser ? ROLE_AUTH_USER_PRIVILEGE.EDIT_CONTENT : ROLE_AUTH_USER_PRIVILEGE.READ_ONLY }
+        const newUser: User = { id: Date.now().toString(), email, password, role: ROLE_AUTHORIZED_USER.USER, privilege:  checkCMSUser ? ROLE_AUTH_USER_PRIVILEGE.EDIT_CONTENT : ROLE_AUTH_USER_PRIVILEGE.READ_ONLY, favorites: { ARTICLES: [], TESTS: [], NEWS: [] } }
         set((state) => ({ users: [...state.users, newUser] }))
         return newUser
       },
@@ -74,6 +91,32 @@ export const useMockAuthStore = create<MockAuthStore>()(
           authUsers: state.authUsers.filter((user) => user.id !== id),
           currentAuthUser: null,
         }))
+      },
+      updateUserData: (updateUserData: UserUpdateData) => {
+        set((state) => {
+          const updatedUsers = state.users.map((user) => {  
+            if (user.id === updateUserData.id) {
+              if (updateUserData.typeUpdate === UPDATE_USER_DATA_TYPE.FAVORITES && updateUserData.favoriteAction) {
+                const favorites = { ...user.favorites }
+                const articleId = updateUserData.dataUpdate
+                if (updateUserData.favoriteAction === USER_FAVORITES_ACTION.ADD) {
+                  if (!favorites.ARTICLES.includes(articleId)) {
+                    favorites.ARTICLES.push(articleId)
+                  }
+                } else if (updateUserData.favoriteAction === USER_FAVORITES_ACTION.REMOVE) {
+                  favorites.ARTICLES = favorites.ARTICLES.filter(id => id !== articleId)
+                }
+                return { ...user, favorites }
+              } else if (updateUserData.typeUpdate === UPDATE_USER_DATA_TYPE.NAME) {
+                return { ...user, email: updateUserData.dataUpdate }
+              } else if (updateUserData.typeUpdate === UPDATE_USER_DATA_TYPE.PASSWORD) {
+                return { ...user, password: updateUserData.dataUpdate }
+              }
+            }
+            return user
+          })
+          return { users: updatedUsers }
+        })
       },
         resetStore: () => {
             set({ users: [], authUsers: [] })

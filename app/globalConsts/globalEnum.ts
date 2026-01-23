@@ -33,6 +33,23 @@ export enum ARTICLE_TYPE {
 	FULL = 'FULL',
 }
 
+export enum USER_FAVORITES_TYPE {
+	ARTICLE = 'ARTICLE',
+	TESTS = 'TESTS',
+	NEWS = 'NEWS',
+}
+
+export enum USER_FAVORITES_ACTION {
+	ADD = 'ADD',
+	REMOVE = 'REMOVE',
+}
+
+export enum UPDATE_USER_DATA_TYPE {
+	NAME = 'NAME',
+	PASSWORD = 'PASSWORD',
+	FAVORITES = 'FAVORITES',
+}
+
 export enum APP_PATH_ROUTER {
 	MAIN = '/',
 	NEWS = '/news',
