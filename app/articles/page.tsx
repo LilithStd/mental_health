@@ -44,7 +44,14 @@ export default function Articles() {
 
 
 
-
+    console.log('Current Auth User in Articles Page:', currentAuthUser);
+    useEffect(() => {
+        const checkPrivilege = async () => {
+            const privilege = await canEditContent(currentAuthUser);
+            setUserPrivilege(privilege);
+        };
+        checkPrivilege();
+    }, [currentAuthUser]);
 
     // if (loading) {
     //     return <div>Загрузка...</div>

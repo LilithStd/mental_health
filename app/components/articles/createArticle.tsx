@@ -16,7 +16,7 @@ export default function CreateArticle({ onClose }: CreateArticleProps) {
         const form = e.currentTarget // ⬅️ сохраняем ссылку сразу
         const formData = new FormData(form)
 
-        const res = await fetch('/api/article', {
+        const res = await fetch('/api/articles', {
             method: 'POST',
             body: formData,
         })
