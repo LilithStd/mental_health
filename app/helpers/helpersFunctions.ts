@@ -36,3 +36,19 @@ export const cropContent = (content: string, maxLength: number): string => {
 
   return content.slice(0, maxLength) + '...';
 }
+export function pickRandomUnique<T>(array: T[], count: number): T[] {
+  if (count <= 0) return [];
+  if (count >= array.length) return [...array];
+
+  const result = [...array]; // копия
+  const n = result.length;
+
+  for (let i = 0; i < count; i++) {
+    const randIndex = i + Math.floor(Math.random() * (n - i));
+
+    // swap
+    [result[i], result[randIndex]] = [result[randIndex], result[i]];
+  }
+
+  return result.slice(0, count);
+}
