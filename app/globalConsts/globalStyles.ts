@@ -1,3 +1,5 @@
+import { it } from "node:test";
+
 export const THEME_COLOR_SCHEME = {
 	LIGHT: {
 		background: 'bg-white',
@@ -56,9 +58,21 @@ export const font = {
 	title: {
 		size: {
 			large: 'text-5xl',
-			medium: 'text-2xl',
+			medium: 'text-3xl',
 			small: 'text-xl',
 		},
+		weigth:{
+			bold: 'font-bold',
+			medium: 'font-medium',
+			normal: 'font-normal',
+			thin: 'font-thin',
+		},
+		curve:{
+			sans: 'font-sans',
+			serif: 'font-serif',
+			mono: 'font-mono',
+			italic: 'italic',
+		}
 	},
 	text: {
 		size: {
