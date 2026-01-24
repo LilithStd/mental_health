@@ -232,14 +232,9 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         </div>
         <span className="text-sm text-gray-500">Published on: {formattedDate}</span>
     </div>;
-    useEffect(() => {
-        console.log('Favorites changed:', currentAuthUser?.favorites.ARTICLES)
-        console.log('isFavorite state:', currentAuthUser)
-    }, [currentAuthUser?.favorites.ARTICLES])
-
     // 
     return (
-        <article key={article.id} className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 m-4 ${rounded.high} w-full max-w-2xl flex flex-col gap-2`}>
+        <article key={article.id} className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 ${rounded.high} w-full  flex flex-col gap-2`}>
             {typeArticle === ARTICLE_TYPE.PREVIEW ? previewArticleComponent : fullArticleComponent}
         </article>
 

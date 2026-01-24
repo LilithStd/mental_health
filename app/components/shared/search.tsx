@@ -30,7 +30,7 @@ export default function Search<T extends Record<string, unknown>>({ callBackResu
     }
 
     return (
-        <div className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} flex  rounded-md w-1/7 text-center items-center justify-center`}>
+        <div className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} flex  rounded-md text-center items-center justify-center`}>
             <form onSubmit={handleSearchSubmit}>
                 <input type="text" placeholder="Search" className={`${THEME_COLOR_SCHEME[currentTheme].input}
              p-1 rounded-md w-full text-center`} value={searchRequest} onChange={handleSearchChange} />

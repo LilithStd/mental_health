@@ -73,18 +73,21 @@ export default function Articles() {
                 </div>
 
             )}
-            {loading ? <div>Loading...</div> : !isCreateArticleVisible && !isSearchActive && articles.map((article) =>
-                <Article
-                    key={article.id}
-                    article={article}
-                    typeArticle={ARTICLE_TYPE.PREVIEW}
-                />)}
-            {!loading && isSearchActive && searchedArticles.map((article) =>
-                <Article
-                    key={article.id}
-                    article={article}
-                    typeArticle={ARTICLE_TYPE.PREVIEW}
-                />)}
+            <div className={`w-full grid grid-cols-1 md:grid-cols-2 gap-4  mb-4 max-w-6xl`}>
+                {loading ? <div>Loading...</div> : !isCreateArticleVisible && !isSearchActive && articles.map((article) =>
+                    <Article
+                        key={article.id}
+                        article={article}
+                        typeArticle={ARTICLE_TYPE.PREVIEW}
+                    />)}
+                {!loading && isSearchActive && searchedArticles.map((article) =>
+                    <Article
+                        key={article.id}
+                        article={article}
+                        typeArticle={ARTICLE_TYPE.PREVIEW}
+                    />)}
+            </div>
+
         </div>
     )
 }

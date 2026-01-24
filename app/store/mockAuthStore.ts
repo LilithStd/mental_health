@@ -116,7 +116,7 @@ export const useMockAuthStore = create<MockAuthStore>()(
       if (updateUserData.favoriteAction === USER_FAVORITES_ACTION.REMOVE) {
         updatedArticles = currentArticles.filter(a => a !== id)
       }
-      
+      console.log('Updated Articles Favorites:', updatedArticles)
       return {
         currentAuthUser: {
           ...user,
@@ -126,7 +126,6 @@ export const useMockAuthStore = create<MockAuthStore>()(
           },
         },
       }
-      console.log('Updated user favorites:', get().currentAuthUser?.favorites);
   })
     },
     resetStore: () => {
