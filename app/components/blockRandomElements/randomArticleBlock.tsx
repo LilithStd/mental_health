@@ -27,7 +27,7 @@ export default function RandomArticleBlock() {
 
   return (
     <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 m-4 ${rounded.medium} w-full max-w-6xl`}>
-      <h2 className={`${font.title.size.medium} ${font.title.weigth.bold} ${THEME_COLOR_SCHEME[currentTheme].elementAccent}`}>randomArticle</h2>
+      <h2 className={`${font.title.size.medium} ${font.title.weigth.bold} ${THEME_COLOR_SCHEME[currentTheme].elementAccent} ${rounded.high} p-2 mb-4`}>Random Article</h2>
       <div>
         {loading ? (
           <div>Loading...</div>
@@ -48,9 +48,9 @@ export default function RandomArticleBlock() {
       p-2 rounded ${rounded.high}
     `}
               >
-                <AuthorIcon className="w-30 h-30 fill-current text-gray-500" />
+                <AuthorIcon className="w-30 h-30 fill-current" />
                 <h3 className={`${font.title.size.small} ${font.title.weigth.thin} ${font.title.curve.italic}`}>
-                  by {article.author}
+                  by {!article.author || article.author.length === 0 ? "Unknown Author" : article.author}
                 </h3>
               </div>
 
