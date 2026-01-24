@@ -2,9 +2,11 @@
 
 import { ArticleType } from "@/app/articles/page";
 import { font, rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles";
-import { pickRandomUnique } from "@/app/helpers/helpersFunctions";
+import { cropContent, pickRandomUnique } from "@/app/helpers/helpersFunctions";
 import { useGlobalStore } from "@/app/store/globalStore";
 import { useState, useEffect } from "react";
+import AuthorIcon from "@/public/icons/user/User.svg"
+import { CROP_CONTAINER_SIZE } from "@/app/globalConsts/globalConsts";
 
 export default function RandomArticleBlock() {
   //stores
@@ -31,11 +33,37 @@ export default function RandomArticleBlock() {
           <div>Loading...</div>
         ) : (
           articles.map(article => (
-            <div key={article.id}>
-              <h3 className={`${font.title.size.small} ${font.title.weigth.medium} ${THEME_COLOR_SCHEME[currentTheme].elementAccent}`}>{article.title}</h3>
-              <h3 className={`${font.title.size.small} ${font.title.weigth.thin} ${THEME_COLOR_SCHEME[currentTheme].elementAccent} ${font.title.curve.italic}`}>by {article.author}</h3>
-              <p className={`${font.text.size.medium} ${THEME_COLOR_SCHEME[currentTheme].text}`}>{article.content}</p>
+            <div
+              key={article.id}
+              className={`
+    grid grid-cols-[auto_1fr] gap-4 mb-4 p-2
+    ${THEME_COLOR_SCHEME[currentTheme].container}
+    ${rounded.high}
+  `}
+            >
+              <div
+                className={`
+      flex m-2 flex-col items-center gap-2
+      ${THEME_COLOR_SCHEME[currentTheme].elementAccent}
+      p-2 rounded ${rounded.high}
+    `}
+              >
+                <AuthorIcon className="w-30 h-30 fill-current text-gray-500" />
+                <h3 className={`${font.title.size.small} ${font.title.weigth.thin} ${font.title.curve.italic}`}>
+                  by {article.author}
+                </h3>
+              </div>
+
+              <div className="flex flex-col gap-2 p-2">
+                <h3 className={`${font.title.size.small} ${font.title.weigth.medium} p-2`}>
+                  {article.title}
+                </h3>
+                <p className={`${font.text.size.medium} ${THEME_COLOR_SCHEME[currentTheme].text}`}>
+                  {cropContent(article.content, CROP_CONTAINER_SIZE.SMALL)}
+                </p>
+              </div>
             </div>
+
           ))
         )}
       </div>
