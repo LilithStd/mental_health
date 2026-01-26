@@ -62,7 +62,7 @@ export default function Articles() {
     //     return <div>Загрузка...</div>
     // }
     return (
-        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main} items-center `}>
+        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main} gap-2 items-center `}>
             <Search callBackResultAfterSearch={setSearchedArticles} isSearchActive={setIsSearchActive} arrayForSearch={articles} />
             {currentAuthUser && userPrivilege && (
                 <div>
