@@ -1,3 +1,14 @@
 [
-    
+  {
+    "id": 1769452841160,
+    "email": "3@3.com",
+    "password": "3",
+    "role": "USER",
+    "privilege": "READ_ONLY",
+    "favorites": {
+      "ARTICLES": [],
+      "TESTS": [],
+      "NEWS": []
+    }
+  }
 ]

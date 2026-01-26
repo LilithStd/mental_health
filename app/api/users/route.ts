@@ -23,10 +23,8 @@ export async function GET(req: Request) {
 }
 
 export async function POST(req: Request) {
-  const formData = await req.formData()
-
-  const email = formData.get('email') as string
-  const password = formData.get('password') as string
+  const body = await req.json()
+const { email, password } = body
 
   if (!email || !password) {
     return NextResponse.json({ error: 'Missing fields' }, { status: 400 })

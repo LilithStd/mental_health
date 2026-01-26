@@ -1,6 +1,7 @@
 'use client'
 import { AUTHORIZATION_STATUS } from "@/app/globalConsts/globalEnum";
 import { indents, rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
+import { createUser } from "@/app/serverActions/usersStorage";
 import { useGlobalStore } from "@/app/store/globalStore";
 import { useMockAuthStore } from "@/app/store/mockAuthStore";
 import { AUTH_METHODS_SYSTEM_MESSAGES, INPUT_PLACEHOLDERS } from "@/app/template/text";
@@ -23,7 +24,7 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
     const currentTheme = useGlobalStore((state) => state.currentTheme);
     const currentLanguage = useGlobalStore((state) => state.currentLanguage);
     // user auth store
-    const createUser = useMockAuthStore((state) => state.createUser);
+    // const createUser = useMockAuthStore((state) => state.createUser);
     const users = useMockAuthStore((state) => state.users);
     const authenticateUser = useMockAuthStore((state) => state.authenticateUser);
     const setAuthUser = useMockAuthStore((state) => state.setCurrentAuthUser);
@@ -44,17 +45,30 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
 
     // 
     // handlers
+
+    const createUserApiHandler = async (email: string, pass: string) => {
+        const res = await fetch('/api/users', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password: pass })
+        });
+        const data = await res.json();
+        console.log(data);
+        //
+    }
     const createUserHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const formCurrentData = event.currentTarget;
         const formData = new FormData(formCurrentData);
         const email = formData.get('email') as string;
         const password = formData.get('password') as string;
+
         if (checkAlreadyExists(email)) {
             alert('User already exists with this email.');
             return;
         } else {
-            createUser(email, password);
+            // createUser(email, password);
+            createUserApiHandler(email, password);
             setSuccessfullyCreated(true);
             formCurrentData.reset();
             // props.closeCallback();
@@ -64,7 +78,7 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
     }
 
     const successfullyUserCreatedHandler = () => {
-        
+
         setSuccessfullyCreated(false);
         props.closeCallback();
     }
