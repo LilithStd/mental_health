@@ -46,19 +46,7 @@ export default function Articles() {
             })
     }, [])
 
-    // const toggleFavorite = async () => {
-    //     await fetch('/api/users/favorites', {
-    //         method: isFavorite ? 'DELETE' : 'POST',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify({
-    //             userId: currentUser.id,
-    //             type: 'ARTICLES',
-    //             value: article.id
-    //         })
-    //     })
 
-    //     // обновить локальный стор или refetch
-    // }
 
 
     // console.log('Current Auth User in Articles Page:', currentAuthUser);

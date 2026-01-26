@@ -48,6 +48,20 @@ export default function ArticlePage({
             })
     }, [id])
 
+    // const toggleFavorite = async () => {
+    //     await fetch('/api/users/favorites', {
+    //         method: isFavorite ? 'DELETE' : 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({
+    //             userId: currentUser.id,
+    //             type: 'ARTICLES',
+    //             value: article.id
+    //         })
+    //     })
+
+    //     // обновить локальный стор или refetch
+    // }
+
     if (error) {
         return <div>Статья не найдена</div>
     }

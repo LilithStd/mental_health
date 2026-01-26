@@ -15,6 +15,7 @@ export default function RandomArticleBlock() {
   // state
   const [articles, setArticles] = useState<ArticleType[]>([])
   const [loading, setLoading] = useState(true)
+
   useEffect(() => {
     fetch('/api/articles')
       .then(res => res.json())
@@ -25,6 +26,10 @@ export default function RandomArticleBlock() {
       })
   }, [])
 
+  const date = (currentDate: string) => new Date(currentDate);
+
+  const formattedDate = (currentDate: string) => date(currentDate).toLocaleDateString('sv-SE');
+
   return (
     <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 m-4 ${rounded.medium} w-full max-w-6xl`}>
       <h2 className={`${font.title.size.medium} ${font.title.weigth.bold} ${THEME_COLOR_SCHEME[currentTheme].elementAccent} ${rounded.high} p-2 mb-4`}>Random Article</h2>
@@ -33,6 +38,7 @@ export default function RandomArticleBlock() {
           <div>Loading...</div>
         ) : (
           articles.map(article => (
+
             <div
               key={article.id}
               className={`
@@ -60,8 +66,13 @@ export default function RandomArticleBlock() {
                 </h3>
                 <p className={`${font.text.size.medium} ${THEME_COLOR_SCHEME[currentTheme].text}`}>
                   {cropContent(article.content, CROP_CONTAINER_SIZE.SMALL)}
+
                 </p>
+                <div>
+                  <p>{formattedDate(article.createdAt)}</p>
+                </div>
               </div>
+
             </div>
 
           ))
