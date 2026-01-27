@@ -2,7 +2,7 @@
 import { indents, rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import Favorites from "../shared/favorites"
 import { useGlobalStore } from "@/app/store/globalStore"
-import { use, useEffect, useState, useTransition } from "react"
+import { useEffect, useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
 import { APP_PATH_ROUTER, ARTICLE_TYPE, UPDATE_USER_DATA_TYPE, USER_FAVORITES_ACTION, USER_FAVORITES_TYPE } from "@/app/globalConsts/globalEnum"
 import { ArticleType } from "@/app/articles/page"
@@ -13,6 +13,7 @@ import EditInactiveIcon from "@/public/icons/EditInactive.svg"
 import { updateArticleAction } from "@/app/serverActions/updateArticle"
 import { CROP_CONTAINER_SIZE } from "@/app/globalConsts/globalConsts"
 import { cropContent } from "@/app/helpers/helpersFunctions"
+import { addUserFavorite } from "@/app/serverActions/usersStorage"
 
 
 interface ArticleProps {
@@ -49,6 +50,17 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
     const isFavorite = favorites?.includes(String(article.id)) ?? false
     const router = useRouter();
+
+    const addToFavoritesHandler = async (userId: number, type: USER_FAVORITES_TYPE, value: string) => {
+        // addUserFavorite(Number(currentAuthUser?.id), USER_FAVORITES_TYPE.ARTICLES, String(article.id))
+        const res = await fetch('/api/favorites', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userId, type, value })
+        });
+        const data = await res.json();
+        console.log(data);
+    }
 
     useEffect(() => {
         const checkPrivilege = async () => {
@@ -178,6 +190,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                         favoritesAction: USER_FAVORITES_ACTION.ADD
 
                     }
+                    addToFavoritesHandler(Number(currentAuthUser?.id), USER_FAVORITES_TYPE.ARTICLES, String(article.id))
                     updateUserData(userData)
                     // console.log('Favorite updated', currentAuthUser?.favorites.ARTICLES)
                 }} />

@@ -34,7 +34,7 @@ export enum ARTICLE_TYPE {
 }
 
 export enum USER_FAVORITES_TYPE {
-	ARTICLE = 'ARTICLE',
+	ARTICLES = 'ARTICLES',
 	TESTS = 'TESTS',
 	NEWS = 'NEWS',
 }
