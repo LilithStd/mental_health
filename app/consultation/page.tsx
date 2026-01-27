@@ -1,7 +1,6 @@
 'use client'
 
 import ConsultationForm from "../components/consultation/consultationForm";
-import Form from "../components/tests/form";
 import { THEME_COLOR_SCHEME, rounded, indents } from "../globalConsts/globalStyles";
 import { useGlobalStore } from "../store/globalStore";
 
