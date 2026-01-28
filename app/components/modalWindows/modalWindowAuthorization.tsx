@@ -2,6 +2,7 @@
 import { AUTHORIZATION_STATUS } from "@/app/globalConsts/globalEnum";
 import { indents, rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import { createUser } from "@/app/serverActions/usersStorage";
+import { useAuthorizationStore } from "@/app/store/authorizationStore";
 import { useGlobalStore } from "@/app/store/globalStore";
 import { useMockAuthStore } from "@/app/store/mockAuthStore";
 import { AUTH_METHODS_SYSTEM_MESSAGES, INPUT_PLACEHOLDERS } from "@/app/template/text";
@@ -18,6 +19,7 @@ interface ModalWindowProps {
 export default function ModalWindowAuthorization(props: ModalWindowProps) {
     //state
     const [succerssfullyCreated, setSuccessfullyCreated] = useState<boolean>(false);
+    const [error, setError] = useState<string | null>(null);
     // 
     // stores
     // global store
@@ -27,7 +29,7 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
     // const createUser = useMockAuthStore((state) => state.createUser);
     const users = useMockAuthStore((state) => state.users);
     const authenticateUser = useMockAuthStore((state) => state.authenticateUser);
-    const setAuthUser = useMockAuthStore((state) => state.setCurrentAuthUser);
+    const setCurrentAuthUser = useAuthorizationStore((state) => state.setCurrentAuthUser);
     // 
 
     const logoutUser = useMockAuthStore((state) => state.logoutUser);
@@ -84,26 +86,43 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
     }
 
 
-    const signInUserHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    const signInUserHandler = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const formCurrentData = event.currentTarget;
-        const formData = new FormData(formCurrentData);
+
+        const form = event.currentTarget;
+        const formData = new FormData(form);
+
         const email = formData.get('email') as string;
         const password = formData.get('password') as string;
-        if (checkAlreadyExists(email) === false) {
-            alert('No user found with this email.');
-            return;
-        }
-        const authenticatedUser = authenticateUser(email, password);
-        if (authenticatedUser) {
-            alert('Successfully signed in!');
-            setAuthUser(authenticatedUser);
-            formCurrentData.reset();
+
+        try {
+            const res = await fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password }),
+            });
+
+            const data = await res.json();
+
+            // ❌ сервер отказал
+            if (!data.authorized) {
+                setError('Invalid email or password');
+                alert('Invalid email or password');
+                return;
+            }
+
+            // ✅ сервер разрешил
+            setCurrentAuthUser(data.user);
+            alert('User successfully signed in');   // сохраняем юзера из ответа сервера
+            form.reset();
             props.closeCallback();
-        } else {
-            alert('Invalid email or password.');
+
+        } catch (e) {
+            alert('Invalid email or password');
+            setError('Server error');
         }
-    }
+    };
+
 
     // components
     const AuthSignInComponent = (

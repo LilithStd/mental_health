@@ -10,5 +10,17 @@
       "TESTS": [],
       "NEWS": []
     }
+  },
+  {
+    "id": 1769628741180,
+    "email": "2@2",
+    "password": "2",
+    "role": "USER",
+    "privilege": "READ_ONLY",
+    "favorites": {
+      "ARTICLES": [],
+      "TESTS": [],
+      "NEWS": []
+    }
   }
 ]
