@@ -53,19 +53,14 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     const router = useRouter();
 
     const addToFavoritesHandler = async (userId: number, type: USER_FAVORITES_TYPE, value: string) => {
-        // addUserFavorite(Number(currentAuthUser?.id), USER_FAVORITES_TYPE.ARTICLES, String(article.id))
         const res = await fetch('/api/favorites', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ userId, type, value })
         });
         const data = await res.json();
+        updateUserData({ id: String(userId), typeUpdate: UPDATE_USER_DATA_TYPE.FAVORITES, dataUpdate: value, favoriteAction: isFavorite ? USER_FAVORITES_ACTION.REMOVE : USER_FAVORITES_ACTION.ADD });
         console.log(data);
-    }
-    const checkIsFavorite = () => {
-        if (currentAuthUser && currentAuthUser.favorites.ARTICLES) {
-            return currentAuthUser.favorites.ARTICLES.includes(String(article.id));
-        }
     }
 
     useEffect(() => {
