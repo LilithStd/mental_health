@@ -3,7 +3,7 @@ import WithOutAuthorizationIcon from "@/public/icons/user/UserCircle.svg";
 import AuthorisationIcon from "@/public/icons/user/UserLogout.svg";
 import { useGlobalStore } from "../store/globalStore";
 import { indents, THEME_COLOR_SCHEME } from "../globalConsts/globalStyles";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import ModalWindowMain from "./modalWindowMain";
 import ModalWindowAuthorization from "./modalWindows/modalWindowAuthorization";
 import { APP_PATH_ROUTER, AUTHORIZATION_STATUS } from "../globalConsts/globalEnum";
@@ -11,6 +11,7 @@ import { AUTHORIZATION_TEXT, ROLE_AUTHORIZED_USER_TRANSLATE } from "../template/
 import { useMockAuthStore, User } from "../store/mockAuthStore";
 import Link from "next/link";
 import { useRouter } from 'next/navigation'
+import { useAuthorizationStore } from "../store/authorizationStore";
 
 
 
@@ -22,8 +23,8 @@ export default function Authorization() {
     const currentLanguage = useGlobalStore((state) => state.currentLanguage);
     const currentTheme = useGlobalStore((state) => state.currentTheme);
     //user auth store
-    const currentAuthUser = useMockAuthStore((state) => state.currentAuthUser);
-    const logoutUser = useMockAuthStore((state) => state.logoutUser);
+    const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
+    const logoutUser = useAuthorizationStore((state) => state.logoutUser);
     // 
     //state
     const [isOpenModalWindow, setIsOpenModalWindow] = useState(false);
