@@ -30,6 +30,7 @@ interface useAuthorizationStoreInterface {
   authUsers: User[]
   currentAuthUser: User | null
   setCurrentAuthUser: (userData: User) => void
+  updateCurrentAuthUser: (userData: UserUpdateData) => void
   logoutUser: (id: string) => void
 }
 
@@ -41,8 +42,38 @@ export const useAuthorizationStore = create<useAuthorizationStoreInterface>()(
       setCurrentAuthUser: (userData: User) => {
         set(() => ({ currentAuthUser: userData }))
       },
-      updateCurrentAuthUser: (userData: User) => {
-        set(() => ({ currentAuthUser: userData }))
+      updateCurrentAuthUser: (userData: UserUpdateData) => {
+        set((state) => {
+          const user = state.currentAuthUser
+          if (!user) return {}
+
+          if (userData.typeUpdate === UPDATE_USER_DATA_TYPE.FAVORITES && userData.favoriteAction) {
+            const id = userData.dataUpdate
+            let updatedArticles = user.favorites.ARTICLES
+
+            if (userData.favoriteAction === USER_FAVORITES_ACTION.ADD) {
+              if (!updatedArticles.includes(id)) {
+                updatedArticles = [...updatedArticles, id]
+              }
+            }
+
+            if (userData.favoriteAction === USER_FAVORITES_ACTION.REMOVE) {
+              updatedArticles = updatedArticles.filter(a => a !== id)
+            }
+            console.log('Updated Articles Favorites:', updatedArticles);
+            return {
+              currentAuthUser: {
+                ...user,
+                favorites: {
+                  ...user.favorites,
+                  ARTICLES: updatedArticles,
+                },
+              },
+            }
+          }
+
+          return {}
+        })
       },
       logoutUser: (id: string) => {
         const updatedAuthUsers = get().authUsers.filter(user => user.id !== id)

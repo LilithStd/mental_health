@@ -6,7 +6,9 @@
     "role": "USER",
     "privilege": "READ_ONLY",
     "favorites": {
-      "ARTICLES": [],
+      "ARTICLES": [
+        "1768852275399"
+      ],
       "TESTS": [],
       "NEWS": []
     }

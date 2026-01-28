@@ -2,7 +2,7 @@
 import { indents, rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import Favorites from "../shared/favorites"
 import { useGlobalStore } from "@/app/store/globalStore"
-import { useEffect, useState, useTransition } from "react"
+import { use, useEffect, useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
 import { APP_PATH_ROUTER, ARTICLE_TYPE, UPDATE_USER_DATA_TYPE, USER_FAVORITES_ACTION, USER_FAVORITES_TYPE } from "@/app/globalConsts/globalEnum"
 import { ArticleType } from "@/app/articles/page"
@@ -14,6 +14,7 @@ import { updateArticleAction } from "@/app/serverActions/updateArticle"
 import { CROP_CONTAINER_SIZE } from "@/app/globalConsts/globalConsts"
 import { cropContent } from "@/app/helpers/helpersFunctions"
 import { addUserFavorite } from "@/app/serverActions/usersStorage"
+import { useAuthorizationStore } from "@/app/store/authorizationStore"
 
 
 interface ArticleProps {
@@ -33,8 +34,8 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     const [isEditContent, setIsEditContent] = useState(false);
     const [isEditAuthor, setIsEditAuthor] = useState(false);
     const [editAuthor, setEditAuthor] = useState(article.author);
-    const currentAuthUser = useMockAuthStore((state) => state.currentAuthUser);
-    const updateUserData = useMockAuthStore((state) => state.updateUserData);
+    const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
+    const updateUserData = useAuthorizationStore((state) => state.updateCurrentAuthUser);
     //state
     // const [isFavorite, setIsFavorite] = useState(false);
     const [pending, startTransition] = useTransition()
@@ -61,6 +62,11 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         const data = await res.json();
         console.log(data);
     }
+    const checkIsFavorite = () => {
+        if (currentAuthUser && currentAuthUser.favorites.ARTICLES) {
+            return currentAuthUser.favorites.ARTICLES.includes(String(article.id));
+        }
+    }
 
     useEffect(() => {
         const checkPrivilege = async () => {
@@ -86,39 +92,6 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         setEditContent(e.target.value);
         setIsChanged(true);
     }
-    // async function saveChangesHandler() {
-    //     setLoading(true)
-    //     setError(null)
-    //     setSuccess(false)
-
-    //     try {
-    //         const res = await fetch('/api/articles', {
-    //             method: 'PUT',
-    //             headers: { 'Content-Type': 'application/json' },
-    //             body: JSON.stringify({
-    //                 id: article.id,
-    //                 title: editTitle,
-    //                 content: editContent,
-    //             }),
-    //         })
-
-    //         if (!res.ok) {
-    //             throw new Error('Failed to update article')
-    //         }
-
-    //         setSuccess(true)
-    //     } catch (err) {
-    //         setError('Ошибка сохранения')
-    //     } finally {
-    //         setLoading(false)
-    //         setIsEditContent(false)
-    //         setIsEditTitle(false)
-    //         setIsEditArticle(false)
-    //         setIsChanged(false)
-    //     }
-    // }
-
-    // 
     // components
     const editArticleComponent =
         <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
@@ -140,11 +113,6 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             disabled={pending}>
             {pending ? 'Saving...' : 'Save'}
         </button>;
-    // const saveArticleComponent =
-    //     <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
-    //         onClick={saveChangesHandler}>
-    //         Save
-    //     </button>;
     const cancelEditArticleComponent =
         <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer ${!isChanged ? `${THEME_COLOR_SCHEME[currentTheme].inactiveElement}` : ''}`}
             onClick={() => (
@@ -237,7 +205,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
             {isEditContent && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditContent(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditContent(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
         </div>
-        <Favorites isFavorite={isFavorite} callBackIsFavorite={() => ({})} />
+        <Favorites isFavorite={isFavorite} callBackIsFavorite={() => currentAuthUser && currentAuthUser.id ? addToFavoritesHandler(Number(currentAuthUser.id), USER_FAVORITES_TYPE.ARTICLES, String(article.id)) : alert('User not authorized')} />
         <div>
             {userPrivilege &&
                 editArticleButtonsComponent
