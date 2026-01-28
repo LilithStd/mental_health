@@ -92,12 +92,11 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
         const password = formData.get('password') as string;
         if (checkAlreadyExists(email) === false) {
             alert('No user found with this email.');
-            console.log(checkAlreadyExists(email));
             return;
         }
         const authenticatedUser = authenticateUser(email, password);
         if (authenticatedUser) {
-            // alert('Successfully signed in!');
+            alert('Successfully signed in!');
             setAuthUser(authenticatedUser);
             formCurrentData.reset();
             props.closeCallback();

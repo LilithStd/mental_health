@@ -41,6 +41,9 @@ export const useAuthorizationStore = create<useAuthorizationStoreInterface>()(
       setCurrentAuthUser: (userData: User) => {
         set(() => ({ currentAuthUser: userData }))
       },
+      updateCurrentAuthUser: (userData: User) => {
+        set(() => ({ currentAuthUser: userData }))
+      },
       logoutUser: (id: string) => {
         const updatedAuthUsers = get().authUsers.filter(user => user.id !== id)
         set(() => ({ authUsers: updatedAuthUsers, currentAuthUser: null }))
