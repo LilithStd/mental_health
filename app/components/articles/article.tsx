@@ -34,6 +34,10 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     const [isEditContent, setIsEditContent] = useState(false);
     const [isEditAuthor, setIsEditAuthor] = useState(false);
     const [editAuthor, setEditAuthor] = useState(article.author);
+    const [likesCount, setLikesCount] = useState(0);
+    const [isLiked, setIsLiked] = useState(false);
+    const currentUser = useMockAuthStore((state) => state.currentAuthUser);
+
     const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
     const updateUserData = useAuthorizationStore((state) => state.updateCurrentAuthUser);
     //state
@@ -71,6 +75,17 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         checkPrivilege();
     }, [currentAuthUser]);
 
+    useEffect(() => {
+        fetch(`/api/articleLikes?articleId=${article.id}`)
+            .then(res => res.json())
+            .then(data => {
+                setLikesCount(data.likesCount)
+                if (currentAuthUser && currentAuthUser.id) {
+                    setIsLiked(data.likes.includes(currentAuthUser.id))
+                }
+
+            })
+    }, [article.id, currentAuthUser])
     // functions
     const editArticleHandler = () => {
         setIsEditArticle(true);
