@@ -87,6 +87,25 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             })
     }, [article.id, currentAuthUser])
     // functions
+    const handleLike = async () => {
+        if (!currentAuthUser || !currentAuthUser.id) {
+            alert('You must be logged in to like articles.');
+            return;
+        }
+        const res = await fetch('/api/articleLikes', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                articleId: article.id,
+                userId: currentAuthUser.id,
+            }),
+        })
+
+        const data = await res.json()
+
+        setLikesCount(data.likesCount)
+        setIsLiked(data.isLiked)
+    }
     const editArticleHandler = () => {
         setIsEditArticle(true);
     }
@@ -160,18 +179,24 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             </div>
 
             <div className={`flex items-center justify-between mt-4`}>
-                <Favorites isFavorite={isFavorite} callBackIsFavorite={() => {
-                    const userData = {
-                        id: String(article.id),
-                        typeUpdate: UPDATE_USER_DATA_TYPE.FAVORITES,
-                        dataUpdate: String(article.id),
-                        favoritesAction: USER_FAVORITES_ACTION.ADD
+                <div className={`flex items-center`}>
+                    <Favorites isFavorite={isLiked}
+                        callBackIsFavorite={handleLike}
+                    // callBackIsFavorite={() => {
+                    //     const userData = {
+                    //         id: String(article.id),
+                    //         typeUpdate: UPDATE_USER_DATA_TYPE.FAVORITES,
+                    //         dataUpdate: String(article.id),
+                    //         favoritesAction: USER_FAVORITES_ACTION.ADD
 
-                    }
-                    addToFavoritesHandler(Number(currentAuthUser?.id), USER_FAVORITES_TYPE.ARTICLES, String(article.id))
-                    updateUserData(userData)
-                    // console.log('Favorite updated', currentAuthUser?.favorites.ARTICLES)
-                }} />
+                    //     }
+                    //     addToFavoritesHandler(Number(currentAuthUser?.id), USER_FAVORITES_TYPE.ARTICLES, String(article.id))
+                    //     updateUserData(userData)
+                    // }} 
+                    />
+                    <span className="ml-2">{likesCount} {likesCount === 1 ? 'Like' : 'Likes'}</span>
+                </div>
+
                 <button
                     className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
                     onClick={() => router.push(`${APP_PATH_ROUTER.ARTICLES}/${article.id}`)}
@@ -215,7 +240,11 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
             {isEditContent && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditContent(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditContent(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
         </div>
-        <Favorites isFavorite={isFavorite} callBackIsFavorite={() => currentAuthUser && currentAuthUser.id ? addToFavoritesHandler(Number(currentAuthUser.id), USER_FAVORITES_TYPE.ARTICLES, String(article.id)) : alert('User not authorized')} />
+        <div className={`flex items-center gap-4`}>
+            <Favorites isFavorite={isLiked} callBackIsFavorite={() => currentAuthUser && currentAuthUser.id ? addToFavoritesHandler(Number(currentAuthUser.id), USER_FAVORITES_TYPE.ARTICLES, String(article.id)) : alert('User not authorized')} />
+            <span className="ml-2">{likesCount} {likesCount === 1 ? 'Like' : 'Likes'}</span>
+        </div>
+
         <div>
             {userPrivilege &&
                 editArticleButtonsComponent
