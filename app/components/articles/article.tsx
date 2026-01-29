@@ -122,6 +122,13 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         setIsChanged(true);
     }
     // components
+    const favoritesComponent = <div className={`flex items-center`}>
+        <Favorites isFavorite={isLiked}
+            callBackIsFavorite={handleLike}
+        />
+        <span className="ml-2">{likesCount} {likesCount === 1 ? 'Like' : 'Likes'}</span>
+    </div>
+
     const editArticleComponent =
         <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
             onClick={editArticleHandler}>
@@ -179,24 +186,13 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             </div>
 
             <div className={`flex items-center justify-between mt-4`}>
-                <div className={`flex items-center`}>
+                {/* <div className={`flex items-center`}>
                     <Favorites isFavorite={isLiked}
                         callBackIsFavorite={handleLike}
-                    // callBackIsFavorite={() => {
-                    //     const userData = {
-                    //         id: String(article.id),
-                    //         typeUpdate: UPDATE_USER_DATA_TYPE.FAVORITES,
-                    //         dataUpdate: String(article.id),
-                    //         favoritesAction: USER_FAVORITES_ACTION.ADD
-
-                    //     }
-                    //     addToFavoritesHandler(Number(currentAuthUser?.id), USER_FAVORITES_TYPE.ARTICLES, String(article.id))
-                    //     updateUserData(userData)
-                    // }} 
                     />
                     <span className="ml-2">{likesCount} {likesCount === 1 ? 'Like' : 'Likes'}</span>
-                </div>
-
+                </div> */}
+                {favoritesComponent}
                 <button
                     className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
                     onClick={() => router.push(`${APP_PATH_ROUTER.ARTICLES}/${article.id}`)}
@@ -240,11 +236,11 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
             {isEditContent && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditContent(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditContent(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
         </div>
-        <div className={`flex items-center gap-4`}>
+        {/* <div className={`flex items-center`}>
             <Favorites isFavorite={isLiked} callBackIsFavorite={() => currentAuthUser && currentAuthUser.id ? addToFavoritesHandler(Number(currentAuthUser.id), USER_FAVORITES_TYPE.ARTICLES, String(article.id)) : alert('User not authorized')} />
             <span className="ml-2">{likesCount} {likesCount === 1 ? 'Like' : 'Likes'}</span>
-        </div>
-
+        </div> */}
+        {favoritesComponent}
         <div>
             {userPrivilege &&
                 editArticleButtonsComponent
