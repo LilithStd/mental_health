@@ -3,7 +3,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 
-const likesDir = path.join(process.cwd(), 'data','articles', 'likes')
+const likesDir = path.join(process.cwd(), 'data', 'likes')
 
 async function ensureDir() {
   await fs.mkdir(likesDir, { recursive: true })
