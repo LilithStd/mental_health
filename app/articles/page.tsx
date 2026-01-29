@@ -1,6 +1,6 @@
 'use client';
 
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ARTICLE_TYPE, ROLE_AUTH_USER_PRIVILEGE } from "../globalConsts/globalEnum";
 import { indents, rounded, THEME_COLOR_SCHEME } from "../globalConsts/globalStyles";
 import { canEditContent } from "../serverActions/permissions";
