@@ -138,7 +138,10 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                             p-2 rounded ${rounded.medium}
                             `}
             >
-                <AuthorIcon className="w-30 h-30 fill-current" />
+                <div className={`flex justify-center items-center ${rounded.circle} ${THEME_COLOR_SCHEME[currentTheme].subContainer} p-2`}>
+                    <AuthorIcon className="w-30 h-30 fill-current" />
+                </div>
+
 
             </div>
             <div>
@@ -252,7 +255,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     ${rounded.high}
   `}
         >
-            <div
+            {/* <div
                 className={`
       flex m-2 flex-col items-center gap-2
       ${THEME_COLOR_SCHEME[currentTheme].elementAccent}
@@ -263,24 +266,15 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                 <h3 className={`${font.title.size.small} ${font.title.weigth.thin} ${font.title.curve.italic}`}>
                     by {!article.author || article.author.length === 0 ? "Unknown Author" : article.author}
                 </h3>
-            </div>
+            </div> */}
+            {mainMetaDataArticleComponent}
 
             <div className="flex flex-col gap-2 p-2">
-                <h3 className={`${font.title.size.small} ${font.title.weigth.medium} p-2`}>
-                    {article.title}
-                </h3>
+
                 <p className={`${font.text.size.medium} ${THEME_COLOR_SCHEME[currentTheme].text}`}>
                     {cropContent(article.content, CROP_CONTAINER_SIZE.SMALL)}
 
                 </p>
-                {/* <div>
-                    <div className={`flex items-center justify-between mt-4 `}>
-                        {favoritesComponent}
-                        <p>{formattedDate}</p>
-                    </div>
-
-                    {redirectButtonComponent}
-                </div> */}
                 {interactionBlockComponent}
             </div>
 
