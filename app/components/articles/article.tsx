@@ -250,7 +250,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         <div
             key={article.id}
             className={`
-    grid grid-cols-[auto_1fr] gap-4 mb-4 p-2
+    grid grid-cols-[1fr_1fr] gap-4 mb-4 p-2
     ${THEME_COLOR_SCHEME[currentTheme].container}
     ${rounded.high}
   `}
@@ -270,7 +270,6 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             {mainMetaDataArticleComponent}
 
             <div className="flex flex-col gap-2 p-2">
-
                 <p className={`${font.text.size.medium} ${THEME_COLOR_SCHEME[currentTheme].text}`}>
                     {cropContent(article.content, CROP_CONTAINER_SIZE.SMALL)}
 
