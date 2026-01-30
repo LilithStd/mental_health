@@ -129,6 +129,28 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         />
         <span className="ml-2">{likesCount} {likesCount === 1 ? 'Like' : 'Likes'}</span>
     </div>
+    const mainMetaDataArticleComponent =
+        <div className={`flex items-top gap-2 p-2`}>
+            <div
+                className={`
+                            flex  flex-col items-center gap-2
+                            ${THEME_COLOR_SCHEME[currentTheme].elementAccent}
+                            p-2 rounded ${rounded.medium}
+                            `}
+            >
+                <AuthorIcon className="w-30 h-30 fill-current" />
+
+            </div>
+            <div>
+                <h2 className={`flex h-fit text-2xl p-4 ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].subContainer} font-bold`}>{article.title}</h2>
+                <h3 className={`${font.title.size.small} ${font.title.weigth.thin} ${font.title.curve.italic}`}>
+                    by {!article.author || article.author.length === 0 ? "Unknown Author" : article.author}
+                </h3>
+                <span className={`text-sm ${font.text.size.medium} ${font.title.weigth.thin} ${font.title.curve.italic} opacity-70`}>Created on: {formattedDate}</span>
+            </div>
+
+        </div>
+
     const redirectButtonComponent = <div className={`flex items-center justify-end mt-4`}>
         <button
             className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
@@ -139,10 +161,12 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     </div>
     const interactionBlockComponent =
         <div className={`flex items-center justify-between mt-4`}>
-            <div className={`flex justify-between  mt-4 `}>
-                <span className={`text-sm ${indents.text} ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].elementAccent} flex p-2 `}>{formattedDate}</span>
+            <div className={`flex justify-between flex-col gap-2  `}>
+                {favoritesComponent}
+                <span className={`text-sm ${font.text.size.medium} ${font.title.weigth.thin} ${font.title.curve.italic} opacity-50`}>Published on: {formattedDate}</span>
+
             </div>
-            {favoritesComponent}
+
             {redirectButtonComponent}
         </div>
     const editArticleComponent =
@@ -188,12 +212,13 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         </div>
     const mediumArticleComponent =
         <div>
-            <div className={`flex gap-4  w-full rounded ${rounded.medium} mb-2`}>
-                <h2 className={`flex text-2xl p-4 ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].container} font-bold mb-2`}>{article.title}</h2>
+            <div className={`flex gap-4  w-full rounded ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].container} mb-2`}>
+                {mainMetaDataArticleComponent}
+
             </div>
-            <div>
+            {/* <div>
                 <h2>Author: {!article.author || article.author === '' ? 'unknown' : article.author}</h2>
-            </div>
+            </div> */}
             <div>
                 <p>{cropContent(article.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
             </div>
@@ -299,7 +324,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                 editArticleButtonsComponent
             }
         </div>
-        <span className="text-sm text-gray-500">Published on: {formattedDate}</span>
+        <span className={`text-sm ${font.text.size.medium} ${font.title.weigth.thin} ${font.title.curve.italic} opacity-50`}>Published  on: {formattedDate}</span>
     </div>;
     // 
     return (

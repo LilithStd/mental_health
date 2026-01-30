@@ -49,6 +49,7 @@ export const shadow = {
 };
 
 export const rounded = {
+	circle: 'rounded-full',
 	high: 'rounded-3xl',
 	medium: 'rounded-lg',
 	low: 'rounded-sm',
