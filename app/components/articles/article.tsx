@@ -129,7 +129,16 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         />
         <span className="ml-2">{likesCount} {likesCount === 1 ? 'Like' : 'Likes'}</span>
     </div>
+    const redirectButtonComponent = <div className={`flex items-center justify-end mt-4`}>
 
+        <button
+            className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
+            onClick={() => router.push(`${APP_PATH_ROUTER.ARTICLES}/${article.id}`)}
+        >
+            read more
+        </button>
+
+    </div>
     const editArticleComponent =
         <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
             onClick={editArticleHandler}>
@@ -185,8 +194,12 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             <div className={`flex justify-between items-center mt-4 `}>
                 <span className={`text-sm ${indents.text} ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].elementAccent} flex p-2 `}>{formattedDate}</span>
             </div>
-
             <div className={`flex items-center justify-between mt-4`}>
+                {favoritesComponent}
+                {redirectButtonComponent}
+            </div>
+
+            {/* <div className={`flex items-center justify-between mt-4`}>
                 {favoritesComponent}
                 <button
                     className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
@@ -195,7 +208,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                     read more
                 </button>
 
-            </div>
+            </div> */}
 
         </div>
 
@@ -230,7 +243,12 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
                 </p>
                 <div>
-                    <p>{formattedDate}</p>
+                    <div className={`flex items-center justify-between mt-4 `}>
+                        {favoritesComponent}
+                        <p>{formattedDate}</p>
+                    </div>
+
+                    {redirectButtonComponent}
                 </div>
             </div>
 
