@@ -1,5 +1,5 @@
 'use client'
-import { indents, rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
+import { font, indents, rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import Favorites from "../shared/favorites"
 import { useGlobalStore } from "@/app/store/globalStore"
 import { use, useEffect, useState, useTransition } from "react"
@@ -15,6 +15,7 @@ import { CROP_CONTAINER_SIZE } from "@/app/globalConsts/globalConsts"
 import { cropContent } from "@/app/helpers/helpersFunctions"
 import { addUserFavorite } from "@/app/serverActions/usersStorage"
 import { useAuthorizationStore } from "@/app/store/authorizationStore"
+import AuthorIcon from "@/public/icons/user/User.svg"
 
 
 interface ArticleProps {
@@ -53,19 +54,19 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     const formattedDate = date.toLocaleDateString('sv-SE');
     const favorites = currentAuthUser?.favorites.ARTICLES
 
-    const isFavorite = favorites?.includes(String(article.id)) ?? false
+    // const isFavorite = favorites?.includes(String(article.id)) ?? false
     const router = useRouter();
 
-    const addToFavoritesHandler = async (userId: number, type: USER_FAVORITES_TYPE, value: string) => {
-        const res = await fetch('/api/favorites', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ userId, type, value })
-        });
-        const data = await res.json();
-        updateUserData({ id: String(userId), typeUpdate: UPDATE_USER_DATA_TYPE.FAVORITES, dataUpdate: value, favoriteAction: isFavorite ? USER_FAVORITES_ACTION.REMOVE : USER_FAVORITES_ACTION.ADD });
-        console.log(data);
-    }
+    // const addToFavoritesHandler = async (userId: number, type: USER_FAVORITES_TYPE, value: string) => {
+    //     const res = await fetch('/api/favorites', {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({ userId, type, value })
+    //     });
+    //     const data = await res.json();
+    //     updateUserData({ id: String(userId), typeUpdate: UPDATE_USER_DATA_TYPE.FAVORITES, dataUpdate: value, favoriteAction: isFavorite ? USER_FAVORITES_ACTION.REMOVE : USER_FAVORITES_ACTION.ADD });
+    //     console.log(data);
+    // }
 
     useEffect(() => {
         const checkPrivilege = async () => {
@@ -170,7 +171,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             {isChanged ? saveArticleComponent : editArticleComponent}
             {isEditArticle && cancelEditArticleComponent}
         </div>
-    const previewArticleComponent =
+    const mediumArticleComponent =
         <div>
             <div className={`flex gap-4  w-full rounded ${rounded.medium} mb-2`}>
                 <h2 className={`flex text-2xl p-4 ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].container} font-bold mb-2`}>{article.title}</h2>
@@ -186,12 +187,6 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             </div>
 
             <div className={`flex items-center justify-between mt-4`}>
-                {/* <div className={`flex items-center`}>
-                    <Favorites isFavorite={isLiked}
-                        callBackIsFavorite={handleLike}
-                    />
-                    <span className="ml-2">{likesCount} {likesCount === 1 ? 'Like' : 'Likes'}</span>
-                </div> */}
                 {favoritesComponent}
                 <button
                     className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
@@ -200,6 +195,43 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                     read more
                 </button>
 
+            </div>
+
+        </div>
+
+    const previewArticleComponent =
+        <div
+            key={article.id}
+            className={`
+    grid grid-cols-[auto_1fr] gap-4 mb-4 p-2
+    ${THEME_COLOR_SCHEME[currentTheme].container}
+    ${rounded.high}
+  `}
+        >
+            <div
+                className={`
+      flex m-2 flex-col items-center gap-2
+      ${THEME_COLOR_SCHEME[currentTheme].elementAccent}
+      p-2 rounded ${rounded.high}
+    `}
+            >
+                <AuthorIcon className="w-30 h-30 fill-current" />
+                <h3 className={`${font.title.size.small} ${font.title.weigth.thin} ${font.title.curve.italic}`}>
+                    by {!article.author || article.author.length === 0 ? "Unknown Author" : article.author}
+                </h3>
+            </div>
+
+            <div className="flex flex-col gap-2 p-2">
+                <h3 className={`${font.title.size.small} ${font.title.weigth.medium} p-2`}>
+                    {article.title}
+                </h3>
+                <p className={`${font.text.size.medium} ${THEME_COLOR_SCHEME[currentTheme].text}`}>
+                    {cropContent(article.content, CROP_CONTAINER_SIZE.SMALL)}
+
+                </p>
+                <div>
+                    <p>{formattedDate}</p>
+                </div>
             </div>
 
         </div>
@@ -236,10 +268,6 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
             {isEditContent && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditContent(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditContent(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
         </div>
-        {/* <div className={`flex items-center`}>
-            <Favorites isFavorite={isLiked} callBackIsFavorite={() => currentAuthUser && currentAuthUser.id ? addToFavoritesHandler(Number(currentAuthUser.id), USER_FAVORITES_TYPE.ARTICLES, String(article.id)) : alert('User not authorized')} />
-            <span className="ml-2">{likesCount} {likesCount === 1 ? 'Like' : 'Likes'}</span>
-        </div> */}
         {favoritesComponent}
         <div>
             {userPrivilege &&
@@ -251,7 +279,9 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     // 
     return (
         <article key={article.id} className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 ${rounded.high} w-full  flex flex-col gap-2`}>
-            {typeArticle === ARTICLE_TYPE.PREVIEW ? previewArticleComponent : fullArticleComponent}
+            {typeArticle === ARTICLE_TYPE.PREVIEW && previewArticleComponent}
+            {typeArticle === ARTICLE_TYPE.MEDIUM && mediumArticleComponent}
+            {typeArticle === ARTICLE_TYPE.FULL && fullArticleComponent}
         </article>
 
     )

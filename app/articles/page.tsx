@@ -81,13 +81,13 @@ export default function Articles() {
                     <Article
                         key={article.id}
                         article={article}
-                        typeArticle={ARTICLE_TYPE.PREVIEW}
+                        typeArticle={ARTICLE_TYPE.MEDIUM}
                     />)}
                 {!loading && isSearchActive && searchedArticles.map((article) =>
                     <Article
                         key={article.id}
                         article={article}
-                        typeArticle={ARTICLE_TYPE.PREVIEW}
+                        typeArticle={ARTICLE_TYPE.MEDIUM}
                     />)}
             </div>
 

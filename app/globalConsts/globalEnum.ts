@@ -30,6 +30,7 @@ export enum ROLE_AUTH_USER_PRIVILEGE {
 
 export enum ARTICLE_TYPE {
 	PREVIEW = 'PREVIEW',
+	MEDIUM = 'MEDIUM',
 	FULL = 'FULL',
 }
 
