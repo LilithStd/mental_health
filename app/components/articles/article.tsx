@@ -130,15 +130,21 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         <span className="ml-2">{likesCount} {likesCount === 1 ? 'Like' : 'Likes'}</span>
     </div>
     const redirectButtonComponent = <div className={`flex items-center justify-end mt-4`}>
-
         <button
             className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
             onClick={() => router.push(`${APP_PATH_ROUTER.ARTICLES}/${article.id}`)}
         >
             read more
         </button>
-
     </div>
+    const interactionBlockComponent =
+        <div className={`flex items-center justify-between mt-4`}>
+            <div className={`flex justify-between  mt-4 `}>
+                <span className={`text-sm ${indents.text} ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].elementAccent} flex p-2 `}>{formattedDate}</span>
+            </div>
+            {favoritesComponent}
+            {redirectButtonComponent}
+        </div>
     const editArticleComponent =
         <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
             onClick={editArticleHandler}>
@@ -191,14 +197,14 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             <div>
                 <p>{cropContent(article.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
             </div>
-            <div className={`flex justify-between items-center mt-4 `}>
+            {/* <div className={`flex justify-between items-center mt-4 `}>
                 <span className={`text-sm ${indents.text} ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].elementAccent} flex p-2 `}>{formattedDate}</span>
-            </div>
-            <div className={`flex items-center justify-between mt-4`}>
+            </div> */}
+            {/* <div className={`flex items-center justify-between mt-4`}>
                 {favoritesComponent}
                 {redirectButtonComponent}
-            </div>
-
+            </div> */}
+            {interactionBlockComponent}
             {/* <div className={`flex items-center justify-between mt-4`}>
                 {favoritesComponent}
                 <button
@@ -242,14 +248,15 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                     {cropContent(article.content, CROP_CONTAINER_SIZE.SMALL)}
 
                 </p>
-                <div>
+                {/* <div>
                     <div className={`flex items-center justify-between mt-4 `}>
                         {favoritesComponent}
                         <p>{formattedDate}</p>
                     </div>
 
                     {redirectButtonComponent}
-                </div>
+                </div> */}
+                {interactionBlockComponent}
             </div>
 
         </div>
