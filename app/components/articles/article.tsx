@@ -141,14 +141,13 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                 <div className={`flex justify-center items-center ${rounded.circle} ${THEME_COLOR_SCHEME[currentTheme].subContainer} p-2`}>
                     <AuthorIcon className="w-30 h-30 fill-current" />
                 </div>
-
-
             </div>
             <div>
-                <h2 className={`flex h-fit text-2xl p-4 ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].subContainer} font-bold`}>{article.title}</h2>
-                <h3 className={`${font.title.size.small} ${font.title.weigth.thin} ${font.title.curve.italic}`}>
+                {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold" /> : <h2 className={`flex h-fit text-2xl p-4 ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].subContainer} font-bold`}>{article.title}</h2>}
+                {isEditTtitle && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditTitle(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditTitle(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
+                {isEditAuthor ? <input name="author" type="text" value={editAuthor} onChange={editAuthorHandler} className="text-xl " /> : <h3 className={`${font.title.size.small} ${font.title.weigth.thin} ${font.title.curve.italic}`}>
                     by {!article.author || article.author.length === 0 ? "Unknown Author" : article.author}
-                </h3>
+                </h3>}
                 <span className={`text-sm ${font.text.size.medium} ${font.title.weigth.thin} ${font.title.curve.italic} opacity-70`}>Created on: {formattedDate}</span>
             </div>
 
@@ -214,59 +213,26 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             {isEditArticle && cancelEditArticleComponent}
         </div>
     const mediumArticleComponent =
-        <div>
-            <div className={`flex gap-4  w-full rounded ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].container} mb-2`}>
+        <div className={`flex flex-col mb-4 p-2`}>
+            <div className={`flex  w-full rounded ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].container} `}>
                 {mainMetaDataArticleComponent}
 
             </div>
-            {/* <div>
-                <h2>Author: {!article.author || article.author === '' ? 'unknown' : article.author}</h2>
-            </div> */}
             <div>
                 <p>{cropContent(article.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
             </div>
-            {/* <div className={`flex justify-between items-center mt-4 `}>
-                <span className={`text-sm ${indents.text} ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].elementAccent} flex p-2 `}>{formattedDate}</span>
-            </div> */}
-            {/* <div className={`flex items-center justify-between mt-4`}>
-                {favoritesComponent}
-                {redirectButtonComponent}
-            </div> */}
             {interactionBlockComponent}
-            {/* <div className={`flex items-center justify-between mt-4`}>
-                {favoritesComponent}
-                <button
-                    className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
-                    onClick={() => router.push(`${APP_PATH_ROUTER.ARTICLES}/${article.id}`)}
-                >
-                    read more
-                </button>
-
-            </div> */}
-
         </div>
 
     const previewArticleComponent =
         <div
             key={article.id}
             className={`
-    grid grid-cols-[1fr_1fr] gap-4 mb-4 p-2
+    grid grid-cols-[1fr_1fr] mb-4 p-2
     ${THEME_COLOR_SCHEME[currentTheme].container}
     ${rounded.high}
   `}
         >
-            {/* <div
-                className={`
-      flex m-2 flex-col items-center gap-2
-      ${THEME_COLOR_SCHEME[currentTheme].elementAccent}
-      p-2 rounded ${rounded.high}
-    `}
-            >
-                <AuthorIcon className="w-30 h-30 fill-current" />
-                <h3 className={`${font.title.size.small} ${font.title.weigth.thin} ${font.title.curve.italic}`}>
-                    by {!article.author || article.author.length === 0 ? "Unknown Author" : article.author}
-                </h3>
-            </div> */}
             {mainMetaDataArticleComponent}
 
             <div className="flex flex-col gap-2 p-2">
@@ -278,21 +244,18 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             </div>
 
         </div>
-    const fullArticleComponent = <div>
-        <div className={`flex items-center justify-center gap-4`}>
-            {isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold" /> : <h1 className="text-3xl font-bold">{editTitle}</h1>}
-            {isEditTtitle && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditTitle(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditTitle(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
-        </div>
-        <div className={`flex items-center justify-center gap-4 mb-4`}>
-            {isEditAuthor ? <input name="author" type="text" value={editAuthor} onChange={editAuthorHandler} className="text-xl " /> : <h2 className="text-xl">By {editAuthor}</h2>}
-            {isEditAuthor && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditAuthor(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditAuthor(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
-        </div>
-        <div className={`flex flex-col items-center p-10  gap-4 mb-4`}>
-            {isEditContent ? (
-                <textarea
-                    value={editContent}
-                    onChange={editContentHandler}
-                    className="
+    const fullArticleComponent =
+        <div className={`flex flex-col mb-4 p-2`}>
+            <div className={`flex rounded ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].container} mb-2 w-full`}>
+                {mainMetaDataArticleComponent}
+
+            </div>
+            <div className={`flex flex-col items-center p-2 gap-4 mb-4`}>
+                {isEditContent ? (
+                    <textarea
+                        value={editContent}
+                        onChange={editContentHandler}
+                        className="
                                 w-full
                                 min-h-[300px]
                                 resize-none
@@ -302,26 +265,29 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                                 text-base
                                 leading-relaxed
                                 "
-                />
-            ) : (
-                <p className="whitespace-pre-wrap leading-relaxed">
-                    {editContent}
-                </p>
-            )}
+                    />
+                ) : (
+                    <p className="whitespace-pre-wrap leading-relaxed">
+                        {editContent}
+                    </p>
+                )}
 
-            {isEditContent && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditContent(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditContent(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
-        </div>
-        {favoritesComponent}
-        <div>
-            {userPrivilege &&
-                editArticleButtonsComponent
-            }
-        </div>
-        <span className={`text-sm ${font.text.size.medium} ${font.title.weigth.thin} ${font.title.curve.italic} opacity-50`}>Published  on: {formattedDate}</span>
-    </div>;
+                {isEditContent && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditContent(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditContent(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
+            </div>
+            <div className={`flex items-center justify-between p-2`}>
+                {favoritesComponent}
+            </div>
+
+            <div className={`flex items-center justify-end  p-2`}>
+                {userPrivilege &&
+                    editArticleButtonsComponent
+                }
+            </div>
+            <span className={`text-sm ${font.text.size.medium} ${font.title.weigth.thin} ${font.title.curve.italic} opacity-50 p-2`}>Published  on: {formattedDate}</span>
+        </div>;
     // 
     return (
-        <article key={article.id} className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 ${rounded.high} w-full  flex flex-col gap-2`}>
+        <article key={article.id} className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 ${rounded.high} max-w-6xl  flex flex-col gap-2`}>
             {typeArticle === ARTICLE_TYPE.PREVIEW && previewArticleComponent}
             {typeArticle === ARTICLE_TYPE.MEDIUM && mediumArticleComponent}
             {typeArticle === ARTICLE_TYPE.FULL && fullArticleComponent}

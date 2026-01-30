@@ -33,7 +33,7 @@ export default function RandomArticleBlock() {
   const formattedDate = (currentDate: string) => date(currentDate).toLocaleDateString('sv-SE');
 
   return (
-    <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 m-4 ${rounded.medium} w-full max-w-6xl`}>
+    <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 m-4 ${rounded.medium} max-w-6xl`}>
       <h2 className={`${font.title.size.medium} ${font.title.weigth.bold} ${THEME_COLOR_SCHEME[currentTheme].elementAccent} ${rounded.high} p-2 mb-4`}>Random Article</h2>
       <div>
         {loading ? (
