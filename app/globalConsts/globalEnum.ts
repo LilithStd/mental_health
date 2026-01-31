@@ -40,6 +40,11 @@ export enum USER_FAVORITES_TYPE {
 	NEWS = 'NEWS',
 }
 
+export enum TEST_TYPE {
+	PREVIEW = 'PREVIEW',
+	FULL = 'FULL',
+}
+
 export enum USER_FAVORITES_ACTION {
 	ADD = 'ADD',
 	REMOVE = 'REMOVE',
