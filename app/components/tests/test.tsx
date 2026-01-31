@@ -20,29 +20,38 @@ export default function Test({ name, type, group, testType }: TestProps) {
     const currentTheme = useGlobalStore((state) => state.currentTheme);
     // state 
     // components
-    const previewTestComponent = () => {
-        return (
+    const buttonReadMore =
+
+        <button className={`px-4 py-2 mt-4 cursor-pointer rounded-md ${THEME_COLOR_SCHEME[currentTheme].buttonContainer}`}>Read More</button>
+
+
+    const previewTestComponent =
+
+        <div className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 rounded-md  border-2`}>
             <div>
                 <h2>{name}</h2>
                 <p>Type: {type}</p>
                 <span>Group: {group}</span>
             </div>
-        )
-    }
-    const fullTestComponent = () => {
-        return (
-            <div>
-                <h2>{name}</h2>
-                <p>Type: {type}</p>
-                <span>Group: {group}</span>
-                <Form />
-            </div>
-        )
-    }
+
+            {buttonReadMore}
+        </div>
+
+
+    const fullTestComponent =
+
+        <div className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 rounded-md  border-2`}>
+            <h2>{name}</h2>
+            <p>Type: {type}</p>
+            <span>Group: {group}</span>
+            <Form />
+        </div>
+
+
     // functions
     return (
-        <div className={`flex flex-col border-2 p-4 m-4 ${THEME_COLOR_SCHEME[currentTheme].subContainer} rounded-md w-full ${sizes.width.maxWidth}`}>
-            {testType === TEST_TYPE.PREVIEW ? previewTestComponent() : fullTestComponent()}
+        <div className={`flex flex-col p-4 m-4  rounded-md ${sizes.width.maxWidth}`}>
+            {testType === TEST_TYPE.PREVIEW ? previewTestComponent : fullTestComponent}
         </div>
     )
 }
