@@ -19,8 +19,11 @@ async function ensureFile() {
 type ConsultationRequest = {
   id: number
   name: string
-  email: string
-  message: string
+    email: string
+    subject: string
+    phone: string
+    date: string
+    message: string
   createdAt: string
 }
 
@@ -29,9 +32,12 @@ export async function saveConsultation(formData: FormData) {
 
   const name = formData.get('name') as string
   const email = formData.get('email') as string
+  const subject = formData.get('subject') as string
+  const phone = formData.get('phone') as string
+  const date = formData.get('date') as string
   const message = formData.get('message') as string
 
-  if (!name || !email || !message) {
+  if (!name || !email || !subject || !phone || !date || !message) {
     throw new Error('Missing fields')
   }
 
@@ -42,6 +48,9 @@ export async function saveConsultation(formData: FormData) {
     id: Date.now(),
     name,
     email,
+    subject,
+    phone,
+    date,
     message,
     createdAt: new Date().toISOString(),
   }
