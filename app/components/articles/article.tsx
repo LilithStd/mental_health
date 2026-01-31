@@ -1,5 +1,5 @@
 'use client'
-import { font, indents, rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
+import { font, indents, rounded, sizes, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import Favorites from "../shared/favorites"
 import { useGlobalStore } from "@/app/store/globalStore"
 import { use, useEffect, useState, useTransition } from "react"
@@ -287,7 +287,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         </div>;
     // 
     return (
-        <article key={article.id} className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 ${rounded.high} max-w-6xl  flex flex-col gap-2`}>
+        <article key={article.id} className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 ${rounded.high} ${sizes.width.maxWidth}  flex flex-col gap-2`}>
             {typeArticle === ARTICLE_TYPE.PREVIEW && previewArticleComponent}
             {typeArticle === ARTICLE_TYPE.MEDIUM && mediumArticleComponent}
             {typeArticle === ARTICLE_TYPE.FULL && fullArticleComponent}

@@ -40,6 +40,16 @@ export const indents = {
 	
 };
 
+export const sizes = {
+	width:{
+		full: 'w-full',
+		maxWidth:'max-w-6xl'
+	},
+	height:{
+		full: 'h-full',
+	}
+}
+
 export const shadow = {
 	text: '',
 	title: '',
