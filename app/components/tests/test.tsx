@@ -1,6 +1,7 @@
 'use client'
 import { useGlobalStore } from "@/app/store/globalStore"
 import Favorites from "../shared/favorites"
+import { useRouter } from "next/navigation"
 import Form from "./form"
 import { sizes, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import { TEST_TYPE } from "@/app/globalConsts/globalEnum"
@@ -18,11 +19,18 @@ interface TestProps {
 export default function Test({ name, type, group, testType }: TestProps) {
     // stores
     const currentTheme = useGlobalStore((state) => state.currentTheme);
+    const router = useRouter();
+    const id = '1'
     // state 
     // components
     const buttonReadMore =
 
-        <button className={`px-4 py-2 mt-4 cursor-pointer rounded-md ${THEME_COLOR_SCHEME[currentTheme].buttonContainer}`}>Read More</button>
+        <button
+            className={`px-4 py-2 mt-4 cursor-pointer rounded-md ${THEME_COLOR_SCHEME[currentTheme].buttonContainer}`}
+            onClick={() => router.push(`/tests/${id}`)}
+        >
+            Read More
+        </button>
 
 
     const previewTestComponent =
@@ -33,7 +41,6 @@ export default function Test({ name, type, group, testType }: TestProps) {
                 <p>Type: {type}</p>
                 <span>Group: {group}</span>
             </div>
-
             {buttonReadMore}
         </div>
 
