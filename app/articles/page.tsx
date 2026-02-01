@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ARTICLE_TYPE, ROLE_AUTH_USER_PRIVILEGE } from "../globalConsts/globalEnum";
-import { indents, rounded, THEME_COLOR_SCHEME } from "../globalConsts/globalStyles";
+import { indents, rounded, sizes, THEME_COLOR_SCHEME } from "../globalConsts/globalStyles";
 import { canEditContent } from "../serverActions/permissions";
 import { useGlobalStore } from "../store/globalStore";
 import { useMockAuthStore } from "../store/mockAuthStore";
@@ -62,7 +62,7 @@ export default function Articles() {
     //     return <div>Загрузка...</div>
     // }
     return (
-        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main} gap-2 items-center `}>
+        <div className={`flex flex-col  ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main} gap-2 items-center `}>
             <Search callBackResultAfterSearch={setSearchedArticles} isSearchActive={setIsSearchActive} arrayForSearch={articles} />
             {currentAuthUser && userPrivilege && (
                 <div>
@@ -76,7 +76,7 @@ export default function Articles() {
                 </div>
 
             )}
-            <div className={`w-full grid grid-cols-1 md:grid-cols-2 gap-4  mb-4 max-w-6xl`}>
+            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4  mb-4 ${sizes.width.maxWidth}`}>
                 {loading ? <div>Loading...</div> : !isCreateArticleVisible && !isSearchActive && articles.map((article) =>
                     <Article
                         key={article.id}

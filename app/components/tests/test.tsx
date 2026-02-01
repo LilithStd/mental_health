@@ -3,7 +3,7 @@ import { useGlobalStore } from "@/app/store/globalStore"
 import Favorites from "../shared/favorites"
 import { useRouter } from "next/navigation"
 import Form from "./form"
-import { sizes, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
+import { rounded, sizes, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import { TEST_TYPE } from "@/app/globalConsts/globalEnum"
 import { TestType } from "@/app/tests/page"
 
@@ -34,8 +34,7 @@ export default function Test({ test, testType }: TestProps) {
 
 
     const previewTestComponent =
-
-        <div className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 rounded-md  border-2`}>
+        <div className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 ${rounded.high} border-2`}>
             <div>
                 <h2>{test.title[currentLanguage]}</h2>
                 <p>Type: {test.label}</p>
@@ -57,7 +56,7 @@ export default function Test({ test, testType }: TestProps) {
 
     // functions
     return (
-        <div className={`flex flex-col p-4 m-4  rounded-md ${sizes.width.maxWidth}`}>
+        <div className={`flex flex-col p-4 ${sizes.width.maxWidth}`}>
             {testType === TEST_TYPE.PREVIEW ? previewTestComponent : fullTestComponent}
         </div>
     )
