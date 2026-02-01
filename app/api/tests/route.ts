@@ -2,15 +2,30 @@ import { NextResponse } from 'next/server'
 import fs from 'fs'
 import path from 'path'
 
+type QuestionVariant = {
+    id:string
+    title:string
+    count:number
+}
+type Question = {
+    id:string
+    variant: QuestionVariant[]
+}
 
 type Test = {
   id: number
-  title: string
+  label: string
+  title: {
+    EN: string
+    RU: string
+    LV: string
+  }
   content: string
+  questions: Question[]
 }
 
-const dataDir = path.join(process.cwd(), 'data', 'articles')
-const filePath = path.join(dataDir, 'articles.json')
+const dataDir = path.join(process.cwd(), 'data', 'tests')
+const filePath = path.join(dataDir, 'tests.json')
 
 function ensureFileExists() {
   if (!fs.existsSync(dataDir)) {
@@ -28,22 +43,22 @@ export async function GET(req: Request) {
   const id = searchParams.get('id')
 
   const raw = fs.readFileSync(filePath, 'utf-8')
-  const articles: Test[] = JSON.parse(raw)
+  const tests: Test[] = JSON.parse(raw)
 
   // 👉 Получение одной статьи
   if (id) {
-    const article = articles.find(a => a.id === Number(id))
+    const test = tests.find(a => a.id === Number(id))
 
-    if (!article) {
+    if (!test) {
       return NextResponse.json(
-        { error: 'Article not found' },
+        { error: 'Test not found' },
         { status: 404 }
       )
     }
 
-    return NextResponse.json({ article })
+    return NextResponse.json({ test: test })
   }
 
   // 👉 Получение всех статей
-  return NextResponse.json({ articles })
+  return NextResponse.json({ tests: tests })
 }

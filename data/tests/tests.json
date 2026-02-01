@@ -1,8 +1,8 @@
 [
     {
 		
-		"id": "Depressive",
-        "label": "Depressive",
+		"id": 1769454841360,
+		"label": "DEPRESSION",
 		"title": {
             "EN": "Depressive",
             "RU": "Депрессивные расстройства",
@@ -78,8 +78,8 @@
 
 	},
 	{
-		"id": "Shizofrenija",
-        "label": "Shizofrenija",
+		"id": 1769454841361,
+        "label": "SHIZOPHRENIA",
 		"title": {
             "EN": "Schizophrenia",
             "RU": "Шизофрения",
@@ -155,8 +155,8 @@
 
 	},
 	{
-		"id": "Trevor",
-        "label": "Trevor",
+		"id": 1769454841362,
+        "label": "TREVOR",
 		"title": {
             "EN": "Trevor",
             "RU": "Тревор",
@@ -232,8 +232,8 @@
 
 	},
 	{
-		"id": "Autism",
-        "label": "Autism",
+		"id": 1769454841363,
+        "label": "AUTISM",
 		"title": {
             "EN": "Autism",
             "RU": "Аутизм",
@@ -309,7 +309,7 @@
 
 	},
 	{
-		"id": "STRESS",
+		"id": 1769454841364,
         "label": "STRESS",
 		"title": {
             "EN": "Stress Disorders",
@@ -386,8 +386,8 @@
 
 	},
 	{
-		"id": "Dementia",
-        "label": "Dementia",
+		"id": 1769454841365,
+        "label": "DEMENTIA",
 		"title": {
             "EN": "Dementia",
             "RU": "Деменция",
