@@ -13,8 +13,8 @@ type QuestionVariant = {
     count: number
 }
 type Question = {
-    id: string
-    variant: QuestionVariant[]
+    title: string
+    variants: QuestionVariant[]
 }
 
 export type TestType = {

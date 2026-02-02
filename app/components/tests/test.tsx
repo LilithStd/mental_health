@@ -48,12 +48,15 @@ export default function Test({ test, testType }: TestProps) {
 
         <div className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 rounded-md  border-2 grid gap-4 grid-cols-2`}>
             <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium}  p-4`}>
-                <h2>{test.title[currentLanguage]}</h2>
-                <p>Type: {test.label}</p>
-                <span>Group: {test.content}</span>
+                <div className={`flex flex-col mb-4 ${THEME_COLOR_SCHEME[currentTheme].subContainer} ${rounded.medium} p-4`}>
+                    <h2>{test.title[currentLanguage]}</h2>
+                    <p>Type: {test.label}</p>
+                </div>
+
+                <span>Description: {test.content}</span>
             </div>
             <div className={`flex justify-center  ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} p-4`}>
-                <Form />
+                <Form test={test} />
             </div>
 
         </div>

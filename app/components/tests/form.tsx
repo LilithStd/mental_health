@@ -1,39 +1,30 @@
 'use client'
 
-export default function Form() {
+import { TestType } from "@/app/tests/page"
+
+interface FormProps {
+    test: TestType
+}
+
+export default function Form({ test }: FormProps) {
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
-
-        const formData = new FormData(e.currentTarget)
-
-        const res = await fetch('/api/test', {
-            method: 'POST',
-            body: formData,
-        })
-
-        const data = await res.json()
-        console.log(data)
     }
     return (
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-sm">
+        <form onSubmit={handleSubmit} className={`flex flex-col gap-4 `}>
             <h1 className="text-lg font-bold">Выберите вариант:</h1>
-
-            <label>
-                <input type="radio" name="answer" value="variant_1" required />
-                Вариант 1
-            </label>
-
-            <label>
-                <input type="radio" name="answer" value="variant_2" />
-                Вариант 2
-            </label>
-
-            <label>
-                <input type="radio" name="answer" value="variant_3" />
-                Вариант 3
-            </label>
-
+            {test.questions.map((question) => (
+                <div key={question.title} className="flex flex-col gap-2">
+                    <h2>{question.title}</h2>
+                    {question.variants.map((variant) => (
+                        <label key={variant.id}>
+                            <input type="radio" name={question.title} value={variant.count} required />
+                            {variant.title}
+                        </label>
+                    ))}
+                </div>
+            ))}
             <button
                 type="submit"
                 className="bg-black text-white px-4 py-2 rounded"
