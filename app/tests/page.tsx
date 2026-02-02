@@ -45,7 +45,7 @@ export default function Tests() {
     }, [])
 
     return (
-        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main} items-center text-center`}>
+        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main} items-center`}>
             {/* <Search /> */}
             <h2>Tests Page</h2>
             <div className={`grid grid-cols-1 md:grid-cols-2 gap-4  mb-4 ${sizes.width.maxWidth}`}>

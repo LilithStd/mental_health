@@ -52,7 +52,7 @@ export default function Test({ test, testType }: TestProps) {
                 <p>Type: {test.label}</p>
                 <span>Group: {test.content}</span>
             </div>
-            <div className={`flex justify-center items-center ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} p-4`}>
+            <div className={`flex justify-center  ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} p-4`}>
                 <Form />
             </div>
 
