@@ -6,6 +6,7 @@ import Form from "./form"
 import { rounded, sizes, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import { TEST_TYPE } from "@/app/globalConsts/globalEnum"
 import { TestType } from "@/app/tests/page"
+import { useState } from "react"
 
 
 interface TestProps {
@@ -22,6 +23,7 @@ export default function Test({ test, testType }: TestProps) {
     const router = useRouter();
     // const id = '1'
     // state 
+    const [testResult, setTestResult] = useState<string | null>(null)
     // components
     const buttonReadMore =
 
@@ -54,9 +56,15 @@ export default function Test({ test, testType }: TestProps) {
                 </div>
 
                 <span>Description: {test.content}</span>
+                {testResult && (
+                    <div className={`col-span-2 flex flex-col  ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} p-4`}>
+                        <h2>Your Result:</h2>
+                        <p>{testResult}</p>
+                    </div>
+                )}
             </div>
             <div className={`flex justify-center  ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} p-4`}>
-                <Form test={test} />
+                <Form test={test} formResult={setTestResult} />
             </div>
 
         </div>

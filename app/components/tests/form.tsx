@@ -1,23 +1,37 @@
 'use client'
 
 import { rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
+import { calcTestResult } from "@/app/serverActions/calcTestResult";
 import { useGlobalStore } from "@/app/store/globalStore";
 import { TestType } from "@/app/tests/page"
+import { useRef, useState } from "react";
+import { useFormState } from "react-dom";
+
 
 interface FormProps {
-    test: TestType
+    test: TestType,
+    formResult: (result: string) => void
 }
 
-export default function Form({ test }: FormProps) {
+export default function Form({ test, formResult }: FormProps) {
     // stores
     const currentTheme = useGlobalStore((state) => state.currentTheme);
+    // const [state, formAction] = useFormState(calcTestResult, null)
+    const [result, setResult] = useState<string | null>(null)
+
     // components
-    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault()
+    const ref = useRef<HTMLFormElement>(null)
+    async function action(formData: FormData) {
+        await calcTestResult(formData)
+        const data = await calcTestResult(formData)
+        setResult(data.result)
+        formResult(data.result)
+        ref.current?.reset()
+        alert('Request sent!')
     }
     return (
 
-        <form onSubmit={handleSubmit} className={`flex flex-col justify-center items-center w-full gap-4 `}>
+        <form action={action} ref={ref} className={`flex flex-col justify-center items-center w-full gap-4 `}>
             <h1 className="text-lg font-bold">Выберите вариант:</h1>
             {test.questions.map((question) => (
                 <div key={question.title} className="flex justify-center items-center flex-col gap-2">
