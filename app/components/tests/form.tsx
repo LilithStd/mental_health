@@ -10,10 +10,11 @@ import { useFormState } from "react-dom";
 
 interface FormProps {
     test: TestType,
-    formResult: (result: string) => void
+    formResult: (result: string) => void,
+    openModalCallback: () => void
 }
 
-export default function Form({ test, formResult }: FormProps) {
+export default function Form({ test, formResult, openModalCallback }: FormProps) {
     // stores
     const currentTheme = useGlobalStore((state) => state.currentTheme);
     // const [state, formAction] = useFormState(calcTestResult, null)
@@ -26,8 +27,8 @@ export default function Form({ test, formResult }: FormProps) {
         const data = await calcTestResult(formData)
         setResult(data.result)
         formResult(data.result)
+        openModalCallback()
         ref.current?.reset()
-        alert('Request sent!')
     }
     return (
 

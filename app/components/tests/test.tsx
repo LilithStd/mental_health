@@ -7,6 +7,8 @@ import { rounded, sizes, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalSty
 import { TEST_TYPE } from "@/app/globalConsts/globalEnum"
 import { TestType } from "@/app/tests/page"
 import { useState } from "react"
+import ModalWindowMain from "../modalWindowMain"
+import TestModalWindow from "./testModalWindow"
 
 
 interface TestProps {
@@ -24,6 +26,15 @@ export default function Test({ test, testType }: TestProps) {
     // const id = '1'
     // state 
     const [testResult, setTestResult] = useState<string | null>(null)
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    // functions
+    const onCloseModal = () => {
+        setIsModalOpen(false);
+        setTestResult(null);
+    }
+    const onOpenModal = () => {
+        setIsModalOpen(true);
+    }
     // components
     const buttonReadMore =
 
@@ -64,7 +75,7 @@ export default function Test({ test, testType }: TestProps) {
                 )}
             </div>
             <div className={`flex justify-center  ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} p-4`}>
-                <Form test={test} formResult={setTestResult} />
+                <Form test={test} formResult={setTestResult} openModalCallback={onOpenModal} />
             </div>
 
         </div>
@@ -74,6 +85,11 @@ export default function Test({ test, testType }: TestProps) {
     return (
         <div className={`flex flex-col p-4 ${sizes.width.maxWidth}`}>
             {testType === TEST_TYPE.PREVIEW ? previewTestComponent : fullTestComponent}
+            {testResult && isModalOpen &&
+                <ModalWindowMain openStatusCallBack={isModalOpen} closeStatusCallBack={() => setIsModalOpen(false)}>
+                    <TestModalWindow result={testResult} onCloseCallback={onCloseModal} />
+                </ModalWindowMain>
+            }
         </div>
     )
 }

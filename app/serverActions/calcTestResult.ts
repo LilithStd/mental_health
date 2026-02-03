@@ -3,7 +3,6 @@
 
 export async function calcTestResult(formData: FormData) {
   const answers = Object.fromEntries(formData)
-console.log(answers)
   let total = 0
     
   for (const key in answers) {
