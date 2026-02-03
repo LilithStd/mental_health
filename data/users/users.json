@@ -6,8 +6,19 @@
     "role": "USER",
     "privilege": "READ_ONLY",
     "favorites": {
-      "TESTS": []
-
+      "TESTS": [],
+      "SavedTestResult": [
+        {
+          "testId": "DEPRESSION",
+          "date": "2026-02-03T21:00:14.403Z",
+          "result": "LOW"
+        },
+        {
+          "testId": "DEPRESSION",
+          "date": "2026-02-03T21:00:32.661Z",
+          "result": "LOW"
+        }
+      ]
     }
   },
   {

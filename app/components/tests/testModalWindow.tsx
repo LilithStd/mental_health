@@ -19,13 +19,22 @@ export default function TestModalWindow({ result, testId, onCloseCallback }: Tes
     const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
     // functions
     const saveResultTest = async () => {
-        if (!currentAuthUser) return
+        if (!currentAuthUser || !currentAuthUser.id) {
+            alert('You must be logged in to save test results.');
+            return;
+        }
+        const res = await fetch('/api/saveResultUserTest', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                testId: testId,
+                userId: currentAuthUser.id,
+                resultCount: result
+            }),
+        })
 
-        // await saveUserTestResult(
-        //     Number(currentAuthUser.id),
-        //     testId,
-        //     result
-        // )
+        const data = await res.json()
+        console.log(data)
 
         onCloseCallback()
     }

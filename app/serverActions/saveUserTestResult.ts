@@ -20,14 +20,25 @@ type TestResult = {
     favorites: USER_FAVORITES
   }
 
-const usersPath = path.join(process.cwd(), 'data', 'users.json')
+const dataDir = path.join(process.cwd(), 'data', 'users')
+const filePath = path.join(dataDir, 'users.json')
+
+async function ensureFile() {
+  await fs.mkdir(dataDir, { recursive: true })
+  try {
+    await fs.access(filePath)
+  } catch {
+    await fs.writeFile(filePath, '[]', 'utf-8')
+  }
+}
 
 export async function saveUserTestResult(
     userId: number,
     testId: number,
     result: string
     ) {
-    const file = await fs.readFile(usersPath, 'utf-8')
+    await ensureFile()
+    const file = await fs.readFile(filePath, 'utf-8')
     const users = JSON.parse(file)
 
     const userIndex = users.findIndex((u: User) => u.id === userId)
@@ -47,7 +58,7 @@ export async function saveUserTestResult(
 
     users[userIndex].favorites.SavedTestResult.push({ testId, date: new Date().toISOString(), result })
 
-    await fs.writeFile(usersPath, JSON.stringify(users, null, 2))
+    await fs.writeFile(filePath, JSON.stringify(users, null, 2))
 
     return { success: true }
 }

@@ -96,21 +96,21 @@ export async function addUserFavorite(
   return user
 }
 
-export async function saveUserTestResult(
-  userId: number,
-  testId: string,
-  result: string
-) {
-  const users = await readUsers()
-  const user = users.find(u => u.id === userId)
-  if (!user) return null
-  const record = `${testId}:${result}`
-  if (!user.favorites.SavedTestResult.includes(record)) {
-    user.favorites.SavedTestResult.push(record)
-    await writeUsers(users)
-  }
-  return user
-}
+// export async function saveUserTestResult(
+//   userId: number,
+//   testId: string,
+//   result: string
+// ) {
+//   const users = await readUsers()
+//   const user = users.find(u => u.id === userId)
+//   if (!user) return null
+//   const record = `${testId}:${result}`
+//   if (!user.favorites.SavedTestResult.includes(record)) {
+//     user.favorites.SavedTestResult.push(record)
+//     await writeUsers(users)
+//   }
+//   return user
+// }
 
 export async function removeUserFavorite(
   userId: number,
