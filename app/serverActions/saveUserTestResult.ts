@@ -24,8 +24,7 @@ const usersPath = path.join(process.cwd(), 'data', 'users.json')
 
 export async function saveUserTestResult(
     userId: number,
-    testId: string,
-    date: string,
+    testId: number,
     result: string
     ) {
     const file = await fs.readFile(usersPath, 'utf-8')
@@ -46,7 +45,7 @@ export async function saveUserTestResult(
         users[userIndex].favorites.SavedTestResult = []
     }
 
-    users[userIndex].favorites.SavedTestResult.push({ testId, date, result })
+    users[userIndex].favorites.SavedTestResult.push({ testId, date: new Date().toISOString(), result })
 
     await fs.writeFile(usersPath, JSON.stringify(users, null, 2))
 

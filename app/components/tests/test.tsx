@@ -81,7 +81,7 @@ export default function Test({ test, testType }: TestProps) {
             {testType === TEST_TYPE.PREVIEW ? previewTestComponent : fullTestComponent}
             {testResult && isModalOpen &&
                 <ModalWindowMain openStatusCallBack={isModalOpen} closeStatusCallBack={() => setIsModalOpen(false)}>
-                    <TestModalWindow result={testResult} onCloseCallback={onCloseModal} />
+                    <TestModalWindow result={testResult} onCloseCallback={onCloseModal} testId={test.label} />
                 </ModalWindowMain>
             }
         </div>
