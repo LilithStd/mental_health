@@ -11,9 +11,18 @@ export default function CurrentUser({ id }: UserProps) {
     const currentUsers = useAuthorizationStore((state) => state.currentAuthUser);
     const currentTheme = useGlobalStore((state) => state.currentTheme);
     // 
+
+    console.log('Current User Component - currentUsers:', currentUsers);
+    // components
+    const userTestResults = <div>
+        <h2>User Test Results:</h2>
+    </div>
+    // functions
+
+
     return (
         <div>
-            {currentUsers && currentUsers.id === id ? (
+            {currentUsers && currentUsers.id ? (
                 <div>
                     <p>User ID: {currentUsers.id}</p>
                     <p>Current Auth User Email: {currentUsers ? currentUsers.email : 'No user authenticated'}</p>

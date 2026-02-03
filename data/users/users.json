@@ -17,6 +17,11 @@
           "testId": "DEPRESSION",
           "date": "2026-02-03T21:00:32.661Z",
           "result": "LOW"
+        },
+        {
+          "testId": "DEPRESSION",
+          "date": "2026-02-03T21:05:41.295Z",
+          "result": "MEDIUM"
         }
       ]
     }
