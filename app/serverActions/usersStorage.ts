@@ -2,20 +2,18 @@ import fs from 'fs/promises'
 import path from 'path'
 import { ROLE_AUTHORIZED_USER, ROLE_AUTH_USER_PRIVILEGE } from '@/app/globalConsts/globalEnum'
 
-export type USER_FAVORITES = {
-  ARTICLES: string[]
-  TESTS: string[]
-  NEWS: string[]
-}
+  export type USER_FAVORITES = {
+    SavedTestResult: string[]
+  }
 
-export type User = {
-  id: number
-  email: string
-  password: string
-  role: ROLE_AUTHORIZED_USER
-  privilege: ROLE_AUTH_USER_PRIVILEGE
-  favorites: USER_FAVORITES
-}
+  export type User = {
+    id: number
+    email: string
+    password: string
+    role: ROLE_AUTHORIZED_USER
+    privilege: ROLE_AUTH_USER_PRIVILEGE
+    favorites: USER_FAVORITES
+  }
 
 const dataDir = path.join(process.cwd(), 'data', 'users')
 const filePath = path.join(dataDir, 'users.json')
@@ -62,7 +60,7 @@ export async function createUser(email: string, password: string) {
     password,
     role: ROLE_AUTHORIZED_USER.USER,
     privilege: ROLE_AUTH_USER_PRIVILEGE.READ_ONLY,
-    favorites: { ARTICLES: [], TESTS: [], NEWS: [] }
+    favorites: { SavedTestResult: [] }
   }
 
   users.push(newUser)
@@ -95,6 +93,22 @@ export async function addUserFavorite(
     await writeUsers(users)
   }
 
+  return user
+}
+
+export async function saveUserTestResult(
+  userId: number,
+  testId: string,
+  result: string
+) {
+  const users = await readUsers()
+  const user = users.find(u => u.id === userId)
+  if (!user) return null
+  const record = `${testId}:${result}`
+  if (!user.favorites.SavedTestResult.includes(record)) {
+    user.favorites.SavedTestResult.push(record)
+    await writeUsers(users)
+  }
   return user
 }
 

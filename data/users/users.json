@@ -6,11 +6,8 @@
     "role": "USER",
     "privilege": "READ_ONLY",
     "favorites": {
-      "ARTICLES": [
-        "1768852275399"
-      ],
-      "TESTS": [],
-      "NEWS": []
+      "TESTS": []
+
     }
   },
   {
@@ -20,9 +17,7 @@
     "role": "USER",
     "privilege": "READ_ONLY",
     "favorites": {
-      "ARTICLES": [],
-      "TESTS": [],
-      "NEWS": []
+      "TESTS": []
     }
   }
 ]
