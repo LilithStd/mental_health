@@ -2,6 +2,7 @@
 
 import { rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import { calcTestResult } from "@/app/serverActions/calcTestResult";
+import { useAuthorizationStore } from "@/app/store/authorizationStore";
 import { useGlobalStore } from "@/app/store/globalStore";
 import { TestType } from "@/app/tests/page"
 import { useRef, useState } from "react";
@@ -17,19 +18,20 @@ interface FormProps {
 export default function Form({ test, formResult, openModalCallback }: FormProps) {
     // stores
     const currentTheme = useGlobalStore((state) => state.currentTheme);
+    const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
     // const [state, formAction] = useFormState(calcTestResult, null)
-    const [result, setResult] = useState<string | null>(null)
+
 
     // components
     const ref = useRef<HTMLFormElement>(null)
     async function action(formData: FormData) {
         await calcTestResult(formData)
         const data = await calcTestResult(formData)
-        setResult(data.result)
         formResult(data.result)
         openModalCallback()
         ref.current?.reset()
     }
+
     return (
 
         <form action={action} ref={ref} className={`flex flex-col justify-center items-center w-full gap-4 `}>

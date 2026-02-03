@@ -67,12 +67,6 @@ export default function Test({ test, testType }: TestProps) {
                 </div>
 
                 <span>Description: {test.content}</span>
-                {testResult && (
-                    <div className={`col-span-2 flex flex-col  ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} p-4`}>
-                        <h2>Your Result:</h2>
-                        <p>{testResult}</p>
-                    </div>
-                )}
             </div>
             <div className={`flex justify-center  ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} p-4`}>
                 <Form test={test} formResult={setTestResult} openModalCallback={onOpenModal} />
