@@ -1,1 +1,9 @@
-[]
+[
+    {
+         "id": 123,
+         "title": "Mental Health Awareness Month: Breaking the Stigma",
+         "content": "May is Mental Health Awareness Month, a time to raise awareness about mental health issues and break the stigma surrounding them.",
+         "createdAt": "2024-05-01",
+         "link": "https://www.mentalhealth.org/mental-health-awareness-month"
+    }
+]
