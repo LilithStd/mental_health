@@ -5,6 +5,7 @@ import { pickRandomUnique } from "@/app/helpers/helpersFunctions";
 import { useGlobalStore } from "@/app/store/globalStore";
 import { useEffect, useState } from "react";
 import News, { NewsType } from "../news/news";
+import { NEWS_TYPE } from "@/app/globalConsts/globalEnum";
 
 
 
@@ -33,7 +34,7 @@ export default function RandomNewsBlock() {
                 <div>Loading...</div>
             ) : (
                 news.map((item) => (
-                    <News key={item.id} news={item} />
+                    <News key={item.id} news={item} typeNews={NEWS_TYPE.PREVIEW} />
                 ))
             )}
         </div>

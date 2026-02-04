@@ -54,6 +54,11 @@ export enum TEST_TYPE {
 	FULL = 'FULL',
 }
 
+export enum NEWS_TYPE {
+	PREVIEW = 'PREVIEW',
+	FULL = 'FULL',
+}
+
 export enum USER_FAVORITES_ACTION {
 	ADD = 'ADD',
 	REMOVE = 'REMOVE',
