@@ -24,7 +24,6 @@ export default function CurrentUser({ id }: UserProps) {
         <div>
             {currentUsers && currentUsers.id ? (
                 <div>
-                    <p>User ID: {currentUsers.id}</p>
                     <p>Current Auth User Email: {currentUsers ? currentUsers.email : 'No user authenticated'}</p>
                 </div>
             ) : <p>No user authenticated with this ID.</p>}

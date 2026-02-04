@@ -2,15 +2,16 @@
 
 import Favorites from "../shared/favorites"
 
-type NewsTypes = {
-    id: string
+export type NewsType = {
+    id: number
     title: string
     content: string
-    date: string
+    createdAt: string
+    link: string
 }
 
 interface NewsProps {
-    news: NewsTypes
+    news: NewsType
 }
 export default function News({ news }: NewsProps) {
     // states
@@ -21,11 +22,10 @@ export default function News({ news }: NewsProps) {
     // components
     //  
     return (
-        <div>
-            <h2>{news.title}</h2>
+        <div key={news.id} className="mb-4">
+            <h3 className="font-bold">{news.title}</h3>
             <p>{news.content}</p>
-            <span>{news.date}</span>
-            <Favorites isFavorite={false} />
+            <a href={news.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">Read more</a>
         </div>
     )
 }
