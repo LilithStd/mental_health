@@ -33,15 +33,15 @@ export async function GET(req: Request) {
   // 👉 Получение одной статьи
   if (id) {
     const newsItem = news.find(a => a.id === Number(id))
-
+    
     if (!newsItem) {
       return NextResponse.json(
-        { error: 'Article not found' },
+        { error: 'News not found' },
         { status: 404 }
       )
     }
-
-    return NextResponse.json({ newsItem })
+    
+    return NextResponse.json({ news: newsItem })
   }
 
   // 👉 Получение всех статей

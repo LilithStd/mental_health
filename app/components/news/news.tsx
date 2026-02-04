@@ -6,6 +6,7 @@ import { cropContent } from "@/app/helpers/helpersFunctions"
 import { CROP_CONTAINER_SIZE } from "@/app/globalConsts/globalConsts"
 import { useGlobalStore } from "@/app/store/globalStore"
 import { rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
+import { useRouter } from "next/navigation"
 
 export type NewsType = {
     id: number
@@ -20,6 +21,7 @@ interface NewsProps {
     typeNews: NEWS_TYPE
 }
 export default function News({ news, typeNews }: NewsProps) {
+    const router = useRouter();
     // stores
     const currentTheme = useGlobalStore((state) => state.currentTheme);
     // 
@@ -33,7 +35,7 @@ export default function News({ news, typeNews }: NewsProps) {
         <h3 className="font-bold">{news.title}</h3>
         <p>{cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
         <div className={`flex w-full justify-end`}>
-            <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} p-2 ${rounded.medium}  flex justify-center items-center`} onClick={() => { }}>read full news</button>
+            <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} p-2 ${rounded.medium}  flex justify-center items-center`} onClick={() => { router.push(`/news/${news.id}`) }}>read full news</button>
         </div>
 
     </div>
