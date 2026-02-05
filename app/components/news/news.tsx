@@ -39,14 +39,14 @@ export default function News({ news, typeNews }: NewsProps) {
         </div>
 
     </div>
-    const fullNewsComponent = <div className={`flex w-full flex-col mb-4 p-2`}>
+    const fullNewsComponent = <div className={`flex w-full flex-col mb-4 p-2 ${THEME_COLOR_SCHEME[currentTheme].subContainer} ${rounded.medium}`}>
         <h3 className="font-bold">{news.title}</h3>
         <p>{news.content}</p>
-        <a href={news.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">Read more</a>
+        <a href={news.link} target="_blank" rel="noopener noreferrer" className=" underline">Read more</a>
     </div>
     //  
     return (
-        <div className={`flex flex-col mb-4 p-2 w-full`}>
+        <div className={`flex flex-col mb-4 p-2 w-full  ${rounded.medium}`}>
             {typeNews === NEWS_TYPE.PREVIEW ? previewNewsComponent : fullNewsComponent}
         </div>
     )

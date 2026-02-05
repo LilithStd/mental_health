@@ -10,11 +10,14 @@ export default function ListLinks() {
     const currentLanguage = useGlobalStore((state) => state.currentLanguage)
     const currentTheme = useGlobalStore((state) => state.currentTheme)
     const pathname = usePathname();
-
+    const isLinkActive = (path: string) => {
+        if (path === '/') return pathname === '/';
+        return pathname === path || pathname.startsWith(path + '/');
+    };
     return (
         <div className="flex m-10 w-full items-center justify-center">
             {LINKS.map((link) => {
-                const isActive = pathname === link.path;
+                const isActive = isLinkActive(link.path);
 
                 return (
                     <Link
