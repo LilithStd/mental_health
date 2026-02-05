@@ -31,7 +31,7 @@ export default function News({ news, typeNews }: NewsProps) {
     // handlers
     //
     // components
-    const previewNewsComponent = <div className={`flex w-full flex-col mb-4 p-2`}>
+    const previewNewsComponent = <div className={`flex w-full flex-col mb-4 p-2 ${THEME_COLOR_SCHEME[currentTheme].subContainer} ${rounded.medium}`}>
         <h3 className="font-bold">{news.title}</h3>
         <p>{cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
         <div className={`flex w-full justify-end`}>
