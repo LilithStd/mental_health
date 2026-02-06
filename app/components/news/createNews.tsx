@@ -9,6 +9,9 @@ export default function CreateNews() {
     // state
     // functions
     // handlers
+    const handlePreviewNews = () => {
+
+    }
     //
     // components 
     const previewNewsComponent = <div>
