@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Search from "../components/shared/search";
 import { THEME_COLOR_SCHEME, rounded, indents } from "../globalConsts/globalStyles";
 import { useGlobalStore } from "../store/globalStore";
@@ -9,6 +10,7 @@ import { NEWS_TYPE } from "../globalConsts/globalEnum";
 import { canEditContent } from "../serverActions/permissions";
 import { useAuthorizationStore } from "../store/authorizationStore";
 import CreateNews from "../components/news/createNews";
+import { routes } from "../helpers/helpersFunctions";
 
 
 export default function AllNews() {
@@ -21,6 +23,8 @@ export default function AllNews() {
     const [news, setNews] = useState<NewsType[]>([])
     const [loading, setLoading] = useState(true)
     // functions
+    // consts
+    const router = useRouter()
 
     useEffect(() => {
         fetch('/api/news')
@@ -45,7 +49,7 @@ export default function AllNews() {
                 <div>
                     <div>
                         {userPrivilege && (
-                            <button className={`p-2 mb-4 ${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium}`} onClick={() => setIsCreateArticleVisible(true)}>
+                            <button className={`p-2 mb-4 ${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium}`} onClick={() => router.push(routes.news.create())}>
                                 Create News
                             </button>
                         )}
