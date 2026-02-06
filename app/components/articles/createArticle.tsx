@@ -3,10 +3,10 @@
 import { THEME_COLOR_SCHEME, rounded } from "@/app/globalConsts/globalStyles";
 import { useGlobalStore } from "@/app/store/globalStore";
 
-interface CreateArticleProps {
-    onClose(): void
-}
-export default function CreateArticle({ onClose }: CreateArticleProps) {
+// interface CreateArticleProps {
+
+// }
+export default function CreateArticle() {
     //stores
     const currentTheme = useGlobalStore((state) => state.currentTheme);
     // 
@@ -25,7 +25,7 @@ export default function CreateArticle({ onClose }: CreateArticleProps) {
         console.log(data)
 
         form.reset() // очищаем форму
-        onClose()
+        // onClose()
     }
 
     return (
@@ -54,7 +54,7 @@ export default function CreateArticle({ onClose }: CreateArticleProps) {
                 className={`border p-2 h-32 ${THEME_COLOR_SCHEME[currentTheme].input} ${rounded.medium}`}
             />
             <div className={`flex w-full gap-4`}>
-                <button onClick={onClose} className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} py-2 ${rounded.medium} flex-1`}>Cancel</button>
+                <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} py-2 ${rounded.medium} flex-1`}>Cancel</button>
                 <button
                     type="submit"
                     className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} py-2 ${rounded.medium} flex-1`}

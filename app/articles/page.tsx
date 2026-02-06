@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { ARTICLE_TYPE, ROLE_AUTH_USER_PRIVILEGE } from "../globalConsts/globalEnum";
 import { indents, rounded, sizes, THEME_COLOR_SCHEME } from "../globalConsts/globalStyles";
 import { canEditContent } from "../serverActions/permissions";
@@ -10,6 +11,7 @@ import Search from "../components/shared/search";
 import CreateArticle from "../components/articles/createArticle";
 import Article from "../components/articles/article";
 import { useAuthorizationStore } from "../store/authorizationStore";
+import { routes } from "../helpers/helpersFunctions";
 
 export type ArticleType = {
     id: number
@@ -35,6 +37,9 @@ export default function Articles() {
     const CloseFormHandler = () => {
         setIsCreateArticleVisible(false);
     }
+    //functions
+    // const 
+    const route = useRouter()
 
 
 
@@ -69,11 +74,11 @@ export default function Articles() {
                 <div>
 
                     {
-                        !isCreateArticleVisible && <button className={` ${THEME_COLOR_SCHEME[currentTheme].buttonContainer} p-2 rounded ${rounded.medium}`} onClick={() => setIsCreateArticleVisible(true)}>New Articles</button>
+                        !isCreateArticleVisible && <button className={` ${THEME_COLOR_SCHEME[currentTheme].buttonContainer} p-2 rounded ${rounded.medium}`} onClick={() => route.push(routes.articles.create())}>New Articles</button>
                     }
 
 
-                    {isCreateArticleVisible && <CreateArticle onClose={CloseFormHandler} />}
+                    {/* {isCreateArticleVisible && <CreateArticle />} */}
                 </div>
 
             )}

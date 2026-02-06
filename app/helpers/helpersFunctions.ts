@@ -1,3 +1,6 @@
+import { create } from "domain"
+import { APP_PATH_ROUTER } from "../globalConsts/globalEnum"
+
 const normalize = (str: string) =>
   str
     .toLowerCase()
@@ -51,4 +54,26 @@ export function pickRandomUnique<T>(array: T[], count: number): T[] {
   }
 
   return result.slice(0, count);
+}
+
+
+export const routes = {
+  articles: {
+    root: APP_PATH_ROUTER.ARTICLES,
+    create: () => `${APP_PATH_ROUTER.ARTICLES}/create`,
+    byId: (id: number | string) => `${APP_PATH_ROUTER.ARTICLES}/${id}`,
+    edit: (id: number | string) => `${APP_PATH_ROUTER.ARTICLES}/${id}/edit`,
+  },
+
+  tests: {
+    root: APP_PATH_ROUTER.TESTS,
+    byId: (id: number | string) => `${APP_PATH_ROUTER.TESTS}/${id}`,
+  },
+
+  news: {
+    root: APP_PATH_ROUTER.NEWS,
+    byId: (id: number | string) => `${APP_PATH_ROUTER.NEWS}/${id}`,
+    edit: (id: number | string) => `${APP_PATH_ROUTER.NEWS}/${id}/edit`,
+    create: () => `${APP_PATH_ROUTER.NEWS}/create`,
+  },
 }
