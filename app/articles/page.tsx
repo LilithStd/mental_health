@@ -9,6 +9,7 @@ import { useMockAuthStore } from "../store/mockAuthStore";
 import Search from "../components/shared/search";
 import CreateArticle from "../components/articles/createArticle";
 import Article from "../components/articles/article";
+import { useAuthorizationStore } from "../store/authorizationStore";
 
 export type ArticleType = {
     id: number
@@ -22,7 +23,7 @@ export default function Articles() {
     //stores
     const currentTheme = useGlobalStore((state) => state.currentTheme);
     const currentLanguage = useGlobalStore((state) => state.currentLanguage);
-    const currentAuthUser = useMockAuthStore((state) => state.currentAuthUser);
+    const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
     // state
     const [userPrivilege, setUserPrivilege] = useState(false);
     const [isCreateArticleVisible, setIsCreateArticleVisible] = useState(false);
@@ -68,7 +69,7 @@ export default function Articles() {
                 <div>
 
                     {
-                        !isCreateArticleVisible && <button className={`mt-4 mb-4 ${THEME_COLOR_SCHEME[currentTheme].buttonContainer} p-2 rounded ${rounded.medium}`} onClick={() => setIsCreateArticleVisible(true)}>New Articles</button>
+                        !isCreateArticleVisible && <button className={` ${THEME_COLOR_SCHEME[currentTheme].buttonContainer} p-2 rounded ${rounded.medium}`} onClick={() => setIsCreateArticleVisible(true)}>New Articles</button>
                     }
 
 

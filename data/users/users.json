@@ -4,7 +4,7 @@
     "email": "3@3.com",
     "password": "3",
     "role": "USER",
-    "privilege": "READ_ONLY",
+    "privilege": "EDIT_CONTENT",
     "favorites": {
       "TESTS": [],
       "SavedTestResult": [
