@@ -1,14 +1,21 @@
 'use client'
 
 import { rounded, sizes, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles";
+import { routes } from "@/app/helpers/helpersFunctions";
 import { useGlobalStore } from "@/app/store/globalStore";
+import { useRouter } from "next/navigation";
 
 export default function CreateNews() {
     // stores
     const currentTheme = useGlobalStore((state) => state.currentTheme);
     // state
+    // consts
+    const router = useRouter()
     // functions
     // handlers
+    const handleReturnToNews = () => {
+        router.push(routes.news.root)
+    }
     const handlePreviewNews = () => {
 
     }
@@ -52,7 +59,7 @@ export default function CreateNews() {
                 <textarea name="content" placeholder="Content" className="w-full min-h-40 mb-2 p-2 rounded-md border border-gray-300"></textarea>
                 <input type="text" name="link" placeholder="Link" className="w-full mb-2 p-2 rounded-md border border-gray-300" />
                 <div className={`flex w-full gap-4 justify-center`}>
-                    <button type="button" className={`p-2 ${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} w-1/5`}>Cancel</button>
+                    <button type="button" onClick={handleReturnToNews} className={`p-2 ${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} w-1/5`}>Cancel</button>
                     <button type="submit" className={`p-2 ${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} w-1/5`}>Create</button>
                 </div>
             </form>
