@@ -70,7 +70,7 @@ export default function Authorization() {
 
     return (
         <div
-            className={`flex w-full flex-col items-center justify-center gap-2 p-4`}
+            className={`flex w-full flex-col text-center items-center justify-center gap-2 p-4`}
         >
             {currentAuthUser ? isAuthorizedComponent(currentAuthUser) : notAuthorizedComponent()}
             {isOpenModalWindow &&

@@ -3,6 +3,7 @@ export enum LANGUAGE {
 	LV = 'LV',
 	RU = 'RU',
 }
+
 export enum THEME {
 	DARK = 'DARK',
 	LIGHT = 'LIGHT',
