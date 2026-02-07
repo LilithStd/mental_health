@@ -27,6 +27,6 @@ export const useGlobalStore = create<GlobalStoreInterface>()(
 				});
 			},
 		}),
-		{name: 'global-store'}, // localStorage key
+		{name: 'global-store'}, 
 	),
 );

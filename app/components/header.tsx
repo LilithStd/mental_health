@@ -10,7 +10,7 @@ export default function Header() {
     const currentTheme = useGlobalStore((state) => state.currentTheme)
 
     return (
-        <nav className={`flex ${rounded.medium}  justify-center items-center ${indents.container.main} ${THEME_COLOR_SCHEME[currentTheme].container} items-center`}>
+        <nav className={`flex ${rounded.medium}  justify-center items-center ${indents.container.main}  main-container items-center`}>
             <div className={`flex  justify-between items-center ${sizes.width.maxWidth} ${THEME_COLOR_SCHEME[currentTheme].subContainer}    ${rounded.medium} w-full`}>
                 <div className={`flex`}>
                     <h1 className={`${titleBaseStyles} text-center`}>Mental Health</h1>
