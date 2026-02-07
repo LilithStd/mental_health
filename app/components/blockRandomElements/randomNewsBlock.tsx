@@ -1,6 +1,6 @@
 'use client';
 import { ArticleType } from "@/app/articles/page";
-import { THEME_COLOR_SCHEME, rounded, font } from "@/app/globalConsts/globalStyles";
+import { THEME_COLOR_SCHEME, rounded, font, sizes } from "@/app/globalConsts/globalStyles";
 import { pickRandomUnique } from "@/app/helpers/helpersFunctions";
 import { useGlobalStore } from "@/app/store/globalStore";
 import { useEffect, useState } from "react";
@@ -28,7 +28,7 @@ export default function RandomNewsBlock() {
     }, [])
 
     return (
-        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 m-4 ${rounded.medium} max-w-6xl`}>
+        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].subContainer} m-4 p-4  ${rounded.medium} ${sizes.width.maxWidth}`}>
             <h2 className={`${font.title.size.medium} ${font.title.weigth.bold} ${THEME_COLOR_SCHEME[currentTheme].elementAccent} ${rounded.high} p-2 mb-4`}>Random News</h2>
             {loading ? (
                 <div>Loading...</div>

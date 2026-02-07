@@ -15,7 +15,7 @@ export default function ListLinks() {
         return pathname === path || pathname.startsWith(path + '/');
     };
     return (
-        <div className="flex m-10 w-full items-center justify-center">
+        <div className={`flex m-10 w-full items-center justify-center ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium}`}>
             {LINKS.map((link) => {
                 const isActive = isLinkActive(link.path);
 
@@ -24,8 +24,8 @@ export default function ListLinks() {
                         key={link.label}
                         href={link.path}
                         className={`
-                            ${font.text.size.medium} gap-2 w-full text-center ${rounded.medium} p-2 
-                            ${isActive ? `${THEME_COLOR_SCHEME[currentTheme].activeElement} ` : `${THEME_COLOR_SCHEME[currentTheme].container} `}
+                            ${font.text.size.medium} gap-2 m-2 w-full text-center ${rounded.medium}  
+                            ${isActive && `${THEME_COLOR_SCHEME[currentTheme].activeElement} `}
                         `}
                     >
                         {link.translate[currentLanguage]}

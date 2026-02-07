@@ -9,9 +9,9 @@ export default function LanguageSwitcher() {
     const setCurrentLanguage = useGlobalStore((state) => state.setCurrentLanguage)
     const currentTheme = useGlobalStore((state) => state.currentTheme)
     return (
-        <div className={`flex ${rounded.medium} ${indents.container.sub}`}>
+        <div className={`flex ${rounded.medium} items-center   ${THEME_COLOR_SCHEME[currentTheme].container}`}>
             {LANGUAGE_APP.map((item) =>
-                <div key={item} className={`${currentLanguage === item ? THEME_COLOR_SCHEME[currentTheme].activeElement : ''} ${rounded.medium} gap-2 p-1`}>
+                <div key={item} className={`${currentLanguage === item ? THEME_COLOR_SCHEME[currentTheme].activeElement : ''} ${rounded.medium} gap-2 p-2`}>
                     <ButtonComponent callBack={() => setCurrentLanguage(item)} content={item} />
                 </div>
 

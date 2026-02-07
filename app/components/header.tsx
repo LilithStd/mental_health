@@ -1,5 +1,5 @@
 'use client'
-import { indents, rounded, screenSizes, THEME_COLOR_SCHEME, titleBaseStyles } from "../globalConsts/globalStyles";
+import { indents, rounded, screenSizes, sizes, THEME_COLOR_SCHEME, titleBaseStyles } from "../globalConsts/globalStyles";
 import { useGlobalStore } from "../store/globalStore";
 import AdditionalPanel from "./additionalPanel";
 import Authorization from "./authorization";
@@ -10,8 +10,8 @@ export default function Header() {
     const currentTheme = useGlobalStore((state) => state.currentTheme)
 
     return (
-        <nav className={`flex ${rounded.medium}  justify-center items-center ${indents.container.main} ${THEME_COLOR_SCHEME[currentTheme].container} items-center text-center`}>
-            <div className={`flex w-full justify-between items-center max-w-6xl`}>
+        <nav className={`flex ${rounded.medium}  justify-center items-center ${indents.container.main} ${THEME_COLOR_SCHEME[currentTheme].container} items-center`}>
+            <div className={`flex  justify-between items-center ${sizes.width.maxWidth} ${THEME_COLOR_SCHEME[currentTheme].subContainer}    ${rounded.medium} w-full`}>
                 <div className={`flex`}>
                     <h1 className={`${titleBaseStyles} text-center`}>Mental Health</h1>
 
