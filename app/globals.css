@@ -5,6 +5,7 @@
   --foreground: #171717;
   --main-container: var(--color-cyan-500);
   --sub-container: var(--color-cyan-400);
+  --button-container: var(--color-blue-500);
 }
 
 :root.dark {
@@ -12,6 +13,7 @@
   --foreground: #f8fafc;
   --main-container: var(--color-indigo-500);
   --sub-container: var(--color-indigo-400);
+  --button-container: var(--color-amber-500);
 }
 
 @theme {
@@ -19,6 +21,7 @@
   --color-foreground: var(--foreground);
   --color-mainContainer: var(--main-container);
   --color-subContainer: var(--sub-container);
+  --color-buttonContainer: var(--button-container);
 }
 
 /* global styles components */

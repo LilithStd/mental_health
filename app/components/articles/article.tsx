@@ -143,7 +143,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                 </div>
             </div>
             <div>
-                {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold" /> : <h2 className={`flex h-fit text-2xl p-4 ${rounded.medium} bg-subContainer font-bold`}>{article.title}</h2>}
+                {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold" /> : <h2 className={`flex h-fit text-2xl p-4 rounded-medium bg-subContainer font-bold`}>{article.title}</h2>}
                 {isEditTtitle && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditTitle(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditTitle(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
                 {isEditAuthor ? <input name="author" type="text" value={editAuthor} onChange={editAuthorHandler} className="text-xl " /> : <h3 className={`${font.title.size.small} ${font.title.weigth.thin} ${font.title.curve.italic}`}>
                     by {!article.author || article.author.length === 0 ? "Unknown Author" : article.author}
@@ -155,7 +155,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
     const redirectButtonComponent = <div className={`flex items-center justify-end mt-4`}>
         <button
-            className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
+            className={`bg-buttonContainer ${rounded.medium} p-2 cursor-pointer`}
             onClick={() => router.push(`${APP_PATH_ROUTER.ARTICLES}/${article.id}`)}
         >
             read more
@@ -172,12 +172,12 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             {redirectButtonComponent}
         </div>
     const editArticleComponent =
-        <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
+        <button className={`bg-buttonContainer ${rounded.medium} p-2 cursor-pointer`}
             onClick={editArticleHandler}>
             Edit
         </button>;
     const saveArticleComponent =
-        <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer`}
+        <button className={`bg-buttonContainer ${rounded.medium} p-2 cursor-pointer`}
             onClick={() => {
                 startTransition(() =>
                     updateArticleAction(article.id, editTitle, editContent)
@@ -192,7 +192,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             {pending ? 'Saving...' : 'Save'}
         </button>;
     const cancelEditArticleComponent =
-        <button className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium} p-2 cursor-pointer ${!isChanged ? `${THEME_COLOR_SCHEME[currentTheme].inactiveElement}` : ''}`}
+        <button className={`bg-buttonContainer ${rounded.medium} p-2 cursor-pointer ${!isChanged ? `${THEME_COLOR_SCHEME[currentTheme].inactiveElement}` : ''}`}
             onClick={() => (
                 setIsEditArticle(false),
                 setIsChanged(false),

@@ -38,7 +38,7 @@ export default function CreateArticle() {
     return (
         <form
             onSubmit={handleSubmit}
-            className={`flex flex-col gap-4 p-4 w-full ${sizes.width.maxWidth} ${rounded.medium} bg-subContainer ${THEME_COLOR_SCHEME[currentTheme].text}`}
+            className={`flex flex-col gap-4 p-4 max-content-main-container rounded-medium bg-subContainer ${THEME_COLOR_SCHEME[currentTheme].text}`}
         >
             <h1 className="text-xl font-bold">Create Article</h1>
 
@@ -46,25 +46,25 @@ export default function CreateArticle() {
                 name="title"
                 placeholder="Title"
                 required
-                className={`border p-2 bg-subContainer ${rounded.medium}`}
+                className={`border p-2 bg-subContainer rounded-medium`}
             />
             <input
                 name="author"
                 placeholder="Author"
                 required
-                className={`border p-2 bg-subContainer ${rounded.medium}`}
+                className={`border p-2 bg-subContainer rounded-medium`}
             />
             <textarea
                 name="content"
                 placeholder="Content"
                 required
-                className={`border p-2 h-32 bg-subContainer ${rounded.medium}`}
+                className={`border p-2 h-32 bg-subContainer rounded-medium`}
             />
             <div className={`flex w-full gap-4`}>
-                <button type="button" onClick={handleCancel} className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} py-2 ${rounded.medium} flex-1`}>Cancel</button>
+                <button type="button" onClick={handleCancel} className={`bg-buttonContainer py-2 rounded-medium flex-1`}>Cancel</button>
                 <button
                     type="submit"
-                    className={`${THEME_COLOR_SCHEME[currentTheme].buttonContainer} py-2 ${rounded.medium} flex-1`}
+                    className={`bg-buttonContainer py-2 rounded-medium flex-1`}
                 >
                     Submit
                 </button>

@@ -28,8 +28,11 @@ export default function RandomNewsBlock() {
     }, [])
 
     return (
-        <div className={`flex flex-col bg-subContainer m-4 p-4  ${rounded.medium} ${sizes.width.maxWidth}`}>
-            <h2 className={`${font.title.size.medium} ${font.title.weigth.bold} ${THEME_COLOR_SCHEME[currentTheme].elementAccent} ${rounded.high} p-2 mb-4`}>Random News</h2>
+        <div className={`flex flex-col bg-subContainer indents-main-container rounded-medium max-content-main-container`}>
+            <div>
+                <h2 className={`${font.title.size.medium} indents-container-sub ${font.title.weigth.bold} ${THEME_COLOR_SCHEME[currentTheme].elementAccent} rounded-large`}>Random News</h2>
+            </div>
+
             {loading ? (
                 <div>Loading...</div>
             ) : (

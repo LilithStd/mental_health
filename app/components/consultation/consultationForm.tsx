@@ -46,7 +46,7 @@ export default function ConsultationForm() {
                     </div>
                 </div>
                 <div className={`flex justify-center w-full`}>
-                    <button type="submit" className={`border-2  items-center mb-2 mt-2  w-1/2 rounded-md p-2 ${THEME_COLOR_SCHEME[currentTheme].buttonContainer} rounded-medium`}>Submit</button>
+                    <button type="submit" className={`border-2  items-center mb-2 mt-2  w-1/2 rounded-md p-2 bg-buttonContainer rounded-medium`}>Submit</button>
                 </div>
 
             </form>
