@@ -23,7 +23,6 @@ export type ArticleType = {
 
 export default function Articles() {
     //stores
-    const currentTheme = useGlobalStore((state) => state.currentTheme);
     const currentLanguage = useGlobalStore((state) => state.currentLanguage);
     const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
     // state
@@ -68,13 +67,13 @@ export default function Articles() {
     //     return <div>Загрузка...</div>
     // }
     return (
-        <div className={`flex flex-col  ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main} gap-2 items-center `}>
+        <div className={`flex flex-col  bg-mainContainer ${rounded.medium} flex-1 ${indents.container.main} gap-2 items-center `}>
             <Search callBackResultAfterSearch={setSearchedArticles} isSearchActive={setIsSearchActive} arrayForSearch={articles} />
             {currentAuthUser && userPrivilege && (
                 <div>
 
                     {
-                        !isCreateArticleVisible && <button className={` ${THEME_COLOR_SCHEME[currentTheme].buttonContainer} p-2 rounded ${rounded.medium}`} onClick={() => route.push(routes.articles.create())}>New Articles</button>
+                        !isCreateArticleVisible && <button className={` bg-buttonContainer p-2 rounded ${rounded.medium}`} onClick={() => route.push(routes.articles.create())}>New Articles</button>
                     }
 
 

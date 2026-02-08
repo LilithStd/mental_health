@@ -3,8 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Search from "../components/shared/search";
-import { THEME_COLOR_SCHEME, rounded, indents, sizes } from "../globalConsts/globalStyles";
-import { useGlobalStore } from "../store/globalStore";
+import { rounded, indents, sizes } from "../globalConsts/globalStyles";
 import News, { NewsType } from "../components/news/news";
 import { NEWS_TYPE } from "../globalConsts/globalEnum";
 import { canEditContent } from "../serverActions/permissions";
@@ -15,7 +14,6 @@ import { routes } from "../helpers/helpersFunctions";
 
 export default function AllNews() {
     // stores
-    const currentTheme = useGlobalStore((state) => state.currentTheme);
     const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
     // state
     const [userPrivilege, setUserPrivilege] = useState(false);
@@ -42,14 +40,14 @@ export default function AllNews() {
         checkPrivilege();
     }, [currentAuthUser]);
     return (
-        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main}  items-center `}>
+        <div className={`flex flex-col bg-mainContainer ${rounded.medium} flex-1 ${indents.container.main}  items-center `}>
             {/* <Search /> */}
             {loading ? (<div>Loading...</div>
             ) : (
                 <div className={`flex flex-col w-full items-center gap-4 p-4 ${sizes.width.maxWidth}`}>
                     <div>
                         {userPrivilege && (
-                            <button className={`p-2 mb-4 ${THEME_COLOR_SCHEME[currentTheme].buttonContainer} ${rounded.medium}`} onClick={() => router.push(routes.news.create())}>
+                            <button className={`p-2 mb-4 bg-subContainer ${rounded.medium}`} onClick={() => router.push(routes.news.create())}>
                                 Create News
                             </button>
                         )}

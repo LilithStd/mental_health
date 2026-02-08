@@ -18,7 +18,6 @@ export default function ArticlePage({
     const [error, setError] = useState(false)
     const [userPrivilege, setUserPrivilege] = useState(false);
     const currentAuthUser = useMockAuthStore((state) => state.currentAuthUser);
-    const currentTheme = useGlobalStore((state) => state.currentTheme);
 
     // components
 
@@ -71,7 +70,7 @@ export default function ArticlePage({
     }
 
     return (
-        <div className={`flex   flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main} items-center `}>
+        <div className={`flex   flex-col bg-mainContainer ${rounded.medium} flex-1 ${indents.container.main} items-center `}>
             <Article article={article} typeArticle={ARTICLE_TYPE.FULL} />
         </div>
     )

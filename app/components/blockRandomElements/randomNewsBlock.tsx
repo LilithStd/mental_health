@@ -28,7 +28,7 @@ export default function RandomNewsBlock() {
     }, [])
 
     return (
-        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].subContainer} m-4 p-4  ${rounded.medium} ${sizes.width.maxWidth}`}>
+        <div className={`flex flex-col bg-subContainer m-4 p-4  ${rounded.medium} ${sizes.width.maxWidth}`}>
             <h2 className={`${font.title.size.medium} ${font.title.weigth.bold} ${THEME_COLOR_SCHEME[currentTheme].elementAccent} ${rounded.high} p-2 mb-4`}>Random News</h2>
             {loading ? (
                 <div>Loading...</div>

@@ -37,13 +37,13 @@ export default function CurrentNews({
             })
     }, [id])
     return (
-        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main}  items-center text-center`}>
+        <div className={`flex flex-col bg-mainContainer ${rounded.medium} flex-1 ${indents.container.main}  items-center text-center`}>
             {/* <Search /> */}
             {currentNews && !error && (
                 <div>
                     <News news={currentNews} typeNews={NEWS_TYPE.FULL} />
                 </div>)}
-        </ div>
+        </div>
     )
 }
 

@@ -126,7 +126,7 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
 
     // components
     const AuthSignInComponent = (
-        <div className={`flex flex-col  ${THEME_COLOR_SCHEME[currentTheme].container} items-center justify-center gap-2 p-4 `}>
+        <div className={`flex flex-col  bg-mainContainer items-center justify-center gap-2 p-4 `}>
             <form action="" className={`flex flex-col items-center justify-center gap-2`} key={props.typeAuthorization} onSubmit={signInUserHandler}>
                 <input name="email" type="email" placeholder={INPUT_PLACEHOLDERS.EMAIL[currentLanguage]} className={`mb-2 p-2 ${rounded.low} w-64 border`} required />
                 <input name="password" type="password" placeholder={INPUT_PLACEHOLDERS.PASSWORD[currentLanguage]} className={`mb-2 p-2 ${rounded.low} w-64 border`} required />
@@ -150,7 +150,7 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
 
     )
     const AuthRegistrationComponent = (
-        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} items-center justify-center gap-2 p-4`}>
+        <div className={`flex flex-col bg-mainContainer items-center justify-center gap-2 p-4`}>
             <form
                 className="flex flex-col items-center justify-center gap-2"
                 onSubmit={createUserHandler}
@@ -207,7 +207,7 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
 
     )
     const successfullyUserCreatedComponent = () => (
-        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} items-center justify-center gap-2 p-4`}>
+        <div className={`flex flex-col bg-mainContainer items-center justify-center gap-2 p-4`}>
             <h2>User successfully created!</h2>
             <button onClick={successfullyUserCreatedHandler} className="bg-blue-500 text-white p-2 rounded-md w-64 cursor-pointer">
                 Return
@@ -216,7 +216,7 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
     )
     // 
     return (
-        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} items-center justify-center gap-2 p-4 ${rounded.high}`}>
+        <div className={`flex flex-col bg-mainContainer items-center justify-center gap-2 p-4 ${rounded.high}`}>
             {succerssfullyCreated ? successfullyUserCreatedComponent() : <>
                 <h2 className={``}>{props.contentTypeAuthorization}</h2>
                 <h2 className="p-2 bg-amber-600" onClick={resetUserStore}>Res</h2>

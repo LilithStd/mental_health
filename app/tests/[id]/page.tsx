@@ -12,7 +12,6 @@ export default function TestCurrent({
 }: {
     params: Promise<{ id: string }>
 }) {
-    const currentTheme = useGlobalStore((state) => state.currentTheme);
     const { id } = use(params)
     const [currentTest, setCurrentTest] = useState<TestType | null>(null);
     const [error, setError] = useState(false)
@@ -32,7 +31,7 @@ export default function TestCurrent({
             })
     }, [id])
     return (
-        <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} flex-1 ${indents.container.main}  items-center `}>
+        <div className={`flex flex-col bg-mainContainer ${rounded.medium} flex-1 ${indents.container.main}  items-center `}>
 
             {error ? "Error loading test." : currentTest ? <Test test={currentTest} testType={TEST_TYPE.FULL} /> : "Loading..."}
 

@@ -1,7 +1,7 @@
 'use client'
 
 import { ArticleType } from "@/app/articles/page";
-import { font, rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles";
+import { font, rounded, sizes, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles";
 import { cropContent, pickRandomUnique } from "@/app/helpers/helpersFunctions";
 import { useGlobalStore } from "@/app/store/globalStore";
 import { useState, useEffect } from "react";
@@ -33,7 +33,7 @@ export default function RandomArticleBlock() {
   const formattedDate = (currentDate: string) => date(currentDate).toLocaleDateString('sv-SE');
 
   return (
-    <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].subContainer} m-4 p-4  ${rounded.medium} max-w-6xl`}>
+    <div className={`flex flex-col bg-subContainer m-4 p-4  ${rounded.medium} ${sizes.width.maxWidth}`}>
       <h2 className={`${font.title.size.medium} ${font.title.weigth.bold} ${THEME_COLOR_SCHEME[currentTheme].elementAccent} ${rounded.high} p-2 mb-4`}>Random Article</h2>
       <div>
         {loading ? (

@@ -22,7 +22,7 @@ export default function ConsultationForm() {
 
     return (
         <div className={`flex flex-col p-4 gap-4 w-full ${rounded.medium}`}>
-            <form ref={ref} action={action} className={`w-full max-w-6xl mx-auto  border-2 p-4 items-center rounded-md ${THEME_COLOR_SCHEME[currentTheme].subContainer} ${sizes.width.maxWidth} w-full `}>
+            <form ref={ref} action={action} className={`w-full max-w-6xl mx-auto  border-2 p-4 items-center rounded-md bg-subContainer ${sizes.width.maxWidth} w-full `}>
                 <label className={`text-center mb-2`}>Contact Information</label>
                 <div className={`flex gap-4 flex-col w-full items-center  h-full`}>
                     <div className={`flex items-center gap-2 w-1/2`}>

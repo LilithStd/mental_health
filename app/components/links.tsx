@@ -15,7 +15,7 @@ export default function ListLinks() {
         return pathname === path || pathname.startsWith(path + '/');
     };
     return (
-        <div className={`flex m-10 w-full items-center justify-center ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium}`}>
+        <div className={`flex m-10 w-full items-center justify-center bg-mainContainer ${rounded.medium}`}>
             {LINKS.map((link) => {
                 const isActive = isLinkActive(link.path);
 

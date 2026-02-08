@@ -138,12 +138,12 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                             p-2 rounded ${rounded.medium}
                             `}
             >
-                <div className={`flex justify-center items-center ${rounded.circle} ${THEME_COLOR_SCHEME[currentTheme].subContainer} p-2`}>
+                <div className={`flex justify-center items-center ${rounded.circle} bg-subContainer p-2`}>
                     <AuthorIcon className="w-30 h-30 fill-current" />
                 </div>
             </div>
             <div>
-                {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold" /> : <h2 className={`flex h-fit text-2xl p-4 ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].subContainer} font-bold`}>{article.title}</h2>}
+                {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold" /> : <h2 className={`flex h-fit text-2xl p-4 ${rounded.medium} bg-subContainer font-bold`}>{article.title}</h2>}
                 {isEditTtitle && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditTitle(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditTitle(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
                 {isEditAuthor ? <input name="author" type="text" value={editAuthor} onChange={editAuthorHandler} className="text-xl " /> : <h3 className={`${font.title.size.small} ${font.title.weigth.thin} ${font.title.curve.italic}`}>
                     by {!article.author || article.author.length === 0 ? "Unknown Author" : article.author}
@@ -214,7 +214,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         </div>
     const mediumArticleComponent =
         <div className={`flex flex-col mb-4 p-2`}>
-            <div className={`flex  w-full rounded ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].container} `}>
+            <div className={`flex  w-full rounded ${rounded.medium} bg-mainContainer`}>
                 {mainMetaDataArticleComponent}
 
             </div>
@@ -246,7 +246,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         </div>
     const fullArticleComponent =
         <div className={`flex flex-col mb-4 p-2`}>
-            <div className={`flex rounded ${rounded.medium} ${THEME_COLOR_SCHEME[currentTheme].container} mb-2 w-full`}>
+            <div className={`flex rounded ${rounded.medium} bg-mainContainer mb-2 w-full`}>
                 {mainMetaDataArticleComponent}
 
             </div>
@@ -287,7 +287,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         </div>;
     // 
     return (
-        <article key={article.id} className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 ${rounded.high} ${sizes.width.maxWidth}  flex flex-col gap-2`}>
+        <article key={article.id} className={`bg-subContainer p-4 ${rounded.high} ${sizes.width.maxWidth}  flex flex-col gap-2`}>
             {typeArticle === ARTICLE_TYPE.PREVIEW && previewArticleComponent}
             {typeArticle === ARTICLE_TYPE.MEDIUM && mediumArticleComponent}
             {typeArticle === ARTICLE_TYPE.FULL && fullArticleComponent}

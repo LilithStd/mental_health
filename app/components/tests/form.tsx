@@ -39,7 +39,7 @@ export default function Form({ test, formResult, openModalCallback }: FormProps)
             {test.questions.map((question) => (
                 <div key={question.title} className="flex justify-center items-center flex-col gap-2">
                     <h2>{question.title}:</h2>
-                    <div className={`flex items-center justify-center ${THEME_COLOR_SCHEME[currentTheme].subContainer} ${rounded.medium} p-2 gap-2`}>
+                    <div className={`flex items-center justify-center bg-mainContainer ${rounded.medium} p-2 gap-2`}>
                         {question.variants.map((variant) => (
                             <label
                                 key={variant.id}

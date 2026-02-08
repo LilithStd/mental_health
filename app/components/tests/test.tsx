@@ -59,9 +59,9 @@ export default function Test({ test, testType }: TestProps) {
 
     const fullTestComponent =
 
-        <div className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 rounded-md  border-2 grid gap-4 grid-cols-2`}>
-            <div className={`flex flex-col ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium}  p-4`}>
-                <div className={`flex flex-col mb-4 ${THEME_COLOR_SCHEME[currentTheme].subContainer} ${rounded.medium} p-4`}>
+        <div className={`bg-subContainer p-4 rounded-md  border-2 grid gap-4 grid-cols-2`}>
+            <div className={`flex flex-col bg-mainContainer ${rounded.medium}  p-4`}>
+                <div className={`flex flex-col mb-4 bg-subContainer ${rounded.medium} p-4`}>
                     <h2>{test.title[currentLanguage]}</h2>
                     <p>Type: {test.label}</p>
                 </div>
