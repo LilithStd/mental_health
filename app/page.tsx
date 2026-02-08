@@ -10,7 +10,7 @@ export default function Main() {
 
   // 
   return (
-    <main className={`flex flex-col bg-mainContainer ${rounded.medium} flex-1 ${indents.container.main} items-center`}>
+    <main className={`flex flex-col bg-mainContainer indents-main-container rounded-medium flex-1 items-center`}>
       <p>main</p>
       <div>
         <RandomArticleBlock />

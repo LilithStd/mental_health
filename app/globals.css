@@ -21,32 +21,40 @@
   --color-subContainer: var(--sub-container);
 }
 
-@utility indents-main-container {
+/* global styles components */
+/* .indents-main-container {
   @apply m-4 p-4;
-}
+} */
 
-@utility indents-container-sub {
-  @apply m-2 p-2;
-}
+/*  */
+@layer utilities {
+  .indents-main-container {
+    @apply m-4 p-4;
+  }
 
-@utility max-content-main-container {
-  @apply max-w-6xl w-full;
-}
+  .indents-container-sub {
+    @apply m-2 p-2;
+  }
 
-@utility rounded-medium {
-  @apply rounded-lg;
-}
+  .max-content-main-container {
+    @apply max-w-6xl w-full;
+  }
 
-@utility rounded-circle {
-  @apply rounded-full;
-}
+  .rounded-medium {
+    @apply rounded-lg;
+  }
 
-@utility rounded-small {
-  @apply rounded-sm;
-}
+  .rounded-circle {
+    @apply rounded-full;
+  }
 
-@utility rounded-large {
-  @apply rounded-3xl;
+  .rounded-small {
+    @apply rounded-sm;
+  }
+
+  .rounded-large {
+    @apply rounded-3xl;
+  }
 }
 
 /* базовое применение */
