@@ -21,6 +21,34 @@
   --color-subContainer: var(--sub-container);
 }
 
+@utility indents-main-container {
+  @apply m-4 p-4;
+}
+
+@utility indents-container-sub {
+  @apply m-2 p-2;
+}
+
+@utility max-content-main-container {
+  @apply max-w-6xl w-full;
+}
+
+@utility rounded-medium {
+  @apply rounded-lg;
+}
+
+@utility rounded-circle {
+  @apply rounded-full;
+}
+
+@utility rounded-small {
+  @apply rounded-sm;
+}
+
+@utility rounded-large {
+  @apply rounded-3xl;
+}
+
 /* базовое применение */
 body {
   background: var(--background);
