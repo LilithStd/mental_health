@@ -3,14 +3,19 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --main-container: #e0e7ff;
-  /* --main-container: var(--color-cyan-500); */
+  --main-container: var(--color-cyan-500);
 }
 
 :root.dark {
   --background: #0f172a;
   --foreground: #f8fafc;
-  --main-container: #1e293b;
+  --main-container: var(--color-indigo-500);
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-mainContainer: var(--main-container);
 }
 
 /* базовое применение */
