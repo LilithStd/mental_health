@@ -28,7 +28,7 @@ export default function News({ news, typeNews }: NewsProps) {
     // handlers
     //
     // components
-    const previewNewsComponent = <div className={`flex w-full flex-col indents-main-container  bg-subContainer rounded-medium`}>
+    const previewNewsComponent = <div className={`flex w-full flex-col p-4  bg-subContainer rounded-medium`}>
         <h3 className="font-bold">{news.title}</h3>
         <p>{cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
         <div className={`flex w-full justify-end`}>
@@ -43,7 +43,7 @@ export default function News({ news, typeNews }: NewsProps) {
     </div>
     //  
     return (
-        <div className={`flex flex-col mb-4 w-full  rounded-medium bg-mainContainer`}>
+        <div className={`flex flex-col p-4 w-full  rounded-medium bg-mainContainer`}>
             {typeNews === NEWS_TYPE.PREVIEW ? previewNewsComponent : fullNewsComponent}
         </div>
     )

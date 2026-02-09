@@ -28,18 +28,20 @@ export default function RandomNewsBlock() {
     }, [])
 
     return (
-        <div className={`flex flex-col bg-subContainer indents-main-container rounded-medium max-content-main-container`}>
+        <div className={`flex flex-col bg-subContainer indents-main-container rounded-medium max-content-main-container gap-4`}>
             <div>
-                <h2 className={`${font.title.size.medium} indents-container-sub ${font.title.weigth.bold} bg-accentElement rounded-large`}>Random News</h2>
+                <h2 className={`${font.title.size.medium} indents-main-container ${font.title.weigth.bold} bg-accentElement rounded-large`}>Random News</h2>
+            </div>
+            <div className={`flex flex-col gap-4 m-4`}>
+                {loading ? (
+                    <div>Loading...</div>
+                ) : (
+                    news.map((item) => (
+                        <News key={item.id} news={item} typeNews={NEWS_TYPE.PREVIEW} />
+                    ))
+                )}
             </div>
 
-            {loading ? (
-                <div>Loading...</div>
-            ) : (
-                news.map((item) => (
-                    <News key={item.id} news={item} typeNews={NEWS_TYPE.PREVIEW} />
-                ))
-            )}
         </div>
     )
 }

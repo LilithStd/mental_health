@@ -23,7 +23,7 @@ export default function ListLinks() {
                         key={link.label}
                         href={link.path}
                         className={`
-                            ${font.text.size.medium} gap-2 m-2 p-2 w-full text-center rounded-medium  
+                            ${font.text.size.medium} gap-2 indents-container-sub  text-center rounded-medium 
                             ${isActive && `bg-activeElement `}
                         `}
                     >
