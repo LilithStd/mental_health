@@ -49,7 +49,7 @@ export default function CreateNews() {
     </div>
 
     return (
-        <div className={`flex flex-col mb-4 p-2 w-full  rounded-medium bg-subContainer max-content-main-container gap-4`}>
+        <div className={`flex flex-col mb-4 p-2 rounded-medium bg-subContainer max-content-main-container gap-4`}>
             <h2>Create News</h2>
             <form action="" onSubmit={createNews} className={`flex flex-col gap-4 w-full`}>
                 <input type="text" name="title" placeholder="Title" className="w-full mb-2 p-2 rounded-md border border-gray-300" />

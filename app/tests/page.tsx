@@ -46,7 +46,6 @@ export default function Tests() {
     return (
         <div className={`flex flex-col bg-mainContainer rounded-medium flex-1 indents-main-container items-center`}>
             {/* <Search /> */}
-            <h2>Tests Page</h2>
             <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 max-content-main-container`}>
                 {loading ? <p>Loading...</p> : tests.map((test) => (
                     <Test key={test.id} test={test} testType={TEST_TYPE.PREVIEW} />

@@ -20,7 +20,7 @@ export default function ConsultationForm() {
     return (
         <div className={`flex flex-col p-4 gap-4 w-full rounded-medium`}>
             <form ref={ref} action={action} className={`mx-auto  border-2 p-4 items-center rounded-medium bg-subContainer max-content-main-container`}>
-                <label className={`text-center mb-2`}>Contact Information</label>
+                <label className={`flex justify-center text-center mb-2`}>Contact Information</label>
                 <div className={`flex gap-4 flex-col w-full items-center  h-full`}>
                     <div className={`flex items-center gap-2 w-1/2`}>
                         <div className={`flex flex-col  w-1/2`}>

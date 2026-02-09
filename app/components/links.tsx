@@ -14,7 +14,7 @@ export default function ListLinks() {
         return pathname === path || pathname.startsWith(path + '/');
     };
     return (
-        <div className={`flex m-10 w-full items-center justify-center bg-mainContainer rounded-medium`}>
+        <div className={`flex p-2 items-center justify-center bg-mainContainer rounded-large`}>
             {LINKS.map((link) => {
                 const isActive = isLinkActive(link.path);
 

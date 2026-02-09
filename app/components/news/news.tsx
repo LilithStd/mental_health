@@ -1,9 +1,9 @@
 'use client'
 
 import { NEWS_TYPE } from "@/app/globalConsts/globalEnum"
-import { cropContent } from "@/app/helpers/helpersFunctions"
+import { cropContent, routes, } from "@/app/helpers/helpersFunctions"
 import { CROP_CONTAINER_SIZE } from "@/app/globalConsts/globalConsts"
-import { useGlobalStore } from "@/app/store/globalStore"
+
 import { useRouter } from "next/navigation"
 
 export type NewsType = {
@@ -28,22 +28,22 @@ export default function News({ news, typeNews }: NewsProps) {
     // handlers
     //
     // components
-    const previewNewsComponent = <div className={`flex w-full flex-col mb-4 p-2 bg-subContainer rounded-medium`}>
+    const previewNewsComponent = <div className={`flex w-full flex-col indents-main-container  bg-subContainer rounded-medium`}>
         <h3 className="font-bold">{news.title}</h3>
         <p>{cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
         <div className={`flex w-full justify-end`}>
-            <button className={`bg-buttonContainer p-2 rounded-medium  flex justify-center items-center`} onClick={() => { router.push(`/news/${news.id}`) }}>read full news</button>
+            <button className={`bg-buttonContainer p-2 rounded-medium  flex justify-center items-center`} onClick={() => { router.push(routes.news.byId(news.id)) }}>read full news</button>
         </div>
 
     </div>
-    const fullNewsComponent = <div className={`flex w-full flex-col mb-4 p-2 bg-subContainer rounded-medium`}>
+    const fullNewsComponent = <div className={`flex w-full flex-col indents-main-container bg-subContainer rounded-medium`}>
         <h3 className="font-bold">{news.title}</h3>
         <p>{news.content}</p>
-        <a href={news.link} target="_blank" rel="noopener noreferrer" className=" underline">Read more</a>
+        <a href={news.link} target="_blank" rel="noopener noreferrer" className="underline">Read more</a>
     </div>
     //  
     return (
-        <div className={`flex flex-col mb-4 p-2 w-full  rounded-medium bg-mainContainer`}>
+        <div className={`flex flex-col mb-4 w-full  rounded-medium bg-mainContainer`}>
             {typeNews === NEWS_TYPE.PREVIEW ? previewNewsComponent : fullNewsComponent}
         </div>
     )

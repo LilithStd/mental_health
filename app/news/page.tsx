@@ -43,10 +43,10 @@ export default function AllNews() {
             {/* <Search /> */}
             {loading ? (<div>Loading...</div>
             ) : (
-                <div className={`flex flex-col w-full items-center gap-4 p-4 max-content-main-container`}>
+                <div className={`flex flex-col items-center gap-4 p-4 max-content-main-container`}>
                     <div>
                         {userPrivilege && (
-                            <button className={`p-2 mb-4 bg-subContainer rounded-medium`} onClick={() => router.push(routes.news.create())}>
+                            <button className={`p-2 mb-4 bg-buttonContainer rounded-medium`} onClick={() => router.push(routes.news.create())}>
                                 Create News
                             </button>
                         )}
