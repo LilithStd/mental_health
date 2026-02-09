@@ -3,7 +3,6 @@
 
 import News, { NewsType } from "@/app/components/news/news";
 import { NEWS_TYPE } from "@/app/globalConsts/globalEnum";
-import { indents, rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles";
 import { useGlobalStore } from "@/app/store/globalStore";
 import { use, useEffect, useState } from "react";
 
@@ -37,7 +36,7 @@ export default function CurrentNews({
             })
     }, [id])
     return (
-        <div className={`flex flex-col bg-mainContainer ${rounded.medium} flex-1 ${indents.container.main}  items-center text-center`}>
+        <div className={`flex flex-col bg-mainContainer rounded-medium flex-1 indents-main-container  items-center text-center`}>
             {/* <Search /> */}
             {currentNews && !error && (
                 <div>

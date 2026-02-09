@@ -1,8 +1,6 @@
 'use client'
 import Test from "@/app/components/tests/test";
 import { TEST_TYPE } from "@/app/globalConsts/globalEnum";
-import { THEME_COLOR_SCHEME, rounded, indents, sizes } from "@/app/globalConsts/globalStyles"
-import { useGlobalStore } from "@/app/store/globalStore";
 import { use, useEffect, useState } from "react"
 import { TestType } from "../page";
 
@@ -31,7 +29,7 @@ export default function TestCurrent({
             })
     }, [id])
     return (
-        <div className={`flex flex-col bg-mainContainer ${rounded.medium} flex-1 ${indents.container.main}  items-center `}>
+        <div className={`flex flex-col bg-mainContainer rounded-medium flex-1 indents-main-container  items-center `}>
 
             {error ? "Error loading test." : currentTest ? <Test test={currentTest} testType={TEST_TYPE.FULL} /> : "Loading..."}
 

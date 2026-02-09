@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect } from "react";
-import { THEME_COLOR_SCHEME } from "./globalConsts/globalStyles";
 import { useGlobalStore } from "./store/globalStore";
 import { THEME } from "./globalConsts/globalEnum";
 

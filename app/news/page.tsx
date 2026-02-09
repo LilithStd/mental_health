@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Search from "../components/shared/search";
-import { rounded, indents, sizes } from "../globalConsts/globalStyles";
 import News, { NewsType } from "../components/news/news";
 import { NEWS_TYPE } from "../globalConsts/globalEnum";
 import { canEditContent } from "../serverActions/permissions";
@@ -40,14 +39,14 @@ export default function AllNews() {
         checkPrivilege();
     }, [currentAuthUser]);
     return (
-        <div className={`flex flex-col bg-mainContainer ${rounded.medium} flex-1 ${indents.container.main}  items-center `}>
+        <div className={`flex flex-col bg-mainContainer rounded-medium flex-1 indents-main-container  items-center `}>
             {/* <Search /> */}
             {loading ? (<div>Loading...</div>
             ) : (
-                <div className={`flex flex-col w-full items-center gap-4 p-4 ${sizes.width.maxWidth}`}>
+                <div className={`flex flex-col w-full items-center gap-4 p-4 max-content-main-container`}>
                     <div>
                         {userPrivilege && (
-                            <button className={`p-2 mb-4 bg-subContainer ${rounded.medium}`} onClick={() => router.push(routes.news.create())}>
+                            <button className={`p-2 mb-4 bg-subContainer rounded-medium`} onClick={() => router.push(routes.news.create())}>
                                 Create News
                             </button>
                         )}

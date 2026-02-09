@@ -4,8 +4,7 @@ import { useEffect, useState } from "react";
 import Search from "../components/shared/search";
 import Test from "../components/tests/test";
 import { TEST_TYPE } from "../globalConsts/globalEnum";
-import { rounded, indents, sizes } from "../globalConsts/globalStyles";
-import { useGlobalStore } from "../store/globalStore";
+
 
 type QuestionVariant = {
     id: string
@@ -34,7 +33,7 @@ export default function Tests() {
     const [tests, setTests] = useState<TestType[]>([]);
     const [loading, setLoading] = useState(true);
     // stores
-    const currentTheme = useGlobalStore((state) => state.currentTheme);
+
     useEffect(() => {
         fetch('/api/tests')
             .then(res => res.json())
@@ -45,10 +44,10 @@ export default function Tests() {
     }, [])
 
     return (
-        <div className={`flex flex-col bg-mainContainer ${rounded.medium} flex-1 ${indents.container.main} items-center`}>
+        <div className={`flex flex-col bg-mainContainer rounded-medium flex-1 indents-main-container items-center`}>
             {/* <Search /> */}
             <h2>Tests Page</h2>
-            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${sizes.width.maxWidth}`}>
+            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 max-content-main-container`}>
                 {loading ? <p>Loading...</p> : tests.map((test) => (
                     <Test key={test.id} test={test} testType={TEST_TYPE.PREVIEW} />
                 ))}
