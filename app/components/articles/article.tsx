@@ -1,19 +1,16 @@
 'use client'
-import { font, indents, rounded, sizes, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
+import { font } from "@/app/globalConsts/globalStyles"
 import Favorites from "../shared/favorites"
-import { useGlobalStore } from "@/app/store/globalStore"
-import { use, useEffect, useState, useTransition } from "react"
+import { useEffect, useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
 import { APP_PATH_ROUTER, ARTICLE_TYPE, UPDATE_USER_DATA_TYPE, USER_FAVORITES_ACTION, USER_FAVORITES_TYPE } from "@/app/globalConsts/globalEnum"
 import { ArticleType } from "@/app/articles/page"
-import { useMockAuthStore } from "@/app/store/mockAuthStore"
 import { canEditContent } from "@/app/serverActions/permissions"
 import EditActiveIcon from "@/public/icons/EditActive.svg"
 import EditInactiveIcon from "@/public/icons/EditInactive.svg"
 import { updateArticleAction } from "@/app/serverActions/updateArticle"
 import { CROP_CONTAINER_SIZE } from "@/app/globalConsts/globalConsts"
 import { cropContent } from "@/app/helpers/helpersFunctions"
-import { addUserFavorite } from "@/app/serverActions/usersStorage"
 import { useAuthorizationStore } from "@/app/store/authorizationStore"
 import AuthorIcon from "@/public/icons/user/User.svg"
 
@@ -25,7 +22,6 @@ interface ArticleProps {
 
 
 export default function Article({ article, typeArticle }: ArticleProps) {
-    const currentTheme = useGlobalStore((state) => state.currentTheme);
     const [isEditArticle, setIsEditArticle] = useState(false);
     const [isChanged, setIsChanged] = useState(false);
     const [userPrivilege, setUserPrivilege] = useState(false);
@@ -37,10 +33,10 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     const [editAuthor, setEditAuthor] = useState(article.author);
     const [likesCount, setLikesCount] = useState(0);
     const [isLiked, setIsLiked] = useState(false);
-    const currentUser = useMockAuthStore((state) => state.currentAuthUser);
+    // const currentUser = useMockAuthStore((state) => state.currentAuthUser);
 
     const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
-    const updateUserData = useAuthorizationStore((state) => state.updateCurrentAuthUser);
+    // const updateUserData = useAuthorizationStore((state) => state.updateCurrentAuthUser);
     //state
     // const [isFavorite, setIsFavorite] = useState(false);
     const [pending, startTransition] = useTransition()
@@ -53,20 +49,8 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
     const formattedDate = date.toLocaleDateString('sv-SE');
     const favorites = currentAuthUser?.favorites.ARTICLES
-
-    // const isFavorite = favorites?.includes(String(article.id)) ?? false
     const router = useRouter();
 
-    // const addToFavoritesHandler = async (userId: number, type: USER_FAVORITES_TYPE, value: string) => {
-    //     const res = await fetch('/api/favorites', {
-    //         method: 'POST',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify({ userId, type, value })
-    //     });
-    //     const data = await res.json();
-    //     updateUserData({ id: String(userId), typeUpdate: UPDATE_USER_DATA_TYPE.FAVORITES, dataUpdate: value, favoriteAction: isFavorite ? USER_FAVORITES_ACTION.REMOVE : USER_FAVORITES_ACTION.ADD });
-    //     console.log(data);
-    // }
 
     useEffect(() => {
         const checkPrivilege = async () => {
@@ -156,7 +140,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
     const redirectButtonComponent = <div className={`flex items-center justify-end mt-4`}>
         <button
-            className={`bg-buttonContainer ${rounded.medium} p-2 cursor-pointer`}
+            className={`bg-buttonContainer rounded-medium p-2 cursor-pointer`}
             onClick={() => router.push(`${APP_PATH_ROUTER.ARTICLES}/${article.id}`)}
         >
             read more
@@ -173,12 +157,12 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             {redirectButtonComponent}
         </div>
     const editArticleComponent =
-        <button className={`bg-buttonContainer ${rounded.medium} p-2 cursor-pointer`}
+        <button className={`bg-buttonContainer rounded-medium p-2 cursor-pointer`}
             onClick={editArticleHandler}>
             Edit
         </button>;
     const saveArticleComponent =
-        <button className={`bg-buttonContainer ${rounded.medium} p-2 cursor-pointer`}
+        <button className={`bg-buttonContainer rounded-medium p-2 cursor-pointer`}
             onClick={() => {
                 startTransition(() =>
                     updateArticleAction(article.id, editTitle, editContent)
@@ -193,7 +177,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             {pending ? 'Saving...' : 'Save'}
         </button>;
     const cancelEditArticleComponent =
-        <button className={`bg-buttonContainer ${rounded.medium} p-2 cursor-pointer ${!isChanged ? `${THEME_COLOR_SCHEME[currentTheme].inactiveElement}` : ''}`}
+        <button className={`bg-buttonContainer rounded-medium p-2 cursor-pointer ${!isChanged ? `bg-inactiveElement` : ''}`}
             onClick={() => (
                 setIsEditArticle(false),
                 setIsChanged(false),
@@ -215,7 +199,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         </div>
     const mediumArticleComponent =
         <div className={`flex flex-col mb-4 p-2`}>
-            <div className={`flex  w-full rounded ${rounded.medium} bg-mainContainer`}>
+            <div className={`flex  w-full rounded rounded-medium bg-mainContainer`}>
                 {mainMetaDataArticleComponent}
 
             </div>
@@ -229,15 +213,15 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         <div
             key={article.id}
             className={`
-    grid grid-cols-[1fr_1fr] mb-4 p-2
-    ${THEME_COLOR_SCHEME[currentTheme].container}
-    ${rounded.high}
-  `}
+            grid grid-cols-[1fr_1fr] mb-4 p-2
+            bg-mainContainer
+            rounded-medium
+        `}
         >
             {mainMetaDataArticleComponent}
 
             <div className="flex flex-col gap-2 p-2">
-                <p className={`${font.text.size.medium} ${THEME_COLOR_SCHEME[currentTheme].text}`}>
+                <p className={`${font.text.size.medium} `}>
                     {cropContent(article.content, CROP_CONTAINER_SIZE.SMALL)}
 
                 </p>
@@ -247,7 +231,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         </div>
     const fullArticleComponent =
         <div className={`flex flex-col mb-4 p-2`}>
-            <div className={`flex rounded ${rounded.medium} bg-mainContainer mb-2 w-full`}>
+            <div className={`flex rounded rounded-medium bg-mainContainer mb-2 w-full`}>
                 {mainMetaDataArticleComponent}
 
             </div>
@@ -288,7 +272,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         </div>;
     // 
     return (
-        <article key={article.id} className={`bg-subContainer p-4 ${rounded.high} ${sizes.width.maxWidth}  flex flex-col gap-2`}>
+        <article key={article.id} className={`bg-subContainer p-4 rounded-large max-content-main-container  flex flex-col gap-2`}>
             {typeArticle === ARTICLE_TYPE.PREVIEW && previewArticleComponent}
             {typeArticle === ARTICLE_TYPE.MEDIUM && mediumArticleComponent}
             {typeArticle === ARTICLE_TYPE.FULL && fullArticleComponent}

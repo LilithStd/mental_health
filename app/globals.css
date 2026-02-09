@@ -9,6 +9,7 @@
   --accent-element: var(--color-cyan-300);
   --hover: var(--color-blue-700);
   --active-element: var(--color-blue-300);
+  --inactive-element: var(--color-gray-300);
   --input: var(--color-gray-300);
 }
 
@@ -21,6 +22,7 @@
   --accent-element: var(--color-indigo-300);
   --hover: var(--color-amber-700);
   --active-element: var(--color-violet-300);
+  --inactive-element: var(--color-gray-700);
   --input: var(--color-gray-700);
 }
 
@@ -33,6 +35,8 @@
   --color-accentElement: var(--accent-element);
   --color-hover: var(--hover);
   --color-activeElement: var(--active-element);
+  --color-inactiveElement: var(--inactive-element);
+  --color-input: var(--input);
 }
 
 /* global styles components */

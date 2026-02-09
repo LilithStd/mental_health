@@ -1,6 +1,4 @@
 'use client'
-
-import { THEME_COLOR_SCHEME, rounded, sizes } from "@/app/globalConsts/globalStyles";
 import { routes } from "@/app/helpers/helpersFunctions";
 import { useGlobalStore } from "@/app/store/globalStore";
 import { useRouter } from "next/navigation";
@@ -38,7 +36,7 @@ export default function CreateArticle() {
     return (
         <form
             onSubmit={handleSubmit}
-            className={`flex flex-col gap-4 p-4 max-content-main-container rounded-medium bg-subContainer ${THEME_COLOR_SCHEME[currentTheme].text}`}
+            className={`flex flex-col gap-4 p-4 max-content-main-container rounded-medium bg-subContainer `}
         >
             <h1 className="text-xl font-bold">Create Article</h1>
 

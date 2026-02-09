@@ -30,7 +30,7 @@ export default function RandomNewsBlock() {
     return (
         <div className={`flex flex-col bg-subContainer indents-main-container rounded-medium max-content-main-container`}>
             <div>
-                <h2 className={`${font.title.size.medium} indents-container-sub ${font.title.weigth.bold} ${THEME_COLOR_SCHEME[currentTheme].elementAccent} rounded-large`}>Random News</h2>
+                <h2 className={`${font.title.size.medium} indents-container-sub ${font.title.weigth.bold} bg-accentElement rounded-large`}>Random News</h2>
             </div>
 
             {loading ? (
