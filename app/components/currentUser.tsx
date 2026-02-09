@@ -1,7 +1,7 @@
 'use client'
 
 import { useAuthorizationStore } from "../store/authorizationStore";
-import { useGlobalStore } from "../store/globalStore";
+
 
 interface UserProps {
     id: string
@@ -9,7 +9,6 @@ interface UserProps {
 export default function CurrentUser({ id }: UserProps) {
     // stores
     const currentUsers = useAuthorizationStore((state) => state.currentAuthUser);
-    const currentTheme = useGlobalStore((state) => state.currentTheme);
     // 
 
     console.log('Current User Component - currentUsers:', currentUsers);

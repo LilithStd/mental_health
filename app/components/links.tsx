@@ -8,14 +8,13 @@ import Link from "next/link";
 
 export default function ListLinks() {
     const currentLanguage = useGlobalStore((state) => state.currentLanguage)
-    const currentTheme = useGlobalStore((state) => state.currentTheme)
     const pathname = usePathname();
     const isLinkActive = (path: string) => {
         if (path === '/') return pathname === '/';
         return pathname === path || pathname.startsWith(path + '/');
     };
     return (
-        <div className={`flex m-10 w-full items-center justify-center bg-mainContainer ${rounded.medium}`}>
+        <div className={`flex m-10 w-full items-center justify-center bg-mainContainer rounded-medium`}>
             {LINKS.map((link) => {
                 const isActive = isLinkActive(link.path);
 
@@ -24,8 +23,8 @@ export default function ListLinks() {
                         key={link.label}
                         href={link.path}
                         className={`
-                            ${font.text.size.medium} gap-2 m-2 p-2 w-full text-center ${rounded.medium}  
-                            ${isActive && `${THEME_COLOR_SCHEME[currentTheme].activeElement} `}
+                            ${font.text.size.medium} gap-2 m-2 p-2 w-full text-center rounded-medium  
+                            ${isActive && `bg-activeElement `}
                         `}
                     >
                         {link.translate[currentLanguage]}

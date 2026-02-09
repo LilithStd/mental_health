@@ -2,8 +2,7 @@
 import WithOutAuthorizationIcon from "@/public/icons/user/UserCircle.svg";
 import AuthorisationIcon from "@/public/icons/user/UserLogout.svg";
 import { useGlobalStore } from "../store/globalStore";
-import { indents, THEME_COLOR_SCHEME } from "../globalConsts/globalStyles";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ModalWindowMain from "./modalWindowMain";
 import ModalWindowAuthorization from "./modalWindows/modalWindowAuthorization";
 import { APP_PATH_ROUTER, AUTHORIZATION_STATUS } from "../globalConsts/globalEnum";
@@ -21,7 +20,6 @@ export default function Authorization() {
     // stores
     // global store
     const currentLanguage = useGlobalStore((state) => state.currentLanguage);
-    const currentTheme = useGlobalStore((state) => state.currentTheme);
     //user auth store
     const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
     const logoutUser = useAuthorizationStore((state) => state.logoutUser);
@@ -48,7 +46,7 @@ export default function Authorization() {
 
                 }} />
                 <div className={`min-h-12 cursor-pointer`}>
-                    <Link href={`${APP_PATH_ROUTER.USERS}/${authUser.id}`} className={`${THEME_COLOR_SCHEME[currentTheme].hover} cursor-pointer ${indents.container}`} >{authUser.email}</Link>
+                    <Link href={`${APP_PATH_ROUTER.USERS}/${authUser.id}`} className={`hover:bg-hover cursor-pointer`} >{authUser.email}</Link>
                     <h2>{ROLE_AUTHORIZED_USER_TRANSLATE[authUser.role].translate[currentLanguage]}</h2>
                 </div>
 

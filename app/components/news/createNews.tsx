@@ -1,6 +1,4 @@
 'use client'
-
-import { rounded, sizes, } from "@/app/globalConsts/globalStyles";
 import { routes } from "@/app/helpers/helpersFunctions";
 
 import { useRouter } from "next/navigation";
