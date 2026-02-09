@@ -6,6 +6,10 @@
   --main-container: var(--color-cyan-500);
   --sub-container: var(--color-cyan-400);
   --button-container: var(--color-blue-500);
+  --accent-element: var(--color-cyan-300);
+  --hover: var(--color-blue-700);
+  --active-element: var(--color-blue-300);
+  --input: var(--color-gray-300);
 }
 
 :root.dark {
@@ -14,6 +18,10 @@
   --main-container: var(--color-indigo-500);
   --sub-container: var(--color-indigo-400);
   --button-container: var(--color-amber-500);
+  --accent-element: var(--color-indigo-300);
+  --hover: var(--color-amber-700);
+  --active-element: var(--color-violet-300);
+  --input: var(--color-gray-700);
 }
 
 @theme {
@@ -22,6 +30,9 @@
   --color-mainContainer: var(--main-container);
   --color-subContainer: var(--sub-container);
   --color-buttonContainer: var(--button-container);
+  --color-accentElement: var(--accent-element);
+  --color-hover: var(--hover);
+  --color-activeElement: var(--active-element);
 }
 
 /* global styles components */

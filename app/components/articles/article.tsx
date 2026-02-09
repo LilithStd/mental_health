@@ -134,11 +134,12 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             <div
                 className={`
                             flex  flex-col items-center gap-2
-                            ${THEME_COLOR_SCHEME[currentTheme].elementAccent}
-                            p-2 rounded ${rounded.medium}
+                            bg-accentElement
+                            p-2
+                            rounded-medium 
                             `}
             >
-                <div className={`flex justify-center items-center ${rounded.circle} bg-subContainer p-2`}>
+                <div className={`flex justify-center items-center rounded-circle bg-subContainer p-2`}>
                     <AuthorIcon className="w-30 h-30 fill-current" />
                 </div>
             </div>
