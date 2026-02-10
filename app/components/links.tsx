@@ -14,7 +14,7 @@ export default function ListLinks() {
         return pathname === path || pathname.startsWith(path + '/');
     };
     return (
-        <div className={`flex p-2 items-center justify-center bg-mainContainer rounded-large`}>
+        <div className={`flex p-2 items-center justify-center bg-mainContainer w-full rounded-large`}>
             {LINKS.map((link) => {
                 const isActive = isLinkActive(link.path);
 
@@ -23,7 +23,7 @@ export default function ListLinks() {
                         key={link.label}
                         href={link.path}
                         className={`
-                            ${font.text.size.medium} gap-2 indents-container-sub  text-center rounded-medium 
+                            ${font.text.size.medium} gap-2 indents-container-sub w-1/4 text-center rounded-medium 
                             ${isActive && `bg-activeElement `}
                         `}
                     >
