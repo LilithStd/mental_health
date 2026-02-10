@@ -9,6 +9,7 @@ import { canEditContent } from "../serverActions/permissions";
 import { useAuthorizationStore } from "../store/authorizationStore";
 import CreateNews from "../components/news/createNews";
 import { routes } from "../helpers/helpersFunctions";
+import Loading from "../components/shared/loading";
 
 
 export default function AllNews() {
@@ -41,8 +42,7 @@ export default function AllNews() {
     return (
         <div className={`flex flex-col bg-mainContainer rounded-medium flex-1 indents-main-container  items-center `}>
             {/* <Search /> */}
-            {loading ? (<div>Loading...</div>
-            ) : (
+            {loading ? <Loading fullScreen={true} /> : (
                 <div className={`flex flex-col items-center gap-4 p-4 max-content-main-container`}>
                     <div>
                         {userPrivilege && (

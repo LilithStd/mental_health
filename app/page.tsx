@@ -1,8 +1,6 @@
-
-
 import RandomArticleBlock from "./components/blockRandomElements/randomArticleBlock";
 import RandomNewsBlock from "./components/blockRandomElements/randomNewsBlock";
-import { indents, rounded } from "./globalConsts/globalStyles";
+
 
 
 export default function Main() {

@@ -3,10 +3,9 @@ import { useEffect, useState, use } from 'react'
 import { ArticleType } from '../page'
 import Article from '@/app/components/articles/article'
 import { ARTICLE_TYPE } from '@/app/globalConsts/globalEnum'
-import { THEME_COLOR_SCHEME, rounded, indents } from '@/app/globalConsts/globalStyles'
-import { useGlobalStore } from '@/app/store/globalStore'
 import { canEditContent } from '@/app/serverActions/permissions'
 import { useMockAuthStore } from '@/app/store/mockAuthStore'
+import Loading from '@/app/components/shared/loading'
 
 export default function ArticlePage({
     params,
@@ -47,30 +46,17 @@ export default function ArticlePage({
             })
     }, [id])
 
-    // const toggleFavorite = async () => {
-    //     await fetch('/api/users/favorites', {
-    //         method: isFavorite ? 'DELETE' : 'POST',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify({
-    //             userId: currentUser.id,
-    //             type: 'ARTICLES',
-    //             value: article.id
-    //         })
-    //     })
-
-    //     // обновить локальный стор или refetch
-    // }
 
     if (error) {
         return <div>Статья не найдена</div>
     }
 
     if (!article) {
-        return <div>Загрузка...</div>
+        return <Loading fullScreen={true} />
     }
 
     return (
-        <div className={`flex   flex-col bg-mainContainer ${rounded.medium} flex-1 ${indents.container.main} items-center `}>
+        <div className={`flex   flex-col bg-mainContainer rounded-medium flex-1 indents-main-container items-center `}>
             <Article article={article} typeArticle={ARTICLE_TYPE.FULL} />
         </div>
     )

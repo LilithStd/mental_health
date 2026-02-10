@@ -1,6 +1,5 @@
 'use client'
 
-import { font, rounded, THEME_COLOR_SCHEME } from "../globalConsts/globalStyles";
 import { useGlobalStore } from "../store/globalStore"
 import { LINKS } from "../template/text"
 import { usePathname } from 'next/navigation';
@@ -23,7 +22,7 @@ export default function ListLinks() {
                         key={link.label}
                         href={link.path}
                         className={`
-                            ${font.text.size.medium} gap-2 indents-container-sub w-1/4 text-center rounded-medium 
+                            text-lg gap-2 indents-container-sub w-1/4 text-center rounded-medium 
                             ${isActive && `bg-activeElement `}
                         `}
                     >

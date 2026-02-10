@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Search from "../components/shared/search";
 import Test from "../components/tests/test";
 import { TEST_TYPE } from "../globalConsts/globalEnum";
+import Loading from "../components/shared/loading";
 
 
 type QuestionVariant = {
@@ -47,7 +48,7 @@ export default function Tests() {
         <div className={`flex flex-col bg-mainContainer rounded-medium flex-1 indents-main-container items-center`}>
             {/* <Search /> */}
             <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 max-content-main-container`}>
-                {loading ? <p>Loading...</p> : tests.map((test) => (
+                {loading ? <Loading fullScreen={true} /> : tests.map((test) => (
                     <Test key={test.id} test={test} testType={TEST_TYPE.PREVIEW} />
                 ))}
             </div>

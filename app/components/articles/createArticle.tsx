@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 // }
 export default function CreateArticle() {
     //stores
-    const currentTheme = useGlobalStore((state) => state.currentTheme);
     // consts
     const router = useRouter()
     // handles
@@ -18,7 +17,7 @@ export default function CreateArticle() {
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
 
-        const form = e.currentTarget // ⬅️ сохраняем ссылку сразу
+        const form = e.currentTarget
         const formData = new FormData(form)
 
         const res = await fetch('/api/articles', {
@@ -26,11 +25,12 @@ export default function CreateArticle() {
             body: formData,
         })
 
-        const data = await res.json()
-        console.log(data)
-
-        form.reset() // очищаем форму
-        // onClose()
+        form.reset()
+        if (res.ok) {
+            router.push(routes.articles.root)
+        } else {
+            alert('Error creating article')
+        }
     }
 
     return (

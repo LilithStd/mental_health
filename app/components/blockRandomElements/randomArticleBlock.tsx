@@ -7,6 +7,7 @@ import { useGlobalStore } from "@/app/store/globalStore";
 import { useState, useEffect } from "react";
 import Article from "../articles/article";
 import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum";
+import Loading from "../shared/loading";
 
 export default function RandomArticleBlock() {
   //stores
@@ -31,7 +32,7 @@ export default function RandomArticleBlock() {
       <h2 className={`${font.title.size.medium} ${font.title.weigth.bold} bg-accentElement rounded-medium indents-main-container`}>Random Article</h2>
       <div>
         {loading ? (
-          <div>Loading...</div>
+          <Loading />
         ) : (
           articles.map(article => (
             <Article key={article.id} article={article} typeArticle={ARTICLE_TYPE.PREVIEW} />

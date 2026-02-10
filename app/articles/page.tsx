@@ -12,6 +12,7 @@ import CreateArticle from "../components/articles/createArticle";
 import Article from "../components/articles/article";
 import { useAuthorizationStore } from "../store/authorizationStore";
 import { routes } from "../helpers/helpersFunctions";
+import Loading from "../components/shared/loading";
 
 export type ArticleType = {
     id: number
@@ -51,11 +52,6 @@ export default function Articles() {
             })
     }, [])
 
-
-
-
-    // console.log('Current Auth User in Articles Page:', currentAuthUser);
-    // console.log('searchedArticles:', searchedArticles);
     useEffect(() => {
         const checkPrivilege = async () => {
             const privilege = await canEditContent(currentAuthUser);
@@ -63,11 +59,8 @@ export default function Articles() {
         };
         checkPrivilege();
     }, [currentAuthUser]);
-    // if (loading) {
-    //     return <div>Загрузка...</div>
-    // }
     return (
-        <div className={`flex flex-col  bg-mainContainer ${rounded.medium} flex-1 ${indents.container.main} gap-2 items-center `}>
+        <div className={`flex flex-col  bg-mainContainer rounded-medium flex-1 indents-main-container  gap-2 items-center `}>
             <Search callBackResultAfterSearch={setSearchedArticles} isSearchActive={setIsSearchActive} arrayForSearch={articles} />
             {currentAuthUser && userPrivilege && (
                 <div>
@@ -75,14 +68,11 @@ export default function Articles() {
                     {
                         !isCreateArticleVisible && <button className={` bg-buttonContainer p-2 rounded ${rounded.medium}`} onClick={() => route.push(routes.articles.create())}>New Articles</button>
                     }
-
-
-                    {/* {isCreateArticleVisible && <CreateArticle />} */}
                 </div>
 
             )}
             <div className={`grid grid-cols-1 md:grid-cols-2 gap-4  mb-4 ${sizes.width.maxWidth}`}>
-                {loading ? <div>Loading...</div> : !isCreateArticleVisible && !isSearchActive && articles.map((article) =>
+                {loading ? <Loading fullScreen={true} /> : !isCreateArticleVisible && !isSearchActive && articles.map((article) =>
                     <Article
                         key={article.id}
                         article={article}
