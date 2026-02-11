@@ -6,19 +6,19 @@ import ListLinks from "./links";
 export default function Header() {
 
     return (
-        <nav className={`flex rounded-medium  justify-center items-center indents-main-container   `}>
+        <nav className={`flex rounded-medium  justify-center  indents-main-container `}>
             <div className={`flex max-w-6xl justify-between items-center w-full  bg-subContainer rounded-large`}>
                 <div className={`flex`}>
-                    <h1 className={`text-6xl text-center`}>Mental Health</h1>
+                    <h2 className="text-3xl text-center max-w-[200px] m-2 w-30">Mental Health</h2>
 
                 </div>
-                <div className={`flex justify-center `}>
+                <div className={`flex justify-center m-2`}>
                     <ListLinks />
                 </div>
-                <div className={`flex justify-end `}>
+                <div className={`flex justify-end m-2`}>
                     <AdditionalPanel />
                 </div>
-                <div className={`flex justify-end `}>
+                <div className={`flex justify-end m-2`}>
                     <Authorization />
                 </div>
             </div>
