@@ -28,7 +28,7 @@ export default function RandomArticleBlock() {
 
 
   return (
-    <div className={`flex flex-col bg-subContainer indents-main-container rounded-medium max-content-main-container`}>
+    <div className={`flex flex-col bg-subContainer indents-main-container rounded-medium `}>
       <h2 className={`${font.title.size.medium} ${font.title.weigth.bold} bg-accentElement rounded-medium indents-main-container`}>Random Article</h2>
       <div>
         {loading ? (

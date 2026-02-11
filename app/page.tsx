@@ -8,8 +8,8 @@ export default function Main() {
 
   // 
   return (
-    <main className={`flex flex-col bg-mainContainer indents-main-container rounded-medium flex-1 items-center`}>
-      <div>
+    <main className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
+      <div className={`flex flex-col  max-w-6xl  rounded-medium bg-mainContainer `}>
         <RandomArticleBlock />
         <RandomNewsBlock />
       </div>
