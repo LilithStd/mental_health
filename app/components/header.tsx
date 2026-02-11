@@ -16,12 +16,13 @@ export default function Header() {
                     <ListLinks />
                 </div>
                 <div className={`flex flex-col bg-accentElement rounded-large indents-container-sub gap-2 p-4`}>
-                    <Authorization />
                     <AdditionalPanel />
-                </div>
-                {/* <div className={`flex justify-end m-2`}>
 
-                </div> */}
+
+                </div>
+                <div className={`flex flex-col bg-accentElement rounded-large indents-container-sub gap-2 p-4`}>
+                    <Authorization />
+                </div>
             </div>
 
         </nav>
