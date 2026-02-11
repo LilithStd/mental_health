@@ -47,12 +47,12 @@ export default function LanguageSwitcher() {
 
 
     return (
-        <div className="flex rounded-medium items-center bg-mainContainer relative">
+        <div className="flex rounded-medium items-center relative">
             {/* <LanguageIcon
                 className="w-6 h-6 mr-2 cursor-pointer"
                 onClick={() => setIsOpen(!isOpen)}
             /> */}
-            {<div className="w-6 h-6 mr-2 cursor-pointer"
+            {<div className=" cursor-pointer"
                 onClick={() => setIsOpen(!isOpen)}>
                 <span className={`font-bold`}>{currentLanguage}</span>
             </div>}

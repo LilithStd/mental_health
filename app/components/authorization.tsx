@@ -34,20 +34,20 @@ export default function Authorization() {
         setAuthorizationType(AUTHORIZATION_STATUS.SIGN_IN);
     }
     // effects
-    useEffect(() => { }, [])
+
     // 
     //components
     const isAuthorizedComponent = (authUser: User) => {
         return (
-            <div className={`flex flex-col items-center justify-center gap-2`}>
+            <div className={`flex flex-col items-center justify-center gap-2`} onClick={() => setIsOpenModalWindow(true)}>
                 <AuthorisationIcon width={48} height={48} onClick={() => {
                     logoutUser(authUser.id);
                     router.push(APP_PATH_ROUTER.MAIN);
 
                 }} />
-                <div className={`min-h-12 cursor-pointer`}>
+                <div className={`cursor-pointer`}>
                     <Link href={`${APP_PATH_ROUTER.USERS}/${authUser.id}`} className={`hover:bg-hover cursor-pointer`} >{authUser.email}</Link>
-                    <h2>{ROLE_AUTHORIZED_USER_TRANSLATE[authUser.role].translate[currentLanguage]}</h2>
+                    {/* <h2>{ROLE_AUTHORIZED_USER_TRANSLATE[authUser.role].translate[currentLanguage]}</h2> */}
                 </div>
 
             </div>
@@ -68,7 +68,7 @@ export default function Authorization() {
 
     return (
         <div
-            className={`flex w-full flex-col text-center items-center justify-center gap-2 p-4`}
+            className={`flex w-full flex-col text-center items-center justify-center`}
         >
             {currentAuthUser ? isAuthorizedComponent(currentAuthUser) : notAuthorizedComponent()}
             {isOpenModalWindow &&

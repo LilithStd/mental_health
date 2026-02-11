@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: var(--color-emerald-100);
+  --background: var(--color-emerald-50);
   --foreground: #171717;
   --main-container: var(--color-cyan-500);
   --sub-container: var(--color-cyan-400);

@@ -12,15 +12,16 @@ export default function Header() {
                     <h2 className="text-3xl text-center max-w-[200px] m-2 w-30">Mental Health</h2>
 
                 </div>
-                <div className={`flex justify-center m-2`}>
+                <div className={`flex flex-col items-center justify-center `}>
                     <ListLinks />
                 </div>
-                <div className={`flex justify-end m-2`}>
+                <div className={`flex flex-col bg-accentElement rounded-large indents-container-sub gap-2 p-4`}>
+                    <Authorization />
                     <AdditionalPanel />
                 </div>
-                <div className={`flex justify-end m-2`}>
-                    <Authorization />
-                </div>
+                {/* <div className={`flex justify-end m-2`}>
+
+                </div> */}
             </div>
 
         </nav>
