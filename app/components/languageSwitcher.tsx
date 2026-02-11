@@ -1,7 +1,6 @@
 'use client'
 import { LANGUAGE_APP } from "../globalConsts/globalConsts"
 import { useGlobalStore } from "../store/globalStore"
-import ButtonComponent from "./shared/button"
 import LanguageIcon from "../../public/icons/Language.svg"
 import { useState } from "react"
 
@@ -32,7 +31,7 @@ export default function LanguageSwitcher() {
                     className={`${currentLanguage === item ? 'bg-activeElement' : ''} rounded-medium p-2`}
                 >
                     <button
-                        className={`text-text ${currentLanguage === item ? 'font-bold' : ''}`}
+                        className={`text-text ${currentLanguage === item ? 'font-bold' : ''} cursor-pointer`}
                         onClick={() => {
                             setCurrentLanguage(item);
                             setIsOpen(false);
@@ -49,10 +48,14 @@ export default function LanguageSwitcher() {
 
     return (
         <div className="flex rounded-medium items-center bg-mainContainer relative">
-            <LanguageIcon
+            {/* <LanguageIcon
                 className="w-6 h-6 mr-2 cursor-pointer"
                 onClick={() => setIsOpen(!isOpen)}
-            />
+            /> */}
+            {<div className="w-6 h-6 mr-2 cursor-pointer"
+                onClick={() => setIsOpen(!isOpen)}>
+                <span className={`font-bold`}>{currentLanguage}</span>
+            </div>}
             {isOpen && listLanguage}
         </div>
 
