@@ -41,3 +41,7 @@ export async function getCurrentUser() {
     return null
   }
 }
+
+export async function logoutAction() {
+  (await cookies()).delete('session')
+}

@@ -1,5 +1,6 @@
 import AdditionalPanel from "./additionalPanel";
 import Authorization from "./authorization";
+import AuthorizationMain from "./authorization/authorizationMain";
 import ListLinks from "./links";
 
 
@@ -21,7 +22,8 @@ export default function Header() {
 
                 </div>
                 <div className={`flex flex-col bg-accentElement rounded-large indents-container-sub gap-2 p-4`}>
-                    <Authorization />
+                    {/* <Authorization /> */}
+                    <AuthorizationMain />
                 </div>
             </div>
 
