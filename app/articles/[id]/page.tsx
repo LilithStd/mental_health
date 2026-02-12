@@ -10,7 +10,7 @@ export default async function ArticlePage({
     params: { id: string }
 }) {
     const { id } = await params
-    console.log('ArticlePage: fetching article with id', id);
+
     const article = await getArticleById(Number(id))
 
     if (!article) {

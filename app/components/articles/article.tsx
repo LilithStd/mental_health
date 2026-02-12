@@ -4,7 +4,6 @@ import Favorites from "../shared/favorites"
 import { useEffect, useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
 import { APP_PATH_ROUTER, ARTICLE_TYPE } from "@/app/globalConsts/globalEnum"
-import { ArticleType } from "@/app/articles/page"
 import { canEditContent } from "@/app/serverActions/permissions"
 import EditActiveIcon from "@/public/icons/EditActive.svg"
 import EditInactiveIcon from "@/public/icons/EditInactive.svg"
@@ -13,6 +12,7 @@ import { CROP_CONTAINER_SIZE } from "@/app/globalConsts/globalConsts"
 import { cropContent } from "@/app/helpers/helpersFunctions"
 import { useAuthorizationStore } from "@/app/store/authorizationStore"
 import AuthorIcon from "@/public/icons/user/User.svg"
+import { ArticleType } from "./articlesClients"
 
 
 interface ArticleProps {
@@ -35,16 +35,9 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
     const [likesCount, setLikesCount] = useState(initialLikesCount);
     const [isLiked, setIsLiked] = useState(false);
     // const currentUser = useMockAuthStore((state) => state.currentAuthUser);
-
+    // console.log(initialLikesCount, 'initialLikesCount in Article component');
     const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
-    // const updateUserData = useAuthorizationStore((state) => state.updateCurrentAuthUser);
-    //state
-    // const [isFavorite, setIsFavorite] = useState(false);
     const [pending, startTransition] = useTransition()
-    const [isSavedChanges, setIsSavedChanges] = useState(false);
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState<string | null>(null)
-    const [success, setSuccess] = useState(false)
     //
     const date = new Date(article.createdAt);
 
@@ -89,7 +82,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
 
         const data = await res.json()
 
-        // setLikesCount(data.likesCount)
+        setLikesCount(data.likesCount)
         router.refresh()
         setIsLiked(data.isLiked)
     }
@@ -262,7 +255,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                 {isEditContent && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditContent(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditContent(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
             </div>
             <div className={`flex items-center justify-between p-2`}>
-                {/* {favoritesComponent} */}
+                {favoritesComponent}
             </div>
 
             <div className={`flex items-center justify-end  p-2`}>
