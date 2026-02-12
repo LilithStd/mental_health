@@ -17,11 +17,12 @@ import AuthorIcon from "@/public/icons/user/User.svg"
 
 interface ArticleProps {
     article: ArticleType
-    typeArticle: ARTICLE_TYPE
+    initialLikesCount: number
+    typeArticle?: ARTICLE_TYPE
 }
 
 
-export default function Article({ article, typeArticle }: ArticleProps) {
+export default function Article({ article, typeArticle, initialLikesCount }: ArticleProps) {
     const [isEditArticle, setIsEditArticle] = useState(false);
     const [isChanged, setIsChanged] = useState(false);
     const [userPrivilege, setUserPrivilege] = useState(false);
@@ -48,7 +49,6 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     const date = new Date(article.createdAt);
 
     const formattedDate = date.toLocaleDateString('sv-SE');
-    const favorites = currentAuthUser?.favorites.ARTICLES
     const router = useRouter();
 
 
@@ -71,6 +71,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
             })
     }, [article.id, currentAuthUser])
+
     // functions
     const handleLike = async () => {
         if (!currentAuthUser || !currentAuthUser.id) {
@@ -88,7 +89,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
         const data = await res.json()
 
-        setLikesCount(data.likesCount)
+        // setLikesCount(data.likesCount)
         setIsLiked(data.isLiked)
     }
     const editArticleHandler = () => {

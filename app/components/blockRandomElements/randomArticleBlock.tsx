@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import Article from "../articles/article";
 import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum";
 import Loading from "../shared/loading";
+import ArticleServerLikesWrapper from "../articles/articleServerLikesWrapper";
 
 export default function RandomArticleBlock() {
   //stores
@@ -35,7 +36,9 @@ export default function RandomArticleBlock() {
           <Loading />
         ) : (
           articles.map(article => (
-            <Article key={article.id} article={article} typeArticle={ARTICLE_TYPE.PREVIEW} />
+
+            <Article key={article.id} article={article} typeArticle={ARTICLE_TYPE.PREVIEW} initialLikesCount={0} />
+
           ))
         )}
       </div>

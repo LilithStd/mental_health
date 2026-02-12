@@ -14,16 +14,16 @@ function getFilePath(articleId: number) {
 }
 
 // Получить лайки статьи
-export async function getArticleLikes(articleId: number): Promise<string[]> {
-  await ensureDir()
-  const filePath = getFilePath(articleId)
+export async function getArticleLikes(articleId: number) {
+  const file = await fs.readFile(likesDir, 'utf-8')
+  const likes = JSON.parse(file)
 
-  try {
-    const data = await fs.readFile(filePath, 'utf-8')
-    return JSON.parse(data)
-  } catch {
-    return []
+  const articleLikes = likes[articleId] || {
+    likes: [],
+    likesCount: 0,
   }
+
+  return articleLikes
 }
 
 // Проверить, лайкал ли пользователь
