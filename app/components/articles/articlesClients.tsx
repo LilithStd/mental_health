@@ -31,8 +31,6 @@ export default function ArticlesClient({ initialArticles }: ArticlesClientProps)
                 {articles.map((article) =>
                     <ArticleClient key={article.id} article={article} type={ARTICLE_TYPE.MEDIUM} />
                 )}
-
-
             </div>
 
         </div>

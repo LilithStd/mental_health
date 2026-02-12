@@ -1,6 +1,5 @@
 'use client'
 
-import { ArticleType } from "@/app/articles/page";
 import { font } from "@/app/globalConsts/globalStyles";
 import { pickRandomUnique } from "@/app/helpers/helpersFunctions";
 import { useGlobalStore } from "@/app/store/globalStore";
@@ -9,6 +8,7 @@ import Article from "../articles/article";
 import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum";
 import Loading from "../shared/loading";
 import ArticleServerLikesWrapper from "../articles/articleServerLikesWrapper";
+import { ArticleType } from "../articles/articlesClients";
 
 export default function RandomArticleBlock() {
   //stores
