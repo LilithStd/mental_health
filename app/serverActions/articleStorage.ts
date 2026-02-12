@@ -28,6 +28,13 @@ export function getAllArticles(): Article[] {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'))
 }
 
+export async function getArticleById(id: number) {
+  console.log('getArticleById called with id:', id);
+  ensureFile()
+  const articles = await getAllArticles()
+  return articles.find(a => a.id === id) || null
+}
+
 export function updateArticle(
   id: number,
   data: Partial<Omit<Article, 'id'>>

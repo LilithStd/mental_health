@@ -32,7 +32,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
     const [isEditContent, setIsEditContent] = useState(false);
     const [isEditAuthor, setIsEditAuthor] = useState(false);
     const [editAuthor, setEditAuthor] = useState(article.author);
-    const [likesCount, setLikesCount] = useState(0);
+    const [likesCount, setLikesCount] = useState(initialLikesCount);
     const [isLiked, setIsLiked] = useState(false);
     // const currentUser = useMockAuthStore((state) => state.currentAuthUser);
 
@@ -60,17 +60,17 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         checkPrivilege();
     }, [currentAuthUser]);
 
-    useEffect(() => {
-        fetch(`/api/articleLikes?articleId=${article.id}`)
-            .then(res => res.json())
-            .then(data => {
-                setLikesCount(data.likesCount)
-                if (currentAuthUser && currentAuthUser.id) {
-                    setIsLiked(data.likes.includes(currentAuthUser.id))
-                }
+    // useEffect(() => {
+    //     fetch(`/api/articleLikes?articleId=${article.id}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setLikesCount(data.likesCount)
+    //             if (currentAuthUser && currentAuthUser.id) {
+    //                 setIsLiked(data.likes.includes(currentAuthUser.id))
+    //             }
 
-            })
-    }, [article.id, currentAuthUser])
+    //         })
+    // }, [article.id, currentAuthUser])
 
     // functions
     const handleLike = async () => {
@@ -90,6 +90,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         const data = await res.json()
 
         // setLikesCount(data.likesCount)
+        router.refresh()
         setIsLiked(data.isLiked)
     }
     const editArticleHandler = () => {
@@ -261,7 +262,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                 {isEditContent && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditContent(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditContent(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
             </div>
             <div className={`flex items-center justify-between p-2`}>
-                {favoritesComponent}
+                {/* {favoritesComponent} */}
             </div>
 
             <div className={`flex items-center justify-end  p-2`}>
