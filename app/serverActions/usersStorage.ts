@@ -47,10 +47,15 @@ export async function getUserByEmail(email: string) {
   return users.find(u => u.email === email) || null
 }
 
+export async function checkUserAlreadyExists(email: string) {
+  const users = await readUsers()
+  return users.some(u => u.email === email)
+}
+
 export async function createUser(email: string, password: string) {
   const users = await readUsers()
 
-  if (users.some(u => u.email === email)) {
+  if (await checkUserAlreadyExists(email)) {
     return { error: 'User already exists' }
   }
 

@@ -1,5 +1,7 @@
 'use client'
 import { AUTHORIZATION_STATUS } from "@/app/globalConsts/globalEnum";
+import { loginAction } from "@/app/serverActions/auth/auth";
+
 import { useAuthorizationStore } from "@/app/store/authorizationStore";
 import { useGlobalStore } from "@/app/store/globalStore";
 import { useMockAuthStore } from "@/app/store/mockAuthStore";
@@ -84,48 +86,57 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
     }
 
 
-    const signInUserHandler = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+    // const signInUserHandler = async (event: React.FormEvent<HTMLFormElement>) => {
+    //     event.preventDefault();
 
-        const form = event.currentTarget;
-        const formData = new FormData(form);
+    //     const form = event.currentTarget;
+    //     const formData = new FormData(form);
 
-        const email = formData.get('email') as string;
-        const password = formData.get('password') as string;
+    //     const email = formData.get('email') as string;
+    //     const password = formData.get('password') as string;
+    //     try {
+    //         const res = await fetch('/api/login', {
+    //             method: 'POST',
+    //             headers: { 'Content-Type': 'application/json' },
+    //             body: JSON.stringify({ email, password }),
+    //         });
 
-        try {
-            const res = await fetch('/api/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password }),
-            });
+    //         const data = await res.json();
 
-            const data = await res.json();
 
-            // ❌ сервер отказал
-            if (!data.authorized) {
-                setError('Invalid email or password');
-                alert('Invalid email or password');
-                return;
-            }
+    //         if (!data.authorized) {
+    //             setError('Invalid email or password');
+    //             alert('Invalid email or password');
+    //             return;
+    //         }
 
-            // ✅ сервер разрешил
-            setCurrentAuthUser(data.user);
-            alert('User successfully signed in');   // сохраняем юзера из ответа сервера
-            form.reset();
-            props.closeCallback();
+    //         // ✅ сервер разрешил
+    //         setCurrentAuthUser(data.user);
+    //         alert('User successfully signed in');
+    //         form.reset();
+    //         props.closeCallback();
 
-        } catch (e) {
-            alert('Invalid email or password');
-            setError('Server error');
+    //     } catch (e) {
+    //         alert('Invalid email or password');
+    //         setError('Server error');
+    //     }
+    // };
+    const signInUserHandler = async (formData: FormData) => {
+        const result = await loginAction(formData)
+
+        if (result?.error) {
+            setError(result.error)
+            return
         }
-    };
+
+        props.closeCallback()
+    }
 
 
     // components
     const AuthSignInComponent = (
         <div className={`flex flex-col  bg-mainContainer items-center justify-center gap-2 p-4 `}>
-            <form action="" className={`flex flex-col items-center justify-center gap-2`} key={props.typeAuthorization} onSubmit={signInUserHandler}>
+            <form action={signInUserHandler} className={`flex flex-col items-center justify-center gap-2`} key={props.typeAuthorization}>
                 <input name="email" type="email" placeholder={INPUT_PLACEHOLDERS.EMAIL[currentLanguage]} className={`mb-2 p-2 rounded-small w-64 border`} required />
                 <input name="password" type="password" placeholder={INPUT_PLACEHOLDERS.PASSWORD[currentLanguage]} className={`mb-2 p-2 rounded-small w-64 border`} required />
                 <button type="submit" className="bg-blue-500 text-white p-2 rounded-md w-64 cursor-pointer">
