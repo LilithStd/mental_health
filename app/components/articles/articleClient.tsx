@@ -1,7 +1,14 @@
-import React from 'react'
+import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum";
+import { ArticleType } from "./articlesClients";
+import ArticleServerLikesWrapper from "./articleServerLikesWrapper";
 
-export default function ArticleClient() {
+interface ArticleClientProps {
+    article: ArticleType
+    type: ARTICLE_TYPE
+}
+
+export default function ArticleClient({ article, type }: ArticleClientProps) {
     return (
-        <div>ArticleClient</div>
+        <ArticleServerLikesWrapper article={article} type={type} />
     )
 }
