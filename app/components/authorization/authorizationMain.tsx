@@ -1,6 +1,4 @@
 import { getCurrentUser } from "@/app/serverActions/auth/auth"
-import NoneAuthUserComponent from "./noneAuthUserComponent"
-import AuthUserComponent from "./authUserComponent"
 import ModalWindowWrapper from "../modalWindows/modalWindowWrapper"
 
 
@@ -9,12 +7,7 @@ export default async function AuthorizationMain() {
 
     return (
         <div className="flex w-full flex-col text-center items-center justify-center">
-            {currentAuthUser ? (
-                <AuthUserComponent authUser={currentAuthUser} />
-            ) : (
-                <NoneAuthUserComponent />
-            )}
-            <ModalWindowWrapper />
+            <ModalWindowWrapper currentAuthUser={currentAuthUser ?? undefined} />
         </div>
     )
 }
