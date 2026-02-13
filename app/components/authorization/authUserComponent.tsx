@@ -1,8 +1,10 @@
+'use client'
 import AuthorisationIcon from "@/public/icons/user/UserLogout.svg"
 import Link from "next/link"
 import { APP_PATH_ROUTER } from "@/app/globalConsts/globalEnum"
 import { UserAuthType } from "@/app/types/types"
 import { logoutAction } from "@/app/serverActions/auth/auth"
+import { useRouter } from "next/navigation"
 
 interface AuthUserComponentProps {
     authUser: UserAuthType,
@@ -10,8 +12,11 @@ interface AuthUserComponentProps {
 }
 
 export default function AuthUserComponent({ authUser }: AuthUserComponentProps) {
+    const router = useRouter()
     const logoutCurrentAuthUserHandler = async () => {
         await logoutAction()
+        router.refresh()
+
     }
     return (
         <div className={`flex flex-col items-center justify-center gap-2`} >
