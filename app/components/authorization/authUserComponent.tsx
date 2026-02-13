@@ -1,11 +1,10 @@
 import AuthorisationIcon from "@/public/icons/user/User.svg"
 import Link from "next/link"
 import { APP_PATH_ROUTER } from "@/app/globalConsts/globalEnum"
-
-import { User } from "@/app/serverActions/usersStorage"
+import { UserAuthType } from "@/app/types/types"
 
 interface AuthUserComponentProps {
-    authUser: User
+    authUser: UserAuthType
 }
 
 export default async function AuthUserComponent({ authUser }: AuthUserComponentProps) {

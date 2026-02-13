@@ -1,12 +1,10 @@
 'use client'
 import { AUTHORIZATION_STATUS } from "@/app/globalConsts/globalEnum";
 import { loginAction } from "@/app/serverActions/auth/auth";
-
-import { useAuthorizationStore } from "@/app/store/authorizationStore";
 import { useGlobalStore } from "@/app/store/globalStore";
 import { useMockAuthStore } from "@/app/store/mockAuthStore";
 import { AUTH_METHODS_SYSTEM_MESSAGES, INPUT_PLACEHOLDERS } from "@/app/template/text";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
 
@@ -23,16 +21,8 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
     // 
     // stores
     // global store
-    const currentTheme = useGlobalStore((state) => state.currentTheme);
-    const currentLanguage = useGlobalStore((state) => state.currentLanguage);
-    // user auth store
-    // const createUser = useMockAuthStore((state) => state.createUser);
-    const users = useMockAuthStore((state) => state.users);
-    const authenticateUser = useMockAuthStore((state) => state.authenticateUser);
-    const setCurrentAuthUser = useAuthorizationStore((state) => state.setCurrentAuthUser);
-    // 
 
-    const logoutUser = useMockAuthStore((state) => state.logoutUser);
+    const currentLanguage = useGlobalStore((state) => state.currentLanguage);
     const checkAlreadyExists = useMockAuthStore((state) => state.checkUserExists);
     const resetUserStore = useMockAuthStore((state) => state.resetStore);
     // 
@@ -73,7 +63,6 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
             createUserApiHandler(email, password);
             setSuccessfullyCreated(true);
             formCurrentData.reset();
-            // props.closeCallback();
         }
 
 
@@ -85,42 +74,6 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
         props.closeCallback();
     }
 
-
-    // const signInUserHandler = async (event: React.FormEvent<HTMLFormElement>) => {
-    //     event.preventDefault();
-
-    //     const form = event.currentTarget;
-    //     const formData = new FormData(form);
-
-    //     const email = formData.get('email') as string;
-    //     const password = formData.get('password') as string;
-    //     try {
-    //         const res = await fetch('/api/login', {
-    //             method: 'POST',
-    //             headers: { 'Content-Type': 'application/json' },
-    //             body: JSON.stringify({ email, password }),
-    //         });
-
-    //         const data = await res.json();
-
-
-    //         if (!data.authorized) {
-    //             setError('Invalid email or password');
-    //             alert('Invalid email or password');
-    //             return;
-    //         }
-
-    //         // ✅ сервер разрешил
-    //         setCurrentAuthUser(data.user);
-    //         alert('User successfully signed in');
-    //         form.reset();
-    //         props.closeCallback();
-
-    //     } catch (e) {
-    //         alert('Invalid email or password');
-    //         setError('Server error');
-    //     }
-    // };
     const signInUserHandler = async (formData: FormData) => {
         const result = await loginAction(formData)
 

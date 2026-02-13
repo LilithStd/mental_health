@@ -2,6 +2,7 @@
 
 import { cookies } from 'next/headers'
 import { getUserByEmail } from '../usersStorage'
+import { UserAuthType } from '@/app/types/types'
 
 export async function loginAction(formData: FormData) {
   const email = formData.get('email') as string
@@ -29,18 +30,18 @@ export async function loginAction(formData: FormData) {
 }
 
 
-
-export async function getCurrentUser() {
+export async function getCurrentUser(): Promise<UserAuthType | null> {
   const session = (await cookies()).get('session')
 
   if (!session) return null
 
   try {
-    return JSON.parse(session.value)
+    return JSON.parse(session.value) as UserAuthType
   } catch {
     return null
   }
 }
+
 
 export async function logoutAction() {
   (await cookies()).delete('session')
