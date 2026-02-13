@@ -1,17 +1,13 @@
-'use client'
-
-import { useAuthorizationStore } from "../store/authorizationStore";
-
+import { getCurrentUser } from "../serverActions/auth/auth";
 
 interface UserProps {
     id: string
 }
-export default function CurrentUser({ id }: UserProps) {
+export default async function CurrentUser({ id }: UserProps) {
     // stores
-    const currentUsers = useAuthorizationStore((state) => state.currentAuthUser);
+    const currentAuthUser = await getCurrentUser()
     // 
 
-    console.log('Current User Component - currentUsers:', currentUsers);
     // components
     const userTestResults = <div>
         <h2>User Test Results:</h2>
@@ -21,9 +17,9 @@ export default function CurrentUser({ id }: UserProps) {
 
     return (
         <div>
-            {currentUsers && currentUsers.id ? (
+            {currentAuthUser && currentAuthUser.id ? (
                 <div>
-                    <p>Current Auth User Email: {currentUsers ? currentUsers.email : 'No user authenticated'}</p>
+                    <p>Current Auth User Email: {currentAuthUser ? currentAuthUser.email : 'No user authenticated'}</p>
                 </div>
             ) : <p>No user authenticated with this ID.</p>}
 

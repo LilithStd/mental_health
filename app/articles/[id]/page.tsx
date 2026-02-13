@@ -1,4 +1,3 @@
-
 import { getArticleLikes } from '@/app/serverActions/likesStorage'
 import Article from '@/app/components/articles/article'
 import { ARTICLE_TYPE } from '@/app/globalConsts/globalEnum'
