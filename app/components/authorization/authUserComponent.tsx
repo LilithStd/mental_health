@@ -5,7 +5,7 @@ import Link from "next/link"
 import { APP_PATH_ROUTER } from "@/app/globalConsts/globalEnum"
 import { UserAuthType } from "@/app/types/types"
 import { logoutAction } from "@/app/serverActions/auth/auth"
-import { useRouter } from "next/navigation"
+import { useRouter, usePathname } from "next/navigation"
 import { routes } from "@/app/helpers/helpersFunctions"
 
 interface AuthUserComponentProps {
@@ -15,6 +15,7 @@ interface AuthUserComponentProps {
 
 export default function AuthUserComponent({ authUser }: AuthUserComponentProps) {
     const router = useRouter()
+    const pathname = usePathname()
     const [isOpenUserMenu, setIsOpenUserMenu] = useState(false)
 
     // handlers
@@ -25,6 +26,13 @@ export default function AuthUserComponent({ authUser }: AuthUserComponentProps) 
         await logoutAction()
         router.refresh()
 
+    }
+    const redirectToUserPageHandler = () => {
+        setIsOpenUserMenu(false)
+        const targetPath = routes.users.byId(authUser.id)
+        if (pathname !== targetPath) {
+            router.push(targetPath)
+        }
     }
     //
     // components
@@ -44,10 +52,7 @@ export default function AuthUserComponent({ authUser }: AuthUserComponentProps) 
             >
                 <div className={`flex flex-col p-10 gap-2`}>
                     user Menu
-                    <button className={`cursor-pointer p-2 bg-accentElement rounded-medium hover:bg-hover`} onClick={() => {
-                        setIsOpenUserMenu(false)
-                        router.push(routes.users.byId(authUser.id))
-                    }}>
+                    <button className={`cursor-pointer p-2 bg-accentElement rounded-medium hover:bg-hover`} onClick={redirectToUserPageHandler}>
                         {/* <Link href={`${APP_PATH_ROUTER.USERS}/${authUser.id}`} onClick={() => setIsOpenUserMenu(false)} className={` cursor-pointer`}>{authUser.email}</Link> */}
                         {authUser.email}
                     </button>
