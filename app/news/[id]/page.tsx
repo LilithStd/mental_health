@@ -37,7 +37,7 @@ export default function CurrentNews({
         <div className={`flex flex-col bg-mainContainer rounded-medium flex-1 indents-main-container  items-center text-center`}>
             {/* <Search /> */}
             {currentNews && !error && (
-                <div className={`flex flex-col  indents-main-container rounded-medium max-content-main-container`}>
+                <div className={`flex flex-col flex-1 indents-main-container rounded-medium max-content-main-container`}>
                     <News news={currentNews} typeNews={NEWS_TYPE.FULL} />
                 </div>)}
         </div>
