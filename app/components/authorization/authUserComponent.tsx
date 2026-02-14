@@ -1,10 +1,12 @@
 'use client'
-import AuthorisationIcon from "@/public/icons/user/UserLogout.svg"
+import { useState } from "react"
+import AuthorisationIcon from "@/public/icons/user/UserCircle.svg"
 import Link from "next/link"
 import { APP_PATH_ROUTER } from "@/app/globalConsts/globalEnum"
 import { UserAuthType } from "@/app/types/types"
 import { logoutAction } from "@/app/serverActions/auth/auth"
 import { useRouter } from "next/navigation"
+import { routes } from "@/app/helpers/helpersFunctions"
 
 interface AuthUserComponentProps {
     authUser: UserAuthType,
@@ -13,18 +15,54 @@ interface AuthUserComponentProps {
 
 export default function AuthUserComponent({ authUser }: AuthUserComponentProps) {
     const router = useRouter()
+    const [isOpenUserMenu, setIsOpenUserMenu] = useState(false)
+
+    // handlers
+    const toggleUserMenuHandler = () => {
+        setIsOpenUserMenu((prev) => !prev)
+    }
     const logoutCurrentAuthUserHandler = async () => {
         await logoutAction()
         router.refresh()
 
     }
-    return (
-        <div className={`flex flex-col items-center justify-center gap-2`} >
-            <AuthorisationIcon width={48} height={48} onClick={logoutCurrentAuthUserHandler} />
-            <div className={`cursor-pointer`}>
-                <Link href={`${APP_PATH_ROUTER.USERS}/${authUser.id}`} className={`hover:bg-hover cursor-pointer`} >{authUser.email}</Link>
+    //
+    // components
+    const userMenuComponent = () => {
+        return (
+            <div
+                className={`
+                absolute
+                top-full
+                bg-subContainer
+                shadow-md
+                rounded-medium
+                mt-5
+                z-20
+                ${isOpenUserMenu ? 'min-h-40 opacity-100' : 'max-h-0 opacity-0'}
+            `}
+            >
+                <div className={`flex flex-col p-10 gap-2`}>
+                    user Menu
+                    <button className={`cursor-pointer p-2 bg-accentElement rounded-medium hover:bg-hover`} onClick={() => {
+                        setIsOpenUserMenu(false)
+                        router.push(routes.users.byId(authUser.id))
+                    }}>
+                        {/* <Link href={`${APP_PATH_ROUTER.USERS}/${authUser.id}`} onClick={() => setIsOpenUserMenu(false)} className={` cursor-pointer`}>{authUser.email}</Link> */}
+                        {authUser.email}
+                    </button>
+                    <button className={`w-full text-left px-4 py-2 bg-buttonContainer rounded-medium hover:bg-hover`} onClick={logoutCurrentAuthUserHandler}>Logout</button>
+                </div>
             </div>
+        )
+    }
+    //  
 
+    return (
+        <div className={`flex flex-col items-center justify-center gap-2 cursor-pointer`} >
+            <AuthorisationIcon width={48} height={48} onClick={toggleUserMenuHandler} />
+
+            {isOpenUserMenu && userMenuComponent()}
         </div>
     )
 }

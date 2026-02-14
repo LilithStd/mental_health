@@ -21,8 +21,7 @@ export default function Header() {
 
 
                 </div>
-                <div className={`flex flex-col bg-accentElement rounded-large indents-container-sub gap-2 p-4`}>
-                    {/* <Authorization /> */}
+                <div className={`flex flex-col bg-accentElement rounded-large relative indents-container-sub gap-2 p-4`}>
                     <AuthorizationMain />
                 </div>
             </div>

@@ -76,4 +76,9 @@ export const routes = {
     edit: (id: number | string) => `${APP_PATH_ROUTER.NEWS}/${id}/edit`,
     create: () => `${APP_PATH_ROUTER.NEWS}/create`,
   },
+
+  users:{
+    root: APP_PATH_ROUTER.USERS,
+    byId: (id: number | string) => `${APP_PATH_ROUTER.USERS}/${id}`,
+  }
 }
