@@ -14,7 +14,7 @@ export default async function CurrentUser({ id }: UserProps) {
     }
 
     return (
-        <div>
+        <div className={``}>
             <p>
                 Current Auth User Email: {currentAuthUser.email}
             </p>

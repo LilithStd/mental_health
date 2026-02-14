@@ -43,7 +43,7 @@ export default function AllNews() {
         <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
             {/* <Search /> */}
             {loading ? <Loading fullScreen={true} /> : (
-                <div className={`flex flex-col  max-w-6xl  rounded-medium bg-mainContainer `}>
+                <div className={`flex flex-col flex-1 max-w-6xl  rounded-medium bg-mainContainer `}>
                     <div>
                         {userPrivilege && (
                             <button className={`p-2 mb-4 bg-buttonContainer rounded-medium`} onClick={() => router.push(routes.news.create())}>

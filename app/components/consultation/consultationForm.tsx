@@ -5,7 +5,7 @@ import { useRef } from "react";
 
 export default function ConsultationForm() {
     // stores
-    const currentLanguage = useGlobalStore((state) => state.currentLanguage);
+
     // 
     //functions
     const ref = useRef<HTMLFormElement>(null)

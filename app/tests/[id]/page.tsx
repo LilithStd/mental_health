@@ -3,6 +3,7 @@ import Test from "@/app/components/tests/test";
 import { TEST_TYPE } from "@/app/globalConsts/globalEnum";
 import { use, useEffect, useState } from "react"
 import { TestType } from "../page";
+import Loading from "@/app/components/shared/loading";
 
 
 export default function TestCurrent({
@@ -29,9 +30,11 @@ export default function TestCurrent({
             })
     }, [id])
     return (
-        <div className={`flex flex-col bg-mainContainer rounded-medium flex-1 indents-main-container  items-center `}>
+        <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
+            <div className={`flex flex-col flex-1  max-w-6xl  rounded-medium bg-mainContainer  p-4`}>
+                {error ? "Error loading test." : currentTest ? <Test test={currentTest} testType={TEST_TYPE.FULL} /> : <Loading fullScreen={true} />}
+            </div>
 
-            {error ? "Error loading test." : currentTest ? <Test test={currentTest} testType={TEST_TYPE.FULL} /> : "Loading..."}
 
         </div>
     )

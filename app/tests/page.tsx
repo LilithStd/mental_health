@@ -47,10 +47,13 @@ export default function Tests() {
     return (
         <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
             {/* <Search /> */}
-            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl  rounded-medium bg-mainContainer `}>
-                {loading ? <Loading fullScreen={true} /> : tests.map((test) => (
-                    <Test key={test.id} test={test} testType={TEST_TYPE.PREVIEW} />
-                ))}
+            <div className={`flex flex-col flex-1 max-w-6xl rounded-medium bg-mainContainer`}>
+                <div className={`grid grid-cols-1 md:grid-cols-2  mb-4 max-content-main-container`}>
+                    {loading ? <Loading fullScreen={true} /> : tests.map((test) => (
+                        <Test key={test.id} test={test} testType={TEST_TYPE.PREVIEW} />
+                    ))}
+                </div>
+
             </div>
 
         </div>
