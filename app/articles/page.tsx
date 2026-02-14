@@ -7,4 +7,5 @@ export default async function ArticlesPage() {
 
     // console.log('ArticlesPage: fetched articles', articles);
     return <ArticlesClient initialArticles={articles} />
+
 }

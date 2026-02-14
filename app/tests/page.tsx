@@ -45,9 +45,9 @@ export default function Tests() {
     }, [])
 
     return (
-        <div className={`flex flex-col bg-mainContainer rounded-medium flex-1 indents-main-container items-center`}>
+        <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
             {/* <Search /> */}
-            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 max-content-main-container`}>
+            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl  rounded-medium bg-mainContainer `}>
                 {loading ? <Loading fullScreen={true} /> : tests.map((test) => (
                     <Test key={test.id} test={test} testType={TEST_TYPE.PREVIEW} />
                 ))}

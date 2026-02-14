@@ -22,16 +22,19 @@ export default function ArticlesClient({ initialArticles }: ArticlesClientProps)
     const articles = initialArticles
 
     return (
-        <div className={`flex flex-col  bg-mainContainer rounded-medium flex-1 indents-main-container  gap-2 items-center `}>
-            <div className={`flex flex-col gap-4 `}>
-                <NewArticleButton />
-            </div>
-            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4  mb-4 max-content-main-container`}>
+        <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
+            <div className={`flex flex-col  max-w-6xl  rounded-medium bg-mainContainer  p-4`}>
+                <div className={`flex flex-col gap-4 `}>
+                    <NewArticleButton />
+                </div>
+                <div className={`grid grid-cols-1 md:grid-cols-2 gap-4  mb-4 max-content-main-container`}>
 
-                {articles.map((article) =>
-                    <ArticleClient key={article.id} article={article} type={ARTICLE_TYPE.MEDIUM} />
-                )}
+                    {articles.map((article) =>
+                        <ArticleClient key={article.id} article={article} type={ARTICLE_TYPE.MEDIUM} />
+                    )}
+                </div>
             </div>
+
 
         </div>
     )

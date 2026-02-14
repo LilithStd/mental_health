@@ -5,8 +5,11 @@ export default function Consultation() {
 
 
     return (
-        <div className={`flex flex-col bg-mainContainer indents-main-container rounded-medium flex-1 `}>
+        <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
+
             <ConsultationForm />
+
+
         </div>
     )
 }
