@@ -115,7 +115,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                             flex  flex-col items-center gap-2
                             bg-accentElement
                             p-2
-                            rounded-medium 
+                            rounded-large
                             `}
             >
                 <div className={`flex justify-center items-center rounded-circle bg-subContainer p-2`}>
@@ -123,7 +123,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                 </div>
             </div>
             <div>
-                {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold" /> : <h2 className={`flex h-fit text-2xl p-4 rounded-medium bg-subContainer font-bold`}>{article.title}</h2>}
+                {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold" /> : <h2 className={`flex h-fit text-2xl p-4 rounded-large bg-subContainer font-bold`}>{article.title}</h2>}
                 {isEditTtitle && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditTitle(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditTitle(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
                 {isEditAuthor ? <input name="author" type="text" value={editAuthor} onChange={editAuthorHandler} className="text-xl " /> : <h3 className={`${font.title.size.small} ${font.title.weigth.thin} ${font.title.curve.italic}`}>
                     by {!article.author || article.author.length === 0 ? "Unknown Author" : article.author}
@@ -135,7 +135,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
 
     const redirectButtonComponent = <div className={`flex items-center justify-end mt-4`}>
         <button
-            className={`bg-buttonContainer rounded-medium p-2 cursor-pointer`}
+            className={`bg-buttonContainer rounded-large p-2 cursor-pointer`}
             onClick={() => router.push(`${APP_PATH_ROUTER.ARTICLES}/${article.id}`)}
         >
             read more
@@ -152,12 +152,12 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             {redirectButtonComponent}
         </div>
     const editArticleComponent =
-        <button className={`bg-buttonContainer rounded-medium p-2 cursor-pointer`}
+        <button className={`bg-buttonContainer rounded-large p-2 cursor-pointer`}
             onClick={editArticleHandler}>
             Edit
         </button>;
     const saveArticleComponent =
-        <button className={`bg-buttonContainer rounded-medium p-2 cursor-pointer`}
+        <button className={`bg-buttonContainer rounded-large p-2 cursor-pointer`}
             onClick={() => {
                 startTransition(() =>
                     updateArticleAction(article.id, editTitle, editContent)
@@ -172,7 +172,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             {pending ? 'Saving...' : 'Save'}
         </button>;
     const cancelEditArticleComponent =
-        <button className={`bg-buttonContainer rounded-medium p-2 cursor-pointer ${!isChanged ? `bg-inactiveElement` : ''}`}
+        <button className={`bg-buttonContainer rounded-large p-2 cursor-pointer ${!isChanged ? `bg-inactiveElement` : ''}`}
             onClick={() => (
                 setIsEditArticle(false),
                 setIsChanged(false),
@@ -194,7 +194,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         </div>
     const mediumArticleComponent =
         <div className={`flex flex-col mb-4 p-2`}>
-            <div className={`flex  w-full rounded rounded-medium bg-mainContainer`}>
+            <div className={`flex  w-full rounded rounded-large bg-mainContainer`}>
                 {mainMetaDataArticleComponent}
 
             </div>
@@ -210,7 +210,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             className={`
             grid grid-cols-[1fr_1fr] mb-4 p-2
             bg-mainContainer
-            rounded-medium
+            rounded-large
         `}
         >
             {mainMetaDataArticleComponent}
@@ -226,7 +226,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         </div>
     const fullArticleComponent =
         <div className={`flex flex-col max-w-6xl mb-4 p-2`}>
-            <div className={`flex rounded rounded-medium bg-mainContainer mb-2 w-full`}>
+            <div className={`flex rounded rounded-large bg-mainContainer mb-2 w-full`}>
                 {mainMetaDataArticleComponent}
 
             </div>
