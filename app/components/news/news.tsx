@@ -28,22 +28,22 @@ export default function News({ news, typeNews }: NewsProps) {
     // handlers
     //
     // components
-    const previewNewsComponent = <div className={`flex w-full flex-col p-4  bg-subContainer rounded-medium`}>
+    const previewNewsComponent = <div className={`flex w-full flex-col p-4  bg-subContainer rounded-large`}>
         <h3 className="font-bold">{news.title}</h3>
         <p>{cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
         <div className={`flex w-full justify-end`}>
-            <button className={`bg-buttonContainer p-2 rounded-medium  flex justify-center items-center`} onClick={() => { router.push(routes.news.byId(news.id)) }}>read full news</button>
+            <button className={`bg-buttonContainer p-2 rounded-large flex justify-center items-center`} onClick={() => { router.push(routes.news.byId(news.id)) }}>read full news</button>
         </div>
 
     </div>
-    const fullNewsComponent = <div className={`flex w-full flex-col indents-main-container bg-subContainer rounded-medium`}>
+    const fullNewsComponent = <div className={`flex w-full flex-col max-w-6xl  bg-subContainer rounded-large p-4`}>
         <h3 className="font-bold">{news.title}</h3>
         <p>{news.content}</p>
         <a href={news.link} target="_blank" rel="noopener noreferrer" className="underline">Read more</a>
     </div>
     //  
     return (
-        <div className={`flex flex-col p-4 w-full  rounded-medium bg-mainContainer`}>
+        <div className={`flex flex-col  max-w-6xl  rounded-large bg-mainContainer`}>
             {typeNews === NEWS_TYPE.PREVIEW ? previewNewsComponent : fullNewsComponent}
         </div>
     )

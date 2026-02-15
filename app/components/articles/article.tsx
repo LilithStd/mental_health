@@ -225,7 +225,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
 
         </div>
     const fullArticleComponent =
-        <div className={`flex flex-col mb-4 p-2`}>
+        <div className={`flex flex-col max-w-6xl mb-4 p-2`}>
             <div className={`flex rounded rounded-medium bg-mainContainer mb-2 w-full`}>
                 {mainMetaDataArticleComponent}
 

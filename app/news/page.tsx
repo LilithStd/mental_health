@@ -40,13 +40,13 @@ export default function AllNews() {
         checkPrivilege();
     }, [currentAuthUser]);
     return (
-        <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
+        <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
             {/* <Search /> */}
             {loading ? <Loading fullScreen={true} /> : (
-                <div className={`flex flex-col flex-1 max-w-6xl  rounded-medium bg-mainContainer `}>
+                <div className={`flex  gap-4 p-4 flex-col flex-1 max-w-6xl  rounded-large bg-mainContainer `}>
                     <div>
                         {userPrivilege && (
-                            <button className={`p-2 mb-4 bg-buttonContainer rounded-medium`} onClick={() => router.push(routes.news.create())}>
+                            <button className={`bg-buttonContainer rounded-large`} onClick={() => router.push(routes.news.create())}>
                                 Create News
                             </button>
                         )}

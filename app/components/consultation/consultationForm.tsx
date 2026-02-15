@@ -18,17 +18,17 @@ export default function ConsultationForm() {
     // 
 
     return (
-        <div className={`flex flex-col w-full  max-w-6xl  rounded-medium bg-mainContainer `}>
-            <form ref={ref} action={action} className={`mx-auto  border-2 p-4 items-center rounded-medium bg-subContainer max-content-main-container`}>
+        <div className={`flex flex-col w-full  max-w-6xl  rounded-large bg-mainContainer `}>
+            <form ref={ref} action={action} className={`mx-auto  p-4 items-center rounded-large bg-subContainer max-content-main-container`}>
                 <label className={`flex justify-center text-center mb-2`}>Contact Information</label>
                 <div className={`flex gap-4 flex-col w-full items-center  h-full`}>
                     <div className={`flex items-center gap-2 w-1/2`}>
                         <div className={`flex flex-col  w-1/2`}>
-                            <label htmlFor="name" className={`border-2 p-2 rounded-medium`}>Your Name:</label>
-                            <label htmlFor="subject" className={`border-2 p-2 rounded-medium`}>Subject:</label>
-                            <label htmlFor="email" className={`border-2 p-2 rounded-medium`}>Email:</label>
-                            <label htmlFor="phone" className={`border-2 p-2 rounded-medium`}>Phone:</label>
-                            <label htmlFor="date" className={`border-2 p-2 rounded-medium`}>Date:</label>
+                            <label htmlFor="name" className={`border-2 p-2 rounded-large`}>Your Name:</label>
+                            <label htmlFor="subject" className={`border-2 p-2 rounded-large`}>Subject:</label>
+                            <label htmlFor="email" className={`border-2 p-2 rounded-large`}>Email:</label>
+                            <label htmlFor="phone" className={`border-2 p-2 rounded-large`}>Phone:</label>
+                            <label htmlFor="date" className={`border-2 p-2 rounded-large`}>Date:</label>
                         </div>
                         <div className={`flex flex-col  w-1/2`}>
                             <input id="name" name="name" placeholder="name" type="text" className={`border-2 p-2 bg-input rounded-medium`} />

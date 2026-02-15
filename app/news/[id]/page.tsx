@@ -34,10 +34,10 @@ export default function CurrentNews({
             })
     }, [id])
     return (
-        <div className={`flex flex-col bg-mainContainer rounded-medium flex-1 indents-main-container  items-center text-center`}>
+        <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
             {/* <Search /> */}
             {currentNews && !error && (
-                <div className={`flex flex-col flex-1 indents-main-container rounded-medium max-content-main-container`}>
+                <div className={`flex flex-col max-w-6xl  rounded-large bg-mainContainer`}>
                     <News news={currentNews} typeNews={NEWS_TYPE.FULL} />
                 </div>)}
         </div>
