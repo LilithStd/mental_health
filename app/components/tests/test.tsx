@@ -39,15 +39,15 @@ export default function Test({ test, testType }: TestProps) {
     const buttonReadMore =
 
         <button
-            className={`px-4 py-2 mt-4 cursor-pointer rounded-md ${THEME_COLOR_SCHEME[currentTheme].buttonContainer}`}
+            className={`px-4 py-2 mt-4 cursor-pointer rounded-large bg-buttonContainer`}
             onClick={() => router.push(`/tests/${test.id}`)}
         >
-            Read More
+            <span className={`text-shadow-lg`}>Read More</span>
         </button>
 
 
     const previewTestComponent =
-        <div className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 ${rounded.high} border-2`}>
+        <div className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 rounded-large `}>
             <div>
                 <h2>{test.title[currentLanguage]}</h2>
                 <p>Type: {test.label}</p>
@@ -59,7 +59,7 @@ export default function Test({ test, testType }: TestProps) {
 
     const fullTestComponent =
 
-        <div className={`bg-subContainer p-4 rounded-md  border-2 grid gap-4 grid-cols-2`}>
+        <div className={`bg-subContainer p-4 rounded-md   grid gap-4 grid-cols-2`}>
             <div className={`flex flex-col bg-mainContainer ${rounded.medium}  p-4`}>
                 <div className={`flex flex-col mb-4 bg-subContainer ${rounded.medium} p-4`}>
                     <h2>{test.title[currentLanguage]}</h2>
@@ -77,7 +77,7 @@ export default function Test({ test, testType }: TestProps) {
 
     // functions
     return (
-        <div className={`flex flex-col p-4 ${sizes.width.maxWidth}`}>
+        <div className={`flex flex-col p-4 max-w-6xl`}>
             {testType === TEST_TYPE.PREVIEW ? previewTestComponent : fullTestComponent}
             {testResult && isModalOpen &&
                 <ModalWindowMain openStatusCallBack={isModalOpen} closeStatusCallBack={() => setIsModalOpen(false)}>

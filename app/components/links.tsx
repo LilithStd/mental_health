@@ -22,8 +22,8 @@ export default function ListLinks() {
                         key={link.label}
                         href={link.path}
                         className={`
-                            text-lg gap-2 indents-container-sub w-1/4 text-center rounded-medium 
-                            ${isActive && `bg-activeElement `}
+                            text-lg gap-2 indents-container-sub w-1/4 text-center rounded-2xl 
+                            ${isActive && `bg-activeElement scale-105 `}
                         `}
                     >
                         {link.translate[currentLanguage]}

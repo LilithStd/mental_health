@@ -34,8 +34,6 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
     const [editAuthor, setEditAuthor] = useState(article.author);
     const [likesCount, setLikesCount] = useState(initialLikesCount);
     const [isLiked, setIsLiked] = useState(false);
-    // const currentUser = useMockAuthStore((state) => state.currentAuthUser);
-    // console.log(initialLikesCount, 'initialLikesCount in Article component');
     const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
     const [pending, startTransition] = useTransition()
     //
@@ -123,7 +121,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                 </div>
             </div>
             <div>
-                {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold" /> : <h2 className={`flex h-fit text-2xl p-4 rounded-large bg-subContainer font-bold`}>{article.title}</h2>}
+                {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold" /> : <h2 className={`flex h-fit text-2xl p-4 rounded-large bg-subContainer font-bold text-shadow-lg`}>{article.title}</h2>}
                 {isEditTtitle && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditTitle(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditTitle(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
                 {isEditAuthor ? <input name="author" type="text" value={editAuthor} onChange={editAuthorHandler} className="text-xl " /> : <h3 className={`${font.title.size.small} ${font.title.weigth.thin} ${font.title.curve.italic}`}>
                     by {!article.author || article.author.length === 0 ? "Unknown Author" : article.author}
@@ -138,7 +136,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             className={`bg-buttonContainer rounded-large p-2 cursor-pointer`}
             onClick={() => router.push(`${APP_PATH_ROUTER.ARTICLES}/${article.id}`)}
         >
-            read more
+            <span className={`text-shadow-lg`}>read more</span>
         </button>
     </div>
     const interactionBlockComponent =
@@ -215,7 +213,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         >
             {mainMetaDataArticleComponent}
 
-            <div className="flex flex-col gap-2 p-2">
+            <div className="flex flex-col flex-1 gap-2 p-2">
                 <p className={`${font.text.size.medium} `}>
                     {cropContent(article.content, CROP_CONTAINER_SIZE.SMALL)}
 
