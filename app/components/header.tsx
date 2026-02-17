@@ -15,10 +15,10 @@ export default function Header() {
                 <div className={`flex flex-col items-center justify-center `}>
                     <ListLinks />
                 </div>
-                <div className={`flex flex-col bg-accentElement rounded-large indents-container-sub gap-2 p-4`}>
+                <div className={`flex flex-col bg-mainContainer rounded-large indents-container-sub gap-2 p-4`}>
                     <AdditionalPanel />
                 </div>
-                <div className={`flex flex-col bg-accentElement rounded-large relative indents-container-sub gap-2 p-4`}>
+                <div className={`flex flex-col bg-mainContainer rounded-large relative indents-container-sub gap-2 p-4`}>
                     <AuthorizationMain />
                 </div>
             </div>

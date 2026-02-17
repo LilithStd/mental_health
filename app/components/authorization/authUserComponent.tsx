@@ -42,7 +42,7 @@ export default function AuthUserComponent({ authUser }: AuthUserComponentProps) 
                 className={`
                 absolute
                 top-full
-                bg-subContainer
+                bg-mainContainer
                 shadow-md
                 rounded-medium
                 mt-5
@@ -52,8 +52,7 @@ export default function AuthUserComponent({ authUser }: AuthUserComponentProps) 
             >
                 <div className={`flex flex-col p-10 gap-2`}>
                     user Menu
-                    <button className={`cursor-pointer p-2 bg-accentElement rounded-medium hover:bg-hover`} onClick={redirectToUserPageHandler}>
-                        {/* <Link href={`${APP_PATH_ROUTER.USERS}/${authUser.id}`} onClick={() => setIsOpenUserMenu(false)} className={` cursor-pointer`}>{authUser.email}</Link> */}
+                    <button className={`cursor-pointer p-2 bg-mainContainer rounded-medium hover:bg-hover`} onClick={redirectToUserPageHandler}>
                         {authUser.email}
                     </button>
                     <button className={`w-full text-left px-4 py-2 bg-buttonContainer rounded-medium hover:bg-hover`} onClick={logoutCurrentAuthUserHandler}>Logout</button>
@@ -65,7 +64,7 @@ export default function AuthUserComponent({ authUser }: AuthUserComponentProps) 
 
     return (
         <div className={`flex flex-col items-center justify-center gap-2 cursor-pointer`} >
-            <AuthorisationIcon width={48} height={48} onClick={toggleUserMenuHandler} />
+            <AuthorisationIcon width={48} height={48} fill={`var(--color-activeElement)`} onClick={toggleUserMenuHandler} />
 
             {isOpenUserMenu && userMenuComponent()}
         </div>

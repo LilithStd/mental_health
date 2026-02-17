@@ -111,12 +111,12 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             <div
                 className={`
                             flex  flex-col items-center gap-2
-                            bg-accentElement
+                            bg-subContainer
                             p-2
                             rounded-large
                             `}
             >
-                <div className={`flex justify-center items-center rounded-circle bg-subContainer p-2`}>
+                <div className={`flex justify-center items-center rounded-circle bg-accentElement  p-2`}>
                     <AuthorIcon className="w-30 h-30 fill-current" />
                 </div>
             </div>
@@ -133,7 +133,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
 
     const redirectButtonComponent = <div className={`flex items-center justify-end mt-4`}>
         <button
-            className={`bg-buttonContainer rounded-large p-2 cursor-pointer`}
+            className={`bg-buttonContainer p-4 rounded-large flex justify-center items-center cursor-pointer hover:scale-105`}
             onClick={() => router.push(`${APP_PATH_ROUTER.ARTICLES}/${article.id}`)}
         >
             <span className={`text-shadow-lg`}>read more</span>
