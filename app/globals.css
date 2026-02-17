@@ -3,12 +3,12 @@
 :root {
   --background: var(--color-emerald-50);
   --foreground: #171717;
-  --main-container: var(--color-cyan-500);
-  --sub-container: var(--color-cyan-400);
-  --button-container: var(--color-blue-500);
-  --accent-element: var(--color-cyan-300);
-  --hover: var(--color-blue-700);
-  --active-element: var(--color-blue-300);
+  --main-container: var(--color-emerald-200);
+  --sub-container: var(--color-green-300);
+  --button-container: var(--color-lime-500);
+  --accent-element: var(--color-lime-500);
+  --hover: var(--color-lime-700);
+  --active-element: var(--color-lime-500);
   --inactive-element: var(--color-gray-300);
   --input: var(--color-gray-300);
 }
