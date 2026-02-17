@@ -53,7 +53,7 @@ export default function AllNews() {
                         {isCreateArticleVisible && <CreateNews />}
                     </div>
                     {news.map((newsItem) => (
-                        <News key={newsItem.id} news={newsItem} typeNews={NEWS_TYPE.PREVIEW} />
+                        <News key={newsItem.id} news={newsItem} typeNews={NEWS_TYPE.MEDIUM} />
                     ))}
                 </div>
             )}

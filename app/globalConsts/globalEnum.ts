@@ -57,6 +57,7 @@ export enum TEST_TYPE {
 
 export enum NEWS_TYPE {
 	PREVIEW = 'PREVIEW',
+	MEDIUM = 'MEDIUM',
 	FULL = 'FULL',
 }
 
