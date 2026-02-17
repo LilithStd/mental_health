@@ -47,7 +47,7 @@ export default function Test({ test, testType }: TestProps) {
 
 
     const previewTestComponent =
-        <div className={`${THEME_COLOR_SCHEME[currentTheme].subContainer} p-4 rounded-large `}>
+        <div className={`bg-subContainer p-4 rounded-large `}>
             <div>
                 <h2>{test.title[currentLanguage]}</h2>
                 <p>Type: {test.label}</p>
@@ -68,7 +68,7 @@ export default function Test({ test, testType }: TestProps) {
 
                 <span>Description: {test.content}</span>
             </div>
-            <div className={`flex justify-center  ${THEME_COLOR_SCHEME[currentTheme].container} ${rounded.medium} p-4`}>
+            <div className={`flex justify-center  rounded-medium p-4`}>
                 <Form test={test} formResult={setTestResult} openModalCallback={onOpenModal} />
             </div>
 
