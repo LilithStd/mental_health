@@ -16,12 +16,12 @@
 :root.dark {
   --background: var(--color-neutral-800);
   --foreground: #f8fafc;
-  --main-container: var(--color-indigo-500);
-  --sub-container: var(--color-indigo-400);
+  --main-container: var(--color-gray-700);
+  --sub-container: var(--color-gray-500);
   --button-container: var(--color-amber-500);
   --accent-element: var(--color-indigo-300);
   --hover: var(--color-amber-700);
-  --active-element: var(--color-violet-300);
+  --active-element: var(--color-amber-700);
   --inactive-element: var(--color-gray-700);
   --input: var(--color-gray-700);
 }

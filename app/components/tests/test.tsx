@@ -60,8 +60,8 @@ export default function Test({ test, testType }: TestProps) {
     const fullTestComponent =
 
         <div className={`bg-subContainer p-4 rounded-md   grid gap-4 grid-cols-2`}>
-            <div className={`flex flex-col bg-mainContainer ${rounded.medium}  p-4`}>
-                <div className={`flex flex-col mb-4 bg-subContainer ${rounded.medium} p-4`}>
+            <div className={`flex flex-col bg-mainContainer rounded-medium  p-4`}>
+                <div className={`flex flex-col mb-4 bg-subContainer rounded-medium p-4`}>
                     <h2>{test.title[currentLanguage]}</h2>
                     <p>Type: {test.label}</p>
                 </div>

@@ -28,11 +28,16 @@ export default function News({ news, typeNews }: NewsProps) {
     // handlers
     //
     // components
-    const previewNewsComponent = <div className={`flex w-full flex-col p-4  bg-subContainer rounded-large`}>
+    const previewNewsComponent = <div className={`flex w-full flex-col p-4  bg-mainContainer rounded-large`}>
         <h3 className="font-bold">{news.title}</h3>
         <p>{cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
         <div className={`flex w-full justify-end`}>
-            <button className={`bg-buttonContainer p-2 rounded-large flex justify-center items-center`} onClick={() => { router.push(routes.news.byId(news.id)) }}>read full news</button>
+            <button className={`bg-buttonContainer p-4 rounded-large flex justify-center items-center cursor-pointer hover:scale-105 `} onClick={() => { router.push(routes.news.byId(news.id)) }}>
+                <span className={`text-shadow-lg`}>
+                    Read full news
+                </span>
+
+            </button>
         </div>
 
     </div>

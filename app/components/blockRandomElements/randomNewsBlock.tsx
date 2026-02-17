@@ -27,7 +27,7 @@ export default function RandomNewsBlock() {
     return (
         <div className={`flex flex-col bg-subContainer indents-main-container rounded-large  gap-4`}>
             <div>
-                <h2 className={`text-3xl indents-main-container font-bold bg-accentElement rounded-large`}>Random News</h2>
+                <h2 className={`text-3xl indents-main-container font-bold bg-mainContainer rounded-large`}>Random News</h2>
             </div>
             <div className={`flex flex-col gap-4 m-4`}>
                 {loading ? (
