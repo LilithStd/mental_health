@@ -16,13 +16,13 @@ export default function NewArticleButton() {
         };
         checkPrivilege();
     }, [currentAuthUser]);
-    console.log(isAllowedToEdit)
+
     if (!isAllowedToEdit) {
         return null; // or return a message indicating lack of permissions
     }
     return (
 
-        <button className={` bg-buttonContainer  p-2 rounded-medium`} onClick={() => route.push(routes.articles.create())}>New Articles</button>
+        <button className={` bg-buttonContainer m-4 w-fit  p-2 rounded-medium`} onClick={() => route.push(routes.articles.create())}>New Articles</button>
 
     )
 }
