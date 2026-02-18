@@ -1,9 +1,10 @@
-import { getCurrentUser } from "@/app/serverActions/auth/auth"
+'use client'
 import ModalWindowWrapper from "../modalWindows/modalWindowWrapper"
+import { useAuth } from "@/app/authClientWrapper"
 
 
-export default async function AuthorizationMain() {
-    const currentAuthUser = await getCurrentUser()
+export default function AuthorizationMain() {
+    const currentAuthUser = useAuth()
 
     return (
         <div className="flex w-full flex-col text-center items-center justify-center">

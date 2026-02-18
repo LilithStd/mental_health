@@ -10,11 +10,12 @@ import { useAuthorizationStore } from "../store/authorizationStore";
 import CreateNews from "../components/news/createNews";
 import { routes } from "../helpers/helpersFunctions";
 import Loading from "../components/shared/loading";
+import { useAuth } from "../authClientWrapper";
 
 
 export default function AllNews() {
     // stores
-    const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
+    const currentAuthUser = useAuth()
     // state
     const [userPrivilege, setUserPrivilege] = useState(false);
     const [isCreateArticleVisible, setIsCreateArticleVisible] = useState(false);

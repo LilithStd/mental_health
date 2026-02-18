@@ -20,7 +20,6 @@ interface TestProps {
 
 export default function Test({ test, testType }: TestProps) {
     // stores
-    const currentTheme = useGlobalStore((state) => state.currentTheme);
     const currentLanguage = useGlobalStore((state) => state.currentLanguage);
     const router = useRouter();
     // const id = '1'

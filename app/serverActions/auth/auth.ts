@@ -21,6 +21,7 @@ export async function loginAction(formData: FormData) {
     id: user.id,
     email: user.email,
     role: user.role,
+    privilege: user.privilege,
   }), {
     httpOnly: true,
     path: '/',

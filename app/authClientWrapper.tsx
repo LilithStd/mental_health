@@ -7,9 +7,10 @@ const AuthContext = createContext<UserAuthType | null>(null)
 export const useAuth = () => useContext(AuthContext)
 
 interface AuthProviderProps {
-    user: UserAuthType
+    user: UserAuthType | null
     children: React.ReactNode
 }
+
 
 export function AuthProvider({ user, children }: AuthProviderProps) {
     return (

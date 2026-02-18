@@ -10,9 +10,9 @@ import EditInactiveIcon from "@/public/icons/EditInactive.svg"
 import { updateArticleAction } from "@/app/serverActions/updateArticle"
 import { CROP_CONTAINER_SIZE } from "@/app/globalConsts/globalConsts"
 import { cropContent } from "@/app/helpers/helpersFunctions"
-import { useAuthorizationStore } from "@/app/store/authorizationStore"
 import AuthorIcon from "@/public/icons/user/User.svg"
 import { ArticleType } from "./articlesClients"
+import { useAuth } from "@/app/authClientWrapper"
 
 
 interface ArticleProps {
@@ -34,7 +34,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
     const [editAuthor, setEditAuthor] = useState(article.author);
     const [likesCount, setLikesCount] = useState(initialLikesCount);
     const [isLiked, setIsLiked] = useState(false);
-    const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
+    const currentAuthUser = useAuth()
     const [pending, startTransition] = useTransition()
     //
     const date = new Date(article.createdAt);
@@ -48,20 +48,9 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             const privilege = await canEditContent(currentAuthUser);
             setUserPrivilege(privilege);
         };
+        // console.log(userPrivilege)
         checkPrivilege();
     }, [currentAuthUser]);
-
-    // useEffect(() => {
-    //     fetch(`/api/articleLikes?articleId=${article.id}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setLikesCount(data.likesCount)
-    //             if (currentAuthUser && currentAuthUser.id) {
-    //                 setIsLiked(data.likes.includes(currentAuthUser.id))
-    //             }
-
-    //         })
-    // }, [article.id, currentAuthUser])
 
     // functions
     const handleLike = async () => {

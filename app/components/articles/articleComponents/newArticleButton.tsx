@@ -1,13 +1,13 @@
 'use client';
+import { useAuth } from '@/app/authClientWrapper';
 import { routes } from '@/app/helpers/helpersFunctions'
 import { canEditContent } from '@/app/serverActions/permissions';
-import { useAuthorizationStore } from '@/app/store/authorizationStore';
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react';
 
 export default function NewArticleButton() {
     const route = useRouter()
-    const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
+    const currentAuthUser = useAuth()
     const [isAllowedToEdit, setIsAllowedToEdit] = useState(false);
     useEffect(() => {
         const checkPrivilege = async () => {

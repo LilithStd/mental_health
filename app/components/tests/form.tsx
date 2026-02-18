@@ -17,8 +17,6 @@ interface FormProps {
 
 export default function Form({ test, formResult, openModalCallback }: FormProps) {
     // stores
-    const currentTheme = useGlobalStore((state) => state.currentTheme);
-    const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
     // const [state, formAction] = useFormState(calcTestResult, null)
 
 

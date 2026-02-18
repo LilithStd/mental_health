@@ -1,8 +1,6 @@
 'use client'
 import { useState } from "react"
 import AuthorisationIcon from "@/public/icons/user/UserCircle.svg"
-import Link from "next/link"
-import { APP_PATH_ROUTER } from "@/app/globalConsts/globalEnum"
 import { UserAuthType } from "@/app/types/types"
 import { logoutAction } from "@/app/serverActions/auth/auth"
 import { useRouter, usePathname } from "next/navigation"
@@ -17,7 +15,6 @@ export default function AuthUserComponent({ authUser }: AuthUserComponentProps) 
     const router = useRouter()
     const pathname = usePathname()
     const [isOpenUserMenu, setIsOpenUserMenu] = useState(false)
-
     // handlers
     const toggleUserMenuHandler = () => {
         setIsOpenUserMenu((prev) => !prev)

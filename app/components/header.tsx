@@ -15,7 +15,7 @@ export default function Header() {
                 <div className={`flex flex-col items-center justify-center `}>
                     <ListLinks />
                 </div>
-                <div className={`flex bg-mainContainer rounded-large indents-container-sub items-center justify-center p-4`}>
+                <div className={`flex bg-mainContainer rounded-large relative indents-container-sub items-center justify-center p-4`}>
                     <AdditionalPanel />
                     <AuthorizationMain />
                 </div>
