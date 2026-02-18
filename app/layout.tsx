@@ -4,6 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/header";
 import { Providers } from "./provider";
+import { AuthProvider } from "./authClientWrapper";
+import { getCurrentUser } from "./serverActions/auth/auth";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,19 +22,22 @@ export const metadata: Metadata = {
   description: "App about mental health",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const currentAuthUser = await getCurrentUser()
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground antialiased `}
       >
         <Providers>
-          <Header />
-          {children}
+          <AuthProvider user={currentAuthUser}>
+            <Header />
+            {children}
+          </AuthProvider>
         </Providers>
       </body>
     </html>
