@@ -25,29 +25,29 @@ export default function ConsultationForm() {
                     <div className={`flex items-center gap-2 w-1/2`}>
                         <div className={`flex flex-col gap-4 w-full`}>
                             <label className={` p-2 rounded-large flex flex-col`}>
-                                <span>Name:</span>
-                                <input name="name" placeholder="John Doe" type="text" className={`p-2 bg-input rounded-large`} />
+                                <span className={``}>Name:</span>
+                                <input name="name" placeholder="John Doe" type="text" className={`p-2 bg-input rounded-large h-15`} />
                             </label>
                             <label className={` p-2 rounded-large flex flex-col`}>
-                                <span>Subject:</span>
-                                <input name="subject" placeholder="Subject" type="text" className={` p-2 bg-input rounded-large`} />
+                                <span className={``}>Subject:</span>
+                                <input name="subject" placeholder="Subject" type="text" className={` p-2 bg-input rounded-large h-15`} />
                             </label>
                             <label className={` p-2 rounded-large flex flex-col`}>
-                                <span>Email:</span>
-                                <input name="email" placeholder="email@example.com" type="text" className={` p-2 bg-input rounded-large`} />
+                                <span className={``}>Email:</span>
+                                <input name="email" placeholder="email@example.com" type="text" className={` p-2 bg-input rounded-large h-15`} />
                             </label>
                             <label className={` p-2 rounded-large flex flex-col`}>
-                                <span>Phone:</span>
-                                <input name="phone" placeholder="(123) 456-7890" type="text" className={` p-2 bg-input rounded-large`} />
+                                <span className={``}>Phone:</span>
+                                <input name="phone" placeholder="(123) 456-7890" type="text" className={` p-2 bg-input rounded-large h-15`} />
                             </label>
                             <label className={` p-2 rounded-large flex flex-col`}>
-                                <span>Date:</span>
-                                <input name="date" placeholder="MM/DD/YYYY" type="text" className={` p-2 bg-input rounded-large`} />
+                                <span className={``}>Date:</span>
+                                <input name="date" placeholder="MM/DD/YYYY" type="text" className={` p-2 bg-input rounded-large h-15`} />
                             </label>
                         </div>
                     </div>
                     <label className={`flex flex-col gap-2 w-1/2`}>
-                        <span>Message*:</span>
+                        <span className={``}>Message*:</span>
                         <textarea id="message" name="message" placeholder="message" className={` min-h-40 w-full h-full p-2 bg-input rounded-large`} />
                     </label>
                 </div>
