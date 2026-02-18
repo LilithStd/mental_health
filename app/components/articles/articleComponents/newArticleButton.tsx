@@ -22,7 +22,7 @@ export default function NewArticleButton() {
     }
     return (
 
-        <button className={` bg-buttonContainer m-4 w-fit  p-2 rounded-medium`} onClick={() => route.push(routes.articles.create())}>New Articles</button>
+        <button className={` bg-buttonContainer mb-4 w-fit  p-2 rounded-circle`} onClick={() => route.push(routes.articles.create())}>New Articles</button>
 
     )
 }

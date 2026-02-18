@@ -1,5 +1,5 @@
 import CreateArticle from "@/app/components/articles/createArticle";
-import { THEME_COLOR_SCHEME, rounded, indents } from "@/app/globalConsts/globalStyles";
+
 
 export default function CreateArticlePage() {
     return (
