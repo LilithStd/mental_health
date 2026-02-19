@@ -49,20 +49,28 @@ export default function News({ news, typeNews }: NewsProps) {
 
     </div>
 
-    const mediumNewsComponent = <div className={`flex w-full flex-col p-4  bg-subContainer rounded-large`}>
-        <div className={`flex w-full h-40 bg-input rounded-large items-center justify-center`}>
-            <PhotoIcon className={`image-szie-medium text-gray-500`} />
+    const mediumNewsComponent = <div className={`grid grid-cols-[0.45fr_1fr] w-full  p-4  bg-subContainer rounded-large`}>
+        <div className={`image-szie-large  bg-input rounded-large items-center justify-center`}>
+            <PhotoIcon className={` text-gray-500`} />
         </div>
-        <h3 className="font-bold">{news.title}</h3>
-        <p>{cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
-        <div className={`flex w-full justify-end`}>
-            <button className={`bg-buttonContainer p-4 rounded-large flex justify-center items-center cursor-pointer hover:scale-105 `} onClick={() => { router.push(routes.news.byId(news.id)) }}>
-                <span className={`text-shadow-lg`}>
-                    Read full news
-                </span>
+        <div className="flex flex-col p-4 rounded-large bg-subContainer h-full">
+            <h3 className="font-bold">{news.title}</h3>
 
-            </button>
+            <p>
+                {cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}
+            </p>
+
+            <div className="flex w-full justify-end mt-auto">
+                <button
+                    className="bg-buttonContainer p-4 rounded-large flex cursor-pointer hover:scale-105 transition"
+                    onClick={() => { router.push(routes.news.byId(news.id)) }}
+                >
+                    <span>Read full news</span>
+                </button>
+            </div>
         </div>
+
+
     </div>
 
 
@@ -79,7 +87,7 @@ export default function News({ news, typeNews }: NewsProps) {
     </div>
     //  
     return (
-        <div className={`w-full flex justify-center`}>
+        <div className={`w-full  flex justify-center`}>
             <div className={`flex w-full max-w-6xl rounded-large bg-mainContainer`}>
                 {typeNews === NEWS_TYPE.PREVIEW && previewNewsComponent}
                 {typeNews === NEWS_TYPE.MEDIUM && mediumNewsComponent}
