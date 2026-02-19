@@ -3,8 +3,9 @@
 import { NEWS_TYPE } from "@/app/globalConsts/globalEnum"
 import { cropContent, routes, } from "@/app/helpers/helpersFunctions"
 import { CROP_CONTAINER_SIZE } from "@/app/globalConsts/globalConsts"
-
 import { useRouter } from "next/navigation"
+
+import PhotoIcon from '@/public/icons/Photo.svg'
 
 export type NewsType = {
     id: number
@@ -28,20 +29,30 @@ export default function News({ news, typeNews }: NewsProps) {
     // handlers
     //
     // components
-    const previewNewsComponent = <div className={`flex w-full flex-col p-4  bg-mainContainer rounded-large`}>
-        <h3 className="font-bold">{news.title}</h3>
-        <p>{cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
-        <div className={`flex w-full justify-end`}>
-            <button className={`bg-buttonContainer p-4 rounded-large flex justify-center items-center cursor-pointer hover:scale-105 `} onClick={() => { router.push(routes.news.byId(news.id)) }}>
-                <span className={`text-shadow-lg`}>
-                    Read full news
-                </span>
 
-            </button>
+    const previewNewsComponent = <div className={`grid grid-cols-[0.4fr_1fr] w-full  p-4  bg-mainContainer rounded-large`}>
+        <div className={`flex w-full  bg-input rounded-large items-center justify-center`}>
+            <PhotoIcon className={` text-gray-500`} />
         </div>
+        <div className={` mb-4 p-4 rounded-large bg-subContainer`}>
+            <h3 className="font-bold">{news.title}</h3>
+            <p>{cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
+            <div className={`flex w-full justify-end`}>
+                <button className={`bg-buttonContainer p-4 rounded-large flex justify-center items-center cursor-pointer hover:scale-105 `} onClick={() => { router.push(routes.news.byId(news.id)) }}>
+                    <span className={`text-shadow-lg`}>
+                        Read full news
+                    </span>
+
+                </button>
+            </div>
+        </div>
+
     </div>
 
     const mediumNewsComponent = <div className={`flex w-full flex-col p-4  bg-subContainer rounded-large`}>
+        <div className={`flex w-full h-40 bg-input rounded-large items-center justify-center`}>
+            <PhotoIcon className={`image-szie-medium text-gray-500`} />
+        </div>
         <h3 className="font-bold">{news.title}</h3>
         <p>{cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
         <div className={`flex w-full justify-end`}>
@@ -56,6 +67,9 @@ export default function News({ news, typeNews }: NewsProps) {
 
 
     const fullNewsComponent = <div className={`flex flex-col w-full bg-mainContainer rounded-large p-4`}>
+        <div className={`flex w-full h-40 bg-input rounded-large items-center justify-center`}>
+            <PhotoIcon className={`image-szie-large text-gray-500`} />
+        </div>
         <div className={`flex flex-col w-full gap-4 bg-subContainer p-4 rounded-large`}>
             <h3 className="font-bold">{news.title}</h3>
             <p>{news.content}</p>
