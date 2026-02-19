@@ -34,11 +34,11 @@ export default function News({ news, typeNews }: NewsProps) {
         <div className={`flex w-full  bg-input rounded-large items-center justify-center`}>
             <PhotoIcon className={` text-gray-500`} />
         </div>
-        <div className={` mb-4 p-4 rounded-large bg-subContainer`}>
+        <div className={`flex flex-col p-4 rounded-large bg-subContainer h-full`}>
             <h3 className="font-bold">{news.title}</h3>
             <p>{cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
-            <div className={`flex w-full justify-end`}>
-                <button className={`bg-buttonContainer p-4 rounded-large flex justify-center items-center cursor-pointer hover:scale-105 `} onClick={() => { router.push(routes.news.byId(news.id)) }}>
+            <div className={`flex w-full justify-end mt-auto`}>
+                <button className={`bg-buttonContainer p-4 rounded-large flex cursor-pointer hover:scale-105 transition`} onClick={() => { router.push(routes.news.byId(news.id)) }}>
                     <span className={`text-shadow-lg`}>
                         Read full news
                     </span>
@@ -74,14 +74,17 @@ export default function News({ news, typeNews }: NewsProps) {
     </div>
 
 
-    const fullNewsComponent = <div className={`flex flex-col w-full bg-mainContainer rounded-large p-4`}>
-        <div className={`flex w-full h-40 bg-input rounded-large items-center justify-center`}>
-            <PhotoIcon className={`image-szie-large text-gray-500`} />
+    const fullNewsComponent = <div className={`grid grid-cols-[0.45fr_1fr] w-full p-4 m-4 bg-subContainer rounded-large`}>
+        <div className={`image-szie-large  bg-input rounded-large items-center justify-center`}>
+            <PhotoIcon className={` text-gray-500`} />
         </div>
         <div className={`flex flex-col w-full gap-4 bg-subContainer p-4 rounded-large`}>
             <h3 className="font-bold">{news.title}</h3>
             <p>{news.content}</p>
-            <a href={news.link} target="_blank" rel="noopener noreferrer" className="underline">Read more</a>
+            <div className={`flex w-full  justify-end rounded-large cursor-pointer`}>
+                <a href={news.link} target="_blank" rel="noopener noreferrer" className={`bg-buttonContainer flex justify-end w-fit text-shadow-lg p-4 rounded-large`}>Source Link</a>
+            </div>
+
         </div>
 
     </div>
