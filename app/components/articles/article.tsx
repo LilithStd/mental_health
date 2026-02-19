@@ -105,7 +105,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                             rounded-large
                             `}
             >
-                <div className={`flex justify-center items-center rounded-circle bg-accentElement  p-2`}>
+                <div className={`flex justify-center items-center rounded-circle bg-mainContainer  p-2`}>
                     <AuthorIcon className="w-30 h-30 fill-current" />
                 </div>
             </div>
@@ -120,7 +120,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
 
         </div>
 
-    const redirectButtonComponent = <div className={`flex items-center justify-end mt-4`}>
+    const redirectButtonComponent = <div className={`flex  justify-end mt-auto`}>
         <button
             className={`bg-buttonContainer p-4 rounded-large flex justify-center items-center cursor-pointer hover:scale-105`}
             onClick={() => router.push(`${APP_PATH_ROUTER.ARTICLES}/${article.id}`)}
@@ -139,7 +139,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             {redirectButtonComponent}
         </div>
     const editArticleComponent =
-        <button className={`bg-buttonContainer rounded-large p-2 cursor-pointer`}
+        <button className={`bg-buttonContainer rounded-large p-4 cursor-pointer`}
             onClick={editArticleHandler}>
             Edit
         </button>;
@@ -180,29 +180,35 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             {isEditArticle && cancelEditArticleComponent}
         </div>
     const mediumArticleComponent =
-        <div className={`flex flex-col mb-4 p-2`}>
-            <div className={`flex  w-full rounded rounded-large bg-mainContainer`}>
-                {mainMetaDataArticleComponent}
+        <div className="flex flex-col mb-4 p-2 h-full">
 
+            <div className="flex w-full rounded-large bg-mainContainer">
+                {mainMetaDataArticleComponent}
             </div>
-            <div>
-                <p>{cropContent(article.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
+
+            <div className="flex flex-col flex-1 p-2 rounded-large bg-subContainer">
+                <p>
+                    {cropContent(article.content, CROP_CONTAINER_SIZE.MEDIUM)}
+                </p>
+
+                <div className="mt-auto">
+                    {interactionBlockComponent}
+                </div>
             </div>
-            {interactionBlockComponent}
+
         </div>
 
     const previewArticleComponent =
         <div
             key={article.id}
             className={`
-            grid grid-cols-[1fr_1fr] mb-4 p-2
+            grid grid-cols-[1fr_1fr]  p-2
             bg-mainContainer
             rounded-large
         `}
         >
             {mainMetaDataArticleComponent}
-
-            <div className="flex flex-col flex-1 gap-2 p-2">
+            <div className="flex flex-col p-4 rounded-large bg-subContainer h-full">
                 <p className={`${font.text.size.medium} `}>
                     {cropContent(article.content, CROP_CONTAINER_SIZE.SMALL)}
 
@@ -212,8 +218,8 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
 
         </div>
     const fullArticleComponent =
-        <div className={`flex flex-col max-w-6xl mb-4 p-2`}>
-            <div className={`flex rounded rounded-large bg-mainContainer mb-2 w-full`}>
+        <div className={`flex flex-col w-full  mb-4 p-2`}>
+            <div className={`flex rounded  max-w-6xl rounded-large bg-mainContainer mb-2 w-full`}>
                 {mainMetaDataArticleComponent}
 
             </div>
@@ -254,7 +260,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         </div>;
     // 
     return (
-        <article key={article.id} className={`bg-subContainer p-4 rounded-large max-content-main-container  flex flex-col gap-2`}>
+        <article key={article.id} className={`bg-subContainer p-4 rounded-large  w-full  flex flex-col gap-2`}>
             {typeArticle === ARTICLE_TYPE.PREVIEW && previewArticleComponent}
             {typeArticle === ARTICLE_TYPE.MEDIUM && mediumArticleComponent}
             {typeArticle === ARTICLE_TYPE.FULL && fullArticleComponent}
