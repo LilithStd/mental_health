@@ -30,9 +30,9 @@ export default function News({ news, typeNews }: NewsProps) {
     //
     // components
 
-    const previewNewsComponent = <div className={`grid grid-cols-[0.4fr_1fr] w-full  p-4  bg-mainContainer rounded-large`}>
-        <div className={`flex w-full  bg-input rounded-large items-center justify-center`}>
-            <PhotoIcon className={` text-gray-500`} />
+    const previewNewsComponent = <div className={`grid grid-cols-[0.4fr_1fr] w-full gap-4  p-4  bg-mainContainer rounded-large`}>
+        <div className={`flex w-full  bg-subContainer rounded-large items-center justify-center`}>
+            <PhotoIcon className={``} />
         </div>
         <div className={`flex flex-col p-4 rounded-large bg-subContainer h-full`}>
             <h3 className="font-bold">{news.title}</h3>
@@ -50,8 +50,8 @@ export default function News({ news, typeNews }: NewsProps) {
     </div>
 
     const mediumNewsComponent = <div className={`grid grid-cols-[0.45fr_1fr] w-full  p-4  bg-subContainer rounded-large`}>
-        <div className={`image-szie-large  bg-input rounded-large items-center justify-center`}>
-            <PhotoIcon className={` text-gray-500`} />
+        <div className={`image-szie-large  bg-mainContainer rounded-large items-center justify-center`}>
+            <PhotoIcon className={` `} />
         </div>
         <div className="flex flex-col p-4 rounded-large bg-subContainer h-full">
             <h3 className="font-bold">{news.title}</h3>

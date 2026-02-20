@@ -3,7 +3,7 @@
 :root {
   --background: var(--color-emerald-50);
   --foreground: #171717;
-  --main-container: var(--color-emerald-200);
+  --main-container: var(--color-emerald-100);
   --sub-container: var(--color-green-300);
   --button-container: var(--color-lime-500);
   --accent-element: var(--color-lime-500);
