@@ -11,7 +11,7 @@ import { updateArticleAction } from "@/app/serverActions/updateArticle"
 import { CROP_CONTAINER_SIZE } from "@/app/globalConsts/globalConsts"
 import { cropContent } from "@/app/helpers/helpersFunctions"
 import AuthorIcon from "@/public/icons/user/User.svg"
-import { ArticleType } from "./articlesClients"
+import { ArticleType } from "./articlesClient"
 import { useAuth } from "@/app/authClientWrapper"
 
 

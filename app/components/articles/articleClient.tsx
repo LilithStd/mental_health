@@ -1,5 +1,5 @@
 import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum";
-import { ArticleType } from "./articlesClients";
+import { ArticleType } from "./articlesClient";
 import ArticleServerLikesWrapper from "./articleServerLikesWrapper";
 
 interface ArticleClientProps {

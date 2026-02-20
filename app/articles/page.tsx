@@ -1,4 +1,4 @@
-import ArticlesClient from "../components/articles/articlesClients"
+import ArticlesClient from "../components/articles/articlesClient"
 import { getAllArticles } from "../serverActions/articleStorage"
 
 

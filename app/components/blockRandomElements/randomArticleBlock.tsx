@@ -8,7 +8,7 @@ import Article from "../articles/article";
 import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum";
 import Loading from "../shared/loading";
 import ArticleServerLikesWrapper from "../articles/articleServerLikesWrapper";
-import { ArticleType } from "../articles/articlesClients";
+import { ArticleType } from "../articles/articlesClient";
 
 export default function RandomArticleBlock() {
   //stores
