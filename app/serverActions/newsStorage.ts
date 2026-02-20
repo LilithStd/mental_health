@@ -1,6 +1,7 @@
-'use server';
+
 import fs from 'fs'
 import path from 'path'
+
 const dataDir = path.join(process.cwd(), 'data', 'news')
 const filePath = path.join(dataDir, 'news.json')
 
