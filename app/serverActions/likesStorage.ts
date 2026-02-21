@@ -16,7 +16,7 @@ function getFilePath(articleId: number) {
 export async function getArticleLikes(articleId: number) {
   try {
     const file = await fs.readFile(getFilePath(articleId), 'utf-8')
-    const likes: string[] = JSON.parse(file)
+    const likes: number[] = JSON.parse(file)
 
     return {
       likes,
