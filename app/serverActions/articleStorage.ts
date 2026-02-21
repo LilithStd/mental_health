@@ -28,6 +28,12 @@ export function getAllArticles(): Article[] {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'))
 }
 
+export function getArticlesByOptions(): Article[] {
+  ensureFile()
+  const articles = getAllArticles()
+  return articles
+}
+
 export async function getArticleById(id: number) {
   console.log('getArticleById called with id:', id);
   ensureFile()
