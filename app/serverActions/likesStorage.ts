@@ -30,6 +30,11 @@ export async function getArticleLikes(articleId: number) {
   }
 }
 
+export async function checkIfUserLiked(articleId: number, userId: number) {
+  const { likes } = await getArticleLikes(articleId)
+  return likes.includes(userId)
+}
+
 export async function toggleLike(
   articleId: number,
   userId: string

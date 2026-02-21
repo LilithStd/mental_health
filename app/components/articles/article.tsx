@@ -1,7 +1,7 @@
 'use client'
 import { font } from "@/app/globalConsts/globalStyles"
 import Favorites from "../shared/favorites"
-import { useEffect, useState, useTransition } from "react"
+import { use, useEffect, useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
 import { APP_PATH_ROUTER, ARTICLE_TYPE } from "@/app/globalConsts/globalEnum"
 import { canEditContent } from "@/app/serverActions/permissions"
@@ -13,6 +13,7 @@ import { cropContent } from "@/app/helpers/helpersFunctions"
 import AuthorIcon from "@/public/icons/user/User.svg"
 import { ArticleType } from "./articlesClient"
 import { useAuth } from "@/app/authClientWrapper"
+import { checkIfUserLiked } from "@/app/serverActions/likesStorage"
 
 
 interface ArticleProps {
@@ -51,6 +52,16 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         // console.log(userPrivilege)
         checkPrivilege();
     }, [currentAuthUser]);
+
+    useEffect(() => {
+        const checkLiked = async () => {
+            if (currentAuthUser && currentAuthUser.id) {
+                const isLiked = await checkIfUserLiked(article.id, currentAuthUser.id)
+                setIsLiked(isLiked)
+            }
+        }
+        checkLiked()
+    }, [currentAuthUser, article.id])
 
     // functions
     const handleLike = async () => {
