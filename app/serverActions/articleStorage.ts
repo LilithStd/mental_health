@@ -28,10 +28,26 @@ export function getAllArticles(): Article[] {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'))
 }
 
-export function getArticlesByOptions(): Article[] {
+export function getArticlesByOptions(maxLength: number): Article[] {
   ensureFile()
   const articles = getAllArticles()
-  return articles
+ function pickRandomUnique<T>(array: T[], count: number): T[] {
+  if (count <= 0) return [];
+  if (count >= array.length) return [...array];
+
+  const result = [...array]; // копия
+  const n = result.length;
+
+  for (let i = 0; i < count; i++) {
+    const randIndex = i + Math.floor(Math.random() * (n - i));
+
+    // swap
+    [result[i], result[randIndex]] = [result[randIndex], result[i]];
+  }
+
+  return result.slice(0, count);
+}
+  return pickRandomUnique(articles, maxLength)
 }
 
 export async function getArticleById(id: number) {
