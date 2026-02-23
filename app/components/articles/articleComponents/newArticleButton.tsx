@@ -9,11 +9,14 @@ export default function NewArticleButton() {
     const route = useRouter()
     const currentAuthUser = useAuth()
     const [isAllowedToEdit, setIsAllowedToEdit] = useState(false);
+
     useEffect(() => {
+
         const checkPrivilege = async () => {
             const privilege = await canEditContent(currentAuthUser);
             setIsAllowedToEdit(privilege);
         };
+
         checkPrivilege();
     }, [currentAuthUser]);
 

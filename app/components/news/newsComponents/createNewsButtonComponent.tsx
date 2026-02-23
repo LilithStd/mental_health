@@ -11,7 +11,7 @@ export default function CreateNewsButtonComponent() {
     const router = useRouter()
     // functions
     // handlers
-    if (!currentAuthUser) return null
+    if (!currentAuthUser) return <button className={` bg-buttonContainer mb-4 w-fit opacity-0 p-2 cursor-not-allowed rounded-circle`} disabled>Create News</button>
 
     const handleReturnToNews = () => {
         router.push(routes.news.root)

@@ -1,8 +1,7 @@
 import { ARTICLE_TYPE } from '@/app/globalConsts/globalEnum'
 import Article from '../../articles/article'
-import loading from '../../shared/loading'
 import { ArticleType } from '../../articles/articlesClient'
-import Loading from '../../shared/loading'
+
 
 interface ArticleClientWrapperProps {
     articles: ArticleType[]
