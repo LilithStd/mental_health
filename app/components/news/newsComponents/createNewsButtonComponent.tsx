@@ -1,17 +1,32 @@
 'use client'
 import { useAuth } from "@/app/authClientWrapper";
 import { routes } from "@/app/helpers/helpersFunctions";
+import { canEditContent } from "@/app/serverActions/permissions";
 
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 export default function CreateNewsButtonComponent() {
     // stores
     // state
     // consts
     const currentAuthUser = useAuth()
     const router = useRouter()
+    const [isAllowedToEdit, setIsAllowedToEdit] = useState(false);
     // functions
     // handlers
+    useEffect(() => {
+
+        const checkPrivilege = async () => {
+            const privilege = await canEditContent(currentAuthUser);
+            setIsAllowedToEdit(privilege);
+        };
+
+        checkPrivilege();
+    }, [currentAuthUser]);
     if (!currentAuthUser) return <button className={` bg-buttonContainer mb-4 w-fit opacity-0 p-2 cursor-not-allowed rounded-circle`} disabled>Create News</button>
+
+
+
 
     const handleReturnToNews = () => {
         router.push(routes.news.root)
@@ -55,3 +70,4 @@ export default function CreateNewsButtonComponent() {
         <button className={` bg-buttonContainer mb-4 w-fit  p-2 rounded-circle`} onClick={() => router.push(routes.news.create())}>Create News</button>
     )
 }
+
