@@ -34,7 +34,6 @@ export default function ArticlesClient({ initialArticles, type }: ArticlesClient
 
     const regularArticlesComponent =
         <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
-
             <div className={`flex flex-col flex-1 max-w-6xl  rounded-large bg-mainContainer p-4`}>
                 <div className={`flex flex-col justify-center items-center`}>
                     <NewArticleButton />

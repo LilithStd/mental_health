@@ -18,11 +18,14 @@ export default function NewArticleButton() {
     }, [currentAuthUser]);
 
     if (!isAllowedToEdit) {
-        return null; // or return a message indicating lack of permissions
+        return <div>
+            <button className={` bg-buttonContainer mb-4 w-fit opacity-0 p-2 cursor-not-allowed rounded-circle`} disabled>New Articles</button>
+        </div>
     }
+
     return (
 
-        <button className={` bg-buttonContainer mb-4 w-fit  p-2 rounded-circle`} onClick={() => route.push(routes.articles.create())}>New Articles</button>
+        <button className={` bg-buttonContainer mb-4 w-fit  p-2 cursor-pointer rounded-circle`} onClick={() => route.push(routes.articles.create())}>New Articles</button>
 
     )
 }
