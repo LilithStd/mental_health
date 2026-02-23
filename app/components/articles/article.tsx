@@ -213,10 +213,10 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         <div
             key={article.id}
             className={`
-            flex flex-col  p-2
-            bg-mainContainer
-            rounded-large
-        `}
+       grid grid-cols-[1fr_1fr]  p-2
+        bg-mainContainer
+         rounded-large
+     `}
         >
             {mainMetaDataArticleComponent}
             <div className="flex flex-col p-4 rounded-large bg-subContainer h-full">
