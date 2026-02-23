@@ -213,7 +213,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         <div
             key={article.id}
             className={`
-            grid grid-cols-[1fr_1fr]  p-2
+            flex flex-col  p-2
             bg-mainContainer
             rounded-large
         `}
@@ -228,6 +228,24 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             </div>
 
         </div>
+    // <div
+    //     key={article.id}
+    //     className={`
+    //     grid grid-cols-[1fr_1fr]  p-2
+    //     bg-mainContainer
+    //     rounded-large
+    // `}
+    // >
+    //     {mainMetaDataArticleComponent}
+    //     <div className="flex flex-col p-4 rounded-large bg-subContainer h-full">
+    //         <p className={`${font.text.size.medium} `}>
+    //             {cropContent(article.content, CROP_CONTAINER_SIZE.SMALL)}
+
+    //         </p>
+    //         {interactionBlockComponent}
+    //     </div>
+
+    // </div>
     const fullArticleComponent =
         <div className={`flex flex-col w-full  mb-4 p-2`}>
             <div className={`flex rounded  max-w-6xl rounded-large bg-mainContainer mb-2 w-full`}>
