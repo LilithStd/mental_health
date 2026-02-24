@@ -26,3 +26,9 @@ export function getAllNews(): NewsType[] {
   ensureFile()
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'))
 }
+
+export function getNewsById(id: number): NewsType | null {
+  ensureFile()
+  const news = JSON.parse(fs.readFileSync(filePath, 'utf-8')) as NewsType[]
+  return news.find(n => n.id === id) || null
+}

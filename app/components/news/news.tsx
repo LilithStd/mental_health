@@ -76,7 +76,7 @@ export default function News({ news, typeNews }: NewsProps) {
 
 
     const fullNewsComponent =
-        <div className={`grid grid-cols-[0.35fr_1fr] w-full p-4 m-4 bg-subContainer rounded-large`
+        <div className={`grid grid-cols-[0.35fr_1fr] w-full p-4  bg-subContainer rounded-large`
         }>
 
             <div className={`image-szie-large  bg-input rounded-large items-center justify-center`}>

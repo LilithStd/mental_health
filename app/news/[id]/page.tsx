@@ -4,6 +4,7 @@
 import News, { NewsType } from "@/app/components/news/news";
 import ReturnButton from "@/app/components/returnButton";
 import { NEWS_TYPE } from "@/app/globalConsts/globalEnum";
+import { routes } from "@/app/helpers/helpersFunctions";
 import { use, useEffect, useState } from "react";
 
 
@@ -39,7 +40,7 @@ export default function CurrentNews({
             {/* <Search /> */}
             {currentNews && !error && (
                 <div className={`flex  gap-4 p-4 flex-col flex-1 max-w-6xl items-center  rounded-large bg-mainContainer `}>
-                    <ReturnButton pathToReturn={'/news'} />
+                    <ReturnButton pathToReturn={routes.news.root} />
                     <News news={currentNews} typeNews={NEWS_TYPE.FULL} />
                 </div>)}
         </div>
