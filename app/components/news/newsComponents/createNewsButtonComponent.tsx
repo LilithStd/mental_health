@@ -23,7 +23,7 @@ export default function CreateNewsButtonComponent() {
 
         checkPrivilege();
     }, [currentAuthUser]);
-    if (!currentAuthUser && !isAllowedToEdit) return <button className={` bg-buttonContainer mb-4 w-fit opacity-0 p-2 cursor-not-allowed rounded-circle`} disabled>Create News</button>
+    if (!currentAuthUser && !isAllowedToEdit) return <button className={` bg-buttonContainer  w-fit opacity-0 p-2 cursor-not-allowed rounded-circle`} disabled>Create News</button>
 
 
 
@@ -67,7 +67,7 @@ export default function CreateNewsButtonComponent() {
     </div>
 
     return (
-        <button className={` bg-buttonContainer cursor-pointer mb-4 w-fit  p-2 rounded-circle`} onClick={() => router.push(routes.news.create())}>Create News</button>
+        <button className={` bg-buttonContainer cursor-pointer w-fit  p-2 rounded-circle`} onClick={() => router.push(routes.news.create())}>Added News</button>
     )
 }
 
