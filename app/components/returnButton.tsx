@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from "next/navigation"
-
+import ReturnIcon from '@/public/icons/ArrowReturn.svg'
 interface ReturnButtonProps {
     pathToReturn: string;   // any props if needed
 }
@@ -13,7 +13,10 @@ export default function ReturnButton({ pathToReturn }: ReturnButtonProps) {
 
     return (
         <button className={` bg-buttonContainer cursor-pointer w-1/5  p-2 rounded-circle`}>
-            <span onClick={() => router.push(pathToReturn)} className="cursor-pointer">Return</span>
+
+            <span onClick={() => router.push(pathToReturn)} className="cursor-pointer">
+                <ReturnIcon className="inline-block mr-2 w-6" />
+                Return</span>
         </button>
     )
 }
