@@ -21,10 +21,12 @@ export default async function CurrentNews({
     const currentNews = await getNewsById(Number(id))
 
     return (
-        <div className={`flex  flex-col indents-main-container  flex-1 items-center`}>
+        <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
             {currentNews && (
-                <div className={`flex  gap-4 p-4 flex-col flex-1 max-w-6xl items-center  rounded-large bg-mainContainer `}>
-                    <ReturnButton pathToReturn={routes.news.root} />
+                <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-mainContainer p-4 `}>
+                    <div className={`flex w-full justify-start mb-4`}>
+                        <ReturnButton pathToReturn={routes.news.root} />
+                    </div>
                     <News news={currentNews} typeNews={NEWS_TYPE.FULL} />
                 </div>)}
         </div>

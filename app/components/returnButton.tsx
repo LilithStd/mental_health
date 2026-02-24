@@ -12,7 +12,7 @@ export default function ReturnButton({ pathToReturn }: ReturnButtonProps) {
     if (!pathToReturn) return null; // or some fallback UI
 
     return (
-        <button className={` bg-buttonContainer cursor-pointer w-fit  p-2 rounded-circle`}>
+        <button className={` bg-buttonContainer cursor-pointer w-1/5  p-2 rounded-circle`}>
             <span onClick={() => router.push(pathToReturn)} className="cursor-pointer">Return</span>
         </button>
     )
