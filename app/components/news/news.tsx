@@ -6,6 +6,7 @@ import { CROP_CONTAINER_SIZE } from "@/app/globalConsts/globalConsts"
 import { useRouter } from "next/navigation"
 
 import PhotoIcon from '@/public/icons/Photo.svg'
+import ReturnButton from "../returnButton"
 
 export type NewsType = {
     id: number
@@ -74,24 +75,28 @@ export default function News({ news, typeNews }: NewsProps) {
     </div>
 
 
-    const fullNewsComponent = <div className={`grid grid-cols-[0.45fr_1fr] w-full p-4 m-4 bg-subContainer rounded-large`}>
-        <div className={`image-szie-large  bg-input rounded-large items-center justify-center`}>
-            <PhotoIcon className={` text-gray-500`} />
-        </div>
-        <div className={`flex flex-col w-full gap-4 bg-subContainer p-4 rounded-large`}>
-            <h3 className="font-bold">{news.title}</h3>
-            <p>{news.content}</p>
-            <div className={`flex w-full  justify-end rounded-large cursor-pointer`}>
-                <a href={news.link} target="_blank" rel="noopener noreferrer" className={`bg-buttonContainer flex justify-end w-fit text-shadow-lg p-4 rounded-large`}>Source Link</a>
+    const fullNewsComponent =
+        <div className={`grid grid-cols-[0.35fr_1fr] w-full p-4 m-4 bg-subContainer rounded-large`
+        }>
+
+            <div className={`image-szie-large  bg-input rounded-large items-center justify-center`}>
+                <PhotoIcon className={` text-gray-500`} />
+            </div>
+            <div className={`flex flex-col w-full gap-4 bg-subContainer p-4 rounded-large`}>
+                <h3 className="font-bold">{news.title}</h3>
+                <p>{news.content}</p>
+                <div className={`flex w-full  justify-end rounded-large cursor-pointer`}>
+                    <a href={news.link} target="_blank" rel="noopener noreferrer" className={`bg-buttonContainer flex justify-end w-fit text-shadow-lg p-4 rounded-large`}>Source Link</a>
+                </div>
+
             </div>
 
-        </div>
+        </div >
 
-    </div>
     //  
     return (
         <div className={`w-full  flex justify-center`}>
-            <div className={`flex w-full max-w-6xl rounded-large bg-mainContainer`}>
+            <div className={`flex w-full max-w-6xl  rounded-large bg-mainContainer`}>
                 {typeNews === NEWS_TYPE.PREVIEW && previewNewsComponent}
                 {typeNews === NEWS_TYPE.MEDIUM && mediumNewsComponent}
                 {typeNews === NEWS_TYPE.FULL && fullNewsComponent}

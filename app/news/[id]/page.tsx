@@ -2,6 +2,7 @@
 
 
 import News, { NewsType } from "@/app/components/news/news";
+import ReturnButton from "@/app/components/returnButton";
 import { NEWS_TYPE } from "@/app/globalConsts/globalEnum";
 import { use, useEffect, useState } from "react";
 
@@ -37,7 +38,8 @@ export default function CurrentNews({
         <div className={`flex  flex-col indents-main-container  flex-1 items-center`}>
             {/* <Search /> */}
             {currentNews && !error && (
-                <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-mainContainer`}>
+                <div className={`flex  gap-4 p-4 flex-col flex-1 max-w-6xl items-center  rounded-large bg-mainContainer `}>
+                    <ReturnButton pathToReturn={'/news'} />
                     <News news={currentNews} typeNews={NEWS_TYPE.FULL} />
                 </div>)}
         </div>
