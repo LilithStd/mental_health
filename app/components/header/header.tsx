@@ -2,13 +2,14 @@ import AdditionalPanel from "./headerComponent/additionalPanel";
 import AuthorizationMain from "../authorization/authorizationMain";
 import ListLinks from "../links";
 import Logo from "./headerComponent/logo";
+import HeaderBackground from "./headerComponent/headerBackground";
 
 
 export default function Header() {
 
     return (
         <nav className={`flex rounded-medium  justify-center  indents-main-container `}>
-            <div className={`flex max-w-6xl justify-between items-center w-full  bg-subContainer rounded-large`}>
+            <HeaderBackground>
                 <div className={`flex bg-mainContainer rounded-large indents-container-sub items-center justify-center p-4`}>
                     <Logo />
                 </div>
@@ -19,7 +20,7 @@ export default function Header() {
                     <AdditionalPanel />
                     <AuthorizationMain />
                 </div>
-            </div>
+            </HeaderBackground>
 
         </nav>
     )
