@@ -9,7 +9,7 @@ interface ReturnButtonProps {
 export default function ReturnButton({ pathToReturn }: ReturnButtonProps) {
     const router = useRouter()
 
-    if (!pathToReturn) return null; // or some fallback UI
+    if (!pathToReturn) return null;
 
     return (
         <button className={` bg-buttonContainer cursor-pointer w-1/5  p-2 rounded-circle`} onClick={() => router.push(pathToReturn)}>
