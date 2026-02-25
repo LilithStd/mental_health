@@ -1,7 +1,10 @@
 
+
+
 interface HeaderBackgroundProps {
     children: React.ReactNode;
 }
+
 
 export default function HeaderBackground({ children }: HeaderBackgroundProps) {
     return (
