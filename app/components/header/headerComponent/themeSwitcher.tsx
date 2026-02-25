@@ -1,9 +1,11 @@
 'use client'
-import { useGlobalStore } from "../store/globalStore"
 
-import LightThemeIcon from '../../public/icons/sun.svg'
-import DarkThemeIcon from '../../public/icons/moon.svg'
-import { THEME } from "../globalConsts/globalEnum"
+
+import LightThemeIcon from '@/public/icons/sun.svg'
+import DarkThemeIcon from '@/public/icons/moon.svg'
+import { THEME } from '@/app/globalConsts/globalEnum'
+import { useGlobalStore } from '@/app/store/globalStore'
+
 
 export default function ThemeSwitcher() {
     const setCurrentTheme = useGlobalStore((state) => state.setCurrentTheme)

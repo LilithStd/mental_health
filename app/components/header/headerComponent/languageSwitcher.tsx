@@ -1,7 +1,7 @@
 'use client'
-import { LANGUAGE_APP } from "../globalConsts/globalConsts"
-import { useGlobalStore } from "../store/globalStore"
-import LanguageIcon from "../../public/icons/Language.svg"
+import { LANGUAGE_APP } from "@/app/globalConsts/globalConsts"
+import { useGlobalStore } from "@/app/store/globalStore"
+import LanguageIcon from "@/public/icons/Language.svg"
 import { useState } from "react"
 
 
@@ -15,7 +15,7 @@ export default function LanguageSwitcher() {
     const listLanguage = (
         <div
             className="
-      absolute
+      absolute  
       top-12
       left-1/2 -translate-x-1/2
       flex gap-2
