@@ -20,7 +20,7 @@ export default function Header() {
                     <AdditionalPanel />
                     <AuthorizationMain />
                 </div> */}
-                <div className="grid grid-cols-[1fr_4fr_1fr] items-center">
+                <div className="grid grid-cols-[1fr_2fr_1fr] items-center w-full">
 
                     {/* Левый блок */}
                     <div className="flex justify-start">
@@ -35,11 +35,9 @@ export default function Header() {
                     </div>
 
                     {/* Правый блок */}
-                    <div className="flex justify-end">
-                        <div className="bg-mainContainer rounded-large indents-container-sub p-4">
-                            <AdditionalPanel />
-                            <AuthorizationMain />
-                        </div>
+                    <div className="flex justify-end bg-mainContainer rounded-large indents-container-sub p-4">
+                        <AdditionalPanel />
+                        <AuthorizationMain />
                     </div>
 
                 </div>

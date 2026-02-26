@@ -15,18 +15,21 @@ export default function ThemeSwitcher() {
     const setCurrentTheme = useGlobalStore((state) => state.setCurrentTheme)
     const currentTheme = useGlobalStore((state) => state.currentTheme)
 
-    const wheatherBlock = <div>
-        <Image src={cloudWhite} alt="Cloud White" className="absolute pointer-events-none" />
-        <Image src={cloudGray} alt="Cloud Gray" className="absolute pointer-events-none" />
-        <Image src={SunOnly} alt="Sun Only" className="absolute pointer-events-none" />
-        <Image src={MoonOnly} alt="Moon Only" className="absolute pointer-events-none" />
+    const darkThemeCompoent = <div className={`relative w-14 h-full cursor-pointer`} onClick={() => setCurrentTheme(THEME.LIGHT)}>
+        <Image src={cloudGray} alt="Cloud Gray" className="absolute z-1" />
+        <Image src={MoonOnly} alt="Moon Only" className="absolute " />
+    </div>
+    const lightThemeComponent = <div className={`relative w-14 h-full cursor-pointer`} onClick={() => setCurrentTheme(THEME.DARK)}>
+        <Image src={cloudWhite} alt="Cloud White" className="absolute z-1" />
+        <Image src={SunOnly} alt="Sun Only" className="absolute " />
+    </div>
+    const wheatherBlock = <div className={`relative w-14 h-full`}>
+        {currentTheme === THEME.LIGHT ? lightThemeComponent : darkThemeCompoent}
     </div>
 
     return (
-        <div className={`flex items-center justify-center cursor-pointer bg-activeElement rounded-circle`}>
-            {currentTheme === THEME.LIGHT ?
-
-                <LightThemeIcon className={`cursor-pointer`} fill={'orange'} stroke={'teal'} onClick={() => setCurrentTheme(THEME.DARK)} /> : <DarkThemeIcon className="cursor-pointer" fill={'mediumSlateBlue'} stroke={'#483D8B'} onClick={() => setCurrentTheme(THEME.LIGHT)} />}
+        <div className={`flex items-center w-full flex-col justify-center cursor-pointer bg-activeElement rounded-circle`}>
+            {wheatherBlock}
         </div>
 
     )
