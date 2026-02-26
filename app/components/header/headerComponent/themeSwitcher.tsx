@@ -23,8 +23,7 @@ export default function ThemeSwitcher() {
     </div>
 
     return (
-        <div className={`flex items-center relative justify-center cursor-pointer bg-activeElement rounded-circle`}>
-            {wheatherBlock}
+        <div className={`flex items-center justify-center cursor-pointer bg-activeElement rounded-circle`}>
             {currentTheme === THEME.LIGHT ?
 
                 <LightThemeIcon className={`cursor-pointer`} fill={'orange'} stroke={'teal'} onClick={() => setCurrentTheme(THEME.DARK)} /> : <DarkThemeIcon className="cursor-pointer" fill={'mediumSlateBlue'} stroke={'#483D8B'} onClick={() => setCurrentTheme(THEME.LIGHT)} />}
