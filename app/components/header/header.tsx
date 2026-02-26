@@ -26,6 +26,7 @@ export default function Header() {
                     <div className="flex justify-start">
                         <div className="bg-mainContainer rounded-large indents-container-sub p-4">
                             <Logo />
+
                         </div>
                     </div>
 
