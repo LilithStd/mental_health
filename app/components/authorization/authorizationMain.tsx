@@ -7,7 +7,7 @@ export default function AuthorizationMain() {
     const currentAuthUser = useAuth()
 
     return (
-        <div className="flex w-full flex-col text-center items-center justify-center">
+        <div className="flex w-1/2 flex-col text-center items-center justify-center">
             <ModalWindowWrapper currentAuthUser={currentAuthUser ?? undefined} />
         </div>
     )

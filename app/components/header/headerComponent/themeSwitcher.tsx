@@ -19,10 +19,12 @@ export default function ThemeSwitcher() {
         <Image src={cloudGray} alt="Cloud Gray" className="absolute z-1" />
         <Image src={MoonOnly} alt="Moon Only" className="absolute " />
     </div>
+
     const lightThemeComponent = <div className={`relative w-14 h-full cursor-pointer`} onClick={() => setCurrentTheme(THEME.DARK)}>
         <Image src={cloudWhite} alt="Cloud White" className="absolute z-1" />
         <Image src={SunOnly} alt="Sun Only" className="absolute " />
     </div>
+
     const wheatherBlock = <div className={`relative w-14 h-full`}>
         {currentTheme === THEME.LIGHT ? lightThemeComponent : darkThemeCompoent}
     </div>

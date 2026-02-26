@@ -20,7 +20,7 @@ export default function Header() {
                     <AdditionalPanel />
                     <AuthorizationMain />
                 </div> */}
-                <div className="grid grid-cols-[1fr_2fr_1fr] items-center w-full">
+                <div className="grid grid-cols-[1fr_3fr_1fr] gap-10 items-center w-full">
 
                     {/* Левый блок */}
                     <div className="flex justify-start">
