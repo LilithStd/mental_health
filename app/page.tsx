@@ -22,7 +22,6 @@ export default function Main() {
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
         <AnalizUserProblemBlock />
       </div>
-
     </main>
   );
 }
