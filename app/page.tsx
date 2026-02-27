@@ -4,6 +4,7 @@ import MainPageBackgroundImage from "@/public/images/background/butterfly.png"
 import BackgroundImages from "./components/shared/backgroundImages";
 import WelcomeBlock from "./components/mainPageComponent/welcomeBlock";
 import ProblemSolvingBlock from "./components/mainPageComponent/problemSolvingBlock";
+import AnalizUserProblemBlock from "./components/mainPageComponent/analizUserProblemBlock";
 
 
 export default function Main() {
@@ -12,14 +13,16 @@ export default function Main() {
   // 
   return (
     <main className={`flex flex-col indents-main-container  flex-1 items-center`}>
-      {/* <BackgroundImages imageSrc={MainPageBackgroundImage}> */}
       <div className={`flex flex-col w-full  max-w-6xl  rounded-large bg-subContainer `}>
         <WelcomeBlock />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
         <ProblemSolvingBlock />
       </div>
-      {/* </BackgroundImages> */}
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
+        <AnalizUserProblemBlock />
+      </div>
+
     </main>
   );
 }
