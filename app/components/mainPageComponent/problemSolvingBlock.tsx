@@ -1,5 +1,5 @@
 
-import HumanWithProblem from '@/public/images/problems/sad_human_with_problem.png'
+import HumanWithProblem from '@/public/images/problems/problems_in_words.png'
 import Image from 'next/image'
 
 const problemsList = [
