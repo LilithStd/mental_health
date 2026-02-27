@@ -21,7 +21,10 @@ export default function AnalizUserProblemBlock() {
                         <button key={index} className={`p-2 bg-buttonContainer rounded-large cursor-pointer`}>{problem}</button>
                     ))}
                 </div>
-                <Image src={HumanWithProblem} alt="Human with Problem" className=' rounded-large' />
+                <div className={`flex justify-center items-center`}>
+                    <Image src={HumanWithProblem} alt="Human with Problem" className=' rounded-large' />
+                </div>
+
             </div>
             <div className={`flex w-full flex-col gap-4 p-6 justify-center items-center`}>
                 <h2 className={`text-2xl font-bold `}>Did you recognize yourself?</h2>
