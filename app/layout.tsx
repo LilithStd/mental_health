@@ -6,6 +6,7 @@ import Header from "./components/header/header";
 import { Providers } from "./provider";
 import { AuthProvider } from "./authClientWrapper";
 import { getCurrentUser } from "./serverActions/auth/auth";
+import Footer from "./components/footer/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +38,7 @@ export default async function RootLayout({
           <AuthProvider user={currentAuthUser}>
             <Header />
             {children}
+            <Footer />
           </AuthProvider>
         </Providers>
       </body>
