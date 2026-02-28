@@ -6,6 +6,7 @@ import WelcomeBlock from "./components/mainPageComponent/welcomeBlock";
 import ProblemSolvingBlock from "./components/mainPageComponent/problemSolvingBlock";
 import AnalizUserProblemBlock from "./components/mainPageComponent/analizUserProblemBlock";
 import AboutDoctorBlock from "./components/mainPageComponent/aboutDoctorBlock";
+import AboutConsultation from "./components/mainPageComponent/aboutComsultation";
 
 
 export default function Main() {
@@ -25,6 +26,9 @@ export default function Main() {
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
         <AboutDoctorBlock />
+      </div>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
+        <AboutConsultation />
       </div>
     </main>
   );
