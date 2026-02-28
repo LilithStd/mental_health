@@ -9,6 +9,7 @@ import AboutDoctorBlock from "./components/mainPageComponent/aboutDoctorBlock";
 import AboutConsultation from "./components/mainPageComponent/aboutComsultation";
 import TestsBlock from "./components/mainPageComponent/testsBlock";
 import PricesBlock from "./components/mainPageComponent/pricesBlock";
+import FaqBlock from "./components/mainPageComponent/faqBlock";
 
 
 export default function Main() {
@@ -37,6 +38,9 @@ export default function Main() {
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
         <PricesBlock />
+      </div>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
+        <FaqBlock />
       </div>
     </main>
   );
