@@ -11,7 +11,7 @@ export default function BackgroundImages({ children, imageSrc }: BackgroundImage
             <div className={`flex w-full h-full justify-between items-center relative z-1`}>
                 {children}
             </div>
-            <Image src={imageSrc} alt="Background Image" className="absolute z-0 w-full h-full object-cover rounded-large opacity-70" />
+            <Image src={imageSrc} alt="Background Image" className="absolute z-0 w-full h-full object-cover rounded-large opacity-20" />
         </div>
     )
 }
