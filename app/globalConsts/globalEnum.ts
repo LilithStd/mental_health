@@ -84,3 +84,8 @@ export enum APP_PATH_ROUTER {
 	USERS = '/user',
 	AUTHORIZATION = '/authorization',
 }
+
+export enum APP_PATH_ROUTER_SUBPATH {
+	ARTICLES = '/articles',
+	NEWS = '/news',
+}
