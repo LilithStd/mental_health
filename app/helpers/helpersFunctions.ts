@@ -80,5 +80,9 @@ export const routes = {
   users:{
     root: APP_PATH_ROUTER.USERS,
     byId: (id: number | string) => `${APP_PATH_ROUTER.USERS}/${id}`,
-  }
+  },
+  consultation: {
+    root: APP_PATH_ROUTER.CONSULTATION,
+    byId: (id: number | string) => `${APP_PATH_ROUTER.CONSULTATION}/${id}`,
+  },
 }
