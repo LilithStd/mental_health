@@ -1,4 +1,5 @@
-import NewsServerComponents from "../components/news/newsServerComponents";
+import NewsServerComponents from "@/app/components/news/newsServerComponents";
+
 
 
 export default async function AllNews() {

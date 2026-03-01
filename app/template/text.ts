@@ -11,14 +11,23 @@ export const LIST_LINKS = {
 			RU: 'главная',
 		},
 	},
-	NEWS: {
-		label: 'news',
-		path: APP_PATH_ROUTER.NEWS,
+	// NEWS: {
+	// 	label: 'news',
+	// 	path: APP_PATH_ROUTER.NEWS,
+	// 	translate: {
+	// 		EN: 'news',
+	// 		LV: 'ziņas',
+	// 		RU: 'новости',
+	// 	},
+	// },
+	FAQ:{
+		label: 'FAQ',
+		path: APP_PATH_ROUTER.FAQ,
 		translate: {
-			EN: 'news',
-			LV: 'ziņas',
-			RU: 'новости',
-		},
+			EN: 'FAQ',
+			LV: 'BUJ',
+			RU: 'ЧАВО',
+		}
 	},
 	TESTS: {
 		label: 'tests',
@@ -29,15 +38,24 @@ export const LIST_LINKS = {
 			RU: 'тесты',
 		},
 	},
-	ARTICLES: {
-		label: 'articles',
-		path: APP_PATH_ROUTER.ARTICLES,
+	MEDIA: {
+		label: 'media',
+		path: APP_PATH_ROUTER.MEDIA,
 		translate: {
-			EN: 'articles',
-			LV: 'raksti',
-			RU: 'статьи',
+			EN: 'media',
+			LV: 'mediji',
+			RU: 'медиа',
 		},
 	},
+	// ARTICLES: {
+	// 	label: 'articles',
+	// 	path: APP_PATH_ROUTER.ARTICLES,
+	// 	translate: {
+	// 		EN: 'articles',
+	// 		LV: 'raksti',
+	// 		RU: 'статьи',
+	// 	},
+	// },
 
 	CONSULTATION: {
 		label: 'consultation',
@@ -189,8 +207,8 @@ export const ROLE_AUTHORIZED_USER_TRANSLATE = {
 
 export const LINKS = [
 	LIST_LINKS.MAIN,
-	LIST_LINKS.NEWS,
+	LIST_LINKS.MEDIA,
 	LIST_LINKS.TESTS,
-	LIST_LINKS.ARTICLES,
+	LIST_LINKS.FAQ,
 	LIST_LINKS.CONSULTATION,
 ];
