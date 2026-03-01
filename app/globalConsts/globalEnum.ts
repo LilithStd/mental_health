@@ -76,6 +76,7 @@ export enum UPDATE_USER_DATA_TYPE {
 export enum APP_PATH_ROUTER {
 	MAIN = '/',
 	NEWS = '/news',
+	MEDIA = '/media',
 	TESTS = '/tests',
 	ARTICLES = '/articles',
 	CONSULTATION = '/consultation',
