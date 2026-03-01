@@ -6,7 +6,7 @@ import WelcomeBlock from "./components/mainPageComponent/welcomeBlock";
 import ProblemSolvingBlock from "./components/mainPageComponent/problemSolvingBlock";
 import AnalizUserProblemBlock from "./components/mainPageComponent/analizUserProblemBlock";
 import AboutDoctorBlock from "./components/mainPageComponent/aboutDoctorBlock";
-import AboutConsultation from "./components/mainPageComponent/aboutComsultation";
+import AboutConsultation from "./components/mainPageComponent/aboutConsultation";
 import TestsBlock from "./components/mainPageComponent/testsBlock";
 import PricesBlock from "./components/mainPageComponent/pricesBlock";
 import FaqBlock from "./components/mainPageComponent/faqBlock";

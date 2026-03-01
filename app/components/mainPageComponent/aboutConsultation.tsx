@@ -1,3 +1,5 @@
+import { routes } from "@/app/helpers/helpersFunctions";
+import Link from "next/link";
 
 
 export default function AboutConsultation() {
@@ -12,7 +14,7 @@ export default function AboutConsultation() {
                 <li>Access to a wide range of mental health resources and support</li>
                 <li>Improved overall well-being and quality of life</li>
             </ul>
-            <button className={`mt-4 px-4 py-2 bg-buttonContainer rounded-large`}>Sign Up for a Consultation</button>
+            <Link href={routes.consultation.root} className={`mt-4 px-4 py-2 bg-buttonContainer rounded-large`}>Sign Up for a Consultation</Link>
         </div>
     )
 }

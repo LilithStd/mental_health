@@ -79,6 +79,7 @@ export enum APP_PATH_ROUTER {
 	TESTS = '/tests',
 	ARTICLES = '/articles',
 	CONSULTATION = '/consultation',
+	FAQ = '/faq',
 	USERS = '/user',
 	AUTHORIZATION = '/authorization',
 }
