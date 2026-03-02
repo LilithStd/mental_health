@@ -9,11 +9,12 @@ import EditActiveIcon from "@/public/icons/EditActive.svg"
 import EditInactiveIcon from "@/public/icons/EditInactive.svg"
 import { updateArticleAction } from "@/app/serverActions/updateArticle"
 import { CROP_CONTAINER_SIZE } from "@/app/globalConsts/globalConsts"
-import { cropContent } from "@/app/helpers/helpersFunctions"
+import { cropContent, routes } from "@/app/helpers/helpersFunctions"
 import AuthorIcon from "@/public/icons/user/User.svg"
 import { ArticleType } from "./articlesClient"
 import { useAuth } from "@/app/authClientWrapper"
 import { checkIfUserLiked } from "@/app/serverActions/likesStorage"
+import Link from "next/link"
 
 
 interface ArticleProps {
@@ -49,7 +50,6 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             const privilege = await canEditContent(currentAuthUser);
             setUserPrivilege(privilege);
         };
-        // console.log(userPrivilege)
         checkPrivilege();
     }, [currentAuthUser]);
 
@@ -132,12 +132,12 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         </div>
 
     const redirectButtonComponent = <div className={`flex  justify-end mt-auto`}>
-        <button
+        <Link
             className={`bg-buttonContainer p-4 rounded-large flex justify-center items-center cursor-pointer hover:scale-105`}
-            onClick={() => router.push(`${APP_PATH_ROUTER.ARTICLES}/${article.id}`)}
+            href={routes.articles.byId(article.id)}
         >
             <span className={`text-shadow-lg`}>read more</span>
-        </button>
+        </Link>
     </div>
     const interactionBlockComponent =
         <div className={`flex items-center justify-between mt-4`}>
