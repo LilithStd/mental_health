@@ -3,6 +3,8 @@ import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum";
 import ArticleClient from "./articleClient";
 import NewArticleButton from "./articleComponents/newArticleButton";
 import Article from "./article";
+import { routes } from "@/app/helpers/helpersFunctions";
+import ReturnButton from "../returnButton";
 
 
 
@@ -34,7 +36,11 @@ export default function ArticlesClient({ initialArticles, type }: ArticlesClient
 
     const regularArticlesComponent =
         <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
+
             <div className={`flex flex-col flex-1 max-w-6xl  rounded-large bg-mainContainer p-4`}>
+                <div className={`flex w-full justify-start mb-4`}>
+                    <ReturnButton pathToReturn={routes.media.root} />
+                </div>
                 <div className={`flex flex-col justify-center items-center`}>
                     <NewArticleButton />
                 </div>
@@ -48,6 +54,10 @@ export default function ArticlesClient({ initialArticles, type }: ArticlesClient
             </div>
         </div>
     return (
-        type === ARTICLE_TYPE.PREVIEW ? randomArticlesComponent : regularArticlesComponent
+        <div>
+
+            {type === ARTICLE_TYPE.PREVIEW ? randomArticlesComponent : regularArticlesComponent}
+        </div>
+
     )
 }
