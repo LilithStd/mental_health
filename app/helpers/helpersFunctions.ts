@@ -81,6 +81,9 @@ export const routes = {
     edit: (id: number | string) => `${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.NEWS}/${id}/edit`,
     create: () => `${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.NEWS}/create`,
   },
+  pricing:{
+    root: APP_PATH_ROUTER.PRICING,
+  },
 
   users:{
     root: APP_PATH_ROUTER.USERS,
