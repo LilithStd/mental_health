@@ -1,3 +1,5 @@
+import { routes } from "@/app/helpers/helpersFunctions";
+import Link from "next/link";
 
 
 export default function FaqBlock() {
@@ -15,7 +17,7 @@ export default function FaqBlock() {
                     <li className={`mt-2`}>What are your pricing options for consultations and services?</li>
                 </ul>
             </div>
-            <button className={`mt-4 px-4 py-2 bg-buttonContainer w-fit rounded-large`}>View FAQ</button>
+            <Link href={routes.faq.root} className={`mt-4 px-4 py-2 bg-buttonContainer w-fit rounded-large`}>View FAQ</Link>
         </div>
     )
 }

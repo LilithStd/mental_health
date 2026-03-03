@@ -71,6 +71,9 @@ export const routes = {
     root: APP_PATH_ROUTER.TESTS,
     byId: (id: number | string) => `${APP_PATH_ROUTER.TESTS}/${id}`,
   },
+  faq: {
+    root: APP_PATH_ROUTER.FAQ,
+  },
 
   news: {
     root: `${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.NEWS}`,
