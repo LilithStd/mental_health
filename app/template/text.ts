@@ -11,15 +11,6 @@ export const LIST_LINKS = {
 			RU: 'главная',
 		},
 	},
-	// NEWS: {
-	// 	label: 'news',
-	// 	path: APP_PATH_ROUTER.NEWS,
-	// 	translate: {
-	// 		EN: 'news',
-	// 		LV: 'ziņas',
-	// 		RU: 'новости',
-	// 	},
-	// },
 	FAQ:{
 		label: 'FAQ',
 		path: APP_PATH_ROUTER.FAQ,
@@ -56,6 +47,15 @@ export const LIST_LINKS = {
 	// 		RU: 'статьи',
 	// 	},
 	// },
+	PRICING: {
+		label: 'pricing',
+		path: APP_PATH_ROUTER.PRICING,
+		translate: {
+			EN: 'pricing',
+			LV: 'cenas',
+			RU: 'цены',
+		},
+	},
 
 	CONSULTATION: {
 		label: 'consultation',
@@ -210,5 +210,6 @@ export const LINKS = [
 	LIST_LINKS.MEDIA,
 	LIST_LINKS.TESTS,
 	LIST_LINKS.FAQ,
+	LIST_LINKS.PRICING,
 	LIST_LINKS.CONSULTATION,
 ];
