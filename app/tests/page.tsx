@@ -1,10 +1,10 @@
 'use client'
 
+import Loading from "@/app/components/shared/loading";
+import Test from "@/app/components/tests/test";
+import { TEST_TYPE } from "@/app/globalConsts/globalEnum";
 import { useEffect, useState } from "react";
-import Search from "../components/shared/search";
-import Test from "../components/tests/test";
-import { TEST_TYPE } from "../globalConsts/globalEnum";
-import Loading from "../components/shared/loading";
+
 
 
 type QuestionVariant = {

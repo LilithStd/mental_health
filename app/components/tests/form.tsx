@@ -1,10 +1,11 @@
 'use client'
 
+import { TestType } from "@/app/tests/page";
 import { rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import { calcTestResult } from "@/app/serverActions/calcTestResult";
 import { useAuthorizationStore } from "@/app/store/authorizationStore";
 import { useGlobalStore } from "@/app/store/globalStore";
-import { TestType } from "@/app/tests/page"
+
 import { useRef, useState } from "react";
 import { useFormState } from "react-dom";
 

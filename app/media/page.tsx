@@ -1,7 +1,8 @@
+import RandomArticleBlock from "@/app/components/blockRandomElements/randomArticleBlock";
+import RandomNewsBlock from "@/app/components/blockRandomElements/randomNewsBlock";
+import { routes } from "@/app/helpers/helpersFunctions";
 import Link from "next/link";
-import { routes } from "../helpers/helpersFunctions";
-import RandomArticleBlock from "../components/blockRandomElements/randomArticleBlock";
-import RandomNewsBlock from "../components/blockRandomElements/randomNewsBlock";
+
 
 
 export default function MediaPage() {
