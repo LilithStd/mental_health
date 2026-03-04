@@ -1,7 +1,3 @@
-import RandomArticleBlock from "./components/blockRandomElements/randomArticleBlock";
-import RandomNewsBlock from "./components/blockRandomElements/randomNewsBlock";
-import MainPageBackgroundImage from "@/public/images/background/butterfly.png"
-import BackgroundImages from "./components/shared/backgroundImages";
 import WelcomeBlock from "./components/mainPageComponent/welcomeBlock";
 import ProblemSolvingBlock from "./components/mainPageComponent/problemSolvingBlock";
 import AnalizUserProblemBlock from "./components/mainPageComponent/analizUserProblemBlock";
