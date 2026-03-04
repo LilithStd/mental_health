@@ -1,4 +1,4 @@
-import { create } from "domain"
+
 import { APP_PATH_ROUTER, APP_PATH_ROUTER_SUBPATH } from "../globalConsts/globalEnum"
 
 const normalize = (str: string) =>

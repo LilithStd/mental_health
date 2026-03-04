@@ -2,7 +2,8 @@ import { routes } from "@/app/helpers/helpersFunctions";
 import Link from "next/link";
 
 
-export default function AboutConsultation() {
+export default function AboutConsultation({ locale }: { locale: string }) {
+    const routesAdaptive = routes(locale)
     return (
         <div className={`flex flex-col gap-4 p-6 justify-center items-center`}>
             <h2 className={`text-2xl font-bold `}>What is a Consultation?</h2>
@@ -14,7 +15,7 @@ export default function AboutConsultation() {
                 <li>Access to a wide range of mental health resources and support</li>
                 <li>Improved overall well-being and quality of life</li>
             </ul>
-            <Link href={routes.consultation.root} className={`mt-4 px-4 py-2 bg-buttonContainer rounded-large`}>Sign Up for a Consultation</Link>
+            <Link href={routesAdaptive.consultation.root} className={`mt-4 px-4 py-2 bg-buttonContainer rounded-large`}>Sign Up for a Consultation</Link>
         </div>
     )
 }

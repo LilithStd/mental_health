@@ -4,14 +4,15 @@ import Link from "next/link"
 import { routes } from "@/app/helpers/helpersFunctions"
 
 
-export default function LastStepBlock() {
+export default function LastStepBlock({ locale }: { locale: string }) {
+    const routesAdaptive = routes(locale)
     return (
         <div className={`flex flex-col gap-4 p-6 justify-center items-center`}>
             {/* <BackgroundImages imageSrc={lastStepBg}> */}
             <div className={`flex flex-col gap-4 p-6 justify-center items-center`}>
                 <h2 className={`text-2xl font-bold `}>Last Step Block</h2>
                 <p className={`mt-4`}>Take the final step towards improving your mental health and well-being with our comprehensive services and support.</p>
-                <Link href={routes.consultation.root} className={`mt-4 px-4 py-2 bg-buttonContainer cursor-pointer rounded-large`}>Go to Consultation</Link>
+                <Link href={routesAdaptive.consultation.root} className={`mt-4 px-4 py-2 bg-buttonContainer cursor-pointer rounded-large`}>Go to Consultation</Link>
             </div>
             <Image src={lastStepBg} alt="Last Step Background" className='cover  rounded-large' />
             {/* </BackgroundImages> */}

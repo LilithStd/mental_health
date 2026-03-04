@@ -19,38 +19,38 @@ import TestsBlock from "../components/mainPageComponent/testsBlock";
 import WelcomeBlock from "../components/mainPageComponent/welcomeBlock";
 
 
-export default function Main() {
+export default function Main({ locale }: { locale: string }) {
   // stores
 
   // 
   return (
     <main className={`flex flex-col indents-main-container  flex-1 items-center`}>
       <div className={`flex flex-col w-full  max-w-6xl  rounded-large bg-subContainer `}>
-        <WelcomeBlock />
+        <WelcomeBlock locale={locale} />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
-        <ProblemSolvingBlock />
+        <ProblemSolvingBlock locale={locale} />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
-        <AnalizUserProblemBlock />
+        <AnalizUserProblemBlock locale={locale} />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
-        <AboutDoctorBlock />
+        <AboutDoctorBlock locale={locale} />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
-        <AboutConsultation />
+        <AboutConsultation locale={locale} />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
-        <TestsBlock />
+        <TestsBlock locale={locale} />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
-        <PricesBlock />
+        <PricesBlock locale={locale} />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
-        <FaqBlock />
+        <FaqBlock locale={locale} />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
-        <LastStepBlock />
+        <LastStepBlock locale={locale} />
       </div>
     </main>
   );

@@ -13,7 +13,8 @@ const problemsList = [
     'Thoughts of self-harm or suicide'
 ]
 
-export default function AnalizUserProblemBlock() {
+export default function AnalizUserProblemBlock({ locale }: { locale: string }) {
+    const routesAdaptive = routes(locale)
     return (
         <div>
             <div className={`grid grid-cols-1 gap-4 justify-center items-center text-center rounded-large bg-subContainer p-6`}>
@@ -29,7 +30,7 @@ export default function AnalizUserProblemBlock() {
             </div>
             <div className={`flex w-full flex-col gap-4 p-6 justify-center items-center`}>
                 <h2 className={`text-2xl font-bold `}>Did you recognize yourself?</h2>
-                <Link href={routes.consultation.root} className={`p-4 justify-center items-center bg-buttonContainer rounded-large cursor-pointer w-fit`}>Sign Up for a Consultation</Link>
+                <Link href={routesAdaptive.consultation.root} className={`p-4 justify-center items-center bg-buttonContainer rounded-large cursor-pointer w-fit`}>Sign Up for a Consultation</Link>
 
             </div>
         </div>

@@ -1,7 +1,9 @@
+import { routes } from '@/app/helpers/helpersFunctions'
 import DoctorImage from '@/public/images/doctor/doctor_2.png'
 import Image from 'next/image'
 
-export default function AboutDoctorBlock() {
+export default function AboutDoctorBlock({ locale }: { locale: string }) {
+    const routesAdaptive = routes(locale)
     return (
         <div>
             <div className={`grid grid-cols-2 rounded-large bg-subContainer p-6`}>
