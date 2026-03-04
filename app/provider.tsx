@@ -14,9 +14,9 @@ export function Providers({ children, styles }: { children: React.ReactNode, sty
 
     return (
 
-        <main className={`min-h-screen flex flex-col`}>
+        <div className={`min-h-screen flex flex-col`}>
             {children}
-        </main>
+        </div>
 
     );
 }

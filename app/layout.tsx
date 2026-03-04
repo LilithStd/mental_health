@@ -36,9 +36,9 @@ export default async function RootLayout({
       >
         <Providers>
           <AuthProvider user={currentAuthUser}>
-            <Header />
+            {/* <Header /> */}
             {children}
-            <Footer />
+            {/* <Footer /> */}
           </AuthProvider>
         </Providers>
       </body>

@@ -5,7 +5,7 @@ import Logo from "./headerComponent/logo";
 import HeaderBackground from "./headerComponent/headerBackground";
 
 
-export default function Header() {
+export default function Header({ locale }: { locale: string }) {
 
     return (
         <nav className={`flex rounded-medium  justify-center  indents-main-container `}>

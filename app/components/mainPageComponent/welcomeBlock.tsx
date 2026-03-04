@@ -10,8 +10,6 @@ const listPriviliges = WelcomeBlockEN.PRIVILEGES_LIST
 
 export default function WelcomeBlock() {
 
-
-
     return (
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 w-full p-4 `}>
             <Image src={DoctorImage} alt="Doctor Image" className='rounded-large' />

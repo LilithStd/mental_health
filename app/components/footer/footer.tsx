@@ -1,6 +1,6 @@
 
 
-export default function Footer() {
+export default function Footer({ locale }: { locale: string }) {
     return (
         <div className={`flex rounded-medium  justify-center  indents-main-container `}>
             <div className={`flex flex-col max-w-6xl justify-between items-center w-full bg-subContainer rounded-large min-h-20 p-6`}>
