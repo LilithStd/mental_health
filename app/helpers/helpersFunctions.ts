@@ -57,40 +57,42 @@ export function pickRandomUnique<T>(array: T[], count: number): T[] {
 }
 
 
-export const routes = {
-  articles: {
-    root: `${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.ARTICLES}`,
-    create: () => `${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.ARTICLES}/create`,
-    byId: (id: number | string) => `${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.ARTICLES}/${id}`,
-    edit: (id: number | string) => `${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.ARTICLES}/${id}/edit`,
+export const routes = (locale: string) => {
+  const prefix = `/${locale}`;
+
+  return {articles: {
+    root: `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.ARTICLES}`,
+    create: () => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.ARTICLES}/create`,
+    byId: (id: number | string) => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.ARTICLES}/${id}`,
+    edit: (id: number | string) => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.ARTICLES}/${id}/edit`,
   },
   media: {
-    root: APP_PATH_ROUTER.MEDIA,
+    root: `${prefix}${APP_PATH_ROUTER.MEDIA}`,
   },
   tests: {
-    root: APP_PATH_ROUTER.TESTS,
-    byId: (id: number | string) => `${APP_PATH_ROUTER.TESTS}/${id}`,
+    root: `${prefix}${APP_PATH_ROUTER.TESTS}`,
+    byId: (id: number | string) => `${prefix}${APP_PATH_ROUTER.TESTS}/${id}`,
   },
   faq: {
-    root: APP_PATH_ROUTER.FAQ,
+    root: `${prefix}${APP_PATH_ROUTER.FAQ}`,
   },
 
   news: {
-    root: `${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.NEWS}`,
-    byId: (id: number | string) => `${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.NEWS}/${id}`,
-    edit: (id: number | string) => `${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.NEWS}/${id}/edit`,
-    create: () => `${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.NEWS}/create`,
+    root: `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.NEWS}`,
+    byId: (id: number | string) => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.NEWS}/${id}`,
+    edit: (id: number | string) => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.NEWS}/${id}/edit`,
+    create: () => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.NEWS}/create`,
   },
   pricing:{
-    root: APP_PATH_ROUTER.PRICING,
+    root: `${prefix}${APP_PATH_ROUTER.PRICING}`,
   },
 
   users:{
-    root: APP_PATH_ROUTER.USERS,
-    byId: (id: number | string) => `${APP_PATH_ROUTER.USERS}/${id}`,
+    root: `${prefix}${APP_PATH_ROUTER.USERS}`,
+    byId: (id: number | string) => `${prefix}${APP_PATH_ROUTER.USERS}/${id}`,
   },
   consultation: {
-    root: APP_PATH_ROUTER.CONSULTATION,
-    byId: (id: number | string) => `${APP_PATH_ROUTER.CONSULTATION}/${id}`,
+    root: `${prefix}${APP_PATH_ROUTER.CONSULTATION}`,
+    byId: (id: number | string) => `${prefix}${APP_PATH_ROUTER.CONSULTATION}/${id}`,
   },
-}
+}}

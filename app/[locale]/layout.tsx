@@ -1,22 +1,20 @@
-import { AuthProvider } from "../authClientWrapper";
 import Footer from "../components/footer/footer";
 import Header from "../components/header/header";
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
     children,
     params,
 }: {
     children: React.ReactNode;
-    params: { locale: string };
+    params: Promise<{ locale: string }>;
 }) {
+    const { locale } = await params;
+
     return (
         <>
-            <Header locale={params.locale} />
+            <Header locale={locale} />
             {children}
-            <Footer locale={params.locale} />
+            <Footer locale={locale} />
         </>
-        // <AuthProvider>
-
-
     );
 }

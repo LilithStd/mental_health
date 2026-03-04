@@ -6,7 +6,7 @@ import HeaderBackground from "./headerComponent/headerBackground";
 
 
 export default function Header({ locale }: { locale: string }) {
-
+    const currentLocale = locale;
     return (
         <nav className={`flex rounded-medium  justify-center  indents-main-container `}>
             <HeaderBackground>
