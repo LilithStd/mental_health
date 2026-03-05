@@ -2,7 +2,6 @@
 import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum";
 import ArticleClient from "./articleClient";
 import NewArticleButton from "./articleComponents/newArticleButton";
-import Article from "./article";
 import { routes } from "@/app/helpers/helpersFunctions";
 import ReturnButton from "../returnButton";
 import { getLocale } from "@/app/hooks/getlocale";
