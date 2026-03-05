@@ -2,7 +2,6 @@ import RandomArticleBlock from "@/app/components/blockRandomElements/randomArtic
 import RandomNewsBlock from "@/app/components/blockRandomElements/randomNewsBlock";
 import { routes } from "@/app/helpers/helpersFunctions";
 import { getLocale } from "@/app/hooks/getlocale";
-import { get } from "http";
 import Link from "next/link";
 
 
@@ -20,7 +19,7 @@ export default async function MediaPage() {
                 </div>
 
                 <RandomArticleBlock />
-                {/* <RandomNewsBlock /> */}
+                <RandomNewsBlock />
 
             </div>
         </div>

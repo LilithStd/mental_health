@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation"
 
 import PhotoIcon from '@/public/icons/Photo.svg'
 import ReturnButton from "../returnButton"
+import { useLocale } from "@/app/hooks/useLocale"
 
 export type NewsType = {
     id: number
@@ -22,6 +23,8 @@ interface NewsProps {
 }
 export default function News({ news, typeNews }: NewsProps) {
     const router = useRouter();
+    const locale = useLocale()
+    const routesAdaptive = routes(locale)
     // stores
     // 
     // states
@@ -39,7 +42,7 @@ export default function News({ news, typeNews }: NewsProps) {
             <h3 className="font-bold">{news.title}</h3>
             <p>{cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
             <div className={`flex w-full justify-end mt-auto`}>
-                <button className={`bg-buttonContainer p-4 rounded-large flex cursor-pointer hover:scale-105 transition`} onClick={() => { router.push(routes.news.byId(news.id)) }}>
+                <button className={`bg-buttonContainer p-4 rounded-large flex cursor-pointer hover:scale-105 transition`} onClick={() => { router.push(routesAdaptive.news.byId(news.id)) }}>
                     <span className={`text-shadow-lg`}>
                         Read full news
                     </span>
@@ -64,7 +67,7 @@ export default function News({ news, typeNews }: NewsProps) {
             <div className="flex w-full justify-end mt-auto">
                 <button
                     className="bg-buttonContainer p-4 rounded-large flex cursor-pointer hover:scale-105 transition"
-                    onClick={() => { router.push(routes.news.byId(news.id)) }}
+                    onClick={() => { router.push(routesAdaptive.news.byId(news.id)) }}
                 >
                     <span>Read full news</span>
                 </button>

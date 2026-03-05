@@ -4,6 +4,7 @@ import News from "@/app/components/news/news";
 import ReturnButton from "@/app/components/returnButton";
 import { NEWS_TYPE } from "@/app/globalConsts/globalEnum";
 import { routes } from "@/app/helpers/helpersFunctions";
+import { getLocale } from "@/app/hooks/getlocale";
 import { getNewsById } from "@/app/serverActions/newsStorage";
 
 
@@ -15,6 +16,8 @@ export default async function CurrentNews({
     params: Promise<{ id: string }>
 }) {
     const { id } = await params
+    const locale = await getLocale()
+    const routesAdaptive = routes(locale)
     // stores
     // state
     // const [currentNews, setCurrentNews] = useState<NewsType | null>(null)
@@ -25,7 +28,7 @@ export default async function CurrentNews({
             {currentNews && (
                 <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-mainContainer p-4 `}>
                     <div className={`flex w-full justify-start mb-4`}>
-                        <ReturnButton pathToReturn={routes.news.root} />
+                        <ReturnButton pathToReturn={routesAdaptive.media.root} />
                     </div>
                     <News news={currentNews} typeNews={NEWS_TYPE.FULL} />
                 </div>)}
