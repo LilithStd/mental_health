@@ -1,4 +1,5 @@
-import ConsultationForm from "../components/consultation/consultationForm";
+import ConsultationForm from "@/app/components/consultation/consultationForm";
+
 
 export default function Consultation() {
     // stores
