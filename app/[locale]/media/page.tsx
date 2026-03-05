@@ -1,11 +1,14 @@
 import RandomArticleBlock from "@/app/components/blockRandomElements/randomArticleBlock";
 import RandomNewsBlock from "@/app/components/blockRandomElements/randomNewsBlock";
 import { routes } from "@/app/helpers/helpersFunctions";
+import { getLocale } from "@/app/hooks/getlocale";
+import { get } from "http";
 import Link from "next/link";
 
 
 
-export default function MediaPage({ locale }: { locale: string }) {
+export default async function MediaPage() {
+    const locale = await getLocale()
     const routesAdaptive = routes(locale)
     return (
         <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
