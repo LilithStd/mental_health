@@ -16,8 +16,8 @@ export default function MediaPage({ locale }: { locale: string }) {
                     <Link href={routesAdaptive.articles.root} className={`bg-buttonContainer p-4 rounded-large`}>Articles</Link>
                 </div>
 
-                <RandomArticleBlock locale={locale} />
-                <RandomNewsBlock locale={locale} />
+                <RandomArticleBlock />
+                {/* <RandomNewsBlock /> */}
 
             </div>
         </div>

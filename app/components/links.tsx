@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function ListLinks({ locale }: { locale: string }) {
     const pathname = usePathname();
-    console.log('Current pathname:', pathname); // Debugging line to check the current pathname
+
     const isLinkActive = (path: string) => {
         if (path === '/') return pathname === '/';
         return pathname === path || pathname.startsWith(path + '/');

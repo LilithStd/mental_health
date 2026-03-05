@@ -15,6 +15,8 @@ import { ArticleType } from "./articlesClient"
 import { useAuth } from "@/app/authClientWrapper"
 import { checkIfUserLiked } from "@/app/serverActions/likesStorage"
 import Link from "next/link"
+import { getLocale } from "@/app/hooks/getlocale"
+import { useLocale } from "@/app/hooks/useLocale"
 
 
 interface ArticleProps {
@@ -40,6 +42,8 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
     const [pending, startTransition] = useTransition()
     //
     const date = new Date(article.createdAt);
+    const locale = useLocale()
+    const routesAdaptive = routes(locale)
 
     const formattedDate = date.toLocaleDateString('sv-SE');
     const router = useRouter();
@@ -134,7 +138,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
     const redirectButtonComponent = <div className={`flex  justify-end mt-auto`}>
         <Link
             className={`bg-buttonContainer p-4 rounded-large flex justify-center items-center cursor-pointer hover:scale-105`}
-            href={routes.articles.byId(article.id)}
+            href={routesAdaptive.articles.byId(article.id)}
         >
             <span className={`text-shadow-lg`}>read more</span>
         </Link>

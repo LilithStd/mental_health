@@ -5,6 +5,7 @@ import NewArticleButton from "./articleComponents/newArticleButton";
 import Article from "./article";
 import { routes } from "@/app/helpers/helpersFunctions";
 import ReturnButton from "../returnButton";
+import { getLocale } from "@/app/hooks/getlocale";
 
 
 
@@ -19,11 +20,15 @@ export type ArticleType = {
 
 interface ArticlesClientProps {
     initialArticles: ArticleType[],
-    type: ARTICLE_TYPE
+    type: ARTICLE_TYPE,
 }
 
-export default function ArticlesClient({ initialArticles, type }: ArticlesClientProps) {
+export default async function ArticlesClient({ initialArticles, type }: ArticlesClientProps) {
+    const locale = await getLocale()
+    const routesAdaptive = routes(locale)
     const articles = initialArticles
+
+
 
     const randomArticlesComponent = <div className={`flex flex-col bg-subContainer indents-main-container rounded-large  `}>
         <h2 className={`text-3xl font-bold bg-mainContainer rounded-large indents-main-container`}>Random Article</h2>
@@ -39,7 +44,7 @@ export default function ArticlesClient({ initialArticles, type }: ArticlesClient
 
             <div className={`flex flex-col flex-1 max-w-6xl  rounded-large bg-mainContainer p-4`}>
                 <div className={`flex w-full justify-start mb-4`}>
-                    <ReturnButton pathToReturn={routes.media.root} />
+                    <ReturnButton pathToReturn={routesAdaptive.media.root} />
                 </div>
                 <div className={`flex flex-col justify-center items-center`}>
                     <NewArticleButton />

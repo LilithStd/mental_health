@@ -1,6 +1,6 @@
 import ArticleServerWrapper from "./randomBlockComponents/articleServerWrapper";
 
 
-export default function RandomArticleBlock({ locale }: { locale: string }) {
-  return <ArticleServerWrapper locale={locale} />
+export default function RandomArticleBlock() {
+  return <ArticleServerWrapper />
 }
