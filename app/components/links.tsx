@@ -2,9 +2,12 @@
 import { LINKS } from "../template/text"
 import { usePathname } from 'next/navigation';
 import Link from "next/link";
+import { useLocale } from "../hooks/useLocale";
 
-export default function ListLinks({ locale }: { locale: string }) {
+export default function ListLinks() {
     const pathname = usePathname();
+    const locale = useLocale();
+
 
     const isLinkActive = (path: string) => {
         if (path === '/') return pathname === '/';
