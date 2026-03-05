@@ -4,6 +4,8 @@ import { TEST_TYPE } from "@/app/globalConsts/globalEnum";
 import { use, useEffect, useState } from "react"
 import { TestType } from "../page";
 import Loading from "@/app/components/shared/loading";
+import { routes } from "@/app/helpers/helpersFunctions";
+import { useLocale } from "@/app/hooks/useLocale";
 
 
 export default function TestCurrent({
@@ -12,6 +14,7 @@ export default function TestCurrent({
     params: Promise<{ id: string }>
 }) {
     const { id } = use(params)
+
     const [currentTest, setCurrentTest] = useState<TestType | null>(null);
     const [error, setError] = useState(false)
     useEffect(() => {

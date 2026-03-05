@@ -5,10 +5,12 @@ import { useRouter } from "next/navigation"
 import Form from "./form"
 import { rounded, sizes, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import { TEST_TYPE } from "@/app/globalConsts/globalEnum"
-import { TestType } from "@/app/tests/page"
+import { TestType } from "@/app/[locale]/tests/page"
 import { useState } from "react"
 import ModalWindowMain from "../modalWindowMain"
 import TestModalWindow from "./testModalWindow"
+import { routes } from "@/app/helpers/helpersFunctions"
+import { useLocale } from "@/app/hooks/useLocale"
 
 
 interface TestProps {
@@ -19,7 +21,12 @@ interface TestProps {
 
 
 export default function Test({ test, testType }: TestProps) {
+    // consts
+    const locale = useLocale()
+    const routesAdaptive = routes(locale)
+    // 
     // stores
+
     const currentLanguage = useGlobalStore((state) => state.currentLanguage);
     const router = useRouter();
     // const id = '1'
@@ -39,7 +46,7 @@ export default function Test({ test, testType }: TestProps) {
 
         <button
             className={`px-4 py-2 mt-4 cursor-pointer rounded-large bg-buttonContainer`}
-            onClick={() => router.push(`/tests/${test.id}`)}
+            onClick={() => router.push(routesAdaptive.tests.byId(test.id))}
         >
             <span className={`text-shadow-lg`}>Read More</span>
         </button>

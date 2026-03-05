@@ -1,6 +1,6 @@
 'use client'
 
-import { TestType } from "@/app/tests/page";
+import { TestType } from "@/app/[locale]/tests/page";
 import { rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import { calcTestResult } from "@/app/serverActions/calcTestResult";
 import { useAuthorizationStore } from "@/app/store/authorizationStore";
