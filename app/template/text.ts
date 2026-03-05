@@ -1,69 +1,62 @@
 
 import {APP_PATH_ROUTER, AUTHORIZATION_STATUS} from '../globalConsts/globalEnum';
+const locale: 'en' | 'lv' | 'ru' = 'en';
 
 export const LIST_LINKS = {
+	
 	MAIN: {
 		label: 'main',
-		path: APP_PATH_ROUTER.MAIN,
+		path: `/${locale}/${APP_PATH_ROUTER.MAIN}`,
 		translate: {
-			EN: 'main',
-			LV: 'galvenais',
-			RU: 'главная',
+			en: 'main',
+			lv: 'galvenais',
+			ru: 'главная',
 		},
 	},
 	FAQ:{
 		label: 'FAQ',
-		path: APP_PATH_ROUTER.FAQ,
+		path: `/${locale}/${APP_PATH_ROUTER.FAQ}`,
 		translate: {
-			EN: 'FAQ',
-			LV: 'BUJ',
-			RU: 'ЧАВО',
+			en: 'FAQ',
+			lv: 'BUJ',
+			ru: 'ЧАВО',
 		}
 	},
 	TESTS: {
 		label: 'tests',
-		path: APP_PATH_ROUTER.TESTS,
+		path: `/${locale}/${APP_PATH_ROUTER.TESTS}`,
 		translate: {
-			EN: 'tests',
-			LV: 'tests',
-			RU: 'тесты',
+			en: 'tests',
+			lv: 'tests',
+			ru: 'тесты',
 		},
 	},
 	MEDIA: {
 		label: 'media',
-		path: APP_PATH_ROUTER.MEDIA,
+		path: `/${locale}/${APP_PATH_ROUTER.MEDIA}`,
 		translate: {
-			EN: 'media',
-			LV: 'mediji',
-			RU: 'медиа',
+			en: 'media',
+			lv: 'mediji',
+			ru: 'медиа',
 		},
 	},
-	// ARTICLES: {
-	// 	label: 'articles',
-	// 	path: APP_PATH_ROUTER.ARTICLES,
-	// 	translate: {
-	// 		EN: 'articles',
-	// 		LV: 'raksti',
-	// 		RU: 'статьи',
-	// 	},
-	// },
 	PRICING: {
 		label: 'pricing',
-		path: APP_PATH_ROUTER.PRICING,
+		path: `/${locale}/${APP_PATH_ROUTER.PRICING}`,
 		translate: {
-			EN: 'pricing',
-			LV: 'cenas',
-			RU: 'цены',
+			en: 'pricing',
+			lv: 'cenas',
+			ru: 'цены',
 		},
 	},
 
 	CONSULTATION: {
 		label: 'consultation',
-		path: APP_PATH_ROUTER.CONSULTATION,
+		path: `/${locale}/${APP_PATH_ROUTER.CONSULTATION}`,
 		translate: {
-			EN: 'consultation',
-			LV: 'konsultācija',
-			RU: 'консультация',
+			en: 'consultation',
+			lv: 'konsultācija',
+			ru: 'консультация',
 		},
 	},
 };
@@ -72,135 +65,135 @@ export const AUTHORIZATION_TEXT = {
 	REGISTRATION: {
 		label:AUTHORIZATION_STATUS.REGISTRATION,
 		translate: {
-			EN: 'Registration',
-			LV: 'Reģistrācija',
-			RU: 'Регистрация',
+			en: 'Registration',
+			lv: 'Reģistrācija',
+			ru: 'Регистрация',
 	},
 		},
 		
 	SIGN_IN: {
 		label:AUTHORIZATION_STATUS.SIGN_IN,
 		translate: {
-			EN: 'Sign in',
-			LV: 'Pierakstīties',
-			RU: 'Войти',
+			en: 'Sign in',
+			lv: 'Pierakstīties',
+			ru: 'Войти',
 		}
 	},
 };
 
 export const INPUT_PLACEHOLDERS = {
 	EMAIL: {
-		EN: 'Email',
-		LV: 'E-pasts',
-		RU: 'Электронная почта',
+		en: 'Email',
+		lv: 'E-pasts',
+		ru: 'Электронная почта',
 	},
 	PASSWORD: {
-		EN: 'Password',
-		LV: 'Parole',
-		RU: 'Пароль',
+		en: 'Password',
+		lv: 'Parole',
+		ru: 'Пароль',
 	},
 	REPEAT_PASSWORD: {
-		EN: 'Repeat Password',
-		LV: 'Atkārtot paroli',
-		RU: 'Повторите пароль',
+		en: 'Repeat Password',
+		lv: 'Atkārtot paroli',
+		ru: 'Повторите пароль',
 	},
 	USERNAME: {
-		EN: 'Username',
-		LV: 'Lietotājvārds',
-		RU: 'Имя пользователя',
+		en: 'Username',
+		lv: 'Lietotājvārds',
+		ru: 'Имя пользователя',
 	},
 	SUBMIT:{
-		EN: 'Submit',
-		LV: 'Iesniegt',
-		RU: 'Отправить',
+		en: 'Submit',
+		lv: 'Iesniegt',
+		ru: 'Отправить',
 	},
 }
 
 export const AUTH_METHODS_SYSTEM_MESSAGES = {
 	ALREADY_REGISTERED: {
-		EN: {
+		en: {
 			part1: 'You are already registered.',
 			part2: ' Please, sign in ',
 		},
-		LV:{
+		lv:{
 			part1: 'Jūs jau esat reģistrējies.',
 			part2: ' Lūdzu, pierakstieties šeit ',
 		},
-		RU: {
+		ru: {
 			part1: 'Вы уже зарегистрированы.',
 			part2: ' Пожалуйста, войдите ',
 		}
 	},
 	NOT_REGISTERED_YET: {
-		EN: {
+		en: {
 			part1: 'Not registered yet?',
 			part2: ' Please, register ',
 		},
-		LV: {
+		lv: {
 			part1: 'Vēl neesat reģistrējies?',
 			part2: ' Lūdzu, reģistrējieties.',
 		},
-		RU: {
+		ru: {
 			part1: 'Ещё не зарегистрированы?',
 			part2: ' Пожалуйста, зарегистрируйтесь.',
 		},
 	},
 	PASSWORD_MISMATCH: {
-		EN: {
+		en: {
 			part1: 'Passwords do not match.',
 			part2: ' Please, try again.',
 		},
-		LV: {
+		lv: {
 			part1: 'Paroles nesakrīt.',
 			part2: ' Lūdzu, mēģiniet vēlreiz.',
 		},
-		RU: {
+		ru: {
 			part1: 'Пароли не совпадают.',
 			part2: ' Пожалуйста, попробуйте снова.',
 		},
 	},
 	HAVE_ACCOUNT_SIGN_IN: {
-		EN: {
+		en: {
 			part1: 'Already have an account?',
 			part2: ' Sign in ',
 		},
 	
-		LV: {
+		lv: {
 			part1: 'Ir konts?',
 			part2: ' Pierakstīties ',
 		},
-		RU: {
+		ru: {
 			part1: 'Есть аккаунт?',
 			part2: ' Войдите ',
 		},
 	},
 	HERE_LINK: {
-		EN: 'here',
-		LV: 'šeit',
-		RU: 'здесь',
+		en: 'here',
+		lv: 'šeit',
+		ru: 'здесь',
 	},
 }
 
 export const ROLE_AUTHORIZED_USER_TRANSLATE = {
 	USER: {
 		translate: {
-			EN: 'User',
-			LV: 'Lietotājs',
-			RU: 'Пользователь',
+			en: 'User',
+			lv: 'Lietotājs',
+			ru: 'Пользователь',
 		},
 	},
 	ADMIN: {
 		translate: {
-			EN: 'Admin',
-			LV: 'Admins',
-			RU: 'Админ',
+			en: 'Admin',
+			lv: 'Admins',
+			ru: 'Админ',
 		},
 	},
 	OTHER: {
 		translate: {
-			EN: 'Other',
-			LV: 'Cits',
-			RU: 'Другой',
+			en: 'Other',
+			lv: 'Cits',
+			ru: 'Другой',
 		},
 	}
 }

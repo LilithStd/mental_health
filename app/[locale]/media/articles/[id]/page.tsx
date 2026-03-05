@@ -7,8 +7,10 @@ import { routes } from '@/app/helpers/helpersFunctions'
 
 export default async function ArticlePage({
     params,
+    locale
 }: {
-    params: { id: string }
+    params: { id: string },
+    locale: string
 }) {
     const { id } = await params
 

@@ -32,7 +32,7 @@ export default function Header({ locale }: { locale: string }) {
 
                     {/* Центр */}
                     <div className="flex justify-center">
-                        <ListLinks />
+                        <ListLinks locale={currentLocale} />
                     </div>
 
                     {/* Правый блок */}

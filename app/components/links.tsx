@@ -1,13 +1,11 @@
 'use client'
-
-import { useGlobalStore } from "../store/globalStore"
 import { LINKS } from "../template/text"
 import { usePathname } from 'next/navigation';
 import Link from "next/link";
 
-export default function ListLinks() {
-    const currentLanguage = useGlobalStore((state) => state.currentLanguage)
+export default function ListLinks({ locale }: { locale: string }) {
     const pathname = usePathname();
+    console.log('Current pathname:', pathname); // Debugging line to check the current pathname
     const isLinkActive = (path: string) => {
         if (path === '/') return pathname === '/';
         return pathname === path || pathname.startsWith(path + '/');
@@ -26,7 +24,7 @@ export default function ListLinks() {
                             ${isActive && `bg-activeElement scale-105 `}
                         `}
                     >
-                        {link.translate[currentLanguage]}
+                        {link.translate.en}
                     </Link>
                 );
             })}
