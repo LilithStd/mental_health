@@ -8,25 +8,25 @@ export default function ListLinks() {
     const pathname = usePathname();
     const locale = useLocale();
 
-
     const isLinkActive = (path: string) => {
-        const base = `/${locale}`
+        const base = `/${locale}`;
+        const normalized = path.startsWith("/") ? path : `/${path}`;
+        const fullPath = `${base}${normalized}`;
 
-        if (path === base) {
-            return pathname === base
+        if (normalized === "/") {
+            return pathname === base;
         }
 
-        return pathname === path || pathname.startsWith(`${path}/`)
-    }
+        return pathname === fullPath || pathname.startsWith(fullPath + "/");
+    };
     return (
         <div className={`flex p-2 items-center justify-center bg-mainContainer w-full rounded-large`}>
             {LINKS.map((link) => {
                 const isActive = isLinkActive(link.path);
-                console.log('link path:', link.path);
                 return (
                     <Link
                         key={link.label}
-                        href={link.path}
+                        href={`/${locale}/${link.path}`}
                         className={`
                             text-lg gap-2 indents-container-sub w-1/4 text-center rounded-2xl 
                             ${isActive && `bg-activeElement scale-105 `}
