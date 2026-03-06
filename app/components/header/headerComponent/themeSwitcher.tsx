@@ -30,7 +30,7 @@ export default function ThemeSwitcher() {
     </div>
 
     return (
-        <div className={`flex items-center w-full flex-col justify-center cursor-pointer bg-activeElement rounded-circle`}>
+        <div className={`flex items-center w-full justify-center cursor-pointer  rounded-circle`}>
             {wheatherBlock}
         </div>
 

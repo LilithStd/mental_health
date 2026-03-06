@@ -1,15 +1,14 @@
 'use client'
 import { LANGUAGE_APP } from "@/app/globalConsts/globalConsts"
 import { useGlobalStore } from "@/app/store/globalStore"
+import { LOCALES } from "@/app/types/types"
 import LanguageIcon from "@/public/icons/Language.svg"
 import { usePathname, useRouter } from "next/navigation"
 import { useState } from "react"
 
-const locales = ["en", "ru", "lv"];
+// const locales = ["en", "ru", "lv"];
 
 export default function LanguageSwitcher() {
-    // const currentLanguage = useGlobalStore((state) => state.currentLanguage)
-    // const setCurrentLanguage = useGlobalStore((state) => state.setCurrentLanguage)
 
     const router = useRouter();
     const pathname = usePathname();
@@ -30,7 +29,7 @@ export default function LanguageSwitcher() {
         <div
             className="
       absolute  
-      top-12
+      top-14
       left-1/2 -translate-x-1/2
       flex gap-2
       bg-accentElement
@@ -39,23 +38,7 @@ export default function LanguageSwitcher() {
       z-10
     "
         >
-            {/* {LANGUAGE_APP.map((item) => (
-                <div
-                    key={item}
-                    className={`${currentLanguage === item ? 'bg-activeElement' : ''} rounded-medium p-2`}
-                >
-                    <button
-                        className={`text-text ${currentLanguage === item ? 'font-bold' : ''} cursor-pointer`}
-                        onClick={() => {
-                            setCurrentLanguage(item);
-                            setIsOpen(false);
-                        }}
-                    >
-                        {item}
-                    </button>
-                </div>
-            ))} */}
-            {locales.map((item) => (
+            {LOCALES.map((item) => (
                 <div
                     key={item}
                     className={`${currentLocale === item ? 'bg-activeElement' : ''} rounded-medium p-2`}
@@ -63,12 +46,11 @@ export default function LanguageSwitcher() {
                     <button
                         className={`text-text ${currentLocale === item ? 'font-bold' : ''} cursor-pointer`}
                         onClick={() => {
-                            // setCurrentLanguage(item);
                             switchLocale(item);
                             setIsOpen(false);
                         }}
                     >
-                        {item}
+                        {item.toUpperCase()}
                     </button>
                 </div>
             ))}
@@ -78,10 +60,10 @@ export default function LanguageSwitcher() {
 
 
     return (
-        <div className="flex rounded-medium  relative items-center justify-end w-full  p-2 cursor-pointer">
-            {<div className=" cursor-pointer"
+        <div className="flex relative items-center p-2 cursor-pointer">
+            {<div className={`bg-accentElement  p-2 w-10 rounded-medium cursor-pointer`}
                 onClick={() => setIsOpen(!isOpen)}>
-                <span className={` font-bold`}>{currentLocale}</span>
+                <span className={`font-bold`}>{currentLocale.toUpperCase()}</span>
             </div>}
             {isOpen && listLanguage}
         </div>
