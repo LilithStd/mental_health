@@ -1,6 +1,6 @@
-
+'use client'
 import { routes } from '@/app/helpers/helpersFunctions'
-import { getLocale } from '@/app/hooks/getlocale'
+import { useLocale } from '@/app/hooks/useLocale'
 import { LocaleType } from '@/app/types/types'
 import DoctorImage from '@/public/images/doctor/doctor_6.png'
 import { WelcomeBlockContent } from '@/translate/mainPage/welcomeBlock'
@@ -11,24 +11,26 @@ import Link from 'next/link'
 
 
 
-export default async function WelcomeBlock() {
-    const locale = await getLocale() as LocaleType;
-    const routesAdaptive = routes(locale)
-    const listPriviliges = WelcomeBlockContent[locale].PRIVILEGES_LIST
-    console.log(WelcomeBlockContent[locale])
+
+export default function WelcomeBlock() {
+    const localeAdapted = useLocale() as LocaleType
+
+    const routesAdaptive = routes(localeAdapted as LocaleType)
+    const listPriviliges = WelcomeBlockContent[localeAdapted].PRIVILEGES_LIST
+
     return (
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 w-full p-4 `}>
             <Image src={DoctorImage} alt="Doctor Image" className='rounded-large' />
             <div>
-                <h2 className={`text-2xl font-bold `}>{WelcomeBlockContent[locale].TITLE}</h2>
-                <p className={``}>{WelcomeBlockContent[locale].DESCRIPTION}</p>
+                <h2 className={`text-2xl font-bold `}>{WelcomeBlockContent[localeAdapted].TITLE}</h2>
+                <p className={``}>{WelcomeBlockContent[localeAdapted].DESCRIPTION}</p>
                 <div className={`flex flex-col gap-4 mt-6`}>
                     <h3 className={`text-xl font-semibold mt-4`}>Already know  your problem?</h3>
-                    <Link href={routesAdaptive.consultation.root} className={`mt-4 px-4 py-2 w-fit bg-buttonContainer rounded-large`}>{WelcomeBlockContent[locale].SIGN_UP_BUTTON}</Link>
+                    <Link href={routesAdaptive.consultation.root} className={`mt-4 px-4 py-2 w-fit bg-buttonContainer rounded-large`}>{WelcomeBlockContent[localeAdapted].SIGN_UP_BUTTON}</Link>
                 </div>
                 <div className={`flex flex-col gap-4 mt-6`}>
                     <h3 className={`text-xl font-semibold mt-4`}>Need some guidance?</h3>
-                    <Link href={routesAdaptive.tests.root} className={`mt-4 px-4 w-fit py-2 bg-buttonContainer rounded-large`}>{WelcomeBlockContent[locale].TESTS_BUTTON}</Link>
+                    <Link href={routesAdaptive.tests.root} className={`mt-4 px-4 w-fit py-2 bg-buttonContainer rounded-large`}>{WelcomeBlockContent[localeAdapted].TESTS_BUTTON}</Link>
                 </div>
                 <div className={`flex flex-col gap-4 mt-6`}>
                     <h3 className={`text-xl font-semibold mt-4`}>Our Privileges:</h3>
