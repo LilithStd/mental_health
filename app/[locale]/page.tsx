@@ -16,7 +16,7 @@ import LastStepBlock from "../components/mainPageComponent/lastStepBlock";
 import PricesBlock from "../components/mainPageComponent/pricesBlock";
 import ProblemSolvingBlock from "../components/mainPageComponent/problemSolvingBlock";
 import TestsBlock from "../components/mainPageComponent/testsBlock";
-import WelcomeBlock from "../components/mainPageComponent/welcomeBlock";
+import WelcomeBlockComponent from "../components/mainPageComponent/welcomeBlock";
 
 
 export default function Main({ locale }: { locale: string }) {
@@ -26,7 +26,7 @@ export default function Main({ locale }: { locale: string }) {
   return (
     <main className={`flex flex-col indents-main-container  flex-1 items-center`}>
       <div className={`flex flex-col w-full  max-w-6xl  rounded-large bg-subContainer `}>
-        <WelcomeBlock locale={locale} />
+        <WelcomeBlockComponent />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
         <ProblemSolvingBlock />
