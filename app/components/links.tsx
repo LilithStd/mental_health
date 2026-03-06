@@ -10,10 +10,14 @@ export default function ListLinks() {
 
 
     const isLinkActive = (path: string) => {
-        if (path === `/${locale}`) return pathname === `/${locale}`;
-        // console.log(path);
-        return pathname === `${path}${locale}` || pathname.startsWith(`${path}${locale}/`);
-    };
+        const base = `/${locale}`
+
+        if (path === base) {
+            return pathname === base
+        }
+
+        return pathname === path || pathname.startsWith(`${path}/`)
+    }
     return (
         <div className={`flex p-2 items-center justify-center bg-mainContainer w-full rounded-large`}>
             {LINKS.map((link) => {

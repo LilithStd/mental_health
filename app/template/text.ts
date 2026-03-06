@@ -6,7 +6,7 @@ export const LIST_LINKS = {
 	
 	MAIN: {
 		label: 'main',
-		path: `/${locale}${APP_PATH_ROUTER.MAIN}`,
+		path: `${APP_PATH_ROUTER.MAIN}${locale}`,
 		translate: {
 			en: 'main',
 			lv: 'galvenais',
