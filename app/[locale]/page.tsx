@@ -29,7 +29,7 @@ export default function Main({ locale }: { locale: string }) {
         <WelcomeBlock locale={locale} />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
-        <ProblemSolvingBlock locale={locale} />
+        <ProblemSolvingBlock />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
         <AnalizUserProblemBlock locale={locale} />

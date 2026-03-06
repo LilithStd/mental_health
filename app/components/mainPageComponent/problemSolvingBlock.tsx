@@ -12,7 +12,7 @@ const problemsList = [
     'Work-related Stress',
     'Addiction and Substance Abuse'
 ]
-export default function ProblemSolvingBlock({ locale }: { locale: string }) {
+export default function ProblemSolvingBlock() {
 
     // components
     const probmlemSolvingBlock = () => {

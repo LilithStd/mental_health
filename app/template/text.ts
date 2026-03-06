@@ -1,12 +1,12 @@
 
 import {APP_PATH_ROUTER, AUTHORIZATION_STATUS} from '../globalConsts/globalEnum';
-const locale: 'en' | 'lv' | 'ru' = 'en';
+
 
 export const LIST_LINKS = {
 	
 	MAIN: {
 		label: 'main',
-		path: `${APP_PATH_ROUTER.MAIN}${locale}`,
+		path: APP_PATH_ROUTER.MAIN,
 		translate: {
 			en: 'main',
 			lv: 'galvenais',
@@ -15,7 +15,7 @@ export const LIST_LINKS = {
 	},
 	FAQ:{
 		label: 'FAQ',
-		path: `/${locale}${APP_PATH_ROUTER.FAQ}`,
+		path: APP_PATH_ROUTER.FAQ,
 		translate: {
 			en: 'FAQ',
 			lv: 'BUJ',
@@ -24,7 +24,7 @@ export const LIST_LINKS = {
 	},
 	TESTS: {
 		label: 'tests',
-		path: `/${locale}${APP_PATH_ROUTER.TESTS}`,
+		path: APP_PATH_ROUTER.TESTS,
 		translate: {
 			en: 'tests',
 			lv: 'tests',
@@ -33,7 +33,7 @@ export const LIST_LINKS = {
 	},
 	MEDIA: {
 		label: 'media',
-		path: `/${locale}${APP_PATH_ROUTER.MEDIA}`,
+		path: APP_PATH_ROUTER.MEDIA,
 		translate: {
 			en: 'media',
 			lv: 'mediji',
@@ -42,7 +42,7 @@ export const LIST_LINKS = {
 	},
 	PRICING: {
 		label: 'pricing',
-		path: `/${locale}${APP_PATH_ROUTER.PRICING}`,
+		path: APP_PATH_ROUTER.PRICING,
 		translate: {
 			en: 'pricing',
 			lv: 'cenas',
@@ -52,7 +52,7 @@ export const LIST_LINKS = {
 
 	CONSULTATION: {
 		label: 'consultation',
-		path: `/${locale}${APP_PATH_ROUTER.CONSULTATION}`,
+		path: APP_PATH_ROUTER.CONSULTATION,
 		translate: {
 			en: 'consultation',
 			lv: 'konsultācija',
