@@ -2,6 +2,7 @@
 import {APP_PATH_ROUTER, AUTHORIZATION_STATUS} from '../globalConsts/globalEnum';
 
 
+
 export const LIST_LINKS = {
 	
 	MAIN: {
@@ -59,7 +60,7 @@ export const LIST_LINKS = {
 			ru: 'консультация',
 		},
 	},
-};
+} as const;
 
 export const AUTHORIZATION_TEXT = {
 	REGISTRATION: {

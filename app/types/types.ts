@@ -6,3 +6,6 @@ export type UserAuthType = {
     role: string
     privilege: ROLE_AUTH_USER_PRIVILEGE
 }
+
+export const LOCALES = ['en', 'lv', 'ru'] as const
+export type LocaleType = (typeof LOCALES)[number]

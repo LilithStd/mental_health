@@ -3,10 +3,11 @@ import { LINKS } from "../template/text"
 import { usePathname } from 'next/navigation';
 import Link from "next/link";
 import { useLocale } from "../hooks/useLocale";
+import { LocaleType } from "../types/types";
 
 export default function ListLinks() {
     const pathname = usePathname();
-    const locale = useLocale();
+    const locale = useLocale() as LocaleType;
 
     const isLinkActive = (path: string) => {
         const base = `/${locale}`;
@@ -32,7 +33,7 @@ export default function ListLinks() {
                             ${isActive && `bg-activeElement scale-105 `}
                         `}
                     >
-                        {link.translate.en}
+                        {link.translate[locale]}
                     </Link>
                 );
             })}
