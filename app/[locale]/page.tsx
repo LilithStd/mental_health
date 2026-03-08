@@ -23,10 +23,10 @@ export default function Main({ locale }: { locale: string }) {
         <ProblemSolvingBlock />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
-        <AnalizUserProblemBlock locale={locale} />
+        <AnalizUserProblemBlock />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
-        <AboutDoctorBlock locale={locale} />
+        <AboutDoctorBlock />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
         <AboutConsultation locale={locale} />
