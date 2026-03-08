@@ -1,5 +1,3 @@
-// hooks/useLocale.ts
-
 "use client";
 
 import { useParams } from "next/navigation";

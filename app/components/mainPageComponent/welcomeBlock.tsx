@@ -25,15 +25,15 @@ export default function WelcomeBlock() {
                 <h2 className={`text-2xl font-bold `}>{WelcomeBlockContent[localeAdapted].TITLE}</h2>
                 <p className={``}>{WelcomeBlockContent[localeAdapted].DESCRIPTION}</p>
                 <div className={`flex flex-col gap-4 mt-6`}>
-                    <h3 className={`text-xl font-semibold mt-4`}>Already know  your problem?</h3>
+                    <h3 className={`text-xl font-semibold mt-4`}>{WelcomeBlockContent[localeAdapted].TITLE_2}</h3>
                     <Link href={routesAdaptive.consultation.root} className={`mt-4 px-4 py-2 w-fit bg-buttonContainer rounded-large`}>{WelcomeBlockContent[localeAdapted].SIGN_UP_BUTTON}</Link>
                 </div>
                 <div className={`flex flex-col gap-4 mt-6`}>
-                    <h3 className={`text-xl font-semibold mt-4`}>Need some guidance?</h3>
+                    <h3 className={`text-xl font-semibold mt-4`}>{WelcomeBlockContent[localeAdapted].TITLE_3}</h3>
                     <Link href={routesAdaptive.tests.root} className={`mt-4 px-4 w-fit py-2 bg-buttonContainer rounded-large`}>{WelcomeBlockContent[localeAdapted].TESTS_BUTTON}</Link>
                 </div>
                 <div className={`flex flex-col gap-4 mt-6`}>
-                    <h3 className={`text-xl font-semibold mt-4`}>Our Privileges:</h3>
+                    <h3 className={`text-xl font-semibold mt-4`}>{WelcomeBlockContent[localeAdapted].PRIVILEGES_TITLE}</h3>
                     {listPriviliges.map((privilege, index) => (
                         <div key={index} className={`flex items-center mt-2`}>
                             <span className={`w-2 h-2 bg-activeElement rounded-full mr-2`}></span>

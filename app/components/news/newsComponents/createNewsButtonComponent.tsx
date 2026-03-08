@@ -1,6 +1,7 @@
 'use client'
 import { useAuth } from "@/app/authClientWrapper";
 import { routes } from "@/app/helpers/helpersFunctions";
+import { useLocale } from "@/app/hooks/useLocale";
 import { canEditContent } from "@/app/serverActions/permissions";
 
 import { useRouter } from "next/navigation";
@@ -11,6 +12,7 @@ export default function CreateNewsButtonComponent() {
     // consts
     const currentAuthUser = useAuth()
     const router = useRouter()
+    const localeAdapted = useLocale()
     const [isAllowedToEdit, setIsAllowedToEdit] = useState(false);
     // functions
     // handlers
@@ -29,7 +31,7 @@ export default function CreateNewsButtonComponent() {
 
 
     const handleReturnToNews = () => {
-        router.push(routes.news.root)
+        router.push(routes(localeAdapted).news.root)
     }
     const handlePreviewNews = () => {
 
@@ -67,7 +69,7 @@ export default function CreateNewsButtonComponent() {
     </div>
 
     return (
-        <button className={` bg-buttonContainer cursor-pointer w-fit  p-2 rounded-circle`} onClick={() => router.push(routes.news.create())}>Added News</button>
+        <button className={` bg-buttonContainer cursor-pointer w-fit  p-2 rounded-circle`} onClick={() => router.push(routes(localeAdapted).news.create())}>Added News</button>
     )
 }
 
