@@ -43,7 +43,7 @@ export default function Main({ locale }: { locale: LocaleType }) {
         <FaqBlock />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
-        <LastStepBlock locale={locale} />
+        <LastStepBlock />
       </div>
     </main>
   );
