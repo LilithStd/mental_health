@@ -40,7 +40,7 @@ export default function Main({ locale }: { locale: LocaleType }) {
         <PricesBlock />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
-        <FaqBlock locale={locale} />
+        <FaqBlock />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
         <LastStepBlock locale={locale} />
