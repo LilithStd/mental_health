@@ -1,5 +1,10 @@
+'use client'
+import { useLocale } from "@/app/hooks/useLocale";
+import { LocaleType } from "@/app/types/types";
+import { FaqContent } from "@/translate/faqPage/faqContent";
 
 export default function FaqPage() {
+    const locale = useLocale() as LocaleType
     return (
         <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
             <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-mainContainer p-4 `}>
@@ -7,8 +12,13 @@ export default function FaqPage() {
                     <h2>F.A.Q </h2>
                     <h2>(Frequently Asked Questions)</h2>
                 </div>
-
-                <details className={`list-disc list-inside mb-4 bg-subContainer p-4 rounded-large hover:bg-hover cursor-pointer `}>
+                {FaqContent[locale].listsQuestions.map((faq, index) => (
+                    <details key={index} className={`list-disc list-inside mb-4 bg-subContainer p-4 rounded-large hover:bg-hover cursor-pointer `}>
+                        <summary className={``}>{faq.question}</summary>
+                        <p>{faq.answer}</p>
+                    </details>
+                ))}
+                {/* <details className={`list-disc list-inside mb-4 bg-subContainer p-4 rounded-large hover:bg-hover cursor-pointer `}>
                     <summary className={``}>What is the difference between a psychiatrist and a psychologist or psychotherapist?</summary>
                     <p>
                         Whats the difference between a psychiatrist and a psychologist or psychotherapist?
@@ -66,7 +76,7 @@ export default function FaqPage() {
                     <p>
                         If you are experiencing an acute crisis, suicidal thoughts, or a life-threatening situation, you must immediately contact emergency services or the nearest medical facility.
                     </p>
-                </details>
+                </details> */}
 
 
             </div>
