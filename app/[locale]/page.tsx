@@ -37,7 +37,7 @@ export default function Main({ locale }: { locale: LocaleType }) {
         <TestsBlock />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
-        <PricesBlock locale={locale} />
+        <PricesBlock />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
         <FaqBlock locale={locale} />
