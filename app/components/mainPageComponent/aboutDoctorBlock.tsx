@@ -22,16 +22,16 @@ export default function AboutDoctorBlock() {
                         <h3 className={`text-xl font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_2}</h3>
                         <p className={`text-sm mt-2`}>{AboutDoctorContent[locale].DESCRIPTION_2}</p>
                     </div>
-
                     <div>
                         <h3 className={`text-xl font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_3}</h3>
                         <p className={`text-sm mt-2`}>{AboutDoctorContent[locale].DESCRIPTION_3}</p>
                     </div>
+                    <div>
+                        <h3 className={`text-xl font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_4}</h3>
+                        <p className={`text-sm mt-2`}>{AboutDoctorContent[locale].DESCRIPTION_4}</p>
+                    </div>
                 </div>
-                <div>
-                    <h3 className={`text-xl font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_4}</h3>
-                    <p className={`text-sm mt-2`}>{AboutDoctorContent[locale].DESCRIPTION_4}</p>
-                </div>
+
             </div>
 
         </div>

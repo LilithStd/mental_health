@@ -8,9 +8,11 @@ import PricesBlock from "../components/mainPageComponent/pricesBlock";
 import ProblemSolvingBlock from "../components/mainPageComponent/problemSolvingBlock";
 import TestsBlock from "../components/mainPageComponent/testsBlock";
 import WelcomeBlockComponent from "../components/mainPageComponent/welcomeBlock";
+import { LocaleType } from "../types/types";
 
 
-export default function Main({ locale }: { locale: string }) {
+export default function Main({ locale }: { locale: LocaleType }) {
+
   // stores
 
   // 
@@ -29,7 +31,7 @@ export default function Main({ locale }: { locale: string }) {
         <AboutDoctorBlock />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
-        <AboutConsultation locale={locale} />
+        <AboutConsultation />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
         <TestsBlock locale={locale} />

@@ -1,21 +1,26 @@
+'use client'
 import { routes } from "@/app/helpers/helpersFunctions";
+import { useLocale } from "@/app/hooks/useLocale";
+import { LocaleType } from "@/app/types/types";
+import { AboutConsultationContent } from "@/translate/mainPage/aboutConsultationBlock";
 import Link from "next/link";
 
 
-export default function AboutConsultation({ locale }: { locale: string }) {
+
+export default function AboutConsultation() {
+    const locale = useLocale() as LocaleType
     const routesAdaptive = routes(locale)
     return (
         <div className={`flex flex-col gap-4 p-6 justify-center items-center`}>
-            <h2 className={`text-2xl font-bold `}>What is a Consultation?</h2>
-            <p className={`mt-4`}>A consultation is a professional meeting between a patient and a healthcare provider, such as a psychiatrist, psychologist, or therapist. During a consultation, the healthcare provider will assess the patients mental health, discuss their symptoms and concerns, and provide recommendations for treatment or further evaluation. Consultations can be conducted in person, over the phone, or through telehealth platforms, making it easier for individuals to access mental health care from the comfort of their own homes.</p>
-            <h3 className={`text-xl font-semibold mt-4`}>Benefits of Consultation:</h3>
+            <h2 className={`text-2xl font-bold `}>{AboutConsultationContent[locale].TITLE}</h2>
+            <p className={`mt-4`}>{AboutConsultationContent[locale].DESCRIPTION}</p>
+            <h3 className={`text-xl font-semibold mt-4`}>{AboutConsultationContent[locale].TITLE_2}</h3>
             <ul className={`list-disc list-inside mt-2`}>
-                <li>Early identification and intervention for mental health issues</li>
-                <li>Personalized treatment plans tailored to individual needs</li>
-                <li>Access to a wide range of mental health resources and support</li>
-                <li>Improved overall well-being and quality of life</li>
+                {AboutConsultationContent[locale].BENEFITS.map((benefit, index) => (
+                    <li key={index}>{benefit}</li>
+                ))}
             </ul>
-            <Link href={routesAdaptive.consultation.root} className={`mt-4 px-4 py-2 bg-buttonContainer rounded-large`}>Sign Up for a Consultation</Link>
+            <Link href={routesAdaptive.consultation.root} className={`mt-4 px-4 py-2 bg-buttonContainer rounded-large`}>{AboutConsultationContent[locale].SIGN_UP_BUTTON}</Link>
         </div>
     )
 }
