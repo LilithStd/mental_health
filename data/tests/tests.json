@@ -4,14 +4,22 @@
 		"id": 1769454841360,
 		"label": "DEPRESSION",
 		"title": {
-            "EN": "Depressive",
-            "RU": "Депрессивные расстройства",
-            "LV": "Depresīvie traucējumi"
+            "en": "Depressive",
+            "ru": "Депрессивные расстройства",
+            "lv": "Depresīvie traucējumi"
         },
-		"content":"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+		"content":{
+            "en": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+            "ru": "Существует множество вариантов отрывков Lorem Ipsum, но большинство из них подверглись изменениям в той или иной форме, с добавлением юмора или случайных слов, которые выглядят совершенно неправдоподобно. Если вы собираетесь использовать отрывок Lorem Ipsum, вам нужно убедиться, что в середине текста нет ничего смущающего.",
+            "lv": "Ir daudz Lorem Ipsum fragmentu variāciju, bet lielākā daļa no tām ir piedzīvojusi izmaiņas kādā formā, ar ievadītu humoru vai nejauši izvēlētiem vārdiem, kas neizskatās pat nedaudz ticami. Ja jūs gatavojaties izmantot Lorem Ipsum fragmentu, jums jābūt pārliecinātiem, ka tekstā nav nekā neērta."
+        },
 		"questions":[
 			{
-				"title": "Depressing question 1",
+				"title": {
+                    "en": "Depressing question 1",
+                    "ru": "Депрессивный вопрос 1",
+                    "lv": "Depresīvs jautājums 1"
+                },
 				"variants":[
 					{
 						"id": "1",
@@ -32,7 +40,11 @@
 				]
 			},
 			{
-				"title": "Depressing question 2",
+				"title": {
+                    "en": "Depressing question 2",
+                    "ru": "Депрессивный вопрос 2",
+                    "lv": "Depresīvs jautājums 2"
+                },
 				"variants":[
 					{
 						"id": "1",
@@ -53,7 +65,11 @@
 				]
 			},
 			{
-				"title": "Depressing question 3",
+				"title": {
+                    "en": "Depressing question 3",
+                    "ru": "Депрессивный вопрос 3",
+                    "lv": "Depresīvs jautājums 3"
+                },
 				"variants":[
 					{
 						"id": "1",
@@ -81,14 +97,22 @@
 		"id": 1769454841361,
         "label": "SHIZOPHRENIA",
 		"title": {
-            "EN": "Schizophrenia",
-            "RU": "Шизофрения",
-            "LV": "Šizofrēnija"
+            "en": "Schizophrenia",
+            "ru": "Шизофрения",
+            "lv": "Šizofrēnija"
         },
-		"content":"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+		"content":{
+            "en": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+            "ru": "Существует множество вариантов отрывков Lorem Ipsum, но большинство из них подверглись изменениям в той или иной форме, с добавлением юмора или случайных слов, которые выглядят совершенно неправдоподобно. Если вы собираетесь использовать отрывок Lorem Ipsum, вам нужно убедиться, что в середине текста нет ничего смущающего.",
+            "lv": "Ir daudz Lorem Ipsum fragmentu variāciju, bet lielākā daļa no tām ir piedzīvojusi izmaiņas kādā formā, ar ievadītu humoru vai nejauši izvēlētiem vārdiem, kas neizskatās pat nedaudz ticami. Ja jūs gatavojaties izmantot Lorem Ipsum fragmentu, jums jābūt pārliecinātiem, ka tekstā nav nekā neērta."
+        },
 		"questions":[
 			{
-				"title": "Schizophrenia question 1",
+				"title": {
+                    "en": "Schizophrenia question 1",
+                    "ru": "Вопрос о шизофрении 1",
+                    "lv": "Šizofrēnijas jautājums 1"
+                },
 				"variants":[
 					{
 						"id": "1",
@@ -109,7 +133,11 @@
 				]
 			},
 			{
-				"title": "Schizophrenia question 2",
+				"title": {
+                    "en": "Schizophrenia question 2",
+                    "ru": "Вопрос о шизофрении 2",
+                    "lv": "Šizofrēnijas jautājums 2"
+                },
 				"variants":[
 					{
 						"id": "1",
@@ -130,7 +158,11 @@
 				]
 			},
 			{
-				"title": "Schizophrenia question 3",
+				"title": {
+                    "en": "Schizophrenia question 3",
+                    "ru": "Вопрос о шизофрении 3",
+                    "lv": "Šizofrēnijas jautājums 3"
+                },
 				"variants":[
 					{
 						"id": "1",
@@ -158,14 +190,22 @@
 		"id": 1769454841362,
         "label": "TREVOR",
 		"title": {
-            "EN": "Trevor",
-            "RU": "Тревор",
-            "LV": "Trevor"
+            "en": "Trevor",
+            "ru": "Тревор",
+            "lv": "Trevor"
         },
-		"content":"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+		"content":{
+            "en": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+            "ru": "Существует множество вариантов отрывков Lorem Ipsum, но большинство из них подверглись изменениям в той или иной форме, с добавлением юмора или случайных слов, которые выглядят совершенно неправдоподобно. Если вы собираетесь использовать отрывок Lorem Ipsum, вам нужно убедиться, что в середине текста нет ничего смущающего.",
+            "lv": "Ir daudz Lorem Ipsum fragmentu variāciju, bet lielākā daļa no tām ir piedzīvojusi izmaiņas kādā formā, ar ievadītu humoru vai nejauši izvēlētiem vārdiem, kas neizskatās pat nedaudz ticami. Ja jūs gatavojaties izmantot Lorem Ipsum fragmentu, jums jābūt pārliecinātiem, ka tekstā nav nekā neērta."
+        },
 		"questions":[
 			{
-				"title": "Trevor question 1",
+				"title": {
+                    "en": "Trevor question 1",
+                    "ru": "Вопрос о Треворе 1",
+                    "lv": "Trevor jautājums 1"
+                },
 				"variants":[
 					{
 						"id": "1",
@@ -186,7 +226,11 @@
 				]
 			},
 			{
-				"title": "Trevor question 2",
+				"title": {
+                    "en": "Trevor question 2",
+                    "ru": "Вопрос о Треворе 2",
+                    "lv": "Trevor jautājums 2"
+                },
 				"variants":[
 					{
 						"id": "1",
@@ -207,7 +251,11 @@
 				]
 			},
 			{
-				"title": "Trevor question 3",
+				"title": {
+                    "en": "Trevor question 3",
+                    "ru": "Вопрос о Треворе 3",
+                    "lv": "Trevor jautājums 3"
+                },
 				"variants":[
 					{
 						"id": "1",
@@ -235,14 +283,22 @@
 		"id": 1769454841363,
         "label": "AUTISM",
 		"title": {
-            "EN": "Autism",
-            "RU": "Аутизм",
-            "LV": "Autisms"
+            "en": "Autism",
+            "ru": "Аутизм",
+            "lv": "Autisms"
         },
-		"content":"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+		"content":{
+            "en": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+            "ru": "Существует множество вариантов отрывков Lorem Ipsum, но большинство из них подверглись изменениям в той или иной форме, с добавлением юмора или случайных слов, которые выглядят совершенно неправдоподобно. Если вы собираетесь использовать отрывок Lorem Ipsum, вам нужно убедиться, что в середине текста нет ничего смущающего.",
+            "lv": "Ir daudz Lorem Ipsum fragmentu variāciju, bet lielākā daļa no tām ir piedzīvojusi izmaiņas kādā formā, ar ievadītu humoru vai nejauši izvēlētiem vārdiem, kas neizskatās pat nedaudz ticami. Ja jūs gatavojaties izmantot Lorem Ipsum fragmentu, jums jābūt pārliecinātiem, ka tekstā nav nekā neērta."
+        },
 		"questions":[
 			{
-				"title": "Autism question 1",
+				"title": {
+                    "en": "Autism question 1",
+                    "ru": "Вопрос об аутизме 1",
+                    "lv": "Autisma jautājums 1"
+                },
 				"variants":[
 					{
 						"id": "1",
@@ -263,7 +319,11 @@
 				]
 			},
 			{
-				"title": "Autism question 2",
+				"title": {
+                    "en": "Autism question 2",
+                    "ru": "Вопрос об аутизме 2",
+                    "lv": "Autisma jautājums 2"
+                },
 				"variants":[
 					{
 						"id": "1",
@@ -284,7 +344,11 @@
 				]
 			},
 			{
-				"title": "Autism question 3",
+				"title": {
+                    "en": "Autism question 3",
+                    "ru": "Вопрос об аутизме 3",
+                    "lv": "Autisma jautājums 3"
+                },
 				"variants":[
 					{
 						"id": "1",
@@ -312,14 +376,22 @@
 		"id": 1769454841364,
         "label": "STRESS",
 		"title": {
-            "EN": "Stress Disorders",
-            "RU": "Стрессовые расстройства",
-            "LV": "Stresa traucējumi"
+            "en": "Stress Disorders",
+            "ru": "Стрессовые расстройства",
+            "lv": "Stresa traucējumi"
         },
-		"content":"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+		"content":{
+            "en": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+            "ru": "Существует множество вариантов отрывков Lorem Ipsum, но большинство из них подверглись изменениям в той или иной форме, с добавлением юмора или случайных слов, которые выглядят совершенно неправдоподобно. Если вы собираетесь использовать отрывок Lorem Ipsum, вам нужно убедиться, что в середине текста нет ничего смущающего.",
+            "lv": "Ir daudz Lorem Ipsum fragmentu variāciju, bet lielākā daļa no tām ir piedzīvojusi izmaiņas kādā formā, ar ievadītu humoru vai nejauši izvēlētiem vārdiem, kas neizskatās pat nedaudz ticami. Ja jūs gatavojaties izmantot Lorem Ipsum fragmentu, jums jābūt pārliecinātiem, ka tekstā nav nekā neērta."
+        },
 		"questions":[
 			{
-				"title": "Stress Disorders question 1",
+				"title": {
+                    "en": "Stress Disorders question 1",
+                    "ru": "Вопрос о стрессовых расстройствах 1",
+                    "lv": "Stresa traucējumu jautājums 1"
+                },
 				"variants":[
 					{
 						"id": "1",
@@ -340,7 +412,11 @@
 				]
 			},
 			{
-				"title": "Stress Disorders question 2",
+				"title": {
+                    "en": "Stress Disorders question 2",
+                    "ru": "Вопрос о стрессовых расстройствах 2",
+                    "lv": "Stresa traucējumu jautājums 2"
+                },
 				"variants":[
 					{
 						"id": "1",
@@ -361,7 +437,11 @@
 				]
 			},
 			{
-				"title": "Stress Disorders question 3",
+				"title": {
+                    "en": "Stress Disorders question 3",
+                    "ru": "Вопрос о стрессовых расстройствах 3",
+                    "lv": "Stresa traucējumu jautājums 3"
+                },
 				"variants":[
 					{
 						"id": "1",
@@ -389,14 +469,22 @@
 		"id": 1769454841365,
         "label": "DEMENTIA",
 		"title": {
-            "EN": "Dementia",
-            "RU": "Деменция",
-            "LV": "Demence"
+            "en": "Dementia",
+            "ru": "Деменция",
+            "lv": "Demence"
         },
-		"content":"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+		"content":{
+            "en": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+            "ru": "Существует множество вариантов отрывков Lorem Ipsum, но большинство из них подверглись изменениям в той или иной форме, с добавлением юмора или случайных слов, которые выглядят совершенно неправдоподобно. Если вы собираетесь использовать отрывок Lorem Ipsum, вам нужно убедиться, что в середине текста нет ничего смущающего.",
+            "lv": "Ir daudz Lorem Ipsum fragmentu variāciju, bet lielākā daļa no tām ir piedzīvojusi izmaiņas kādā formā, ar ievadītu humoru vai nejauši izvēlētiem vārdiem, kas neizskatās pat nedaudz ticami. Ja jūs gatavojaties izmantot Lorem Ipsum fragmentu, jums jābūt pārliecinātiem, ka tekstā nav nekā neērta."
+        },
 		"questions":[
 			{
-				"title": "Dementia question 1",
+				"title": {
+                    "en": "Dementia question 1",
+                    "ru": "Вопрос о деменции 1",
+                    "lv": "Demences jautājums 1"
+                },
 				"variants":[
 					{
 						"id": "1",
@@ -417,7 +505,11 @@
 				]
 			},
 			{
-				"title": "Dementia question 2",
+				"title": {
+                    "en": "Dementia question 2",
+                    "ru": "Вопрос о деменции 2",
+                    "lv": "Demences jautājums 2"
+                },
 				"variants":[
 					{
 						"id": "1",
@@ -438,7 +530,11 @@
 				]
 			},
 			{
-				"title": "Dementia question 3",
+				"title": {
+                    "en": "Dementia question 3",
+                    "ru": "Вопрос о деменции 3",
+                    "lv": "Demences jautājums 3"
+                },
 				"variants":[
 					{
 						"id": "1",
