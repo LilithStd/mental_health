@@ -1,5 +1,6 @@
 'use client'
-
+import { useLocale } from "@/app/hooks/useLocale";
+import { LocaleType } from "@/app/types/types";
 import Loading from "@/app/components/shared/loading";
 import Test from "@/app/components/tests/test";
 import { TEST_TYPE } from "@/app/globalConsts/globalEnum";
@@ -13,7 +14,11 @@ type QuestionVariant = {
     count: number
 }
 type Question = {
-    title: string
+    title: {
+        en: string
+        ru: string
+        lv: string
+    }
     variants: QuestionVariant[]
 }
 
@@ -21,16 +26,21 @@ export type TestType = {
     id: number
     label: string
     title: {
-        EN: string
-        RU: string
-        LV: string
+        en: string
+        ru: string
+        lv: string
     }
-    content: string
+    content: {
+        en: string
+        ru: string
+        lv: string
+    }
     questions: Question[]
 }
 
 export default function Tests() {
     // states
+    const locale = useLocale() as LocaleType
     const [tests, setTests] = useState<TestType[]>([]);
     const [loading, setLoading] = useState(true);
     // stores

@@ -2,6 +2,7 @@
 import { useGlobalStore } from "@/app/store/globalStore"
 import Favorites from "../shared/favorites"
 import { useRouter } from "next/navigation"
+import { LocaleType } from "@/app/types/types";
 import Form from "./form"
 import { rounded, sizes, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import { TEST_TYPE } from "@/app/globalConsts/globalEnum"
@@ -13,6 +14,8 @@ import { routes } from "@/app/helpers/helpersFunctions"
 import { useLocale } from "@/app/hooks/useLocale"
 
 
+
+
 interface TestProps {
     test: TestType
     testType: TEST_TYPE
@@ -22,12 +25,12 @@ interface TestProps {
 
 export default function Test({ test, testType }: TestProps) {
     // consts
-    const locale = useLocale()
+    const locale = useLocale() as LocaleType
     const routesAdaptive = routes(locale)
     // 
     // stores
 
-    const currentLanguage = useGlobalStore((state) => state.currentLanguage);
+    // const currentLanguage = useGlobalStore((state) => state.currentLanguage);
     const router = useRouter();
     // const id = '1'
     // state 
@@ -55,9 +58,9 @@ export default function Test({ test, testType }: TestProps) {
     const previewTestComponent =
         <div className={`bg-subContainer p-4 rounded-large `}>
             <div>
-                <h2>{test.title[currentLanguage]}</h2>
+                <h2>{test.title[locale]}</h2>
                 <p>Type: {test.label}</p>
-                <span>Group: {test.content}</span>
+                <span>Group: {test.content[locale]}</span>
             </div>
             {buttonReadMore}
         </div>
@@ -68,11 +71,11 @@ export default function Test({ test, testType }: TestProps) {
         <div className={`bg-subContainer p-4 rounded-large   grid gap-4 grid-cols-2`}>
             <div className={`flex flex-col bg-mainContainer rounded-large  p-4`}>
                 <div className={`flex flex-col mb-4 bg-subContainer rounded-large p-4`}>
-                    <h2>{test.title[currentLanguage]}</h2>
+                    <h2>{test.title[locale]}</h2>
                     <p>Type: {test.label}</p>
                 </div>
 
-                <span>Description: {test.content}</span>
+                <span>Description: {test.content[locale]}</span>
             </div>
             <div className={`flex justify-center  rounded-medium p-4`}>
                 <Form test={test} formResult={setTestResult} openModalCallback={onOpenModal} />

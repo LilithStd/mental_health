@@ -2,13 +2,14 @@
 
 import { TestType } from "@/app/[locale]/tests/page";
 import { rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
+import { useLocale } from "@/app/hooks/useLocale";
 import { calcTestResult } from "@/app/serverActions/calcTestResult";
 import { useAuthorizationStore } from "@/app/store/authorizationStore";
 import { useGlobalStore } from "@/app/store/globalStore";
 
 import { useRef, useState } from "react";
 import { useFormState } from "react-dom";
-
+import { LocaleType } from "@/app/types/types";
 
 interface FormProps {
     test: TestType,
@@ -19,7 +20,7 @@ interface FormProps {
 export default function Form({ test, formResult, openModalCallback }: FormProps) {
     // stores
     // const [state, formAction] = useFormState(calcTestResult, null)
-
+    const locale = useLocale() as LocaleType
 
     // components
     const ref = useRef<HTMLFormElement>(null)
@@ -36,8 +37,8 @@ export default function Form({ test, formResult, openModalCallback }: FormProps)
         <form action={action} ref={ref} className={`flex flex-col justify-center items-center w-full gap-4 `}>
             <h1 className="text-lg font-bold">Выберите вариант:</h1>
             {test.questions.map((question) => (
-                <div key={question.title} className="flex justify-center items-center flex-col gap-2">
-                    <h2>{question.title}:</h2>
+                <div key={question.title[locale]} className="flex justify-center items-center flex-col gap-2">
+                    <h2>{question.title[locale]}:</h2>
                     <div className={`flex items-center justify-center bg-mainContainer rounded-large p-2 gap-2`}>
                         {question.variants.map((variant) => (
                             <label
@@ -47,7 +48,7 @@ export default function Form({ test, formResult, openModalCallback }: FormProps)
                                 <span>{variant.title}</span>
                                 <input
                                     type="radio"
-                                    name={question.title}
+                                    name={question.title[locale]}
                                     value={variant.count}
                                     required
                                     className={``}
