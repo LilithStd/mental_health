@@ -1,10 +1,11 @@
-
+'use client'
 import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum";
 import ArticleClient from "./articleClient";
 import NewArticleButton from "./articleComponents/newArticleButton";
 import { routes } from "@/app/helpers/helpersFunctions";
 import ReturnButton from "../returnButton";
-import { getLocale } from "@/app/hooks/getlocale";
+import { LocaleType } from "@/app/types/types";
+import { useLocale } from "@/app/hooks/useLocale";
 
 
 
@@ -22,8 +23,8 @@ interface ArticlesClientProps {
     type: ARTICLE_TYPE,
 }
 
-export default async function ArticlesClient({ initialArticles, type }: ArticlesClientProps) {
-    const locale = await getLocale()
+export default function ArticlesClient({ initialArticles, type }: ArticlesClientProps) {
+    const locale = useLocale() as LocaleType
     const routesAdaptive = routes(locale)
     const articles = initialArticles
 
