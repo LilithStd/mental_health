@@ -4,7 +4,7 @@ import News from "@/app/components/news/news";
 import ReturnButton from "@/app/components/returnButton";
 import { NEWS_TYPE } from "@/app/globalConsts/globalEnum";
 import { routes } from "@/app/helpers/helpersFunctions";
-import { getLocale } from "@/app/hooks/getlocale";
+import { getLocale } from "@/app/hooks/getServerLocale";
 import { getNewsById } from "@/app/serverActions/newsStorage";
 
 

@@ -1,7 +1,8 @@
-'use client'
+
 import RandomArticleBlock from "@/app/components/blockRandomElements/randomArticleBlock";
 import RandomNewsBlock from "@/app/components/blockRandomElements/randomNewsBlock";
 import { routes } from "@/app/helpers/helpersFunctions";
+import { getServerLocale } from "@/app/hooks/getServerLocale";
 import { useLocale } from "@/app/hooks/useLocale";
 import { LocaleType } from "@/app/types/types";
 import { MediaPageContent } from "@/translate/mediaPage/mediaPageContent";
@@ -9,8 +10,13 @@ import Link from "next/link";
 
 
 
-export default function MediaPage() {
-    const locale = useLocale() as LocaleType
+export default async function MediaPage({
+    params
+}: {
+    params: Promise<{ locale: LocaleType }>
+}) {
+    // const locale = useLocale() as LocaleType
+    const locale = await getServerLocale(params)
     const routesAdaptive = routes(locale)
     return (
         <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
@@ -21,7 +27,7 @@ export default function MediaPage() {
                     <Link href={routesAdaptive.articles.root} className={`bg-buttonContainer p-4 rounded-large`}>{MediaPageContent[locale].title_articles}</Link>
                 </div>
 
-                {/* <RandomArticleBlock /> */}
+                <RandomArticleBlock locale={locale} />
                 {/* <RandomNewsBlock /> */}
 
             </div>

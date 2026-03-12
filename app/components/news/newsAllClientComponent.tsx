@@ -3,7 +3,7 @@ import News, { NewsType } from "./news"
 import CreateNewsButtonComponent from "./newsComponents/createNewsButtonComponent"
 import { routes } from "@/app/helpers/helpersFunctions"
 import ReturnButton from "../returnButton"
-import { getLocale } from "@/app/hooks/getlocale"
+import { getLocale } from "@/app/hooks/getServerLocale"
 
 interface NewsClientComponentProps {
     initialNews: NewsType[]

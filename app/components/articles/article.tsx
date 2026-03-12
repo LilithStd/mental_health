@@ -1,9 +1,9 @@
 'use client'
 import { font } from "@/app/globalConsts/globalStyles"
 import Favorites from "../shared/favorites"
-import { use, useEffect, useState, useTransition } from "react"
+import { useEffect, useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
-import { APP_PATH_ROUTER, ARTICLE_TYPE } from "@/app/globalConsts/globalEnum"
+import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum"
 import { canEditContent } from "@/app/serverActions/permissions"
 import EditActiveIcon from "@/public/icons/EditActive.svg"
 import EditInactiveIcon from "@/public/icons/EditInactive.svg"
@@ -15,7 +15,7 @@ import { ArticleType } from "./articlesClient"
 import { useAuth } from "@/app/authClientWrapper"
 import { checkIfUserLiked } from "@/app/serverActions/likesStorage"
 import Link from "next/link"
-import { getLocale } from "@/app/hooks/getlocale"
+import { LocaleType } from "@/app/types/types"
 import { useLocale } from "@/app/hooks/useLocale"
 
 
@@ -232,24 +232,6 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             </div>
 
         </div>
-    // <div
-    //     key={article.id}
-    //     className={`
-    //     grid grid-cols-[1fr_1fr]  p-2
-    //     bg-mainContainer
-    //     rounded-large
-    // `}
-    // >
-    //     {mainMetaDataArticleComponent}
-    //     <div className="flex flex-col p-4 rounded-large bg-subContainer h-full">
-    //         <p className={`${font.text.size.medium} `}>
-    //             {cropContent(article.content, CROP_CONTAINER_SIZE.SMALL)}
-
-    //         </p>
-    //         {interactionBlockComponent}
-    //     </div>
-
-    // </div>
     const fullArticleComponent =
         <div className={`flex flex-col w-full  mb-4 p-2`}>
             <div className={`flex rounded  max-w-6xl rounded-large bg-mainContainer mb-2 w-full`}>
