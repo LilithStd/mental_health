@@ -1,4 +1,4 @@
-
+'use client'
 import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum";
 import ArticleClient from "./articleClient";
 import NewArticleButton from "./articleComponents/newArticleButton";
@@ -6,6 +6,7 @@ import { routes } from "@/app/helpers/helpersFunctions";
 import ReturnButton from "../returnButton";
 import { LocaleType } from "@/app/types/types";
 import { MediaPageContent } from "@/translate/mediaPage/mediaPageContent";
+import { useLocale } from "@/app/hooks/useLocale";
 
 
 
@@ -21,13 +22,12 @@ export type ArticleType = {
 
 interface ArticlesClientProps {
     initialArticles: ArticleType[],
-    currentLocale: LocaleType,
     type: ARTICLE_TYPE,
 }
 
-export default function ArticlesClient({ initialArticles, currentLocale, type }: ArticlesClientProps) {
+export default function ArticlesClient({ initialArticles, type }: ArticlesClientProps) {
 
-    const locale = currentLocale
+    const locale = useLocale() as LocaleType
     const routesAdaptive = routes(locale)
     const articles = initialArticles
 

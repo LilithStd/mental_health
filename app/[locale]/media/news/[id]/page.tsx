@@ -4,7 +4,6 @@ import News from "@/app/components/news/news";
 import ReturnButton from "@/app/components/returnButton";
 import { NEWS_TYPE } from "@/app/globalConsts/globalEnum";
 import { routes } from "@/app/helpers/helpersFunctions";
-import { getLocale } from "@/app/hooks/getServerLocale";
 import { getNewsById } from "@/app/serverActions/newsStorage";
 
 
@@ -13,10 +12,9 @@ import { getNewsById } from "@/app/serverActions/newsStorage";
 export default async function CurrentNews({
     params,
 }: {
-    params: Promise<{ id: string }>
+    params: Promise<{ id: string, locale: string }>
 }) {
-    const { id } = await params
-    const locale = await getLocale()
+    const { id, locale } = await params
     const routesAdaptive = routes(locale)
     // stores
     // state

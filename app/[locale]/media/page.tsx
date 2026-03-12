@@ -27,7 +27,7 @@ export default async function MediaPage({
                     <Link href={routesAdaptive.articles.root} className={`bg-buttonContainer p-4 rounded-large`}>{MediaPageContent[locale].title_articles}</Link>
                 </div>
 
-                <RandomArticleBlock locale={locale} />
+                {/* <RandomArticleBlock /> */}
                 {/* <RandomNewsBlock /> */}
 
             </div>
