@@ -31,7 +31,7 @@ export default async function MediaPage({
                 </div>
 
                 <RandomArticleBlock />
-                {/* <RandomNewsBlock /> */}
+                <RandomNewsBlock />
 
             </div>
         </div>
