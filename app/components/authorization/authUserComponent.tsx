@@ -1,10 +1,11 @@
 'use client'
 import { useState } from "react"
 import AuthorisationIcon from "@/public/icons/user/UserCircle.svg"
-import { UserAuthType } from "@/app/types/types"
+import { LocaleType, UserAuthType } from "@/app/types/types"
 import { logoutAction } from "@/app/serverActions/auth/auth"
 import { useRouter, usePathname } from "next/navigation"
 import { routes } from "@/app/helpers/helpersFunctions"
+import { useLocale } from "@/app/hooks/useLocale"
 
 interface AuthUserComponentProps {
     authUser: UserAuthType,
@@ -14,6 +15,8 @@ interface AuthUserComponentProps {
 export default function AuthUserComponent({ authUser }: AuthUserComponentProps) {
     const router = useRouter()
     const pathname = usePathname()
+    const locale = useLocale() as LocaleType
+    const adaptiveRoutes = routes(locale)
     const [isOpenUserMenu, setIsOpenUserMenu] = useState(false)
     // handlers
     const toggleUserMenuHandler = () => {
@@ -26,7 +29,7 @@ export default function AuthUserComponent({ authUser }: AuthUserComponentProps) 
     }
     const redirectToUserPageHandler = () => {
         setIsOpenUserMenu(false)
-        const targetPath = routes.users.byId(authUser.id)
+        const targetPath = adaptiveRoutes.users.byId(authUser.id)
         if (pathname !== targetPath) {
             router.push(targetPath)
         }

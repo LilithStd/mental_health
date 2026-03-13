@@ -14,7 +14,7 @@ import { LocaleType } from "@/app/types/types";
 export default async function CurrentNews({
     params,
 }: {
-    params: Promise<{ id: string, locale: string }>
+    params: Promise<{ id: string }>
 }) {
     const { id } = await params
     const locale = await getLocale() as LocaleType

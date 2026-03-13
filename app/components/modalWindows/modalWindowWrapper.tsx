@@ -6,9 +6,10 @@ import ModalWindowAuthorization from "./modalWindowAuthorization";
 import { AUTHORIZATION_TEXT } from "@/app/template/text";
 import { AUTHORIZATION_STATUS } from "@/app/globalConsts/globalEnum";
 import { useGlobalStore } from "@/app/store/globalStore";
-import { UserAuthType } from "@/app/types/types";
+import { LocaleType, UserAuthType } from "@/app/types/types";
 import AuthUserComponent from "../authorization/authUserComponent";
 import NoneAuthUserComponent from "../authorization/noneAuthUserComponent";
+import { useLocale } from "@/app/hooks/useLocale";
 
 
 interface ModalWindowWrapperProps {
@@ -18,7 +19,8 @@ interface ModalWindowWrapperProps {
 export default function ModalWindowWrapper({ currentAuthUser }: ModalWindowWrapperProps) {
     const [isOpenModalWindow, setIsOpenModalWindow] = useState(false);
     const [authorizationType, setAuthorizationType] = useState<AUTHORIZATION_STATUS>(AUTHORIZATION_STATUS.SIGN_IN);
-    const currentLanguage = useGlobalStore((state) => state.currentLanguage);
+    const locale = useLocale() as LocaleType
+    // const currentLanguage = useGlobalStore((state) => state.currentLanguage);
 
 
     const openModalWindowHandler = () => {
@@ -39,7 +41,7 @@ export default function ModalWindowWrapper({ currentAuthUser }: ModalWindowWrapp
                 <ModalWindowMain openStatusCallBack={isOpenModalWindow} closeStatusCallBack={closeModalWindowHandler} >
                     <ModalWindowAuthorization
                         typeAuthorization={authorizationType}
-                        contentTypeAuthorization={AUTHORIZATION_TEXT[authorizationType].translate[currentLanguage]}
+                        contentTypeAuthorization={AUTHORIZATION_TEXT[authorizationType].translate[locale]}
                         setAuthorizationType={setAuthorizationType}
                         closeCallback={closeModalWindowHandler}
                     />
