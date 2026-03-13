@@ -1,7 +1,7 @@
 export enum LANGUAGE {
-	EN = 'EN',
-	LV = 'LV',
-	RU = 'RU',
+	EN = 'en',
+	LV = 'lv',
+	RU = 'ru',
 }
 
 export enum THEME {

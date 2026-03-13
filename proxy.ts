@@ -3,24 +3,34 @@ import { NextRequest, NextResponse } from "next/server";
 const defaultLocale = "en";
 const locales = ["en", "ru", "lv"];
 
-export function proxy(request: NextRequest) {
+export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-
+  // редирект с /
   if (pathname === "/") {
     return NextResponse.redirect(
       new URL(`/${defaultLocale}`, request.url)
     );
   }
 
-  return NextResponse.next();
+  // определяем locale из URL
+  const locale = pathname.split("/")[1];
+
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set(
+    "x-locale",
+    locales.includes(locale) ? locale : defaultLocale
+  );
+
+  return NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+  });
 }
 
 export const config = {
   matcher: [
-    /*
-     Только для root и locale маршрутов
-     */
     "/",
     "/(en|ru|lv)/:path*",
   ],
