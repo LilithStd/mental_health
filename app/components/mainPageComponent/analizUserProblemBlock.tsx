@@ -17,11 +17,25 @@ export default function AnalizUserProblemBlock() {
             <div className={`grid grid-cols-1 gap-2 justify-center items-center text-center rounded-large p-6`}>
 
                 <h2 className={`text-2xl font-bold `}>{AnalizeUserProblemContent[locale].TITLE}</h2>
-                <div className={`flex gap-2`}>
+                <div className="flex gap-2 w-full justify-center items-center flex-wrap">
                     {AnalizeUserProblemContent[locale].PROBLEMS.map((problem, index) => (
-                        <div key={index} className='relative'>
-                            <Image src={CloudCartoonVisualizationProblem} fill alt="Cloud Cartoon Visualization Problem" className='object-cover' />
-                            <button className={`p-2 w-fit bg-buttonContainer rounded-large cursor-pointer`}>{problem}</button>
+
+                        <div
+                            key={index}
+                            className="relative w-60 min-h-40 p-4 rounded-large flex justify-center items-center"
+                        >
+
+                            <Image
+                                src={CloudCartoonVisualizationProblem}
+                                alt="Cloud"
+                                fill
+                                className="object-cover rounded-large"
+                            />
+
+                            <button className="p-2 relative z-10 rounded-large cursor-pointer text-center break-words">
+                                {problem}
+                            </button>
+
                         </div>
 
                     ))}
