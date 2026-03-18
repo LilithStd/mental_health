@@ -37,6 +37,9 @@
   --color-activeElement: var(--active-element);
   --color-inactiveElement: var(--inactive-element);
   --color-input: var(--input);
+  --font-geistSans: var(--font-geistSans);
+  --font-geistMono: var(--font-geistMono);
+  --font-poiret: var(--font-poiret);
 }
 
 /* global styles components */

@@ -24,8 +24,8 @@ export default function WelcomeBlock() {
             {/* <Image src={DoctorImage} alt="Doctor Image" className='rounded-large' /> */}
             <Image src={BrainIllustration} alt="Brain Illustration" className='object-cover w-full scale-120 rounded-large' />
             <div>
-                <h2 className={`text-2xl font-poiret`}>{WelcomeBlockContent[localeAdapted].TITLE}</h2>
-                <p className={`text-base`}>{WelcomeBlockContent[localeAdapted].DESCRIPTION}</p>
+                <h2 className={`text-2xl font-bold`}>{WelcomeBlockContent[localeAdapted].TITLE}</h2>
+                <p className={`font-poiret text-xl`}>{WelcomeBlockContent[localeAdapted].DESCRIPTION}</p>
                 <div className={`flex flex-col gap-2 `}>
                     <h3 className={`text-xl font-semibold mt-2`}>{WelcomeBlockContent[localeAdapted].TITLE_2}</h3>
                     <Link href={routesAdaptive.consultation.root} className={`px-4 py-2 w-fit bg-buttonContainer rounded-large`}>{WelcomeBlockContent[localeAdapted].SIGN_UP_BUTTON}</Link>
