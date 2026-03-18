@@ -7,7 +7,7 @@
   --sub-container: var(--color-green-300);
   --button-container: var(--color-lime-500);
   --accent-element: var(--color-lime-500);
-  --hover: var(--color-lime-700);
+  --hover: var(--color-lime-400);
   --active-element: var(--color-lime-500);
   --inactive-element: var(--color-gray-300);
   --input: var(--color-gray-300);
