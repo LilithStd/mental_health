@@ -26,8 +26,8 @@ export default function WelcomeBlock() {
             <div>
                 <h2 className={`text-2xl font-bold `}>{WelcomeBlockContent[localeAdapted].TITLE}</h2>
                 <p className={``}>{WelcomeBlockContent[localeAdapted].DESCRIPTION}</p>
-                <div className={`flex flex-col gap-4 `}>
-                    <h3 className={`text-xl font-semibold mt-4`}>{WelcomeBlockContent[localeAdapted].TITLE_2}</h3>
+                <div className={`flex flex-col gap-2 `}>
+                    <h3 className={`text-xl font-semibold mt-2`}>{WelcomeBlockContent[localeAdapted].TITLE_2}</h3>
                     <Link href={routesAdaptive.consultation.root} className={`px-4 py-2 w-fit bg-buttonContainer rounded-large`}>{WelcomeBlockContent[localeAdapted].SIGN_UP_BUTTON}</Link>
                 </div>
                 <div className={`flex flex-col gap-2`}>
