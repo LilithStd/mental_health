@@ -6,7 +6,7 @@ export default function Consultation() {
 
 
     return (
-        <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
+        <div className={`flex flex-col indents-main-container  rounded-medium flex-1 items-center`}>
 
             <ConsultationForm />
 
