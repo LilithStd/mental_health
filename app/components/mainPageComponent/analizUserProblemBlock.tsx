@@ -32,7 +32,7 @@ export default function AnalizUserProblemBlock() {
                                 className="object-cover rounded-large"
                             />
 
-                            <button className="p-2 relative z-10 rounded-large cursor-pointer text-center break-words">
+                            <button className="p-2 relative z-10 rounded-large cursor-pointer text-center wrap-break-word">
                                 {problem}
                             </button>
 
