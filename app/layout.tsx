@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const poiretOne = Poiret_One({
+const poiret = Poiret_One({
   subsets: ['latin', 'cyrillic'],
   weight: '400',
   variable: '--font-poiret',
@@ -40,7 +40,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poiretOne.variable} bg-background text-foreground antialiased `}
+        className={`${geistSans.variable} ${geistMono.variable} ${poiret.variable} bg-background text-foreground antialiased `}
       >
         <Providers>
           <AuthProvider user={currentAuthUser}>
