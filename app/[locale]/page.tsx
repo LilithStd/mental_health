@@ -18,31 +18,31 @@ export default function Main({ locale }: { locale: LocaleType }) {
   // 
   return (
     <main className={`flex flex-col indents-main-container  flex-1 items-center`}>
-      <div className={`flex flex-col w-full  max-w-6xl  rounded-large bg-subContainer `}>
+      <div className={`flex flex-col w-full  max-w-6xl  rounded-large bg-mainContainer `}>
         <WelcomeBlockComponent />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer `}>
         <ProblemSolvingBlock />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer `}>
         <AnalizUserProblemBlock />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer `}>
         <AboutDoctorBlock />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer `}>
         <AboutConsultation />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer `}>
         <TestsBlock />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer `}>
         <PricesBlock />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer `}>
         <FaqBlock />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-subContainer `}>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer `}>
         <LastStepBlock />
       </div>
     </main>

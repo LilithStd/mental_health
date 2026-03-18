@@ -25,7 +25,7 @@ export default function ProblemSolvingBlock() {
     }
 
     return (
-        <div className={`grid grid-cols-2 rounded-large bg-subContainer p-6`}>
+        <div className={`grid grid-cols-2 rounded-large p-6`}>
             <div>
                 <h2 className={`text-2xl mb-4 font-bold `}>{ProblemSolvingBlockContent[localeAdapted].title}</h2>
                 {probmlemSolvingBlock()}

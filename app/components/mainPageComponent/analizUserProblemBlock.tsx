@@ -21,7 +21,7 @@ export default function AnalizUserProblemBlock() {
     const routesAdaptive = routes(locale)
     return (
         <div>
-            <div className={`grid grid-cols-1 gap-4 justify-center items-center text-center rounded-large bg-subContainer p-6`}>
+            <div className={`grid grid-cols-1 gap-4 justify-center items-center text-center rounded-large p-6`}>
                 <h2 className={`text-2xl font-bold `}>{AnalizeUserProblemContent[locale].TITLE}</h2>
                 <div className={`flex gap-2`}>
                     {AnalizeUserProblemContent[locale].PROBLEMS.map((problem, index) => (

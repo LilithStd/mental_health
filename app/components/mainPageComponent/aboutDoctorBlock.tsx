@@ -11,7 +11,7 @@ export default function AboutDoctorBlock() {
 
     return (
         <div>
-            <div className={`grid grid-cols-2 rounded-large bg-subContainer p-6`}>
+            <div className={`grid grid-cols-2 rounded-large  p-6`}>
                 <div className={`flex justify-center items-center mt-4`}>
                     <Image src={DoctorImage} alt="Doctor Image" className='rounded-large' />
                 </div>
