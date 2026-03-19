@@ -12,19 +12,19 @@ export default function FaqBlock() {
     return (
         <div className={`flex flex-col gap-4 p-6 justify-center items-center`}>
             <div className={`flex flex-col gap-4 p-6 justify-center items-center`}>
-                <h2 className={`text-2xl font-bold `}>{FaqBlockContent[locale].title}</h2>
-                <p className={`mt-4`}>{FaqBlockContent[locale].description}</p>
+                <h2 className={`text-5xl font-pattaya font-bold `}>{FaqBlockContent[locale].title}</h2>
+                <p className={`font-poiret font-bold italic text-lg`}>{FaqBlockContent[locale].description}</p>
 
                 <ul className={`list-disc list-inside mt-4`}>
                     {FaqBlockContent[locale].listsQuestions.map((question, index) => (
                         <li key={index}>
-                            <strong>{question}</strong>
+                            <strong className={`font-jura font-bold`}>{question}</strong>
 
                         </li>
                     ))}
                 </ul>
             </div>
-            <Link href={routesAdaptive.faq.root} className={`mt-4 px-4 py-2 bg-buttonContainer w-fit rounded-large`}>{FaqBlockContent[locale].button}</Link>
+            <Link href={routesAdaptive.faq.root} className={`mt-4 px-4 py-2 bg-buttonContainer w-fit rounded-large font-bold font-jura`}>{FaqBlockContent[locale].button}</Link>
         </div>
     )
 }
