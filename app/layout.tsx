@@ -1,6 +1,6 @@
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Poiret_One, Jura, Alumni_Sans_Pinstripe } from "next/font/google";
+import { Geist, Geist_Mono, Poiret_One, Jura, Alumni_Sans_Pinstripe, Pattaya } from "next/font/google";
 import "./globals.css";
 
 
@@ -36,6 +36,13 @@ const alumniSansPinstripe = Alumni_Sans_Pinstripe({
   variable: '--font-alumni-sans-pinstripe',
 });
 
+const pattaya = Pattaya({
+  subsets: ['latin', 'cyrillic'],
+  weight: '400',
+  variable: '--font-pattaya',
+});
+
+
 export const metadata: Metadata = {
   title: "Mental health",
   description: "App about mental health",
@@ -51,7 +58,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poiret.variable} ${jura.variable} ${alumniSansPinstripe.variable} bg-background text-foreground antialiased `}
+        className={`${geistSans.variable} ${geistMono.variable} ${poiret.variable} ${jura.variable} ${alumniSansPinstripe.variable} ${pattaya.variable} bg-background text-foreground antialiased `}
       >
         <Providers>
           <AuthProvider user={currentAuthUser}>
