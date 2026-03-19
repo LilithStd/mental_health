@@ -10,31 +10,31 @@ export default function AboutDoctorBlock() {
     const locale = useLocale() as LocaleType
 
     return (
-        <div>
-            <div className={`grid grid-cols-2 rounded-large  p-6`}>
-                <div className={`flex justify-center items-center mt-4`}>
-                    <Image src={DoctorImage} alt="Doctor Image" className='rounded-large' />
-                </div>
-                <div className={`flex flex-col gap-4 p-6`}>
-                    <h2 className={`text-2xl font-bold `}>{AboutDoctorContent[locale].TITLE}</h2>
-                    <p>{AboutDoctorContent[locale].DESCRIPTION}</p>
-                    <div>
-                        <h3 className={`text-xl font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_2}</h3>
-                        <p className={`text-sm mt-2`}>{AboutDoctorContent[locale].DESCRIPTION_2}</p>
-                    </div>
-                    <div>
-                        <h3 className={`text-xl font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_3}</h3>
-                        <p className={`text-sm mt-2`}>{AboutDoctorContent[locale].DESCRIPTION_3}</p>
-                    </div>
-                    <div>
-                        <h3 className={`text-xl font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_4}</h3>
-                        <p className={`text-sm mt-2`}>{AboutDoctorContent[locale].DESCRIPTION_4}</p>
-                    </div>
-                </div>
 
+        <div className={`grid grid-cols-2 rounded-large  p-6`}>
+            <div className={`flex justify-center items-center`}>
+                <Image src={DoctorImage} alt="Doctor Image" className='rounded-large' />
+            </div>
+            <div className={`flex flex-col gap-2 p-6`}>
+                <h2 className={`text-5xl font-pattaya font-bold `}>{AboutDoctorContent[locale].TITLE}</h2>
+                <p className={`font-poiret font-bold italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION}</p>
+                <div>
+                    <h3 className={`text-2xl font-pattaya font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_2}</h3>
+                    <p className={`font-poiret font-bold italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_2}</p>
+                </div>
+                <div>
+                    <h3 className={`text-2xl font-pattaya font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_3}</h3>
+                    <p className={`font-poiret font-bold italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_3}</p>
+                </div>
+                <div>
+                    <h3 className={`text-2xl font-pattaya font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_4}</h3>
+                    <p className={`font-poiret font-bold italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_4}</p>
+                </div>
             </div>
 
         </div>
+
+
 
     )
 }
