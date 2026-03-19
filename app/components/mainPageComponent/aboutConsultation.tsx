@@ -12,15 +12,15 @@ export default function AboutConsultation() {
     const routesAdaptive = routes(locale)
     return (
         <div className={`flex flex-col gap-4 p-6 justify-center items-center`}>
-            <h2 className={`text-2xl font-bold `}>{AboutConsultationContent[locale].TITLE}</h2>
-            <p className={`mt-4`}>{AboutConsultationContent[locale].DESCRIPTION}</p>
-            <h3 className={`text-xl font-semibold mt-4`}>{AboutConsultationContent[locale].TITLE_2}</h3>
-            <ul className={`list-disc list-inside mt-2`}>
+            <h2 className={`text-5xl font-bold font-pattaya `}>{AboutConsultationContent[locale].TITLE}</h2>
+            <p className={`font-poiret font-bold italic text-lg`}>{AboutConsultationContent[locale].DESCRIPTION}</p>
+            <h3 className={`text-2xl font-pattaya font-semibold mt-4`}>{AboutConsultationContent[locale].TITLE_2}</h3>
+            <ul className={`list-disc list-inside font-jura font-bold  text-lg`}>
                 {AboutConsultationContent[locale].BENEFITS.map((benefit, index) => (
                     <li key={index}>{benefit}</li>
                 ))}
             </ul>
-            <Link href={routesAdaptive.consultation.root} className={`mt-4 px-4 py-2 bg-buttonContainer rounded-large`}>{AboutConsultationContent[locale].SIGN_UP_BUTTON}</Link>
+            <Link href={routesAdaptive.consultation.root} className={`mt-4 px-4 py-2 font-jura font-bold bg-buttonContainer rounded-large`}>{AboutConsultationContent[locale].SIGN_UP_BUTTON}</Link>
         </div>
     )
 }
