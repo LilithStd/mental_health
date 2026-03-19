@@ -11,9 +11,8 @@ export default function ProblemSolvingBlock() {
     const probmlemSolvingBlock = () => {
         return (
             <div>
-
                 {ProblemSolvingBlockContent[localeAdapted].problems.map((problem, index) => (
-                    <details key={index} className={`list-disc list-inside mb-4 bg-buttonContainer p-4 rounded-large hover:bg-hover cursor-pointer `}>
+                    <details key={index} className={`list-disc list-inside font-jura font-bold mb-4 bg-buttonContainer p-4 rounded-large hover:bg-hover cursor-pointer `}>
                         <summary>
                             <span>{problem.problem}</span>
                         </summary>
@@ -25,12 +24,12 @@ export default function ProblemSolvingBlock() {
     }
 
     return (
-        <div className={`grid grid-cols-2 rounded-large p-6`}>
-            <div>
-                <h2 className={`text-2xl mb-4 font-bold `}>{ProblemSolvingBlockContent[localeAdapted].title}</h2>
+        <div className={`grid grid-cols-2 w-full rounded-large p-6`}>
+            <div className={`grid items-start justify-start rounded-large p-4`}>
+                <h2 className={`text-3xl mb-4 font-pattaya font-bold `}>{ProblemSolvingBlockContent[localeAdapted].title}</h2>
                 {probmlemSolvingBlock()}
             </div>
-            <div className={`flex items-center justify-end rounded-large p-4`}>
+            <div className={`grid items-center justify-end rounded-large p-4`}>
                 <Image src={HumanWithProblem} alt="Human with Problem" className=' p-4 rounded-large' />
             </div>
         </div>

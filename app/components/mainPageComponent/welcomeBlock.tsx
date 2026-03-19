@@ -25,14 +25,14 @@ export default function WelcomeBlock() {
             <Image src={BrainIllustration} alt="Brain Illustration" className='object-cover w-full scale-120 rounded-large' />
             <div>
                 <h2 className={`text-3xl font-pattaya font-bold`}>{WelcomeBlockContent[localeAdapted].TITLE}</h2>
-                <p className={`font-poiret font-bold text-xl`}>{WelcomeBlockContent[localeAdapted].DESCRIPTION}</p>
+                <p className={`font-poiret  font-bold text-xl`}>{WelcomeBlockContent[localeAdapted].DESCRIPTION}</p>
                 <div className={`flex flex-col gap-2 `}>
                     <h3 className={`text-2xl font-bold font-pattaya mt-2`}>{WelcomeBlockContent[localeAdapted].TITLE_2}</h3>
-                    <Link href={routesAdaptive.consultation.root} className={`px-4 py-2 w-fit bg-buttonContainer rounded-large`}>{WelcomeBlockContent[localeAdapted].SIGN_UP_BUTTON}</Link>
+                    <Link href={routesAdaptive.consultation.root} className={`px-4 py-2 w-fit bg-buttonContainer font-poiret font-bold italic rounded-large`}>{WelcomeBlockContent[localeAdapted].SIGN_UP_BUTTON}</Link>
                 </div>
                 <div className={`flex flex-col gap-2`}>
                     <h3 className={`text-2xl font-bold font-pattaya mt-2`}>{WelcomeBlockContent[localeAdapted].TITLE_3}</h3>
-                    <Link href={routesAdaptive.tests.root} className={`px-4 w-fit py-2 bg-buttonContainer rounded-large`}>{WelcomeBlockContent[localeAdapted].TESTS_BUTTON}</Link>
+                    <Link href={routesAdaptive.tests.root} className={`px-4 w-fit py-2 bg-buttonContainer font-poiret font-bold italic rounded-large`}>{WelcomeBlockContent[localeAdapted].TESTS_BUTTON}</Link>
                 </div>
                 <div className={`flex flex-col gap-2`}>
                     <h3 className={`text-xl font-pattaya font-bold mt-2`}>{WelcomeBlockContent[localeAdapted].PRIVILEGES_TITLE}</h3>
