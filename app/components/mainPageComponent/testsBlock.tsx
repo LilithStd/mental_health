@@ -12,12 +12,12 @@ export default function TestsBlock() {
     const locale = useLocale() as LocaleType;
     const routesAdaptive = routes(locale);
     return (
-        <div>
-            <div className={`flex flex-col gap-4 p-6 justify-center items-center`}>
-                <h2 className={`text-2xl font-bold `}>{TestsBlockContent[locale].title}</h2>
-                <p className={`mt-4`}>{TestsBlockContent[locale].description}</p>
-                <Link href={routesAdaptive.tests.root} className={`mt-4 px-4 py-2 bg-buttonContainer rounded-large`}>{TestsBlockContent[locale].buttonText}</Link>
-            </div>
+
+        <div className={`flex flex-col gap-4 p-6 justify-center items-center`}>
+            <h2 className={`text-5xl font-pattaya font-bold `}>{TestsBlockContent[locale].title}</h2>
+            <p className={`font-poiret font-bold italic text-lg`}>{TestsBlockContent[locale].description}</p>
+            <Link href={routesAdaptive.tests.root} className={`mt-4 px-4 py-2 bg-buttonContainer rounded-large font-bold font-jura`}>{TestsBlockContent[locale].buttonText}</Link>
         </div>
+
     )
 }
