@@ -16,7 +16,7 @@ export default function AnalizUserProblemBlock() {
         <div>
             <div className={`grid grid-cols-1 gap-2 justify-center items-center text-center rounded-large p-6`}>
 
-                <h2 className={`text-2xl font-bold `}>{AnalizeUserProblemContent[locale].TITLE}</h2>
+                <h2 className={`text-5xl p-4 font-pattaya font-bold `}>{AnalizeUserProblemContent[locale].TITLE}</h2>
                 <div className="flex gap-2 w-full justify-center items-center flex-wrap">
                     {AnalizeUserProblemContent[locale].PROBLEMS.map((problem, index) => (
 
@@ -46,8 +46,8 @@ export default function AnalizUserProblemBlock() {
 
             </div>
             <div className={`flex w-full flex-col gap-4 p-6 justify-center items-center`}>
-                <h2 className={`text-2xl font-bold `}>{AnalizeUserProblemContent[locale].TITLE_2}</h2>
-                <Link href={routesAdaptive.consultation.root} className={`p-4 justify-center items-center bg-buttonContainer rounded-large cursor-pointer w-fit`}>{AnalizeUserProblemContent[locale].SIGN_UP_BUTTON}</Link>
+                <h2 className={`text-4xl font-pattaya font-bold `}>{AnalizeUserProblemContent[locale].TITLE_2}</h2>
+                <Link href={routesAdaptive.consultation.root} className={`p-4 justify-center items-center bg-buttonContainer rounded-large cursor-pointer font-jura font-bold w-fit`}>{AnalizeUserProblemContent[locale].SIGN_UP_BUTTON}</Link>
 
             </div>
         </div>
