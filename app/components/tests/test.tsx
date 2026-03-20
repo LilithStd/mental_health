@@ -75,7 +75,7 @@ export default function Test({ test, testType }: TestProps) {
                     <p>Type: {test.label}</p>
                 </div>
 
-                <span>Description: {test.content[locale]}</span>
+                <span>{test.content[locale]}</span>
             </div>
             <div className={`flex justify-center  rounded-medium p-4`}>
                 <Form test={test} formResult={setTestResult} openModalCallback={onOpenModal} />
