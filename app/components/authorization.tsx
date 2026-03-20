@@ -11,15 +11,18 @@ import { useMockAuthStore, User } from "../store/mockAuthStore";
 import Link from "next/link";
 import { useRouter } from 'next/navigation'
 import { useAuthorizationStore } from "../store/authorizationStore";
+import { useLocale } from "../hooks/useLocale";
+import { LocaleType } from "../types/types";
 
 
 
 
 export default function Authorization() {
+    const locale = useLocale() as LocaleType
     const router = useRouter();
     // stores
     // global store
-    const currentLanguage = useGlobalStore((state) => state.currentLanguage);
+    // const currentLanguage = useGlobalStore((state) => state.currentLanguage);
     //user auth store
     const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
     const logoutUser = useAuthorizationStore((state) => state.logoutUser);
@@ -58,7 +61,7 @@ export default function Authorization() {
             <div className={`flex flex-col items-center justify-center gap-2`} onClick={() => setIsOpenModalWindow(true)}>
                 <WithOutAuthorizationIcon width={48} height={48} />
                 <div className={`min-h-12 cursor-pointer`}>
-                    <h2>{AUTHORIZATION_TEXT.SIGN_IN.translate[currentLanguage]}</h2>
+                    <h2>{AUTHORIZATION_TEXT.SIGN_IN.translate[locale]}</h2>
                 </div>
 
             </div>
@@ -75,7 +78,7 @@ export default function Authorization() {
                 <ModalWindowMain openStatusCallBack={isOpenModalWindow} closeStatusCallBack={closeModalWindowHandler} >
                     <ModalWindowAuthorization
                         typeAuthorization={authorizationType}
-                        contentTypeAuthorization={AUTHORIZATION_TEXT[authorizationType].translate[currentLanguage]}
+                        contentTypeAuthorization={AUTHORIZATION_TEXT[authorizationType].translate[locale]}
                         setAuthorizationType={setAuthorizationType}
                         closeCallback={closeModalWindowHandler}
                     />

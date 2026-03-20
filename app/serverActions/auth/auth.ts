@@ -11,7 +11,7 @@ export async function loginAction(formData: FormData) {
   const user = await getUserByEmail(email)
 
   if (!user || user.password !== password) {
-    return { error: 'Invalid email or password' }
+    return { error: 'Invalid email or password',alertMessage: 'Invalid email or password' }
   }
 
   // сохраняем сессию в cookie

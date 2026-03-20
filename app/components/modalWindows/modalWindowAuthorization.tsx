@@ -1,9 +1,11 @@
 'use client'
 import { AUTHORIZATION_STATUS } from "@/app/globalConsts/globalEnum";
+import { useLocale } from "@/app/hooks/useLocale";
 import { loginAction } from "@/app/serverActions/auth/auth";
 import { useGlobalStore } from "@/app/store/globalStore";
 import { useMockAuthStore } from "@/app/store/mockAuthStore";
 import { AUTH_METHODS_SYSTEM_MESSAGES, INPUT_PLACEHOLDERS } from "@/app/template/text";
+import { LocaleType } from "@/app/types/types";
 import { useState } from "react";
 
 
@@ -22,9 +24,10 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
     // stores
     // global store
 
-    const currentLanguage = useGlobalStore((state) => state.currentLanguage);
+    // const currentLanguage = useGlobalStore((state) => state.currentLanguage);
     const checkAlreadyExists = useMockAuthStore((state) => state.checkUserExists);
     const resetUserStore = useMockAuthStore((state) => state.resetStore);
+    const locale = useLocale() as LocaleType;
     // 
     //functions
     const setAuthSignType = () => {
@@ -90,20 +93,20 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
     const AuthSignInComponent = (
         <div className={`flex flex-col  bg-mainContainer items-center justify-center gap-2 p-4 `}>
             <form action={signInUserHandler} className={`flex flex-col items-center justify-center gap-2`} key={props.typeAuthorization}>
-                <input name="email" type="email" placeholder={INPUT_PLACEHOLDERS.EMAIL[currentLanguage]} className={`mb-2 p-2 rounded-small w-64 border`} required />
-                <input name="password" type="password" placeholder={INPUT_PLACEHOLDERS.PASSWORD[currentLanguage]} className={`mb-2 p-2 rounded-small w-64 border`} required />
+                <input name="email" type="email" placeholder={INPUT_PLACEHOLDERS.EMAIL[locale]} className={`mb-2 p-2 rounded-small w-64 border`} required />
+                <input name="password" type="password" placeholder={INPUT_PLACEHOLDERS.PASSWORD[locale]} className={`mb-2 p-2 rounded-small w-64 border`} required />
                 <button type="submit" className="bg-blue-500 text-white p-2 rounded-md w-64 cursor-pointer">
-                    {INPUT_PLACEHOLDERS.SUBMIT[currentLanguage]}
+                    {INPUT_PLACEHOLDERS.SUBMIT[locale]}
                 </button>
             </form>
             <div className={`flex  items-center justify-center gap-2 flex-col`}>
 
-                <h2 className={``}>{AUTH_METHODS_SYSTEM_MESSAGES.NOT_REGISTERED_YET[currentLanguage].part1}</h2>
+                <h2 className={``}>{AUTH_METHODS_SYSTEM_MESSAGES.NOT_REGISTERED_YET[locale].part1}</h2>
                 <div className={`flex  items-center justify-center gap-2 flex-row`}>
-                    <h2>{AUTH_METHODS_SYSTEM_MESSAGES.NOT_REGISTERED_YET[currentLanguage].part2}</h2>
+                    <h2>{AUTH_METHODS_SYSTEM_MESSAGES.NOT_REGISTERED_YET[locale].part2}</h2>
                     <h2 className={`bg-activeElement cursor-pointer rounded-small p-1 `}
                         onClick={setAuthRegType}
-                    >{AUTH_METHODS_SYSTEM_MESSAGES.HERE_LINK[currentLanguage]}</h2>
+                    >{AUTH_METHODS_SYSTEM_MESSAGES.HERE_LINK[locale]}</h2>
                 </div>
 
             </div>
@@ -121,14 +124,14 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
                 <input
                     name="username"
                     type="text"
-                    placeholder={INPUT_PLACEHOLDERS.USERNAME[currentLanguage]}
+                    placeholder={INPUT_PLACEHOLDERS.USERNAME[locale]}
                     className="mb-2 p-2 rounded-md w-64 border"
                 />
 
                 <input
                     name="email"
                     type="email"
-                    placeholder={INPUT_PLACEHOLDERS.EMAIL[currentLanguage]}
+                    placeholder={INPUT_PLACEHOLDERS.EMAIL[locale]}
                     className="mb-2 p-2 rounded-md w-64 border"
                     required
                 />
@@ -136,7 +139,7 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
                 <input
                     name="password"
                     type="password"
-                    placeholder={INPUT_PLACEHOLDERS.PASSWORD[currentLanguage]}
+                    placeholder={INPUT_PLACEHOLDERS.PASSWORD[locale]}
                     className="mb-2 p-2 rounded-md w-64 border"
                     required
                 />
@@ -144,7 +147,7 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
                 <input
                     name="repeatPassword"
                     type="password"
-                    placeholder={INPUT_PLACEHOLDERS.REPEAT_PASSWORD[currentLanguage]}
+                    placeholder={INPUT_PLACEHOLDERS.REPEAT_PASSWORD[locale]}
                     className="mb-2 p-2 rounded-md w-64 border"
                     required
                 />
@@ -155,12 +158,12 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
             </form>
 
             <div className={`flex  items-center justify-center gap-2 flex-col`}>
-                <h2 className={``}>{AUTH_METHODS_SYSTEM_MESSAGES.HAVE_ACCOUNT_SIGN_IN[currentLanguage].part1} </h2>
+                <h2 className={``}>{AUTH_METHODS_SYSTEM_MESSAGES.HAVE_ACCOUNT_SIGN_IN[locale].part1} </h2>
                 <div className={`flex  items-center justify-center gap-2 flex-row`}>
-                    <h2>{AUTH_METHODS_SYSTEM_MESSAGES.HAVE_ACCOUNT_SIGN_IN[currentLanguage].part2}</h2>
+                    <h2>{AUTH_METHODS_SYSTEM_MESSAGES.HAVE_ACCOUNT_SIGN_IN[locale].part2}</h2>
                     <h2 className={`bg-accentElement rounded-small p-1 cursor-pointer`}
                         onClick={setAuthSignType}
-                    >{AUTH_METHODS_SYSTEM_MESSAGES.HERE_LINK[currentLanguage]}</h2>
+                    >{AUTH_METHODS_SYSTEM_MESSAGES.HERE_LINK[locale]}</h2>
                 </div>
 
             </div>

@@ -17,6 +17,7 @@ export default function NewArticleButton() {
         const checkPrivilege = async () => {
             const privilege = await canEditContent(currentAuthUser);
             setIsAllowedToEdit(privilege);
+            console.log('User privilege to edit content:', privilege);
         };
 
         checkPrivilege();

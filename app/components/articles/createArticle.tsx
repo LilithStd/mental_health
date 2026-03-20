@@ -1,18 +1,22 @@
 'use client'
 import { routes } from "@/app/helpers/helpersFunctions";
+import { useLocale } from "@/app/hooks/useLocale";
 import { useGlobalStore } from "@/app/store/globalStore";
+import { LocaleType } from "@/app/types/types";
 import { useRouter } from "next/navigation";
 
 // interface CreateArticleProps {
 
 // }
 export default function CreateArticle() {
+    const locale = useLocale() as LocaleType
+    const routesAdaptive = routes(locale)
     //stores
     // consts
     const router = useRouter()
     // handles
     const handleCancel = () => {
-        router.push(routes.articles.root)
+        router.push(routesAdaptive.articles.root)
     }
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
@@ -27,7 +31,7 @@ export default function CreateArticle() {
 
         form.reset()
         if (res.ok) {
-            router.push(routes.articles.root)
+            router.push(routesAdaptive.articles.root)
         } else {
             alert('Error creating article')
         }
@@ -38,11 +42,11 @@ export default function CreateArticle() {
             onSubmit={handleSubmit}
             className={`flex flex-col gap-4 p-4 max-content-main-container rounded-medium bg-subContainer `}
         >
-            <h1 className="text-xl font-bold">Create Article</h1>
+            <h1 className="text-xl font-bold">{locale === 'en' ? 'Create Article' : 'Créer un article'}</h1>
 
             <input
                 name="title"
-                placeholder="Title"
+                placeholder={"Title"}
                 required
                 className={`border p-2 bg-subContainer rounded-medium`}
             />
