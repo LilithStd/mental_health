@@ -10,6 +10,7 @@ import { useGlobalStore } from "@/app/store/globalStore";
 import { useRef, useState } from "react";
 import { useFormState } from "react-dom";
 import { LocaleType } from "@/app/types/types";
+import { GetTestResultButton } from "@/translate/testPage/testPage";
 
 interface FormProps {
     test: TestType,
@@ -19,6 +20,7 @@ interface FormProps {
 
 export default function Form({ test, formResult, openModalCallback }: FormProps) {
     // stores
+    const [testAnswer, setTestAnswer] = useState({} as Record<string, string>);
     // const [state, formAction] = useFormState(calcTestResult, null)
     const locale = useLocale() as LocaleType
 
@@ -31,7 +33,12 @@ export default function Form({ test, formResult, openModalCallback }: FormProps)
         openModalCallback()
         ref.current?.reset()
     }
+    // functions
+    const isFormValid = test.questions.every(
+        (q) => testAnswer[q.title[locale]] !== undefined
+    )
 
+    console.log(testAnswer)
     return (
 
         <form action={action} ref={ref} className={`flex flex-col justify-center items-center w-full gap-4 `}>
@@ -52,6 +59,12 @@ export default function Form({ test, formResult, openModalCallback }: FormProps)
                                     value={variant.count}
                                     required
                                     className={``}
+                                    onChange={(e) =>
+                                        setTestAnswer(prev => ({
+                                            ...prev,
+                                            [question.title[locale]]: e.target.value
+                                        }))
+                                    }
                                 />
 
                             </label>
@@ -63,9 +76,10 @@ export default function Form({ test, formResult, openModalCallback }: FormProps)
             ))}
             <button
                 type="submit"
-                className={`bg-buttonContainer px-4 py-2 mt-4 rounded-large cursor-pointer`}
+                className={`bg-buttonContainer ${isFormValid ? '' : 'opacity-50 cursor-not-allowed'} px-4 py-2 mt-4 rounded-large cursor-pointer`}
+                disabled={!isFormValid}
             >
-                Отправить
+                {GetTestResultButton[locale]}
             </button>
         </form>
 
