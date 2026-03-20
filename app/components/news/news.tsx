@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation"
 import PhotoIcon from '@/public/icons/Photo.svg'
 import ReturnButton from "../returnButton"
 import { useLocale } from "@/app/hooks/useLocale"
+import { LocaleType } from "@/app/types/types"
 
 export type NewsType = {
     id: number
@@ -23,7 +24,7 @@ interface NewsProps {
 }
 export default function News({ news, typeNews }: NewsProps) {
     const router = useRouter();
-    const locale = useLocale()
+    const locale = useLocale() as LocaleType;
     const routesAdaptive = routes(locale)
     // stores
     // 
@@ -81,9 +82,8 @@ export default function News({ news, typeNews }: NewsProps) {
     const fullNewsComponent =
         <div className={`grid grid-cols-[0.35fr_1fr] w-full p-4  bg-subContainer rounded-large`
         }>
-
             <div className={`image-szie-large  bg-input rounded-large items-center justify-center`}>
-                <PhotoIcon className={` text-gray-500`} />
+                <PhotoIcon className={`text-gray-500`} />
             </div>
             <div className={`flex flex-col w-full gap-4 bg-subContainer p-4 rounded-large`}>
                 <h3 className="font-bold">{news.title}</h3>

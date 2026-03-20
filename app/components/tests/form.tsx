@@ -32,13 +32,13 @@ export default function Form({ test, formResult, openModalCallback }: FormProps)
         formResult(data.result)
         openModalCallback()
         ref.current?.reset()
+        setTestAnswer({})
     }
     // functions
     const isFormValid = test.questions.every(
         (q) => testAnswer[q.title[locale]] !== undefined
     )
 
-    console.log(testAnswer)
     return (
 
         <form action={action} ref={ref} className={`flex flex-col justify-center items-center w-full gap-4 `}>
@@ -76,7 +76,7 @@ export default function Form({ test, formResult, openModalCallback }: FormProps)
             ))}
             <button
                 type="submit"
-                className={`bg-buttonContainer ${isFormValid ? '' : 'opacity-50 cursor-not-allowed'} px-4 py-2 mt-4 rounded-large cursor-pointer`}
+                className={`bg-buttonContainer ${isFormValid ? 'cursor-pointer' : 'opacity-50 cursor-not-allowed'} px-4 py-2 mt-4 rounded-large `}
                 disabled={!isFormValid}
             >
                 {GetTestResultButton[locale]}

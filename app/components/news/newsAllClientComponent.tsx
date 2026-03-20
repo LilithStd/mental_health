@@ -3,6 +3,8 @@ import News, { NewsType } from "./news"
 import CreateNewsButtonComponent from "./newsComponents/createNewsButtonComponent"
 import { routes } from "@/app/helpers/helpersFunctions"
 import ReturnButton from "../returnButton"
+import { getLocale } from "@/app/hooks/server/getLocale"
+import { LocaleType } from "@/app/types/types"
 
 interface NewsClientComponentProps {
     initialNews: NewsType[],
@@ -10,7 +12,7 @@ interface NewsClientComponentProps {
 }
 export default async function NewsAllClientComponent({ initialNews, params }: NewsClientComponentProps) {
     const news = initialNews
-    const locale = params ? (await params).locale : "en";
+    const locale = await getLocale() as LocaleType;
     const routesAdaptive = routes(locale)
 
 
