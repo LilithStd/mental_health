@@ -8,9 +8,8 @@ import { LocaleType } from "@/app/types/types"
 
 interface NewsClientComponentProps {
     initialNews: NewsType[],
-    params?: Promise<{ locale: string }>
 }
-export default async function NewsAllClientComponent({ initialNews, params }: NewsClientComponentProps) {
+export default async function NewsAllClientComponent({ initialNews }: NewsClientComponentProps) {
     const news = initialNews
     const locale = await getLocale() as LocaleType;
     const routesAdaptive = routes(locale)

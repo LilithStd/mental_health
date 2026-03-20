@@ -29,29 +29,29 @@ export default function ConsultationForm() {
                         <div className={`flex flex-col gap-4 w-full`}>
                             <label className={` p-2 rounded-large flex flex-col`}>
                                 <span className={``}>{ConsultationPageContent[locale].name}:</span>
-                                <input name="name" placeholder="John Doe" type="text" className={`p-4 bg-input rounded-large h-15`} />
+                                <input name="name" required placeholder="John Doe" type="text" className={`p-4 bg-input rounded-large h-15`} />
                             </label>
                             <label className={` p-2 rounded-large flex flex-col`}>
                                 <span className={``}>{ConsultationPageContent[locale].subject}:</span>
-                                <input name="subject" placeholder="Subject" type="text" className={` p-4 bg-input rounded-large h-15`} />
+                                <input name="subject" required placeholder="Subject" type="text" className={` p-4 bg-input rounded-large h-15`} />
                             </label>
                             <label className={` p-2 rounded-large flex flex-col`}>
                                 <span className={``}>{ConsultationPageContent[locale].email}:</span>
-                                <input name="email" placeholder="email@example.com" type="text" className={` p-4 bg-input rounded-large h-15`} />
+                                <input name="email" required placeholder="email@example.com" type="email" className={` p-4 bg-input rounded-large h-15`} />
                             </label>
                             <label className={` p-2 rounded-large flex flex-col`}>
                                 <span className={``}>{ConsultationPageContent[locale].phone}:</span>
-                                <input name="phone" placeholder="(123) 456-7890" type="text" className={` p-4 bg-input rounded-large h-15`} />
+                                <input name="phone" required placeholder="(123) 456-7890" type="tel" className={` p-4 bg-input rounded-large h-15`} />
                             </label>
                             <label className={` p-2 rounded-large flex flex-col`}>
                                 <span className={``}>{ConsultationPageContent[locale].date}:</span>
-                                <input name="date" placeholder="MM/DD/YYYY" type="text" className={` p-4 bg-input rounded-large h-15`} />
+                                <input name="date" required placeholder="MM/DD/YYYY" type="date" className={` p-4 bg-input rounded-large h-15`} />
                             </label>
                         </div>
                     </div>
                     <label className={`flex flex-col gap-2 w-1/2`}>
                         <span className={``}>{ConsultationPageContent[locale].message}*:</span>
-                        <textarea id="message" name="message" placeholder={ConsultationPageContent[locale].message} className={` min-h-40 w-full h-full p-4 bg-input rounded-large`} />
+                        <textarea id="message" required name="message" placeholder={ConsultationPageContent[locale].message} className={` min-h-40 w-full h-full p-4 bg-input rounded-large`} />
                     </label>
                 </div>
                 <div className={`flex justify-center m-4`}>
