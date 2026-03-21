@@ -30,3 +30,15 @@ export const BUTTON_READ_FULL_NEWS = {
     lv:'Lasīt pilnu jaunumu',
     ru:'Читать полную новость',
 } as const
+
+export const BUTTON_READ_FULL_ARTICLE = {
+    en:'Read full article',
+    lv:'Lasīt pilnu rakstu',
+    ru:'Читать полную статью',
+} as const
+
+export const BUTTON_NEW_ARTICLE = {
+    en:'New article',
+    lv:'Jauns raksts',
+    ru:'Новая статья',
+} as const

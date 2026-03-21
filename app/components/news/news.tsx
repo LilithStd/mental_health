@@ -9,6 +9,7 @@ import PhotoIcon from '@/public/icons/Photo.svg'
 import ReturnButton from "../returnButton"
 import { useLocale } from "@/app/hooks/useLocale"
 import { LocaleType } from "@/app/types/types"
+import { BUTTON_READ_FULL_NEWS } from "@/translate/mediaPage/mediaPageContent"
 
 export type NewsType = {
     id: number
@@ -45,7 +46,7 @@ export default function News({ news, typeNews }: NewsProps) {
             <div className={`flex w-full justify-end mt-auto`}>
                 <button className={`bg-buttonContainer p-4 rounded-large flex cursor-pointer hover:scale-105 transition`} onClick={() => { router.push(routesAdaptive.news.byId(news.id)) }}>
                     <span className={`text-shadow-lg`}>
-                        Read full news
+                        {BUTTON_READ_FULL_NEWS[locale]}
                     </span>
 
                 </button>
@@ -70,7 +71,7 @@ export default function News({ news, typeNews }: NewsProps) {
                     className="bg-buttonContainer p-4 rounded-large flex cursor-pointer hover:scale-105 transition"
                     onClick={() => { router.push(routesAdaptive.news.byId(news.id)) }}
                 >
-                    <span>Read full news</span>
+                    <span>{BUTTON_READ_FULL_NEWS[locale]}</span>
                 </button>
             </div>
         </div>

@@ -2,12 +2,16 @@
 
 import { useRouter } from "next/navigation"
 import ReturnIcon from '@/public/icons/ArrowReturn.svg'
+import { LocaleType } from "../types/types";
+import { useLocale } from "../hooks/useLocale";
+import { BUTTON_RETURN } from "@/translate/global/button";
 interface ReturnButtonProps {
     pathToReturn: string;   // any props if needed
 }
 
 export default function ReturnButton({ pathToReturn }: ReturnButtonProps) {
     const router = useRouter()
+    const locale = useLocale() as LocaleType;
 
     if (!pathToReturn) return null;
 
@@ -16,7 +20,7 @@ export default function ReturnButton({ pathToReturn }: ReturnButtonProps) {
 
             <span className="cursor-pointer">
                 <ReturnIcon className="inline-block mr-2 w-6" />
-                Return</span>
+                {BUTTON_RETURN[locale]}</span>
         </button>
     )
 }

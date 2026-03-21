@@ -3,13 +3,15 @@ import { useAuth } from '@/app/authClientWrapper';
 import { routes } from '@/app/helpers/helpersFunctions'
 import { useLocale } from '@/app/hooks/useLocale';
 import { canEditContent } from '@/app/serverActions/permissions';
+import { LocaleType } from '@/app/types/types';
+import { BUTTON_NEW_ARTICLE } from '@/translate/mediaPage/mediaPageContent';
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react';
 
 export default function NewArticleButton() {
     const route = useRouter()
     const currentAuthUser = useAuth()
-    const localeAdapted = useLocale()
+    const locale = useLocale() as LocaleType
     const [isAllowedToEdit, setIsAllowedToEdit] = useState(false);
 
     useEffect(() => {
@@ -25,13 +27,13 @@ export default function NewArticleButton() {
 
     if (!isAllowedToEdit) {
         return <div>
-            <button className={` bg-buttonContainer mb-4 w-fit opacity-0 p-2 cursor-not-allowed rounded-circle`} disabled>New Articles</button>
+            <button className={` bg-buttonContainer mb-4 w-fit opacity-0 p-2 cursor-not-allowed rounded-circle`} disabled>{BUTTON_NEW_ARTICLE[locale]}</button>
         </div>
     }
 
     return (
 
-        <button className={` bg-buttonContainer mb-4 w-fit  p-2 cursor-pointer rounded-circle`} onClick={() => route.push(routes(localeAdapted).articles.create())}>New Articles</button>
+        <button className={` bg-buttonContainer mb-4 w-fit  p-2 cursor-pointer rounded-circle`} onClick={() => route.push(routes(locale).articles.create())}>{BUTTON_NEW_ARTICLE[locale]}</button>
 
     )
 }

@@ -3,6 +3,8 @@ import { useAuth } from "@/app/authClientWrapper";
 import { routes } from "@/app/helpers/helpersFunctions";
 import { useLocale } from "@/app/hooks/useLocale";
 import { canEditContent } from "@/app/serverActions/permissions";
+import { LocaleType } from "@/app/types/types";
+import { BUTTON_ADDED_NEWS } from "@/translate/mediaPage/mediaPageContent";
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -12,7 +14,7 @@ export default function CreateNewsButtonComponent() {
     // consts
     const currentAuthUser = useAuth()
     const router = useRouter()
-    const localeAdapted = useLocale()
+    const localeAdapted = useLocale() as LocaleType
     const [isAllowedToEdit, setIsAllowedToEdit] = useState(false);
     // functions
     // handlers
@@ -69,7 +71,7 @@ export default function CreateNewsButtonComponent() {
     </div>
 
     return (
-        <button className={` bg-buttonContainer cursor-pointer w-fit  p-2 rounded-circle`} onClick={() => router.push(routes(localeAdapted).news.create())}>Added News</button>
+        <button className={` bg-buttonContainer cursor-pointer w-fit  p-2 rounded-circle`} onClick={() => router.push(routes(localeAdapted).news.create())}>{BUTTON_ADDED_NEWS[localeAdapted]}</button>
     )
 }
 
