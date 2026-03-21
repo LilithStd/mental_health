@@ -126,7 +126,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                 </div>
             </div>
             <div>
-                {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold" /> : <h2 className={`flex h-fit text-2xl p-4 rounded-large bg-subContainer font-bold text-shadow-lg`}>{article.title}</h2>}
+                {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold" /> : <h2 className={`flex h-fit text-2xl p-4 rounded-large bg-subContainer font-pattaya font-bold text-shadow-lg`}>{article.title}</h2>}
                 {isEditTtitle && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditTitle(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditTitle(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
                 {isEditAuthor ? <input name="author" type="text" value={editAuthor} onChange={editAuthorHandler} className="text-xl " /> : <h3 className={`font-jura italic opacity-70 flex items-center gap-2`}>
                     by {!article.author || article.author.length === 0 ? "Unknown Author" : article.author}
@@ -225,7 +225,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         >
             {mainMetaDataArticleComponent}
             <div className="flex flex-col p-4 rounded-large bg-subContainer h-full">
-                <p className={`${font.text.size.medium} `}>
+                <p className={`font-jura font-bold text-shadow-lg`}>
                     {cropContent(article.content, CROP_CONTAINER_SIZE.SMALL)}
 
                 </p>

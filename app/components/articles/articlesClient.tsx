@@ -34,7 +34,7 @@ export default async function ArticlesClient({ initialArticles, type }: Articles
 
 
     const randomArticlesComponent = <div className={`flex flex-col bg-subContainer indents-main-container rounded-large  `}>
-        <h2 className={`text-3xl font-bold bg-mainContainer rounded-large indents-main-container`}>{MediaPageContent[locale].random_articles}</h2>
+        <h2 className={`text-3xl  bg-mainContainer rounded-large font-jura font-bold indents-main-container`}>{MediaPageContent[locale].random_articles}</h2>
         <div>
             {articles.map((article) =>
                 <ArticleClient key={article.id} article={article} type={type} />
