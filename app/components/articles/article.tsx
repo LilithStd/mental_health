@@ -17,6 +17,7 @@ import { checkIfUserLiked } from "@/app/serverActions/likesStorage"
 import Link from "next/link"
 import { LocaleType } from "@/app/types/types"
 import { useLocale } from "@/app/hooks/useLocale"
+import { BUTTON_READ_FULL_ARTICLE } from "@/translate/mediaPage/mediaPageContent"
 
 
 interface ArticleProps {
@@ -42,7 +43,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
     const [pending, startTransition] = useTransition()
     //
     const date = new Date(article.createdAt);
-    const locale = useLocale()
+    const locale = useLocale() as LocaleType;
     const routesAdaptive = routes(locale)
 
     const formattedDate = date.toLocaleDateString('sv-SE');
@@ -108,7 +109,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         <Favorites isFavorite={isLiked}
             callBackIsFavorite={handleLike}
         />
-        <span className="ml-2">{likesCount} {likesCount === 1 ? 'Like' : 'Likes'}</span>
+        <span className="ml-2 font-jura font-bold">{likesCount} {likesCount === 1 ? 'Like' : 'Likes'}</span>
     </div>
     const mainMetaDataArticleComponent =
         <div className={`flex items-top gap-2 p-2`}>
@@ -127,10 +128,10 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             <div>
                 {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold" /> : <h2 className={`flex h-fit text-2xl p-4 rounded-large bg-subContainer font-bold text-shadow-lg`}>{article.title}</h2>}
                 {isEditTtitle && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditTitle(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditTitle(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
-                {isEditAuthor ? <input name="author" type="text" value={editAuthor} onChange={editAuthorHandler} className="text-xl " /> : <h3 className={`${font.title.size.small} ${font.title.weigth.thin} ${font.title.curve.italic}`}>
+                {isEditAuthor ? <input name="author" type="text" value={editAuthor} onChange={editAuthorHandler} className="text-xl " /> : <h3 className={`font-jura italic opacity-70 flex items-center gap-2`}>
                     by {!article.author || article.author.length === 0 ? "Unknown Author" : article.author}
                 </h3>}
-                <span className={`text-sm ${font.text.size.medium} ${font.title.weigth.thin} ${font.title.curve.italic} opacity-70`}>Created on: {formattedDate}</span>
+                <span className={`text-sm font-jura italic opacity-70`}>Created on: {formattedDate}</span>
             </div>
 
         </div>
@@ -140,14 +141,14 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             className={`bg-buttonContainer p-4 rounded-large flex justify-center items-center cursor-pointer hover:scale-105`}
             href={routesAdaptive.articles.byId(article.id)}
         >
-            <span className={`text-shadow-lg`}>read more</span>
+            <span className={`font-jura font-bold text-shadow-lg`}>{BUTTON_READ_FULL_ARTICLE[locale]}</span>
         </Link>
     </div>
     const interactionBlockComponent =
         <div className={`flex items-center justify-between mt-4`}>
             <div className={`flex justify-between flex-col gap-2  `}>
                 {favoritesComponent}
-                <span className={`text-sm ${font.text.size.medium} ${font.title.weigth.thin} ${font.title.curve.italic} opacity-50`}>Published on: {formattedDate}</span>
+                <span className={`text-sm font-jura italic opacity-50`}>Published on: {formattedDate}</span>
 
             </div>
 
