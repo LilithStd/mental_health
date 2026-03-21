@@ -18,3 +18,15 @@ export const MediaPageContent = {
         random_articles:'Случайные статьи',
     }
 } as const
+
+export const BUTTON_ADDED_NEWS = {
+    en:'Add news',
+    lv:'Pievienot jaunumu',
+    ru:'Добавить новость',
+} as const
+
+export const BUTTON_READ_FULL_NEWS = {
+    en:'Read full news',
+    lv:'Lasīt pilnu jaunumu',
+    ru:'Читать полную новость',
+} as const

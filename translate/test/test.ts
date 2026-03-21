@@ -1,5 +1,5 @@
 export const TYPES_OF_TEST = {
-    en:'type test',
-    lv:'veida tests',
-    ru:'вид теста',
-}
+    en:'Type test',
+    lv:'Veida tests',
+    ru:'Тип теста',
+} as const

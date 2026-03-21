@@ -12,6 +12,8 @@ import ModalWindowMain from "../modalWindowMain"
 import TestModalWindow from "./testModalWindow"
 import { routes } from "@/app/helpers/helpersFunctions"
 import { useLocale } from "@/app/hooks/useLocale"
+import { TYPES_OF_TEST } from "@/translate/test/test";
+import { BUTTON_READ_MORE, BUTTON_VIEW_ALL } from "@/translate/global/button";
 
 
 
@@ -51,7 +53,7 @@ export default function Test({ test, testType }: TestProps) {
             className={`px-4 py-2 mt-4 cursor-pointer rounded-large bg-buttonContainer`}
             onClick={() => router.push(routesAdaptive.tests.byId(test.id))}
         >
-            <span className={`text-shadow-lg`}>Read More</span>
+            <span className={`text-shadow-lg`}>{BUTTON_VIEW_ALL[locale]}</span>
         </button>
 
 
@@ -59,7 +61,7 @@ export default function Test({ test, testType }: TestProps) {
         <div className={`bg-subContainer p-4 rounded-large `}>
             <div>
                 <h2>{test.title[locale]}</h2>
-                <p>Type: {test.label}</p>
+                <p>{TYPES_OF_TEST[locale]}: {test.label}</p>
                 <span>Group: {test.content[locale]}</span>
             </div>
             {buttonReadMore}
@@ -72,7 +74,7 @@ export default function Test({ test, testType }: TestProps) {
             <div className={`flex flex-col bg-mainContainer rounded-large  p-4`}>
                 <div className={`flex flex-col mb-4 bg-subContainer rounded-large p-4`}>
                     <h2>{test.title[locale]}</h2>
-                    <p>Type: {test.label}</p>
+                    <p>{TYPES_OF_TEST[locale]}: {test.label}</p>
                 </div>
 
                 <span>{test.content[locale]}</span>
