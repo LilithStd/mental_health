@@ -1,9 +1,14 @@
 'use client'
 
+import { useAuth } from "@/app/authClientWrapper";
 import { rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles";
+import { useLocale } from "@/app/hooks/useLocale";
 
 import { useAuthorizationStore } from "@/app/store/authorizationStore";
 import { useGlobalStore } from "@/app/store/globalStore";
+import { LocaleType } from "@/app/types/types";
+import { BUTTON_CLOSE } from "@/translate/global/button";
+import { LOGIN_TO_SAVE_RESULT_BUTTON, RESULT_TEST_CONTENT, SAVE_RESULT_BUTTON } from "@/translate/test/test";
 
 
 interface TestModalWindowProps {
@@ -14,8 +19,10 @@ interface TestModalWindowProps {
 
 export default function TestModalWindow({ result, testId, onCloseCallback }: TestModalWindowProps) {
     // stores
-    const currentTheme = useGlobalStore((state) => state.currentTheme);
-    const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
+    // const currentTheme = useGlobalStore((state) => state.currentTheme);
+    const currentAuthUser = useAuth();
+    const locale = useLocale() as LocaleType
+
     // functions
     const saveResultTest = async () => {
         if (!currentAuthUser || !currentAuthUser.id) {
@@ -32,22 +39,22 @@ export default function TestModalWindow({ result, testId, onCloseCallback }: Tes
             }),
         })
 
-        // if (res.ok) {
-        //     alert('Result saved successfully!');
-        // } else {
-        //     alert('Failed to save result. Please try again.');
-        // }
+        if (res.ok) {
+            alert('Result saved successfully!');
+        } else {
+            alert('Failed to save result. Please try again.');
+        }
 
         onCloseCallback()
     }
     // components
     return (
         <div className={`bg-white/20 backdrop-blur-md p-6 rounded-lg  flex flex-col items-center justify-center gap-4`}>
-            <h2>Your result: {result}</h2>
+            <h2>{RESULT_TEST_CONTENT[locale]}: {result}</h2>
             <div className={`flex gap-4`}>
-                <button className={` cursor-pointer px-4 py-2 bg-buttonContainer rounded-full`} onClick={onCloseCallback}>Close</button>
-                <button disabled={!currentAuthUser} className={`${!currentAuthUser ? 'opacity-50 cursor-not-allowed bg-gray-600' : 'cursor-pointer'} ${THEME_COLOR_SCHEME[currentTheme].buttonContainer}  px-4 py-2 ${rounded.medium}`} onClick={saveResultTest}>
-                    {currentAuthUser ? 'Save Result' : 'Login to Save Result'}
+                <button className={` cursor-pointer px-4 py-2 bg-buttonContainer rounded-full`} onClick={onCloseCallback}>{BUTTON_CLOSE[locale]}</button>
+                <button disabled={!currentAuthUser} className={`${!currentAuthUser ? 'opacity-50 cursor-not-allowed bg-gray-600' : 'cursor-pointer'} bg-buttonContainer rounded-full  px-4 py-2 `} onClick={saveResultTest}>
+                    {currentAuthUser ? SAVE_RESULT_BUTTON[locale] : LOGIN_TO_SAVE_RESULT_BUTTON[locale]}
                 </button>
             </div>
 
