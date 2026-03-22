@@ -23,7 +23,7 @@
   --hover: var(--color-amber-700);
   --active-element: var(--color-amber-700);
   --inactive-element: var(--color-gray-700);
-  --input: var(--color-gray-700);
+  --input: var(--color-gray-600);
 }
 
 @theme {

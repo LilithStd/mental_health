@@ -42,10 +42,11 @@ export default function AuthUserComponent({ authUser }: AuthUserComponentProps) 
                 className={`
                 absolute
                 top-full
-                bg-mainContainer
+               
+                bg-white/10 backdrop-blur-md
                 shadow-md
                 rounded-medium
-                mt-5
+                mr-10
                 z-20
                 ${isOpenUserMenu ? 'min-h-40 opacity-100' : 'max-h-0 opacity-0'}
             `}

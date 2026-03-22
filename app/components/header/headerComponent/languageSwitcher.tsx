@@ -32,7 +32,7 @@ export default function LanguageSwitcher() {
       top-14
       left-1/2 -translate-x-1/2
       flex gap-2
-      bg-accentElement
+      bg-accentElement/10 backdrop-blur-md
       rounded-medium
       p-2
       z-10
@@ -61,7 +61,7 @@ export default function LanguageSwitcher() {
 
     return (
         <div className="flex relative items-center p-2 cursor-pointer">
-            {<div className={`bg-accentElement  p-2 w-10 rounded-medium cursor-pointer`}
+            {<div className={`bg-accentElement/40 backdrop-blur-md  p-2 w-10 rounded-medium cursor-pointer`}
                 onClick={() => setIsOpen(!isOpen)}>
                 <span className={`font-bold`}>{currentLocale.toUpperCase()}</span>
             </div>}

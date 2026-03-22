@@ -91,7 +91,7 @@ export default function ModalWindowAuthorization(props: ModalWindowProps) {
 
     // components
     const AuthSignInComponent = (
-        <div className={`flex flex-col  bg-mainContainer items-center justify-center gap-2 p-4 `}>
+        <div className={`flex flex-col   bg-white/20 backdrop-blur-md items-center justify-center gap-2 p-4 `}>
             <form action={signInUserHandler} className={`flex flex-col items-center justify-center gap-2`} key={props.typeAuthorization}>
                 <input name="email" type="email" placeholder={INPUT_PLACEHOLDERS.EMAIL[locale]} className={`mb-2 p-2 rounded-small w-64 border`} required />
                 <input name="password" type="password" placeholder={INPUT_PLACEHOLDERS.PASSWORD[locale]} className={`mb-2 p-2 rounded-small w-64 border`} required />
