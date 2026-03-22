@@ -30,7 +30,7 @@ export default function ListLinks() {
                         href={`/${locale}/${link.path}`}
                         className={`
                             text-lg gap-2 indents-container-sub w-1/4 text-center rounded-2xl 
-                            ${isActive && `bg-activeElement scale-105 `}
+                            ${isActive && `bg-activeElement/40 backdrop-blur-md scale-105 `}
                         `}
                     >
                         {link.translate[locale]}

@@ -36,9 +36,9 @@ export default function WelcomeBlock() {
                 </div>
                 <div className={`flex flex-col gap-2`}>
                     <h3 className={`text-xl font-pattaya font-bold mt-2`}>{WelcomeBlockContent[localeAdapted].PRIVILEGES_TITLE}</h3>
-                    <ul>
+                    <ul className={`list-none flex flex-col gap-2 `}>
                         {listPriviliges.map((privilege, index) => (
-                            <li key={index} className={`flex items-center gap-2`}>
+                            <li key={index} className={`flex  items-center gap-2`}>
                                 <span className={`w-2 h-2 bg-activeElement rounded-full mr-2`}></span>
                                 <span className={`font-poiret font-bold`}>{privilege}</span>
                             </li>
