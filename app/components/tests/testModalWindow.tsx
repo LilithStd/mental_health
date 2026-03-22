@@ -15,7 +15,6 @@ interface TestModalWindowProps {
 export default function TestModalWindow({ result, testId, onCloseCallback }: TestModalWindowProps) {
     // stores
     const currentTheme = useGlobalStore((state) => state.currentTheme);
-    const currentLanguage = useGlobalStore((state) => state.currentLanguage);
     const currentAuthUser = useAuthorizationStore((state) => state.currentAuthUser);
     // functions
     const saveResultTest = async () => {
@@ -33,8 +32,11 @@ export default function TestModalWindow({ result, testId, onCloseCallback }: Tes
             }),
         })
 
-        const data = await res.json()
-        console.log(data)
+        // if (res.ok) {
+        //     alert('Result saved successfully!');
+        // } else {
+        //     alert('Failed to save result. Please try again.');
+        // }
 
         onCloseCallback()
     }

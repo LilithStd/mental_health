@@ -19,8 +19,8 @@ export default function ModalWindowMain(props: ModalWindowProps) {
             <div className="relative">
                 <button
                     onClick={props.closeStatusCallBack}
-                    className={` absolute -top-3 -right-3
-                            w-8 h-
+                    className={`z-10 absolute -top-3 -right-3
+                            w-8 h-8
                             flex items-center justify-center
                             rounded-full
                             text-xl font-bold
