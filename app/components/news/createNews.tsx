@@ -1,17 +1,22 @@
 'use client'
 import { routes } from "@/app/helpers/helpersFunctions";
+import { useLocale } from "@/app/hooks/useLocale";
+import { LocaleType } from "@/app/types/types";
 
 import { useRouter } from "next/navigation";
+import { use } from "react";
 
 export default function CreateNews() {
     // stores
     // state
     // consts
     const router = useRouter()
+    const locale = useLocale() as LocaleType
+    const routesAdaptive = routes(locale)
     // functions
     // handlers
     const handleReturnToNews = () => {
-        router.push(routes.news.root)
+        router.push(routesAdaptive.news.root)
     }
     const handlePreviewNews = () => {
 
@@ -60,8 +65,6 @@ export default function CreateNews() {
                     <button type="submit" className={`p-2 bg-buttonContainer rounded-medium w-1/5`}>Create</button>
                 </div>
             </form>
-
-
         </div>
     )
 }
