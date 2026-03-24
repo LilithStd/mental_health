@@ -42,7 +42,6 @@ export default function AnalizUserProblemBlock() {
 
         setActiveIndex(index);
 
-        // 👇 ВАЖНО: вручную задаём reference
         if (el) {
             refs.setReference(el);
         }
@@ -50,6 +49,26 @@ export default function AnalizUserProblemBlock() {
     const closeModalWindowHandler = () => {
         setIsOpenModalWindow(false);
     }
+
+    const popUpWindowComponent = () => {
+        return (
+            <div
+                ref={refs.setFloating}
+                style={{
+                    ...floatingStyles,
+                    background: "white",
+                    border: "1px solid #ccc",
+                    padding: 10,
+                    borderRadius: 8,
+                    boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+                    zIndex: 10,
+                }}
+            >
+                Я popup 🚀
+            </div>
+        )
+    }
+
     return (
         <div className={`flex flex-col gap-4 justify-center relative items-center`}>
             <div className={`grid grid-cols-1 gap-2 justify-center items-center text-center rounded-large p-6`}>
@@ -64,22 +83,9 @@ export default function AnalizUserProblemBlock() {
                             ref={refs.setReference}
                             onClick={(e) => openModalWindowHandler(index, e.currentTarget)}
                         >
-                            {isOpenModalWindow && activeIndex === index &&
-                                <div
-                                    ref={refs.setFloating}
-                                    style={{
-                                        ...floatingStyles,
-                                        background: "white",
-                                        border: "1px solid #ccc",
-                                        padding: 10,
-                                        borderRadius: 8,
-                                        boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
-                                        zIndex: 10,
-                                    }}
-                                >
-                                    Я popup 🚀
-                                </div>
-                            }
+                            {isOpenModalWindow && activeIndex === index && popUpWindowComponent()}
+
+
 
                             <Image
                                 src={CloudCartoonVisualizationProblem}
