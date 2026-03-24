@@ -79,7 +79,7 @@ export default function AnalizUserProblemBlock() {
 
                         <div
                             key={index}
-                            className="relative w-60 min-h-40 p-4 rounded-large flex justify-center items-center"
+                            className="relative w-60 min-h-40 p-4 rounded-large flex justify-center items-center "
                             ref={refs.setReference}
                             onClick={(e) => openModalWindowHandler(index, e.currentTarget)}
                         >
@@ -87,16 +87,25 @@ export default function AnalizUserProblemBlock() {
 
 
 
-                            <Image
-                                src={CloudCartoonVisualizationProblem}
-                                alt="Cloud"
-                                fill
-                                className="object-cover rounded-large"
-                            />
 
-                            <button className="p-2 relative z-10 rounded-large cursor-pointer text-center wrap-break-word">
-                                {problem.symptom}
-                            </button>
+                            <div className={`transition-transform duration-100 cursor-pointer`}>
+                                <div>
+                                    <Image
+                                        src={CloudCartoonVisualizationProblem}
+                                        alt="Cloud"
+                                        fill
+                                        className={`object-cover ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''}`}
+                                    />
+
+                                    <button className={`${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} p-2 relative z-10`}>
+                                        {problem.symptom}
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
 
                         </div>
 

@@ -32,7 +32,8 @@ export default function LanguageSwitcher() {
       top-14
       left-1/2 -translate-x-1/2
       flex gap-2
-      bg-accentElement/10 backdrop-blur-md
+      bg-accentElement/10 
+      backdrop-blur-md
       rounded-medium
       p-2
       z-10
