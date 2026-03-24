@@ -50,7 +50,7 @@ export default function AnalizUserProblemBlock() {
         setIsOpenModalWindow(false);
     }
 
-    const popUpWindowComponent = () => {
+    const popUpWindowComponent = (description: string) => {
         return (
             <div
                 ref={refs.setFloating}
@@ -61,10 +61,10 @@ export default function AnalizUserProblemBlock() {
                     padding: 10,
                     borderRadius: 8,
                     boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
-                    zIndex: 10,
+                    zIndex: 100,
                 }}
             >
-                Я popup 🚀
+                {description}
             </div>
         )
     }
@@ -83,7 +83,7 @@ export default function AnalizUserProblemBlock() {
                             ref={refs.setReference}
                             onClick={(e) => openModalWindowHandler(index, e.currentTarget)}
                         >
-                            {isOpenModalWindow && activeIndex === index && popUpWindowComponent()}
+                            {isOpenModalWindow && activeIndex === index && popUpWindowComponent(problem.description)}
 
 
 
@@ -95,7 +95,7 @@ export default function AnalizUserProblemBlock() {
                             />
 
                             <button className="p-2 relative z-10 rounded-large cursor-pointer text-center wrap-break-word">
-                                {problem}
+                                {problem.symptom}
                             </button>
 
                         </div>
