@@ -10,13 +10,13 @@ import { useState } from "react";
 
 
 
-interface ModalWindowProps {
+interface ModalWindowAuthorizationProps {
     typeAuthorization: string,
     contentTypeAuthorization: string,
     setAuthorizationType: (type: AUTHORIZATION_STATUS) => void,
     closeCallback: () => void,
 }
-export default function ModalWindowAuthorization(props: ModalWindowProps) {
+export default function ModalWindowAuthorization(props: ModalWindowAuthorizationProps) {
     //state
     const [succerssfullyCreated, setSuccessfullyCreated] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);

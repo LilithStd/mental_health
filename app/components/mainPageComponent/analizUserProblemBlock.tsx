@@ -13,7 +13,7 @@ export default function AnalizUserProblemBlock() {
     const locale = useLocale() as LocaleType
     const routesAdaptive = routes(locale)
     return (
-        <div>
+        <div className={`flex flex-col gap-4 justify-center relative items-center`}>
             <div className={`grid grid-cols-1 gap-2 justify-center items-center text-center rounded-large p-6`}>
 
                 <h2 className={`text-5xl p-4 font-pattaya font-bold `}>{AnalizeUserProblemContent[locale].TITLE}</h2>
