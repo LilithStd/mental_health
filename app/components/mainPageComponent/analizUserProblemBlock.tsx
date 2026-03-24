@@ -88,16 +88,16 @@ export default function AnalizUserProblemBlock() {
 
 
 
-                            <div className={`transition-transform duration-100 cursor-pointer`}>
+                            <div className={` cursor-pointer`}>
                                 <div>
                                     <Image
                                         src={CloudCartoonVisualizationProblem}
                                         alt="Cloud"
                                         fill
-                                        className={`object-cover ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''}`}
+                                        className={` transition-blur duration-300  object-cover ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105'}`}
                                     />
 
-                                    <button className={`${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} p-2 relative z-10`}>
+                                    <button className={`transition-blur duration-100 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105'} p-2 relative z-10`}>
                                         {problem.symptom}
                                     </button>
 
