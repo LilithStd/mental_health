@@ -21,7 +21,7 @@ export default function ListLinks() {
         return pathname === fullPath || pathname.startsWith(fullPath + "/");
     };
     return (
-        <div className={`flex p-2 items-center justify-center bg-mainContainer w-full rounded-large`}>
+        <div className={`flex items-center justify-center  w-full rounded-large`}>
             {LINKS.map((link) => {
                 const isActive = isLinkActive(link.path);
                 return (
@@ -29,8 +29,8 @@ export default function ListLinks() {
                         key={link.label}
                         href={`/${locale}/${link.path}`}
                         className={`
-                            text-lg gap-2 indents-container-sub w-1/4 text-center rounded-2xl 
-                            ${isActive && `bg-activeElement/40 backdrop-blur-md scale-105 `}
+                            text-lg gap-2  w-1/4 text-center rounded-2xl 
+                            ${isActive && `underline underline-offset-4 text-shadow-lg  scale-105 `}
                         `}
                     >
                         {link.translate[locale]}
@@ -40,3 +40,14 @@ export default function ListLinks() {
         </div>
     );
 }
+
+// <Link
+//     key={link.label}
+//     href={`/${locale}/${link.path}`}
+//     className={`
+//                             text-lg gap-2  w-1/4 text-center rounded-2xl 
+//                             ${isActive && `bg-activeElement/40 backdrop-blur-md scale-105 `}
+//                         `}
+// >
+//     {link.translate[locale]}
+// </Link>
