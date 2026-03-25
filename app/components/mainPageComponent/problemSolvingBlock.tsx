@@ -17,9 +17,9 @@ export default function ProblemSolvingBlock() {
         setSelectedProblemIndex(index);
     }
     // components
-    const popUpWindowComponent = (description: string) => {
+    const popUpWindowComponent = (color: string, description: string) => {
         return (
-            <div className={`absolute bg-white border border-gray-300 rounded-lg p-4 w-64 z-10`}>
+            <div className={`absolute rounded-lg p-4 w-64 z-10 ${color}`}>
                 <span>{description}</span>
             </div>
         )
@@ -46,7 +46,7 @@ export default function ProblemSolvingBlock() {
                     <div key={index} className={` font-bold mb-4 ${problem.color} p-4 rounded-large transition-all duration-300 hover:brightness-110 hover:scale-105 cursor-pointer min-h-40`} onClick={() => selectedProblemHandler(index)}>
                         <p className={`flex flex-col w-60   cursor-pointer `}>
                             <span className={`text-xl font-bold `}>{problem.problem}</span>
-                            {selectedProblemIndex === index && popUpWindowComponent(problem.description)}
+                            {selectedProblemIndex === index && popUpWindowComponent(problem.color, problem.description)}
                             {/* <span className={`w-full mt-2 ${selectedProblemIndex === index ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}>{selectedProblemIndex === index ? problem.description : ''}</span> */}
                         </p>
                     </div>
