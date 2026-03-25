@@ -18,31 +18,31 @@ export default function Main({ locale }: { locale: LocaleType }) {
   // 
   return (
     <main className={`flex flex-col indents-main-container  flex-1 items-center`}>
-      <div className={`flex flex-col w-full  max-w-6xl  rounded-large bg-mainContainer/20 shadow-lg backdrop-blur-md `}>
+      <div className={`flex flex-col w-full  max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md `}>
         <WelcomeBlockComponent />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer/20 shadow-lg backdrop-blur-md `}>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md `}>
         <ProblemSolvingBlock />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer `}>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md `}>
         <AnalizUserProblemBlock />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer `}>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md `}>
         <AboutDoctorBlock />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer `}>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md `}>
         <AboutConsultation />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer `}>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md `}>
         <TestsBlock />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer `}>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md `}>
         <PricesBlock />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer `}>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md `}>
         <FaqBlock />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer `}>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md `}>
         <LastStepBlock />
       </div>
     </main>

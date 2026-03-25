@@ -7,7 +7,7 @@ import HeaderBackground from "./headerComponent/headerBackground";
 
 export default function Header() {
     return (
-        <nav className={`flex justify-center sticky top-0 left-0 w-full z-50`}>
+        <nav className={`flex justify-center sticky p-6 top-0 left-0 w-full z-50`}>
             <HeaderBackground>
                 <div className="grid grid-cols-[1fr_3fr_1fr] gap-10 items-center w-full">
                     <div className="flex justify-start">
