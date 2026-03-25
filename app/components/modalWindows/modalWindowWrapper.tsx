@@ -30,6 +30,15 @@ export default function ModalWindowWrapper({ currentAuthUser }: ModalWindowWrapp
     const closeModalWindowHandler = () => {
         setIsOpenModalWindow(false);
     }
+
+    const authUserComponent = (authUser: UserAuthType) => {
+        return (
+            <button className={`w-full text-left px-4 py-2 bg-buttonContainer rounded-medium hover:bg-hover`} onClick={() => setIsOpenModalWindow(true)}>
+                <p>Logout</p>
+            </button>
+        )
+    }
+
     return (
         <div>
             {currentAuthUser ? (

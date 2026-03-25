@@ -43,11 +43,17 @@ export default function Authorization() {
     const isAuthorizedComponent = (authUser: User) => {
         return (
             <div className={`flex flex-col items-center justify-center gap-2`} onClick={() => setIsOpenModalWindow(true)}>
-                <AuthorisationIcon width={48} height={48} onClick={() => {
+                <button className={`w-full text-left px-4 py-2 bg-buttonContainer rounded-medium hover:bg-hover`} onClick={() => {
+                    logoutUser(authUser.id);
+                    router.push(APP_PATH_ROUTER.MAIN);
+                }}>
+                    <p>Logout</p>
+                </button>
+                {/* <AuthorisationIcon width={48} height={48} onClick={() => {
                     logoutUser(authUser.id);
                     router.push(APP_PATH_ROUTER.MAIN);
 
-                }} />
+                }} /> */}
                 <div className={`cursor-pointer`}>
                     <Link href={`${APP_PATH_ROUTER.USERS}/${authUser.id}`} className={`hover:bg-hover cursor-pointer`} >{authUser.email}</Link>
                     {/* <h2>{ROLE_AUTHORIZED_USER_TRANSLATE[authUser.role].translate[currentLanguage]}</h2> */}

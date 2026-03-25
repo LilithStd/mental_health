@@ -18,10 +18,10 @@ export default function Main({ locale }: { locale: LocaleType }) {
   // 
   return (
     <main className={`flex flex-col indents-main-container  flex-1 items-center`}>
-      <div className={`flex flex-col w-full  max-w-6xl  rounded-large bg-mainContainer `}>
+      <div className={`flex flex-col w-full  max-w-6xl  rounded-large bg-mainContainer/20 shadow-lg backdrop-blur-md `}>
         <WelcomeBlockComponent />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer `}>
+      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer/20 shadow-lg backdrop-blur-md `}>
         <ProblemSolvingBlock />
       </div>
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large bg-mainContainer `}>

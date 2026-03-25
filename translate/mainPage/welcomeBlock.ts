@@ -1,6 +1,11 @@
+import CondifdentalityIcon from '@/public/icons/ShieldCheck.svg'
+import PersonalizedCareIcon from '@/public/icons/HeartFull.svg'
+import AccessiblityIcon from '@/public/icons/DevicePhoneMobile.svg'
+import SupportCommunity from '@/public/icons/UserGroup.svg'
+
 export const WelcomeBlockContent = {
     en:{
-        TITLE: 'Welcome to our mental health platform',
+        TITLE: 'Welcome to mental health',
         TITLE_2:'Already know your problem?',
         TITLE_3:'Need some guidance?',
         SUBTITLE: 'Your journey to better mental well-being starts here',
@@ -9,10 +14,10 @@ export const WelcomeBlockContent = {
         TESTS_BUTTON: 'Go to Tests',
         PRIVILEGES_TITLE: 'Our Privileges:',
         PRIVILEGES_LIST: [
-            'Confidentiality and Privacy',
-            'Personalized Care',
-            'Access to Resources',
-            'Supportive Community',
+            {icon: CondifdentalityIcon, text: 'Confidentiality and Privacy'},
+            {icon: PersonalizedCareIcon, text: 'Personalized Care'},
+            {icon: AccessiblityIcon, text: 'Access to Resources'},
+            {icon: SupportCommunity, text: 'Supportive Community'},
         ]
     },
     lv:{
@@ -24,10 +29,10 @@ export const WelcomeBlockContent = {
     TESTS_BUTTON: 'Pāriet pie testiem',
     PRIVILEGES_TITLE: 'Mūsu privilēģijas:',
     PRIVILEGES_LIST: [
-        'Konfidencialitāte un privātums',
-        'Personalizēta aprūpe',
-        'Piekļuve resursiem',
-        'Atbalstoša kopiena',
+        {icon: CondifdentalityIcon, text: 'Konfidencialitāte un privātums'},
+        {icon: PersonalizedCareIcon, text: 'Personalizēta aprūpe'},
+        {icon: AccessiblityIcon, text: 'Piekļuve resursiem'},
+        {icon: SupportCommunity, text: 'Atbalstoša kopiena'},
     ]
     },
     ru:{
@@ -40,10 +45,10 @@ export const WelcomeBlockContent = {
     TESTS_BUTTON: 'Перейти к тестам',
     PRIVILEGES_TITLE: 'Наши привилегии:',
     PRIVILEGES_LIST: [
-        'Конфиденциальность и приватность',
-        'Персонализированный уход',
-        'Доступ к ресурсам',
-        'Поддерживающее сообщество',
+        {icon: CondifdentalityIcon, text: 'Конфиденциальность и приватность'},
+        {icon: PersonalizedCareIcon, text: 'Персонализированный уход'},
+        {icon: AccessiblityIcon, text: 'Доступ к ресурсам'},
+        {icon: SupportCommunity, text: 'Поддерживающее сообщество'},
     ]
 }
    
