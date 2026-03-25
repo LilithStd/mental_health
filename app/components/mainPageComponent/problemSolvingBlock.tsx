@@ -16,10 +16,28 @@ export default function ProblemSolvingBlock() {
         }
         setSelectedProblemIndex(index);
     }
+    const closeProblemPopupHandler = () => {
+        setSelectedProblemIndex(null);
+    }
     // components
+    const ProblemModal = ({ problem, onClose }: { problem: { problem: string, description: string }, onClose: () => void }) => {
+        return (
+            <div className="fixed inset-0 z-50 flex items-center justify-center">
+                <div
+                    className="absolute inset-0 bg-black/50"
+                    onClick={onClose}
+                />
+
+                <div className="relative bg-white p-6 rounded-large w-[400px] z-50">
+                    <h2 className="text-xl font-bold">{problem.problem}</h2>
+                    <p className="mt-2">{problem.description}</p>
+                </div>
+            </div>
+        );
+    }
     const popUpWindowComponent = (color: string, description: string) => {
         return (
-            <div className={`absolute rounded-lg p-4 w-64 z-10 ${color}`}>
+            <div className={`absolute scale-150 rounded-lg p-4 w-64 z-100 ${color}`}>
                 <span>{description}</span>
             </div>
         )
@@ -43,14 +61,28 @@ export default function ProblemSolvingBlock() {
         return (
             <div className={`grid grid-cols-2 gap-4 items-start`}>
                 {ProblemSolvingBlockContent[localeAdapted].problems.map((problem, index) => (
-                    <div key={index} className={` font-bold mb-4 ${problem.color} p-4 rounded-large transition-all duration-300 hover:brightness-110 hover:scale-105 cursor-pointer min-h-40`} onClick={() => selectedProblemHandler(index)}>
-                        <p className={`flex flex-col w-60   cursor-pointer `}>
-                            <span className={`text-xl font-bold `}>{problem.problem}</span>
-                            {selectedProblemIndex === index && popUpWindowComponent(problem.color, problem.description)}
-                            {/* <span className={`w-full mt-2 ${selectedProblemIndex === index ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}>{selectedProblemIndex === index ? problem.description : ''}</span> */}
-                        </p>
+                    <div
+                        key={index}
+                        onClick={() => selectedProblemHandler(index)}
+                        className={`
+          font-bold p-4 rounded-large transition-all  duration-300 cursor-pointer
+          
+          ${problem.color}
+          
+          ${selectedProblemIndex === index
+                                ? "fixed z-50 scale-110 w-[400px]"
+                                : "relative hover:scale-105"
+                            }`}
+                    >
+                        <span className="text-xl">{problem.problem}</span>
+
+                        {selectedProblemIndex === index && (
+                            <p className="mt-2">{problem.description}</p>
+                        )}
                     </div>
+
                 ))}
+
             </div>
         )
     }
