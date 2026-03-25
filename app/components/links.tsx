@@ -21,7 +21,7 @@ export default function ListLinks() {
         return pathname === fullPath || pathname.startsWith(fullPath + "/");
     };
     return (
-        <div className={`flex items-center justify-center  w-full rounded-large`}>
+        <div className={`flex items-center justify-center w-full rounded-large`}>
             {LINKS.map((link) => {
                 const isActive = isLinkActive(link.path);
                 return (
@@ -29,8 +29,8 @@ export default function ListLinks() {
                         key={link.label}
                         href={`/${locale}/${link.path}`}
                         className={`
-                            text-lg gap-2  w-1/4 text-center rounded-2xl 
-                            ${isActive && `underline underline-offset-4 text-shadow-lg  scale-105 `}
+                            text-md   w-20 text-center
+                            ${isActive && `underline underline-offset-4 text-lime-700 decoration-green-700 text-shadow-lg  scale-105 `}
                         `}
                     >
                         {link.translate[locale]}

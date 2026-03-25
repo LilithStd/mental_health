@@ -9,9 +9,9 @@ export const LIST_LINKS = {
 		label: 'main',
 		path: APP_PATH_ROUTER.MAIN,
 		translate: {
-			en: 'main',
-			lv: 'galvenais',
-			ru: 'главная',
+			en: 'Main',
+			lv: 'Galvenais',
+			ru: 'Главная',
 		},
 	},
 	FAQ:{
@@ -27,27 +27,27 @@ export const LIST_LINKS = {
 		label: 'tests',
 		path: APP_PATH_ROUTER.TESTS,
 		translate: {
-			en: 'tests',
-			lv: 'tests',
-			ru: 'тесты',
+			en: 'Tests',
+			lv: 'Tests',
+			ru: 'Тесты',
 		},
 	},
 	MEDIA: {
 		label: 'media',
 		path: APP_PATH_ROUTER.MEDIA,
 		translate: {
-			en: 'media',
-			lv: 'mediji',
-			ru: 'медиа',
+			en: 'Media',
+			lv: 'Mediji',
+			ru: 'Медиа',
 		},
 	},
 	PRICING: {
 		label: 'pricing',
 		path: APP_PATH_ROUTER.PRICING,
 		translate: {
-			en: 'pricing',
-			lv: 'cenas',
-			ru: 'цены',
+			en: 'Prices',
+			lv: 'Cenas',
+			ru: 'Цены',
 		},
 	},
 
@@ -55,9 +55,9 @@ export const LIST_LINKS = {
 		label: 'consultation',
 		path: APP_PATH_ROUTER.CONSULTATION,
 		translate: {
-			en: 'consultation',
-			lv: 'konsultācija',
-			ru: 'консультация',
+			en: 'Consultation',
+			lv: 'Konsultācija',
+			ru: 'Консультация',
 		},
 	},
 } as const;
