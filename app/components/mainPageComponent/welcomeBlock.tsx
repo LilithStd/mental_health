@@ -21,7 +21,7 @@ export default function WelcomeBlock() {
     const listPriviliges = WelcomeBlockContent[localeAdapted].PRIVILEGES_LIST
     console.log(listPriviliges)
     return (
-        <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 w-full p-4 rounded-large items-center bg-primary-color/10 shadow-lg backdrop-blur-md`}>
+        <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 w-full p-4 rounded-large items-center bg-primary-color/20 shadow-lg backdrop-blur-md`}>
             {/* <Image src={DoctorImage} alt="Doctor Image" className='rounded-large' /> */}
             <Image src={BrainIllustration} alt="Brain Illustration" className='object-cover w-full scale-120 rounded-large' />
             <div>
