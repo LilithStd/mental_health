@@ -3,46 +3,91 @@ import { useLocale } from '@/app/hooks/useLocale'
 import { LocaleType } from '@/app/types/types'
 import HumanWithProblem from '@/public/images/problems/problems_in_words.png'
 import { ProblemSolvingBlockContent } from '@/translate/mainPage/ProblemSolvingBlock'
+import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import { useState } from 'react'
 
 export default function ProblemSolvingBlock() {
     const localeAdapted = useLocale() as LocaleType
-    const [selectedProblemIndex, setSelectedProblemIndex] = useState<number | null>(null);
-    const selectedProblemHandler = (index: number) => {
-        if (selectedProblemIndex === index) {
-            setSelectedProblemIndex(null);
-            return;
-        }
-        setSelectedProblemIndex(index);
-    }
-    const closeProblemPopupHandler = () => {
-        setSelectedProblemIndex(null);
-    }
-    // components
-    const ProblemModal = ({ problem, onClose }: { problem: { problem: string, description: string }, onClose: () => void }) => {
-        return (
-            <div className="fixed inset-0 z-50 flex items-center justify-center">
-                <div
-                    className="absolute inset-0 bg-black/50"
-                    onClick={onClose}
-                />
+    const [active, setActive] = useState<number | null>(null);
+    return (
+        <div className={`flex items-center justify-center w-full h-100 rounded-large p-6 bg-primary-color/20 shadow-lg backdrop-blur-md`}>
+            <div className="grid grid-cols-2 gap-4">
+                {ProblemSolvingBlockContent[localeAdapted].problems.map((problem, index) => (
+                    <motion.div
+                        key={index}
+                        layoutId={`card-${index}`} // 🔥 главное
+                        onClick={() => setActive(index)}
+                        className={`p-4 rounded-large cursor-pointer ${problem.color} hover:scale-105 transition`}
+                    >
+                        <h3 className="text-lg font-bold">{problem.problem}</h3>
+                    </motion.div>
+                ))}
+            </div>
 
-                <div className="relative bg-white p-6 rounded-large w-[400px] z-50">
-                    <h2 className="text-xl font-bold">{problem.problem}</h2>
-                    <p className="mt-2">{problem.description}</p>
-                </div>
-            </div>
-        );
-    }
-    const popUpWindowComponent = (color: string, description: string) => {
-        return (
-            <div className={`absolute scale-150 rounded-lg p-4 w-64 z-100 ${color}`}>
-                <span>{description}</span>
-            </div>
-        )
-    }
-    // const probmlemSolvingBlock = () => {
+            <AnimatePresence>
+                {active !== null && (
+                    <>
+                        {/* затемнение */}
+                        <motion.div
+                            className="fixed inset-0 bg-black/50 z-40"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setActive(null)}
+                        />
+
+                        {/* карточка */}
+                        <motion.div
+                            layoutId={`card-${active}`} // 🔥 тот же id
+                            className={`fixed z-50 top-1/2  w-[400px] -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-large ${ProblemSolvingBlockContent[localeAdapted].problems[active].color}`}
+                        >
+                            <h2 className="text-xl font-bold">
+                                {ProblemSolvingBlockContent[localeAdapted].problems[active].problem}
+                            </h2>
+                            <p className="mt-2">
+                                {ProblemSolvingBlockContent[localeAdapted].problems[active].description}
+                            </p>
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
+        </div>
+    );
+    // const selectedProblemHandler = (index: number) => {
+    //     if (selectedProblemIndex === index) {
+    //         setSelectedProblemIndex(null);
+    //         return;
+    //     }
+    //     setSelectedProblemIndex(index);
+    // }
+    // const closeProblemPopupHandler = () => {
+    //     setSelectedProblemIndex(null);
+    // }
+    // // components
+    // const ProblemModal = ({ problem, onClose }: { problem: { problem: string, description: string }, onClose: () => void }) => {
+    //     return (
+    //         <div className="fixed inset-0 z-50 flex items-center justify-center">
+    //             <div
+    //                 className="absolute inset-0 bg-black/50"
+    //                 onClick={onClose}
+    //             />
+
+    //             <div className="relative bg-white p-6 rounded-large w-[400px] z-50">
+    //                 <h2 className="text-xl font-bold">{problem.problem}</h2>
+    //                 <p className="mt-2">{problem.description}</p>
+    //             </div>
+    //         </div>
+    //     );
+    // }
+    // const popUpWindowComponent = (color: string, description: string) => {
+    //     return (
+    //         <div className={`absolute scale-150 rounded-lg p-4 w-64 z-100 ${color}`}>
+    //             <span>{description}</span>
+    //         </div>
+    //     )
+    // }
+    // const probmlemSolvingBlockOld = () => {
     //     return (
     //         <div className={`grid grid-cols-2 gap-4 items-start`}>
     //             {ProblemSolvingBlockContent[localeAdapted].problems.map((problem, index) => (
@@ -57,55 +102,55 @@ export default function ProblemSolvingBlock() {
     //     )
     // }
 
-    const probmlemSolvingBlock = () => {
-        return (
-            <div className={`grid grid-cols-2 gap-4 items-start`}>
-                {ProblemSolvingBlockContent[localeAdapted].problems.map((problem, index) => (
-                    <div
-                        key={index}
-                        onClick={() => selectedProblemHandler(index)}
-                        className={`
-          font-bold p-4 rounded-large transition-all  duration-300 cursor-pointer
-          
-          ${problem.color}
-          
-          ${selectedProblemIndex === index
-                                ? "fixed z-50 scale-110 w-[400px]"
-                                : "relative hover:scale-105"
-                            }`}
-                    >
-                        <span className="text-xl">{problem.problem}</span>
+    // const probmlemSolvingBlock = () => {
+    //     return (
+    //         <div className={`grid grid-cols-2 gap-4 items-start`}>
+    //             {ProblemSolvingBlockContent[localeAdapted].problems.map((problem, index) => (
+    //                 <div
+    //                     key={index}
+    //                     onClick={() => selectedProblemHandler(index)}
+    //                     className={`
+    //                     font-bold 
+    //                     p-4
+    //                     min-h-[120px]
+    //                     rounded-large 
+    //                     transition-all  
+    //                     duration-300 
+    //                     cursor-pointer
+    //                     ${problem.color}
+    //                     ${selectedProblemIndex === index
+    //                             ? "fixed z-50 scale-110 w-[400px]"
+    //                             : "relative hover:scale-105"
+    //                         }`}
+    //                 >
+    //                     <span className="text-xl">{problem.problem}</span>
 
-                        {selectedProblemIndex === index && (
-                            <p className="mt-2">{problem.description}</p>
-                        )}
-                    </div>
+    //                     {selectedProblemIndex === index && (
+    //                         <p className="mt-2">{problem.description}</p>
+    //                     )}
+    //                 </div>
 
-                ))}
+    //             ))}
 
-            </div>
-        )
-    }
+    //         </div>
+    //     )
+    // }
 
 
-    return (
-        <div className={`flex flex-col gap-6 justify-center items-center w-full bg-primary-color/20 rounded-large p-6 shadow-lg backdrop-blur-md`}>
-            <div className={``}></div>
-            <h2 className={`text-3xl mb-4 font-bold `}>{ProblemSolvingBlockContent[localeAdapted].title}</h2>
-            {probmlemSolvingBlock()}
-
-            {/* <div className={`grid items-center justify-end rounded-large p-4`}>
-                <Image src={HumanWithProblem} alt="Human with Problem" className=' p-4 rounded-large' />
-            </div> */}
-        </div>
-        // <div className={`grid grid-cols-2 w-full rounded-large p-6`}>
-        //     <div className={`grid items-start justify-start rounded-large p-4`}>
-        //         <h2 className={`text-3xl mb-4 font-pattaya font-bold `}>{ProblemSolvingBlockContent[localeAdapted].title}</h2>
-        //         {probmlemSolvingBlock()}
-        //     </div>
-        //     <div className={`grid items-center justify-end rounded-large p-4`}>
-        //         <Image src={HumanWithProblem} alt="Human with Problem" className=' p-4 rounded-large' />
-        //     </div>
-        // </div>
-    )
+    // return (
+    //     <div className={`flex flex-col gap-6 justify-center items-center w-full bg-primary-color/20 rounded-large p-6 shadow-lg backdrop-blur-md`}>
+    //         <div className={``}></div>
+    //         <h2 className={`text-3xl mb-4 font-bold `}>{ProblemSolvingBlockContent[localeAdapted].title}</h2>
+    //         {probmlemSolvingBlock()}
+    //     </div>
+    // <div className={`grid grid-cols-2 w-full rounded-large p-6`}>
+    //     <div className={`grid items-start justify-start rounded-large p-4`}>
+    //         <h2 className={`text-3xl mb-4 font-pattaya font-bold `}>{ProblemSolvingBlockContent[localeAdapted].title}</h2>
+    //         {probmlemSolvingBlock()}
+    //     </div>
+    //     <div className={`grid items-center justify-end rounded-large p-4`}>
+    //         <Image src={HumanWithProblem} alt="Human with Problem" className=' p-4 rounded-large' />
+    //     </div>
+    // </div>
+    // )
 }
