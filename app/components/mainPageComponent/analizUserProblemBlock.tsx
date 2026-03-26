@@ -70,10 +70,10 @@ export default function AnalizUserProblemBlock() {
     }
 
     return (
-        <div className={`flex flex-col gap-4 justify-center relative items-center`}>
+        <div className={`flex flex-col gap-4 justify-center relative items-center bg-primary-color/20 rounded-large p-6 shadow-lg backdrop-blur-md w-full`}>
             <div className={`grid grid-cols-1 gap-2 justify-center items-center text-center rounded-large p-6`}>
 
-                <h2 className={`text-5xl p-4 font-pattaya font-bold `}>{AnalizeUserProblemContent[locale].TITLE}</h2>
+                <h2 className={`text-5xl p-4 font-geistSans font-bold `}>{AnalizeUserProblemContent[locale].TITLE}</h2>
                 <div className="flex gap-2 w-full justify-center items-center flex-wrap">
                     {AnalizeUserProblemContent[locale].PROBLEMS.map((problem, index) => (
 
@@ -89,13 +89,13 @@ export default function AnalizUserProblemBlock() {
 
 
                             <div className={` cursor-pointer`}>
-                                <div>
-                                    <Image
+                                <div className={`relative w-full h-32 rounded-large flex justify-center items-center bg-primary-color/50 p-4`}>
+                                    {/* <Image
                                         src={CloudCartoonVisualizationProblem}
                                         alt="Cloud"
                                         fill
                                         className={` transition-blur duration-300  object-cover ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105'}`}
-                                    />
+                                    /> */}
 
                                     <button className={`transition-blur duration-100 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105'} p-2 relative z-10`}>
                                         {problem.symptom}
@@ -116,8 +116,8 @@ export default function AnalizUserProblemBlock() {
                 <Image src={HumanWithProblem} alt="Human with Problem" className=' rounded-large' />
             </div>
             <div className={`flex w-full flex-col gap-4 p-6 justify-center items-center`}>
-                <h2 className={`text-4xl font-pattaya font-bold `}>{AnalizeUserProblemContent[locale].TITLE_2}</h2>
-                <Link href={routesAdaptive.consultation.root} className={`p-4 justify-center items-center bg-buttonContainer rounded-large cursor-pointer font-jura font-bold w-fit`}>{AnalizeUserProblemContent[locale].SIGN_UP_BUTTON}</Link>
+                <h2 className={`text-4xl font-geistSans font-bold `}>{AnalizeUserProblemContent[locale].TITLE_2}</h2>
+                <Link href={routesAdaptive.consultation.root} className={`p-4 justify-center items-center bg-buttonContainer rounded-large cursor-pointer font-geistSans font-bold w-fit`}>{AnalizeUserProblemContent[locale].SIGN_UP_BUTTON}</Link>
 
             </div>
         </div>

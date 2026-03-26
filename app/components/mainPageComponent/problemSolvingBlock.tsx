@@ -73,11 +73,7 @@ export default function ProblemSolvingBlock() {
                         transition-all  
                         duration-300 
                         cursor-pointer
-                        ${problem.color}
-                        ${selectedProblemIndex === index
-                                ? "fixed z-50 scale-110 w-[400px]"
-                                : "relative hover:scale-105"
-                            }`}
+                        ${problem.color}`}
                     >
                         <span className="text-xl">{problem.problem}</span>
 
@@ -95,7 +91,6 @@ export default function ProblemSolvingBlock() {
 
     return (
         <div className={`flex flex-col gap-6 justify-center items-center w-full bg-primary-color/20 rounded-large p-6 shadow-lg backdrop-blur-md`}>
-            <div className={``}></div>
             <h2 className={`text-3xl mb-4 font-bold `}>{ProblemSolvingBlockContent[localeAdapted].title}</h2>
             {probmlemSolvingBlock()}
         </div>
