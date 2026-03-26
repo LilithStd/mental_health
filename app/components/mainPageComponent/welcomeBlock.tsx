@@ -19,7 +19,7 @@ export default function WelcomeBlock() {
 
     const routesAdaptive = routes(localeAdapted as LocaleType)
     const listPriviliges = WelcomeBlockContent[localeAdapted].PRIVILEGES_LIST
-    console.log(listPriviliges)
+
     return (
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 w-full p-4 rounded-large items-center bg-primary-color/20 shadow-lg backdrop-blur-md`}>
             {/* <Image src={DoctorImage} alt="Doctor Image" className='rounded-large' /> */}

@@ -1,22 +1,23 @@
+import { get } from "http";
 import Footer from "../components/footer/footer";
 import Header from "../components/header/header";
 import { LocaleProvider } from "../providers/localeProvider";
 import { LocaleType } from "../types/types";
+import { getLocale } from "../hooks/server/getLocale";
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
     children,
-    params,
 }: {
     children: React.ReactNode;
-    params: { locale: LocaleType };
 }) {
-    const { locale } = params;
+    const locale = await getLocale() as LocaleType
+
 
     return (
         <LocaleProvider locale={locale}>
-            <Header locale={locale} />
+            <Header />
             {children}
-            <Footer locale={locale} />
+            <Footer />
         </LocaleProvider>
     );
 }
