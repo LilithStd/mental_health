@@ -11,12 +11,12 @@ export default function PricesBlock() {
     const locale = useLocale() as LocaleType
     const routesAdaptive = routes(locale)
     return (
-        <div className={`flex gap-4 p-6 justify-center items-center`}>
+        <div className={`flex gap-4 p-6 justify-center items-center bg-primary-color/20 backdrop-blur-md rounded-large`}>
             <div className={`grid grid-cols-2 p-6 justify-center items-center`}>
                 <div className={`flex flex-col gap-4`}>
-                    <h2 className={`text-5xl font-pattaya font-bold `}>{PricesBlockContent[locale].title}</h2>
-                    <p className={`font-poiret font-bold italic text-lg`}>{PricesBlockContent[locale].description}</p>
-                    <Link href={routesAdaptive.pricing.root} className={`mt-4 px-4 py-2 bg-buttonContainer w-fit rounded-large font-bold font-jura`}>{PricesBlockContent[locale].buttonText}</Link>
+                    <h2 className={`text-5xl font-bold `}>{PricesBlockContent[locale].title}</h2>
+                    <p className={`italic text-lg`}>{PricesBlockContent[locale].description}</p>
+                    <Link href={routesAdaptive.pricing.root} className={`mt-4 px-4 py-2 bg-buttonContainer w-fit rounded-large font-bold`}>{PricesBlockContent[locale].buttonText}</Link>
                 </div>
                 <div className={`flex justify-center items-center`}>
                     <Image src={MedicineWomen} alt="Medicine Women" />

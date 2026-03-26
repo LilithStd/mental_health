@@ -12,11 +12,11 @@ export default function LastStepBlock() {
     const locale = useLocale() as LocaleType
     const routesAdaptive = routes(locale)
     return (
-        <div className={`flex flex-col gap-4 p-6 justify-center items-center`}>
+        <div className={`flex flex-col gap-4 p-6 justify-center items-center bg-primary-color/20 backdrop-blur-md rounded-large text-center`}>
             <div className={`flex flex-col gap-4 p-6 justify-center items-center`}>
-                <h2 className={`text-4xl font-pattaya font-bold `}>{LastStepBlockContent[locale].title}</h2>
-                <p className={`font-poiret font-bold italic text-lg`}>{LastStepBlockContent[locale].description}</p>
-                <Link href={routesAdaptive.consultation.root} className={`mt-4 px-4 py-2 bg-buttonContainer cursor-pointer rounded-large font-bold font-jura`}>{LastStepBlockContent[locale].button}</Link>
+                <h2 className={`text-4xl font-bold `}>{LastStepBlockContent[locale].title}</h2>
+                <p className={`italic text-lg`}>{LastStepBlockContent[locale].description}</p>
+                <Link href={routesAdaptive.consultation.root} className={`mt-4 px-4 py-2 bg-buttonContainer cursor-pointer rounded-large font-bold  `}>{LastStepBlockContent[locale].button}</Link>
             </div>
             <Image src={lastStepBg} alt="Last Step Background" className='cover  rounded-large' />
         </div>
