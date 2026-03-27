@@ -38,7 +38,15 @@ export default function ProblemSolvingBlock() {
     }
     const popUpWindowComponent = (color: string, description: string) => {
         return (
-            <div className={`absolute scale-150 rounded-lg p-4 w-64 z-100 ${color}`}>
+            <div className={`
+                        absolute 
+                        font-bold 
+                        ${color}
+                        rounded-large 
+                        transition-all  
+                        duration-300 
+                        z-100
+                        cursor-pointer`}>
                 <span>{description}</span>
             </div>
         )
@@ -68,18 +76,29 @@ export default function ProblemSolvingBlock() {
                         className={`
                         font-bold 
                         p-4
+                        relative
                         min-h-[120px]
+                        max-w-80
                         rounded-large 
                         transition-all  
-                        duration-300 
+                        duration-300
+                        flex
+                        flex-col
                         cursor-pointer
                         ${problem.color}`}
                     >
                         <span className="text-xl">{problem.problem}</span>
 
-                        {selectedProblemIndex === index && (
-                            <p className="mt-2">{problem.description}</p>
-                        )}
+                        {selectedProblemIndex === index && <span className="">{problem.description}</span>}
+                        {/* {
+                            selectedProblemIndex === index ? (
+                            <>
+                                <span className="text-xl">{problem.problem}</span>
+                                {popUpWindowComponent(problem.color, problem.description)}
+                            </>
+                        ) :
+                            <span className="text-xl">{problem.problem}</span>
+                        } */}
                     </div>
 
                 ))}
