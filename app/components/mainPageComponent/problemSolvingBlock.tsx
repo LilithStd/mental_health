@@ -68,41 +68,32 @@ export default function ProblemSolvingBlock() {
 
     const probmlemSolvingBlock = () => {
         return (
-            <div className={`grid grid-cols-2 gap-4 items-start`}>
+            <div className="grid grid-cols-2 gap-4 items-start grid-flow-row-dense">
                 {ProblemSolvingBlockContent[localeAdapted].problems.map((problem, index) => (
+
                     <div
                         key={index}
                         onClick={() => selectedProblemHandler(index)}
                         className={`
-                        font-bold 
-                        p-4
-                        relative
-                        min-h-[120px]
-                        max-w-80
+                        cursor-pointer 
+                        p-4 
+                        min-w-80
                         rounded-large 
-                        transition-all  
-                        duration-300
-                        flex
-                        flex-col
-                        cursor-pointer
-                        ${problem.color}`}
+                        ${problem.color}
+                        max-w-164
+                        transition-all duration-300
+                        ${selectedProblemIndex === index ? 'col-span-2 col-start-1' : 'col-span-1'}
+                        `}
                     >
-                        <span className="text-xl">{problem.problem}</span>
+                        <h3 className="font-bold">{problem.problem}</h3>
 
-                        {selectedProblemIndex === index && <span className="">{problem.description}</span>}
-                        {/* {
-                            selectedProblemIndex === index ? (
-                            <>
-                                <span className="text-xl">{problem.problem}</span>
-                                {popUpWindowComponent(problem.color, problem.description)}
-                            </>
-                        ) :
-                            <span className="text-xl">{problem.problem}</span>
-                        } */}
+                        {selectedProblemIndex === index && (
+                            <p className="mt-2">{problem.description}</p>
+                        )}
+
                     </div>
 
                 ))}
-
             </div>
         )
     }
