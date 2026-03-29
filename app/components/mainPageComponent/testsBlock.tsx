@@ -13,7 +13,7 @@ export default function TestsBlock() {
     const routesAdaptive = routes(locale);
     return (
 
-        <div className={`flex flex-col gap-4 p-6 justify-center items-center bg-primary-color/20 backdrop-blur-md rounded-large text-center`}>
+        <div className={`flex flex-col gap-4 p-6 justify-center items-center bg-primary-color/20 backdrop-blur-md rounded-large text-center border border-primary-color/30 shadow-lg`}>
             <h2 className={`text-5xl font-bold `}>{TestsBlockContent[locale].title}</h2>
             <p className={`italic text-lg`}>{TestsBlockContent[locale].description}</p>
             <Link href={routesAdaptive.tests.root} className={`mt-4 px-4 py-2 bg-buttonContainer rounded-large font-bold`}>{TestsBlockContent[locale].buttonText}</Link>

@@ -14,7 +14,7 @@ export default function AboutConsultation() {
     const locale = useLocale() as LocaleType
     const routesAdaptive = routes(locale)
     return (
-        <div className={`grid grid-cols-2 gap-4 p-6 justify-center items-center bg-primary-color/20 backdrop-blur-md rounded-large text-center`}>
+        <div className={`grid grid-cols-2 gap-4 p-6 justify-center items-center bg-primary-color/20 backdrop-blur-md rounded-large text-center border border-primary-color/30 shadow-lg`}>
             <div className={`flex justify-center items-center`}>
                 <Image src={HelpingAbstract} alt="Helping Abstract" className='cover scale-170 rounded-large' />
             </div>

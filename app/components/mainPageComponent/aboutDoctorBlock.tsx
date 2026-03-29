@@ -11,7 +11,7 @@ export default function AboutDoctorBlock() {
 
     return (
 
-        <div className={`grid grid-cols-2 rounded-large bg-primary-color/20 backdrop-blur-md p-6`}>
+        <div className={`grid grid-cols-2 rounded-large bg-primary-color/20 backdrop-blur-md p-6 border border-primary-color/30 shadow-lg items-center`}>
             <div className={`flex justify-center items-center`}>
                 <Image src={DoctorImage} alt="Doctor Image" className='rounded-large' />
             </div>

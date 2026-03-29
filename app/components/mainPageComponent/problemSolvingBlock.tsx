@@ -100,7 +100,7 @@ export default function ProblemSolvingBlock() {
 
 
     return (
-        <div className={`flex flex-col gap-6 justify-center items-center w-full bg-primary-color/20 rounded-large p-6 shadow-lg backdrop-blur-md`}>
+        <div className={`flex flex-col gap-6 justify-center items-center w-full bg-primary-color/20 rounded-large p-6 shadow-lg backdrop-blur-md border border-primary-color/30`}>
             <h2 className={`text-3xl mb-4 font-bold `}>{ProblemSolvingBlockContent[localeAdapted].title}</h2>
             {probmlemSolvingBlock()}
         </div>
