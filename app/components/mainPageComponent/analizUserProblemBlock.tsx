@@ -89,7 +89,7 @@ export default function AnalizUserProblemBlock() {
 
 
                             <div className={` cursor-pointer`}>
-                                <div className={`relative w-full h-32 rounded-large flex justify-center items-center bg-primary-color/50 p-4`}>
+                                <div className={`relative w-full h-32 rounded-large flex justify-center items-center bg-primary-color/50 p-4 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : 'border border-primary-color/30'} border border-primary-color/30 cursor-pointer transition-transform duration-300 ${activeIndex === index ? 'scale-105' : ''}`}>
                                     {/* <Image
                                         src={CloudCartoonVisualizationProblem}
                                         alt="Cloud"
@@ -97,7 +97,7 @@ export default function AnalizUserProblemBlock() {
                                         className={` transition-blur duration-300  object-cover ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105'}`}
                                     /> */}
 
-                                    <button className={`transition-blur duration-100 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105'} p-2 relative z-10`}>
+                                    <button className={`transition-blur  duration-100 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105'} p-2 relative z-10`}>
                                         {problem.symptom}
                                     </button>
 
@@ -112,9 +112,9 @@ export default function AnalizUserProblemBlock() {
                     ))}
                 </div>
             </div>
-            <div className={`flex justify-center items-center`}>
+            {/* <div className={`flex justify-center items-center`}>
                 <Image src={HumanWithProblem} alt="Human with Problem" className=' rounded-large' />
-            </div>
+            </div> */}
             <div className={`flex w-full flex-col gap-4 p-6 justify-center items-center`}>
                 <h2 className={`text-4xl font-geistSans font-bold `}>{AnalizeUserProblemContent[locale].TITLE_2}</h2>
                 <Link href={routesAdaptive.consultation.root} className={`p-4 justify-center items-center bg-buttonContainer rounded-large cursor-pointer font-geistSans font-bold w-fit`}>{AnalizeUserProblemContent[locale].SIGN_UP_BUTTON}</Link>
