@@ -21,7 +21,7 @@ export default function AboutConsultation() {
             <div className={`flex flex-col gap-4 p-6 justify-center items-center text-left`}>
                 <h2 className={`text-3xl font-bold `}>{AboutConsultationContent[locale].TITLE}</h2>
                 <p className={`italic`}>{AboutConsultationContent[locale].DESCRIPTION}</p>
-                <div className={`flex flex-col gap-4 justify-center items-start bg-primary-color/10 rounded-large p-4 border border-primary-color/30 w-full`}>
+                <div className={`flex flex-col gap-4 justify-center items-center bg-primary-color/10 rounded-large p-4 border border-primary-color/30 w-full`}>
                     <h3 className={`text-2xl font-semibold mt-4`}>{AboutConsultationContent[locale].TITLE_2}</h3>
                     <ul className={`list-disc list-inside font-bold`}>
                     {AboutConsultationContent[locale].BENEFITS.map((benefit, index) => (
