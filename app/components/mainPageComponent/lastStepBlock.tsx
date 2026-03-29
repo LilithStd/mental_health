@@ -12,7 +12,7 @@ export default function LastStepBlock() {
     const locale = useLocale() as LocaleType
     const routesAdaptive = routes(locale)
     return (
-        <div className={`flex flex-col gap-4 p-6 justify-center items-center bg-primary-color/20 backdrop-blur-md rounded-large text-center`}>
+        <div className={`flex flex-col gap-4 p-6 justify-center items-center bg-primary-color/20 backdrop-blur-md rounded-large text-center border border-primary-color/30 shadow-lg`}>
             <div className={`flex flex-col gap-4 p-6 justify-center items-center`}>
                 <h2 className={`text-4xl font-bold `}>{LastStepBlockContent[locale].title}</h2>
                 <p className={`italic text-lg`}>{LastStepBlockContent[locale].description}</p>

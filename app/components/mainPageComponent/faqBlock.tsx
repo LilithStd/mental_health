@@ -10,7 +10,7 @@ export default function FaqBlock() {
     const locale = useLocale() as LocaleType
     const routesAdaptive = routes(locale)
     return (
-        <div className={`flex flex-col gap-4 p-6 justify-center items-center bg-primary-color/20 backdrop-blur-md rounded-large text-center`}>
+        <div className={`flex flex-col gap-4 p-6 justify-center items-center bg-primary-color/20 backdrop-blur-md rounded-large text-center border border-primary-color/30 shadow-lg`}>
             <div className={`flex flex-col gap-4 p-6 justify-center items-center`}>
                 <h2 className={`text-5xl font-bold `}>{FaqBlockContent[locale].title}</h2>
                 <p className={`italic text-lg`}>{FaqBlockContent[locale].description}</p>

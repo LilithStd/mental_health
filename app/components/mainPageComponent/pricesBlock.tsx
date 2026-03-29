@@ -11,7 +11,7 @@ export default function PricesBlock() {
     const locale = useLocale() as LocaleType
     const routesAdaptive = routes(locale)
     return (
-        <div className={`flex gap-4 p-6 justify-center items-center bg-primary-color/20 backdrop-blur-md rounded-large`}>
+        <div className={`flex gap-4 p-6 justify-center items-center bg-primary-color/20 backdrop-blur-md rounded-large border border-primary-color/30 shadow-lg`}>
             <div className={`grid grid-cols-2 p-6 justify-center items-center`}>
                 <div className={`flex flex-col gap-4`}>
                     <h2 className={`text-5xl font-bold `}>{PricesBlockContent[locale].title}</h2>
