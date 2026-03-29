@@ -90,7 +90,7 @@ export default function AnalizUserProblemBlock() {
 
 
                             <div className={` cursor-pointer`}>
-                                <div className={`relative w-full h-32 rounded-large flex justify-center items-center bg-primary-color/50 p-4 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : 'border border-primary-color/30'} border border-primary-color/30 cursor-pointer transition-transform duration-300 ${activeIndex === index ? 'scale-105' : ''}`}>
+                                <div className={`relative w-full h-32 rounded-large  flex justify-center items-center bg-primary-color/50 p-4 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : 'border border-primary-color/30'} border border-primary-color/30 cursor-pointer transition-transform duration-300 ${activeIndex === index ? 'scale-105 z-1000' : ''}`}>
                                     {/* <Image
                                         src={CloudCartoonVisualizationProblem}
                                         alt="Cloud"
@@ -99,7 +99,7 @@ export default function AnalizUserProblemBlock() {
                                     /> */}
 
 
-                                    <button className={`transition-blur  duration-100 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105'} p-2 relative z-10`}>
+                                    <button className={`transition-blur  duration-100 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105'} p-2 relative z-200`}>
                                         {problem.symptom}
                                     </button>
 
@@ -117,12 +117,13 @@ export default function AnalizUserProblemBlock() {
             {/* <div className={`flex justify-center items-center`}>
                 <Image src={HumanWithProblem} alt="Human with Problem" className=' rounded-large' />
             </div> */}
-            <Image src={ButterFlyBGImage} alt="Butterfly Background" className='absolute top-0 left-0 w-full h-full object-cover opacity-20 rounded-large' />
-            <div className={`flex w-full flex-col gap-4 p-6 justify-center items-center`}>
+            
+            <div className={`flex w-full flex-col gap-4 p-6 justify-center items-center text-center rounded-large `}>
                 <h2 className={`text-4xl font-geistSans font-bold `}>{AnalizeUserProblemContent[locale].TITLE_2}</h2>
-                <Link href={routesAdaptive.consultation.root} className={`p-4 justify-center items-center bg-buttonContainer rounded-large cursor-pointer font-geistSans font-bold w-fit`}>{AnalizeUserProblemContent[locale].SIGN_UP_BUTTON}</Link>
+                <Link href={routesAdaptive.consultation.root} className={`p-4 justify-center items-center bg-buttonContainer rounded-large cursor-pointer font-geistSans font-bold w-fit z-10`}>{AnalizeUserProblemContent[locale].SIGN_UP_BUTTON}</Link>
 
             </div>
+            <Image src={ButterFlyBGImage} alt="Butterfly Background" fill className='rounded-large object-cover opacity-30 z-0' />
         </div>
     )
 }
