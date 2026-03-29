@@ -9,7 +9,7 @@ interface HeaderBackgroundProps {
 
 export default function HeaderBackground({ children }: HeaderBackgroundProps) {
     return (
-        <div className={`flex relative backdrop-blur-md max-w-6xl shadow-md justify-between items-center w-full rounded-large  bg-primary-color/20`}>
+        <div className={`flex relative backdrop-blur-md max-w-6xl shadow-md justify-between items-center w-full rounded-large  bg-primary-color/20 border border-primary-color/30 p-4`}>
             <div className={`flex w-full h-full justify-between items-center relative z-10`}>
                 {children}
             </div>

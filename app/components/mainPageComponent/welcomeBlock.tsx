@@ -3,6 +3,7 @@ import { routes } from '@/app/helpers/helpersFunctions'
 import { useLocale } from '@/app/hooks/useLocale'
 import { LocaleType } from '@/app/types/types'
 import DoctorImage from '@/public/images/doctor/doctor_6.png'
+import ButterFlyImageBg from "@/public/images/background/butterfly.png"
 import BrainIllustration from '@/public/images/problems/mentalHealthWomenSmall.png'
 
 import { WelcomeBlockContent } from '@/translate/mainPage/welcomeBlock'
@@ -21,8 +22,9 @@ export default function WelcomeBlock() {
     const listPriviliges = WelcomeBlockContent[localeAdapted].PRIVILEGES_LIST
 
     return (
-        <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 w-full p-4 rounded-large items-center bg-primary-color/20 shadow-lg backdrop-blur-md`}>
+        <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 w-full p-4 rounded-large items-center bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30`}>
             {/* <Image src={DoctorImage} alt="Doctor Image" className='rounded-large' /> */}
+            {/* <Image src={ButterFlyImageBg} alt="Butterfly Background" fill className="object-cover opacity-20" /> */}
             <Image src={BrainIllustration} alt="Brain Illustration" className='object-cover w-full scale-120 rounded-large' />
             <div>
                 <h2 className={`text-5xl font-geistSans font-bold`}>{WelcomeBlockContent[localeAdapted].TITLE}</h2>
