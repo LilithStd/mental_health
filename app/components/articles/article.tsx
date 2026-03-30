@@ -18,6 +18,7 @@ import Link from "next/link"
 import { LocaleType } from "@/app/types/types"
 import { useLocale } from "@/app/hooks/useLocale"
 import { BUTTON_READ_FULL_ARTICLE } from "@/translate/mediaPage/mediaPageContent"
+import { hash } from "crypto"
 
 
 interface ArticleProps {
@@ -111,6 +112,13 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         />
         <span className="ml-2 font-jura font-bold">{likesCount} {likesCount === 1 ? 'Like' : 'Likes'}</span>
     </div>
+    const tagsComponent = () => {
+        return (
+            <div className={`flex flex-wrap gap-2 p-2 bg-primary-color/30 border border-primary-color/30 shadow-md ${font} rounded-large`}>
+                <span>Hash Tags:</span>
+            </div>
+        )
+    }
     const mainMetaDataArticleComponent =
         <div className={`flex items-top gap-2 p-2`}>
             <div
@@ -269,7 +277,9 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             <div className={`flex items-center justify-between p-2`}>
                 {favoritesComponent}
             </div>
-
+            <div className={`flex w-full justify-start p-2 mt-auto`}>
+                {tagsComponent()}
+            </div>
             <div className={`flex items-center justify-end  p-2`}>
                 {userPrivilege &&
                     editArticleButtonsComponent
