@@ -203,7 +203,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                 {mainMetaDataArticleComponent}
             </div>
 
-            <div className="flex flex-col font-jura font-bold flex-1 p-2 rounded-large bg-primary-color/30 border border-primary-color/30 shadow-md mt-4">
+            <div className="flex flex-col  flex-1 p-2 rounded-large bg-primary-color/30 border border-primary-color/30 shadow-md mt-4">
                 <p>
                     {cropContent(article.content, CROP_CONTAINER_SIZE.MEDIUM)}
                 </p>
@@ -228,7 +228,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         >
             {mainMetaDataArticleComponent}
             <div className="flex flex-col p-4 rounded-large bg-primary-color/30 border border-primary-color/30 shadow-md h-full">
-                <p className={`font-jura font-bold text-shadow-lg`}>
+                <p className={``}>
                     {cropContent(article.content, CROP_CONTAINER_SIZE.SMALL)}
 
                 </p>

@@ -36,16 +36,16 @@ export default function News({ news, typeNews }: NewsProps) {
     //
     // components
 
-    const previewNewsComponent = <div className={`grid grid-cols-[0.4fr_1fr] w-full gap-4  p-4  bg-mainContainer rounded-large`}>
-        <div className={`flex w-full  bg-subContainer rounded-large items-center justify-center`}>
+    const previewNewsComponent = <div className={`grid grid-cols-[0.4fr_1fr] w-full gap-4  p-4  bg-primary-color/30 border border-primary-color/30 rounded-large`}>
+        <div className={`flex w-full  bg-primary-color/30 border border-primary-color/30 rounded-large items-center justify-center`}>
             <PhotoIcon className={``} />
         </div>
-        <div className={`flex flex-col p-4 rounded-large bg-subContainer h-full`}>
+        <div className={`flex flex-col p-4 rounded-large bg-primary-color/30 border border-primary-color/30 h-full`}>
             <h3 className="font-bold">{news.title}</h3>
             <p>{cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
             <div className={`flex w-full justify-end mt-auto`}>
-                <button className={`bg-buttonContainer p-4 rounded-large flex cursor-pointer hover:scale-105 transition`} onClick={() => { router.push(routesAdaptive.news.byId(news.id)) }}>
-                    <span className={`text-shadow-lg`}>
+                <button className={`bg-primary-color p-4 rounded-large flex cursor-pointer hover:scale-105 transition`} onClick={() => { router.push(routesAdaptive.news.byId(news.id)) }}>
+                    <span className={``}>
                         {BUTTON_READ_FULL_NEWS[locale]}
                     </span>
 
@@ -56,10 +56,10 @@ export default function News({ news, typeNews }: NewsProps) {
     </div>
 
     const mediumNewsComponent = <div className={`grid grid-cols-[0.45fr_1fr] w-full  p-4  bg-subContainer rounded-large`}>
-        <div className={`image-szie-large  bg-mainContainer rounded-large items-center justify-center`}>
+        <div className={`image-szie-large  bg-primary-color/30 border border-primary-color/30 rounded-large items-center justify-center`}>
             <PhotoIcon className={` `} />
         </div>
-        <div className="flex flex-col p-4 rounded-large bg-subContainer h-full">
+        <div className="flex flex-col p-4 rounded-large bg-primary-color/30 border border-primary-color/30 h-full">
             <h3 className="font-bold">{news.title}</h3>
 
             <p>
@@ -68,7 +68,7 @@ export default function News({ news, typeNews }: NewsProps) {
 
             <div className="flex w-full justify-end mt-auto">
                 <button
-                    className="bg-buttonContainer p-4 rounded-large flex cursor-pointer hover:scale-105 transition"
+                    className="bg-primary-color p-4 rounded-large flex cursor-pointer hover:scale-105 transition"
                     onClick={() => { router.push(routesAdaptive.news.byId(news.id)) }}
                 >
                     <span>{BUTTON_READ_FULL_NEWS[locale]}</span>
@@ -83,14 +83,14 @@ export default function News({ news, typeNews }: NewsProps) {
     const fullNewsComponent =
         <div className={`grid grid-cols-[0.35fr_1fr] w-full p-4  bg-subContainer rounded-large`
         }>
-            <div className={`image-szie-large  bg-input rounded-large items-center justify-center`}>
+            <div className={`image-szie-large  bg-primary-color/30 border border-primary-color/30 rounded-large items-center justify-center`}>
                 <PhotoIcon className={`text-gray-500`} />
             </div>
             <div className={`flex flex-col w-full gap-4 bg-subContainer p-4 rounded-large`}>
                 <h3 className="font-bold">{news.title}</h3>
                 <p>{news.content}</p>
                 <div className={`flex w-full  justify-end rounded-large cursor-pointer`}>
-                    <a href={news.link} target="_blank" rel="noopener noreferrer" className={`bg-buttonContainer flex justify-end w-fit text-shadow-lg p-4 rounded-large`}>Source Link</a>
+                    <a href={news.link} target="_blank" rel="noopener noreferrer" className={`bg-primary-color flex justify-end w-fit text-shadow-lg p-4 rounded-large`}>Source Link</a>
                 </div>
 
             </div>
@@ -100,7 +100,7 @@ export default function News({ news, typeNews }: NewsProps) {
     //  
     return (
         <div className={`w-full  flex justify-center`}>
-            <div className={`flex w-full max-w-6xl  rounded-large bg-mainContainer`}>
+            <div className={`flex w-full max-w-6xl  rounded-large`}>
                 {typeNews === NEWS_TYPE.PREVIEW && previewNewsComponent}
                 {typeNews === NEWS_TYPE.MEDIUM && mediumNewsComponent}
                 {typeNews === NEWS_TYPE.FULL && fullNewsComponent}

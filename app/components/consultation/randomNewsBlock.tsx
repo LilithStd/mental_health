@@ -29,11 +29,9 @@ export default function RandomNewsBlock() {
     }, [locale])
 
     return (
-        <div className={`flex flex-col bg-subContainer indents-main-container rounded-large  gap-4`}>
-            <div>
-                <h2 className={`text-3xl indents-main-container font-bold bg-mainContainer rounded-large`}>{MediaPageContent[locale].random_news}</h2>
-            </div>
-            <div className={`flex flex-col gap-4 m-4`}>
+        <div className={`flex flex-col indents-main-container rounded-large  `}>
+            <h2 className={`text-3xl bg-primary-color/30 border border-primary-color/30 shadow-md p-4  font-bold  rounded-large mb-4`}>{MediaPageContent[locale].random_news}</h2>
+            <div className={`flex flex-col gap-4`}>
                 {loading ? (
                     <Loading />
                 ) : (
