@@ -272,11 +272,11 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                     editArticleButtonsComponent
                 }
             </div>
-            <span className={`text-sm ${font.text.size.medium} ${font.title.weigth.thin} ${font.title.curve.italic} opacity-50 p-2`}>Published  on: {formattedDate}</span>
+            <span className={`text-sm  opacity-50 p-2`}>Published  on: {formattedDate}</span>
         </div>;
     // 
     return (
-        <article key={article.id} className={`bg-subContainer p-4 rounded-large  w-full  flex flex-col gap-2`}>
+        <article key={article.id} className={`rounded-large  w-full  flex flex-col gap-2`}>
             {typeArticle === ARTICLE_TYPE.PREVIEW && previewArticleComponent}
             {typeArticle === ARTICLE_TYPE.MEDIUM && mediumArticleComponent}
             {typeArticle === ARTICLE_TYPE.FULL && fullArticleComponent}

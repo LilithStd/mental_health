@@ -1,6 +1,6 @@
 
 import RandomArticleBlock from "@/app/components/blockRandomElements/randomArticleBlock";
-import RandomNewsBlock from "@/app/components/blockRandomElements/randomNewsBlock";
+import RandomNewsBlock from "@/app/components/consultation/randomNewsBlock";
 import { routes } from "@/app/helpers/helpersFunctions";
 import { getServerLocale } from "@/app/hooks/getServerLocale";
 import { getLocale } from "@/app/hooks/server/getLocale";
@@ -22,9 +22,9 @@ export default async function MediaPage({
     const routesAdaptive = routes(locale)
     console.log("Locale in MediaPage:", locale)
     return (
-        <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
+        <div className={`flex flex-col indents-main-container  flex-1 items-center `}>
 
-            <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-mainContainer p-4 `}>
+            <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-6`}>
                 <div className={`flex w-full justify-center gap-4 mb-4`}>
                     <Link href={routesAdaptive.news.root} className={`bg-buttonContainer p-4 rounded-large`}>{MediaPageContent[locale].title_news}</Link>
                     <Link href={routesAdaptive.articles.root} className={`bg-buttonContainer p-4 rounded-large`}>{MediaPageContent[locale].title_articles}</Link>

@@ -4,6 +4,7 @@ import { useLocale } from "@/app/hooks/useLocale";
 import { LocaleType } from "@/app/types/types";
 import { FaqBlockContent } from "@/translate/mainPage/faqBlock";
 import Link from "next/link";
+import FAQElementIcon from "@/public/icons/ClipboardDocumentCheck.svg";
 
 
 export default function FaqBlock() {
@@ -20,7 +21,8 @@ export default function FaqBlock() {
 
                 <ul className={`list-disc list-inside mt-4  justify-center flex flex-col gap-2 bg-primary-color/10 rounded-large p-4 border border-primary-color/30 w-fit`}>
                     {FaqBlockContent[locale].listsQuestions.map((question, index) => (
-                        <li key={index} className={`flex justify-center items-start gap-2`}>
+                        <li key={index} className={`flex justify-start items-start gap-2`}>
+                            <FAQElementIcon fill={`green`} className={`w-6 h-6`} />
                             <strong className={`font-bold`}>{question}</strong>
 
                         </li>
