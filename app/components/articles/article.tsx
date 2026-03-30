@@ -105,7 +105,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         setIsChanged(true);
     }
     // components
-    const favoritesComponent = <div className={`flex items-center`}>
+    const favoritesComponent = <div className={`flex items-center w-fit shadow-2xl p-2 rounded-large bg-primary-color/30 border border-primary-color/30`}>
         <Favorites isFavorite={isLiked}
             callBackIsFavorite={handleLike}
         />
@@ -238,7 +238,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         </div>
     const fullArticleComponent =
         <div className={`flex flex-col w-full  mb-4 p-2`}>
-            <div className={`flex rounded  max-w-6xl rounded-large bg-primary-color/30 mb-2 w-full border border-primary-color/30 shadow-md p-4`}>
+            <div className={`flex rounded  max-w-6xl rounded-large  mb-2 w-full`}>
                 {mainMetaDataArticleComponent}
 
             </div>
