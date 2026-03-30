@@ -275,7 +275,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                     editArticleButtonsComponent
                 }
             </div>
-            <span className={`text-sm  opacity-50 `}>Published  on: {formattedDate}</span>
+            <span className={`text-sm p-2  opacity-50 `}>Published  on: {formattedDate}</span>
         </div>;
     // 
     return (
