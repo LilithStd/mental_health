@@ -115,18 +115,19 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         <div className={`flex items-top gap-2 p-2`}>
             <div
                 className={`
-                            flex  flex-col items-center gap-2
-                            bg-subContainer
-                            p-2
+                            flex  flex-col items-center gap-2 p-2
+                            bg-primary-color/30
+                            border border-primary-color/30
+                            shadow-md
                             rounded-large
                             `}
             >
-                <div className={`flex justify-center items-center rounded-circle bg-mainContainer  p-2`}>
+                <div className={`flex justify-center items-center rounded-circle bg-primary-color/30  p-2`}>
                     <AuthorIcon className="w-30 h-30 fill-current" />
                 </div>
             </div>
             <div>
-                {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold" /> : <h2 className={`flex h-fit text-2xl p-4 rounded-large bg-subContainer font-jura font-bold text-shadow-lg`}>{article.title}</h2>}
+                {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold" /> : <h2 className={`flex h-fit text-2xl  rounded-large font-jura font-bold text-shadow-lg`}>{article.title}</h2>}
                 {isEditTtitle && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditTitle(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditTitle(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
                 {isEditAuthor ? <input name="author" type="text" value={editAuthor} onChange={editAuthorHandler} className="text-xl " /> : <h3 className={`font-jura italic opacity-70 flex items-center gap-2`}>
                     by {!article.author || article.author.length === 0 ? "Unknown Author" : article.author}
@@ -198,11 +199,11 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
     const mediumArticleComponent =
         <div className="flex flex-col mb-4 p-2 h-full">
 
-            <div className="flex w-full rounded-large bg-mainContainer">
+            <div className="flex w-full rounded-large bg-primary-color/30 border border-primary-color/30 shadow-md p-4">
                 {mainMetaDataArticleComponent}
             </div>
 
-            <div className="flex flex-col font-jura font-bold flex-1 p-2 rounded-large bg-subContainer">
+            <div className="flex flex-col font-jura font-bold flex-1 p-2 rounded-large bg-primary-color/30 border border-primary-color/30 shadow-md mt-4">
                 <p>
                     {cropContent(article.content, CROP_CONTAINER_SIZE.MEDIUM)}
                 </p>
@@ -219,12 +220,14 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             key={article.id}
             className={`
        grid grid-cols-[1fr_1fr]  p-2
-        bg-mainContainer
-         rounded-large
+        bg-primary-color/30
+        border border-primary-color/30
+        shadow-md
+        rounded-large
      `}
         >
             {mainMetaDataArticleComponent}
-            <div className="flex flex-col p-4 rounded-large bg-subContainer h-full">
+            <div className="flex flex-col p-4 rounded-large bg-primary-color/30 border border-primary-color/30 shadow-md h-full">
                 <p className={`font-jura font-bold text-shadow-lg`}>
                     {cropContent(article.content, CROP_CONTAINER_SIZE.SMALL)}
 
@@ -235,7 +238,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         </div>
     const fullArticleComponent =
         <div className={`flex flex-col w-full  mb-4 p-2`}>
-            <div className={`flex rounded  max-w-6xl rounded-large bg-mainContainer mb-2 w-full`}>
+            <div className={`flex rounded  max-w-6xl rounded-large bg-primary-color/30 mb-2 w-full border border-primary-color/30 shadow-md p-4`}>
                 {mainMetaDataArticleComponent}
 
             </div>
@@ -272,7 +275,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                     editArticleButtonsComponent
                 }
             </div>
-            <span className={`text-sm  opacity-50 p-2`}>Published  on: {formattedDate}</span>
+            <span className={`text-sm  opacity-50 `}>Published  on: {formattedDate}</span>
         </div>;
     // 
     return (
