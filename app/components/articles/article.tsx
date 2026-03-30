@@ -106,7 +106,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         setIsChanged(true);
     }
     // components
-    const favoritesComponent = <div className={`flex items-center w-fit shadow-2xl p-2 rounded-large bg-primary-color/30 border border-primary-color/30`}>
+    const favoritesComponent = <div className={`flex items-center w-fit p-2 shadow-lg rounded-large bg-primary-color/30 border border-primary-color/30`}>
         <Favorites isFavorite={isLiked}
             callBackIsFavorite={handleLike}
         />
