@@ -19,6 +19,7 @@ import { LocaleType } from "@/app/types/types"
 import { useLocale } from "@/app/hooks/useLocale"
 import { BUTTON_READ_FULL_ARTICLE } from "@/translate/mediaPage/mediaPageContent"
 import HashTags from "../shared/hashTags"
+import { hash } from "crypto"
 
 
 
@@ -160,8 +161,8 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         <div className={`flex items-center justify-between mt-4`}>
             <div className={`flex justify-between flex-col gap-2  `}>
                 {favoritesComponent}
+                {tagsComponent()}
                 <span className={`text-sm font-jura italic opacity-50`}>Published on: {formattedDate}</span>
-
             </div>
 
             {redirectButtonComponent}
