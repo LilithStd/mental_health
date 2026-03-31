@@ -18,6 +18,7 @@ import Link from "next/link"
 import { LocaleType } from "@/app/types/types"
 import { useLocale } from "@/app/hooks/useLocale"
 import { BUTTON_READ_FULL_ARTICLE } from "@/translate/mediaPage/mediaPageContent"
+import HashTags from "../shared/hashTags"
 
 
 
@@ -117,7 +118,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
     const tagsComponent = () => {
         return (
             <div className={`flex flex-wrap gap-2 p-2 bg-primary-color/30 border border-primary-color/30 shadow-md ${font} rounded-large`}>
-                <span>Hash Tags:</span>
+                <HashTags hashTags={['example', 'sample', 'test']} />
             </div>
         )
     }
