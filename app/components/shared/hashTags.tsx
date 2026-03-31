@@ -14,9 +14,11 @@ export default function HashTags({ hashTags }: HashTagsProps) {
   return (
     <div>
         <span className="text-primary-color font-bold">#{HASH_TAGS[locale].hashTags}</span>
-        <div>
+        <div className={`flex w-full flex-wrap gap-2 mt-2`}>
             {hashTags.map((tag, index) => (
-                <span key={index} className="text-primary-color font-bold"><HashTagIcon/>{tag} </span>
+                <span key={index} className={`flex items-center gap-1 bg-buttonContainer/50 p-2 rounded-large`}>
+                    <HashTagIcon width={16} height={16} /> {tag}
+                </span>
             ))}
         </div>
     </div>
