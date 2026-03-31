@@ -18,7 +18,7 @@ import Link from "next/link"
 import { LocaleType } from "@/app/types/types"
 import { useLocale } from "@/app/hooks/useLocale"
 import { BUTTON_READ_FULL_ARTICLE } from "@/translate/mediaPage/mediaPageContent"
-import { hash } from "crypto"
+
 
 
 interface ArticleProps {
@@ -107,10 +107,12 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
     }
     // components
     const favoritesComponent = <div className={`flex items-center w-fit p-2 shadow-lg rounded-large bg-primary-color/30 border border-primary-color/30`}>
-        <Favorites isFavorite={isLiked}
+        <Favorites 
+            isFavorite={isLiked}
+            counterFavorites={likesCount}
             callBackIsFavorite={handleLike}
         />
-        <span className="ml-2 font-jura font-bold">{likesCount} {likesCount === 1 ? 'Like' : 'Likes'}</span>
+        
     </div>
     const tagsComponent = () => {
         return (
