@@ -132,6 +132,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                 <div className={`flex items-center gap-2 p-2 shadow-lg rounded-large bg-primary-color/30 border border-primary-color/30`}>
                     {favoritesComponent(type)}
                     {tagsComponent(type)}
+                    
                 </div>
         )
     }
@@ -170,13 +171,14 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         </Link>
     </div>
     const interactionBlockComponent =
-        <div className={`flex items-center justify-between mt-4`}>
+        <div className={`flex flex-col items-center justify-between mt-4`}>
             <div className={`flex w-full justify-between flex-col gap-2  `}>
                 {raitingItemComponent(typeArticle)}
+                {redirectButtonComponent}
                 <span className={`text-sm font-jura italic opacity-50`}>Published on: {formattedDate}</span>
             </div>
 
-            {/* {redirectButtonComponent} */}
+            
         </div>
     const editArticleComponent =
         <button className={`bg-buttonContainer rounded-large p-4 cursor-pointer`}
