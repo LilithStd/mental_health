@@ -1,5 +1,5 @@
 
-import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum";
+// import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum";
 import ArticleClient from "./articleClient";
 import NewArticleButton from "./articleComponents/newArticleButton";
 import { routes } from "@/app/helpers/helpersFunctions";
@@ -7,6 +7,7 @@ import ReturnButton from "../returnButton";
 import { LocaleType } from "@/app/types/types";
 import { MediaPageContent } from "@/translate/mediaPage/mediaPageContent";
 import { getLocale } from "@/app/hooks/server/getLocale";
+import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum";
 
 
 
@@ -22,7 +23,7 @@ export type ArticleType = {
 
 interface ArticlesClientProps {
     initialArticles: ArticleType[],
-    type: ARTICLE_TYPE,
+    type: SIZE_ELEMENT,
 }
 
 export default async function ArticlesClient({ initialArticles, type }: ArticlesClientProps) {
@@ -64,7 +65,7 @@ export default async function ArticlesClient({ initialArticles, type }: Articles
     return (
         <div>
 
-            {type === ARTICLE_TYPE.PREVIEW ? randomArticlesComponent : regularArticlesComponent}
+            {type === SIZE_ELEMENT.PREVIEW ? randomArticlesComponent : regularArticlesComponent}
         </div>
 
     )
