@@ -1,5 +1,5 @@
 'use client'
-import { font } from "@/app/globalConsts/globalStyles"
+
 import Favorites from "../shared/favorites"
 import { useEffect, useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
@@ -19,14 +19,14 @@ import { LocaleType } from "@/app/types/types"
 import { useLocale } from "@/app/hooks/useLocale"
 import { BUTTON_READ_FULL_ARTICLE } from "@/translate/mediaPage/mediaPageContent"
 import HashTags from "../shared/hashTags"
-import { hash } from "crypto"
+
 
 
 
 interface ArticleProps {
     article: ArticleType
     initialLikesCount: number
-    typeArticle?: ARTICLE_TYPE
+    typeArticle: ARTICLE_TYPE
 }
 
 
@@ -108,19 +108,28 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         setIsChanged(true);
     }
     // components
-    const favoritesComponent = <div className={`flex items-center w-fit p-2 shadow-lg rounded-large bg-primary-color/30 border border-primary-color/30`}>
+
+    const tagsComponent = (type: ARTICLE_TYPE) => {
+        return (
+            <div className={`flex flex-wrap bg-primary-color/30 border border-primary-color/30  shadow-md rounded-large p-2 gap-2`}>
+                <HashTags hashTags={['example', 'sample', 'test']} />
+            </div>
+        )
+    }
+    const raitingItemComponent = (type: ARTICLE_TYPE) => {
+        const favoritesComponent = () => {
+            return (<div className={`flex items-center w-fit p-2 shadow-lg rounded-large bg-primary-color/30 border border-primary-color/30`}>
         <Favorites 
             isFavorite={isLiked}
             counterFavorites={likesCount}
             callBackIsFavorite={handleLike}
         />
         
-    </div>
-    const tagsComponent = () => {
+    </div>) 
+        } 
         return (
-            <div className={`flex flex-wrap gap-2 p-2 bg-primary-color/30 border border-primary-color/30 shadow-md ${font} rounded-large`}>
-                <HashTags hashTags={['example', 'sample', 'test']} />
-            </div>
+                <div className={`flex items-center gap-2 p-2 shadow-lg rounded-large bg-primary-color/30 border border-primary-color/30`}>
+                </div>
         )
     }
     const mainMetaDataArticleComponent =
@@ -160,8 +169,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
     const interactionBlockComponent =
         <div className={`flex items-center justify-between mt-4`}>
             <div className={`flex justify-between flex-col gap-2  `}>
-                {favoritesComponent}
-                {tagsComponent()}
+                {raitingItemComponent(typeArticle)}
                 <span className={`text-sm font-jura italic opacity-50`}>Published on: {formattedDate}</span>
             </div>
 
@@ -277,12 +285,6 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                 )}
 
                 {isEditContent && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditContent(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditContent(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
-            </div>
-            <div className={`flex items-center justify-between p-2`}>
-                {favoritesComponent}
-            </div>
-            <div className={`flex w-full justify-start p-2 mt-auto`}>
-                {tagsComponent()}
             </div>
             <div className={`flex items-center justify-end  p-2`}>
                 {userPrivilege &&
