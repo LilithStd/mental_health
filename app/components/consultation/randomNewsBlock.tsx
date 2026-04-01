@@ -2,11 +2,12 @@
 import { pickRandomUnique } from "@/app/helpers/helpersFunctions";
 import { useEffect, useState } from "react";
 import News, { NewsType } from "../news/news";
-import { NEWS_TYPE } from "@/app/globalConsts/globalEnum";
+// import { NEWS_TYPE } from "@/app/globalConsts/globalEnum";
 import Loading from "../shared/loading";
 import { LocaleType } from "@/app/types/types";
 import { useLocale } from "@/app/hooks/useLocale";
 import { MediaPageContent } from "@/translate/mediaPage/mediaPageContent";
+import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum";
 
 
 
@@ -36,7 +37,7 @@ export default function RandomNewsBlock() {
                     <Loading />
                 ) : (
                     news.map((item) => (
-                        <News key={item.id} news={item} typeNews={NEWS_TYPE.PREVIEW} />
+                        <News key={item.id} news={item} typeNews={SIZE_ELEMENT.PREVIEW} />
                     ))
                 )}
             </div>

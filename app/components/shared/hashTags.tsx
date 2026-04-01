@@ -13,10 +13,10 @@ export default function HashTags({ hashTags }: HashTagsProps) {
     const locale = useLocale() as LocaleType;
   return (
     <div>
-        <span className={`text-sm`}>#{HASH_TAGS[locale].hashTags}</span>
-        <div className={`flex w-full flex-wrap gap-2`}>
+        {/* <span className={`text-xs`}>#{HASH_TAGS[locale].hashTags}</span> */}
+        <div className={`flex w-full text-xs flex-wrap gap-2`}>
             {hashTags.map((tag, index) => (
-                <span key={index} className={`flex items-center gap-1 pl-2 pr-2 bg-buttonContainer/50  rounded-large  text-sm`}>
+                <span key={index} className={`flex items-center gap-1 pl-2 pr-2 bg-buttonContainer/50  rounded-large`}>
                     <HashTagIcon width={8} height={8} /> 
                     {tag}
                 </span>

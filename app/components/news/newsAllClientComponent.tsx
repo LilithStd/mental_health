@@ -1,10 +1,11 @@
-import { NEWS_TYPE } from "@/app/globalConsts/globalEnum"
+// import { NEWS_TYPE } from "@/app/globalConsts/globalEnum"
 import News, { NewsType } from "./news"
 import CreateNewsButtonComponent from "./newsComponents/createNewsButtonComponent"
 import { routes } from "@/app/helpers/helpersFunctions"
 import ReturnButton from "../returnButton"
 import { getLocale } from "@/app/hooks/server/getLocale"
 import { LocaleType } from "@/app/types/types"
+import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum"
 
 interface NewsClientComponentProps {
     initialNews: NewsType[],
@@ -26,7 +27,7 @@ export default async function NewsAllClientComponent({ initialNews }: NewsClient
                     {/* {isCreateArticleVisible && <CreateNews />} */}
 
                     {news.map((newsItem) => (
-                        <News key={newsItem.id} news={newsItem} typeNews={NEWS_TYPE.MEDIUM} />
+                        <News key={newsItem.id} news={newsItem} typeNews={SIZE_ELEMENT.MEDIUM} />
                     ))}
                 </div>
             }

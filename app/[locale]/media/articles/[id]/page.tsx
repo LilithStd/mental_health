@@ -1,12 +1,13 @@
 
 import { getArticleLikes } from '@/app/serverActions/likesStorage'
 import Article from '@/app/components/articles/article'
-import { ARTICLE_TYPE } from '@/app/globalConsts/globalEnum'
+// import { ARTICLE_TYPE } from '@/app/globalConsts/globalEnum'
 import { getArticleById } from '@/app/serverActions/articleStorage'
 import ReturnButton from '@/app/components/returnButton'
 import { routes } from '@/app/helpers/helpersFunctions'
 import { LocaleType } from '@/app/types/types'
 import { getLocale } from '@/app/hooks/server/getLocale'
+import { SIZE_ELEMENT } from '@/app/globalConsts/globalEnum'
 
 export default async function ArticlePage({
     params,
@@ -34,7 +35,7 @@ export default async function ArticlePage({
                 <Article
                     article={article}
                     initialLikesCount={likes.likesCount}
-                    typeArticle={ARTICLE_TYPE.FULL}
+                    typeArticle={SIZE_ELEMENT.FULL}
                 />
             </div>
 

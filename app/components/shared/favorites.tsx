@@ -4,20 +4,22 @@ import WithOutFavoritesIcon from "@/public/icons/HeartEmpty.svg"
 import { LocaleType } from "@/app/types/types"
 import { useLocale } from "@/app/hooks/useLocale"
 import { FAVORITES } from "@/translate/shared/favorites"
+import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum"
 
 interface FavoritesProps {
     isFavorite: boolean,
+    type: SIZE_ELEMENT,
     counterFavorites?: number,
     callBackIsFavorite?: () => void
 }
 
 
-export default  function Favorites({ isFavorite, counterFavorites, callBackIsFavorite }: FavoritesProps) {
+export default  function Favorites({ isFavorite, type, counterFavorites, callBackIsFavorite }: FavoritesProps) {
     const locale = useLocale() as LocaleType;
     return (
-        <div className={`flex items-center ${"cursor-pointer"}`} onClick={callBackIsFavorite}>
-            {isFavorite ? <IsFavoritesIcon width={24} height={24} /> : <WithOutFavoritesIcon width={24} height={24} />}
-            <span className="ml-2 ">{counterFavorites} {counterFavorites && counterFavorites <= 1 ? FAVORITES[locale].like : FAVORITES[locale].likes}</span>
+        <div className={`flex items-center cursor-pointer`} onClick={callBackIsFavorite}>
+            {isFavorite ? <IsFavoritesIcon width={18} height={18} /> : <WithOutFavoritesIcon width={18} height={18} />}
+            <span className={`ml-2 text-xs`}>{counterFavorites} {counterFavorites && counterFavorites <= 1 ? FAVORITES[locale].like : FAVORITES[locale].likes}</span>
         </div>
     )
 }

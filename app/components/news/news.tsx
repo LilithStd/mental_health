@@ -1,6 +1,6 @@
 'use client'
 
-import { NEWS_TYPE } from "@/app/globalConsts/globalEnum"
+// import { NEWS_TYPE } from "@/app/globalConsts/globalEnum"
 import { cropContent, routes, } from "@/app/helpers/helpersFunctions"
 import { CROP_CONTAINER_SIZE } from "@/app/globalConsts/globalConsts"
 import { useRouter } from "next/navigation"
@@ -10,6 +10,7 @@ import ReturnButton from "../returnButton"
 import { useLocale } from "@/app/hooks/useLocale"
 import { LocaleType } from "@/app/types/types"
 import { BUTTON_READ_FULL_NEWS } from "@/translate/mediaPage/mediaPageContent"
+import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum"
 
 export type NewsType = {
     id: number
@@ -21,7 +22,7 @@ export type NewsType = {
 
 interface NewsProps {
     news: NewsType,
-    typeNews: NEWS_TYPE
+    typeNews: SIZE_ELEMENT
 }
 export default function News({ news, typeNews }: NewsProps) {
     const router = useRouter();
@@ -101,9 +102,9 @@ export default function News({ news, typeNews }: NewsProps) {
     return (
         <div className={`w-full  flex justify-center`}>
             <div className={`flex w-full max-w-6xl  rounded-large`}>
-                {typeNews === NEWS_TYPE.PREVIEW && previewNewsComponent}
-                {typeNews === NEWS_TYPE.MEDIUM && mediumNewsComponent}
-                {typeNews === NEWS_TYPE.FULL && fullNewsComponent}
+                {typeNews === SIZE_ELEMENT.PREVIEW && previewNewsComponent}
+                {typeNews === SIZE_ELEMENT.MEDIUM && mediumNewsComponent}
+                {typeNews === SIZE_ELEMENT.FULL && fullNewsComponent}
             </div>
         </div>
     )

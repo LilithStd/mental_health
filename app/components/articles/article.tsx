@@ -3,7 +3,7 @@
 import Favorites from "../shared/favorites"
 import { useEffect, useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
-import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum"
+// import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum"
 import { canEditContent } from "@/app/serverActions/permissions"
 import EditActiveIcon from "@/public/icons/EditActive.svg"
 import EditInactiveIcon from "@/public/icons/EditInactive.svg"
@@ -19,6 +19,7 @@ import { LocaleType } from "@/app/types/types"
 import { useLocale } from "@/app/hooks/useLocale"
 import { BUTTON_READ_FULL_ARTICLE } from "@/translate/mediaPage/mediaPageContent"
 import HashTags from "../shared/hashTags"
+import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum"
 
 
 
@@ -26,7 +27,7 @@ import HashTags from "../shared/hashTags"
 interface ArticleProps {
     article: ArticleType
     initialLikesCount: number
-    typeArticle: ARTICLE_TYPE
+    typeArticle: SIZE_ELEMENT
 }
 
 
@@ -109,26 +110,28 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
     }
     // components
 
-    const tagsComponent = (type: ARTICLE_TYPE) => {
+    const raitingItemComponent = (type: SIZE_ELEMENT) => {
+        const favoritesComponent = (type: SIZE_ELEMENT) => {
+            return (<div className={`flex items-center w-fit p-2 shadow-lg rounded-large bg-primary-color/30 border border-primary-color/30`}>
+        <Favorites 
+            isFavorite={isLiked}
+            type={type}
+            counterFavorites={likesCount}
+            callBackIsFavorite={handleLike}
+        />
+        </div>) 
+        }
+           const tagsComponent = (type: SIZE_ELEMENT) => {
         return (
-            <div className={`flex flex-wrap bg-primary-color/30 border border-primary-color/30  shadow-md rounded-large p-2 gap-2`}>
+            <div className={`flex  bg-primary-color/30 border border-primary-color/30  shadow-md rounded-large p-2 gap-2 text-xs`}>
                 <HashTags hashTags={['example', 'sample', 'test']} />
             </div>
         )
     }
-    const raitingItemComponent = (type: ARTICLE_TYPE) => {
-        const favoritesComponent = () => {
-            return (<div className={`flex items-center w-fit p-2 shadow-lg rounded-large bg-primary-color/30 border border-primary-color/30`}>
-        <Favorites 
-            isFavorite={isLiked}
-            counterFavorites={likesCount}
-            callBackIsFavorite={handleLike}
-        />
-        
-    </div>) 
-        } 
         return (
                 <div className={`flex items-center gap-2 p-2 shadow-lg rounded-large bg-primary-color/30 border border-primary-color/30`}>
+                    {favoritesComponent(type)}
+                    {tagsComponent(type)}
                 </div>
         )
     }
@@ -168,12 +171,12 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
     </div>
     const interactionBlockComponent =
         <div className={`flex items-center justify-between mt-4`}>
-            <div className={`flex justify-between flex-col gap-2  `}>
+            <div className={`flex w-full justify-between flex-col gap-2  `}>
                 {raitingItemComponent(typeArticle)}
                 <span className={`text-sm font-jura italic opacity-50`}>Published on: {formattedDate}</span>
             </div>
 
-            {redirectButtonComponent}
+            {/* {redirectButtonComponent} */}
         </div>
     const editArticleComponent =
         <button className={`bg-buttonContainer rounded-large p-4 cursor-pointer`}
@@ -250,7 +253,6 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             <div className="flex flex-col p-4 rounded-large bg-primary-color/30 border border-primary-color/30 shadow-md h-full">
                 <p className={``}>
                     {cropContent(article.content, CROP_CONTAINER_SIZE.SMALL)}
-
                 </p>
                 {interactionBlockComponent}
             </div>
@@ -296,9 +298,9 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
     // 
     return (
         <article key={article.id} className={`rounded-large  w-full  flex flex-col gap-2`}>
-            {typeArticle === ARTICLE_TYPE.PREVIEW && previewArticleComponent}
-            {typeArticle === ARTICLE_TYPE.MEDIUM && mediumArticleComponent}
-            {typeArticle === ARTICLE_TYPE.FULL && fullArticleComponent}
+            {typeArticle === SIZE_ELEMENT.PREVIEW && previewArticleComponent}
+            {typeArticle === SIZE_ELEMENT.MEDIUM && mediumArticleComponent}
+            {typeArticle === SIZE_ELEMENT.FULL && fullArticleComponent}
         </article>
 
     )
