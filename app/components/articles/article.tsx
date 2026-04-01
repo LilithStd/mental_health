@@ -295,6 +295,16 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                     editArticleButtonsComponent
                 }
             </div>
+            <div className={`flex w-full justify-start gap-4 items-center p-2`}>
+                {/* {interactionBlockComponent} */}
+                <Favorites
+                    isFavorite={isLiked}
+                    type={SIZE_ELEMENT.FULL}
+                    counterFavorites={likesCount}
+                    callBackIsFavorite={handleLike}
+                />
+                <HashTags hashTags={['example', 'sample', 'test']} />
+            </div>
             <span className={`text-sm p-2  opacity-50 `}>Published  on: {formattedDate}</span>
         </div>;
     // 
