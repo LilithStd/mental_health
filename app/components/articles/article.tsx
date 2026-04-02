@@ -112,7 +112,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
 
     const raitingItemComponent = (type: SIZE_ELEMENT) => {
         const favoritesComponent = (type: SIZE_ELEMENT) => {
-            return (<div className={`flex items-center w-fit p-2 shadow-lg rounded-large bg-primary-color/30 border border-primary-color/30`}>
+            return ( <div className={`flex items-center  p-2 shadow-lg rounded-large bg-primary-color/30 border border-primary-color/30`}>
         <Favorites 
             isFavorite={isLiked}
             type={type}
@@ -121,7 +121,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         />
         </div>) 
         }
-           const tagsComponent = (type: SIZE_ELEMENT) => {
+        const tagsComponent = (type: SIZE_ELEMENT) => {
         return (
             <div className={`flex  bg-primary-color/30 border border-primary-color/30  shadow-md rounded-large p-2 gap-2 text-xs`}>
                 <HashTags hashTags={['example', 'sample', 'test']} type={type}/>
@@ -129,10 +129,10 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         )
     }
         return (
-                <div className={`flex items-center gap-2 p-2 shadow-lg rounded-large bg-primary-color/30 border border-primary-color/30`}>
+                <div className={`flex items-center w-fit gap-2 p-2 shadow-lg rounded-large bg-primary-color/30 border border-primary-color/30`}>
                     {favoritesComponent(type)}
                     {tagsComponent(type)}
-                    
+                    {redirectButtonComponent(type)}
                 </div>
         )
     }
@@ -162,20 +162,21 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
 
         </div>
 
-    const redirectButtonComponent = <div className={`flex  justify-end mt-auto`}>
+    const redirectButtonComponent = (type: SIZE_ELEMENT) => <div className={`flex  justify-end mt-auto`}>
         <Link
-            className={`bg-buttonContainer p-4 rounded-large flex justify-center items-center cursor-pointer hover:scale-105`}
+            className={`bg-buttonContainer p-2 rounded-large flex justify-center items-center cursor-pointer hover:scale-105`}
             href={routesAdaptive.articles.byId(article.id)}
         >
-            <span className={`font-jura font-bold text-shadow-lg`}>{BUTTON_READ_FULL_ARTICLE[locale]}</span>
+            <span className={` ${type === SIZE_ELEMENT.FULL ? 'text-md' : 'text-xs'} text-shadow-lg`}>{BUTTON_READ_FULL_ARTICLE[locale]}</span>
         </Link>
     </div>
     const interactionBlockComponent =
-        <div className={`flex flex-col items-center justify-between mt-4`}>
+        <div className={`flex flex-col items-center justify-between mt-2`}>
             <div className={`flex w-full justify-between flex-col gap-2  `}>
                 {raitingItemComponent(typeArticle)}
-                {redirectButtonComponent}
-                <span className={`text-sm font-jura italic opacity-50`}>Published on: {formattedDate}</span>
+                {/* {redirectButtonComponent(typeArticle)} */}
+                
+                <span className={`text-sm italic opacity-50`}>Published on: {formattedDate}</span>
             </div>
 
             
@@ -244,7 +245,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         <div
             key={article.id}
             className={`
-       grid grid-cols-[1fr_1fr]  p-2
+       grid grid-cols-[0.8fr_1fr]  p-2
         bg-primary-color/30
         border border-primary-color/30
         shadow-md
@@ -252,7 +253,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
      `}
         >
             {mainMetaDataArticleComponent}
-            <div className="flex flex-col p-4 rounded-large bg-primary-color/30 border border-primary-color/30 shadow-md h-full">
+            <div className="flex flex-col p-4 rounded-large bg-primary-color/30 border border-primary-color/30 shadow-sm">
                 <p className={``}>
                     {cropContent(article.content, CROP_CONTAINER_SIZE.SMALL)}
                 </p>
