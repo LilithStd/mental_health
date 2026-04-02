@@ -176,7 +176,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                 {raitingItemComponent(typeArticle)}
                 {/* {redirectButtonComponent(typeArticle)} */}
                 
-                <span className={`text-sm italic opacity-50`}>Published on: {formattedDate}</span>
+                <span className={`text-sm p-2 italic opacity-50`}>Published on: {formattedDate}</span>
             </div>
 
             
@@ -230,11 +230,11 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             </div>
 
             <div className="flex flex-col  flex-1 p-2 rounded-large bg-primary-color/30 border border-primary-color/30 shadow-md mt-4">
-                <p>
+                <p className={`p-4`}>
                     {cropContent(article.content, CROP_CONTAINER_SIZE.MEDIUM)}
                 </p>
 
-                <div className="mt-auto">
+                <div className="flex w-full justify-start ml-auto mt-auto">
                     {interactionBlockComponent}
                 </div>
             </div>
@@ -245,11 +245,11 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         <div
             key={article.id}
             className={`
-       grid grid-cols-[0.8fr_1fr]  p-2
-        bg-primary-color/30
-        border border-primary-color/30
-        shadow-md
-        rounded-large
+                grid grid-cols-[0.8fr_1fr]  p-2
+                bg-primary-color/30
+                border border-primary-color/30
+                shadow-md
+                rounded-large
      `}
         >
             {mainMetaDataArticleComponent}
