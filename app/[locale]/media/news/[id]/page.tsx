@@ -2,7 +2,8 @@
 
 import News from "@/app/components/news/news";
 import ReturnButton from "@/app/components/returnButton";
-import { NEWS_TYPE } from "@/app/globalConsts/globalEnum";
+import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum";
+// import { NEWS_TYPE } from "@/app/globalConsts/globalEnum";
 import { routes } from "@/app/helpers/helpersFunctions";
 import { getLocale } from "@/app/hooks/server/getLocale";
 import { getNewsById } from "@/app/serverActions/newsStorage";
@@ -31,7 +32,7 @@ export default async function CurrentNews({
                     <div className={`flex w-full justify-start mb-4`}>
                         <ReturnButton pathToReturn={routesAdaptive.media.root} />
                     </div>
-                    <News news={currentNews} typeNews={NEWS_TYPE.FULL} />
+                    <News news={currentNews} typeNews={SIZE_ELEMENT.FULL} />
                 </div>)}
         </div>
     )

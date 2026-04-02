@@ -56,14 +56,14 @@ export default function News({ news, typeNews }: NewsProps) {
 
     </div>
 
-    const mediumNewsComponent = <div className={`grid grid-cols-[0.45fr_1fr] w-full  p-4  bg-subContainer rounded-large`}>
-        <div className={`image-szie-large  bg-primary-color/30 border border-primary-color/30 rounded-large items-center justify-center`}>
+    const mediumNewsComponent = <div className={`grid grid-cols-[0.45fr_1fr] w-full bg-primary-color/30 border border-primary-color/30 rounded-large`}>
+        <div className={`image-size-large   rounded-large items-center justify-center`}>
             <PhotoIcon className={` `} />
         </div>
-        <div className="flex flex-col p-4 rounded-large bg-primary-color/30 border border-primary-color/30 h-full">
+        <div className="flex flex-col p-4 rounded-large  h-full">
             <h3 className="font-bold">{news.title}</h3>
 
-            <p>
+            <p className={``}>
                 {cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}
             </p>
 
@@ -82,12 +82,12 @@ export default function News({ news, typeNews }: NewsProps) {
 
 
     const fullNewsComponent =
-        <div className={`grid grid-cols-[0.35fr_1fr] w-full p-4  bg-subContainer rounded-large`
+        <div className={`grid grid-cols-[0.35fr_1fr] w-full p-4  rounded-large`
         }>
-            <div className={`image-szie-large  bg-primary-color/30 border border-primary-color/30 rounded-large items-center justify-center`}>
-                <PhotoIcon className={`text-gray-500`} />
+            <div className={`image-size-large  rounded-large items-center justify-center`}>
+                <PhotoIcon className={``} />
             </div>
-            <div className={`flex flex-col w-full gap-4 bg-subContainer p-4 rounded-large`}>
+            <div className={`flex flex-col w-full gap-4 p-4 rounded-large`}>
                 <h3 className="font-bold">{news.title}</h3>
                 <p>{news.content}</p>
                 <div className={`flex w-full  justify-end rounded-large cursor-pointer`}>
