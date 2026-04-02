@@ -11,6 +11,7 @@ import { useLocale } from "@/app/hooks/useLocale"
 import { LocaleType } from "@/app/types/types"
 import { BUTTON_READ_FULL_NEWS } from "@/translate/mediaPage/mediaPageContent"
 import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum"
+import HashTags from "../shared/hashTags"
 
 export type NewsType = {
     id: number
@@ -36,7 +37,20 @@ export default function News({ news, typeNews }: NewsProps) {
     // handlers
     //
     // components
-
+    const mediaRatingComponent = (type: SIZE_ELEMENT) => {
+        return (
+            <div className={`flex flex-col w-full items-center gap-2`}>
+                <div className={`flex w-full items-start gap-2`}>
+                    <HashTags hashTags={['#mentalhealth', '#news']} type={type}/>
+                </div>
+                <div className={`flex w-full justify-start ml-auto mt-auto`}>
+                    <span className={`text-sm`}>News date public: {news.createdAt}</span>
+                </div>
+                
+            </div>
+        )
+    }
+    
     const previewNewsComponent = <div className={`grid grid-cols-[0.4fr_1fr] w-full gap-4  p-4  bg-primary-color/30 border border-primary-color/30 rounded-large`}>
         <div className={`flex w-full  bg-primary-color/30 border border-primary-color/30 rounded-large items-center justify-center`}>
             <PhotoIcon className={``} />
@@ -90,6 +104,9 @@ export default function News({ news, typeNews }: NewsProps) {
             <div className={`flex flex-col w-full gap-4 p-4 rounded-large`}>
                 <h3 className="font-bold">{news.title}</h3>
                 <p>{news.content}</p>
+                <div>
+                    {mediaRatingComponent(typeNews)}
+                </div>
                 <div className={`flex w-full  justify-end rounded-large cursor-pointer`}>
                     <a href={news.link} target="_blank" rel="noopener noreferrer" className={`bg-primary-color flex justify-end w-fit text-shadow-lg p-4 rounded-large`}>Source Link</a>
                 </div>
