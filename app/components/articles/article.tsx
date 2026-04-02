@@ -124,7 +124,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
            const tagsComponent = (type: SIZE_ELEMENT) => {
         return (
             <div className={`flex  bg-primary-color/30 border border-primary-color/30  shadow-md rounded-large p-2 gap-2 text-xs`}>
-                <HashTags hashTags={['example', 'sample', 'test']} />
+                <HashTags hashTags={['example', 'sample', 'test']} type={type}/>
             </div>
         )
     }
@@ -303,7 +303,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                     counterFavorites={likesCount}
                     callBackIsFavorite={handleLike}
                 />
-                <HashTags hashTags={['example', 'sample', 'test']} />
+                <HashTags hashTags={['example', 'sample', 'test']} type={SIZE_ELEMENT.FULL}/>
             </div>
             <span className={`text-sm p-2  opacity-50 `}>Published  on: {formattedDate}</span>
         </div>;
