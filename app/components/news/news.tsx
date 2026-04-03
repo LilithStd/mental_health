@@ -39,7 +39,7 @@ export default function News({ news, typeNews }: NewsProps) {
     // components
     const mediaRatingComponent = (type: SIZE_ELEMENT) => {
         return (
-            <div className={`flex  w-full  gap-2 border border-primary-color/30 rounded-large p-2 items-center justify-between`}>
+            <div className={`flex  w-full ${type === SIZE_ELEMENT.FULL ? '' : 'bg-primary-color/30 shadow-md border border-primary-color/30'}  gap-2  rounded-large p-2 items-center justify-between`}>
                <div className={`flex flex-col w-full gap-2`}>
                     <div>
                         <div className={`flex items-start gap-2`}>
