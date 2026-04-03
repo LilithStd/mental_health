@@ -39,7 +39,7 @@ export default function News({ news, typeNews }: NewsProps) {
     // components
     const mediaRatingComponent = (type: SIZE_ELEMENT) => {
         return (
-            <div className={`flex  w-full ${type === SIZE_ELEMENT.FULL ? '' : 'bg-primary-color/30 shadow-md border border-primary-color/30'}  gap-2  rounded-large p-2 items-center justify-between`}>
+            <div className={`flex  w-full ${type === SIZE_ELEMENT.FULL ? '' : 'bg-primary-color/30 shadow-md border border-primary-color/30'}  gap-2 justify-center items-center align-center  rounded-large p-2`}>
                <div className={`flex flex-col w-full gap-2`}>
                     <div>
                         <div className={`flex items-start gap-2`}>
@@ -50,10 +50,10 @@ export default function News({ news, typeNews }: NewsProps) {
                         </div>
                     </div>
                </div>
-                <div className={`flex w-full justify-end mt-auto`}>
-                    {type === SIZE_ELEMENT.FULL ?      <div className={`bg-primary-color/50 p-2 rounded-large flex cursor-pointer hover:scale-105 transition`}>
+                <div className={`flex w-full justify-end items-center`}>
+                    {type === SIZE_ELEMENT.FULL ? <div className={`bg-primary-color/50 p-2 rounded-large flex cursor-pointer hover:scale-105 transition`}>
                     <a href={news.link} target="_blank" rel="noopener noreferrer" className={``}>Source Link</a>
-                </div> : <button className={`bg-primary-color/50 p-2 rounded-large flex cursor-pointer hover:scale-105 transition`} onClick={() => { router.push(routesAdaptive.news.byId(news.id)) }}>
+                </div> : <button className={`justify-center items-center bg-primary-color/50 p-2 rounded-large flex cursor-pointer hover:scale-105 transition`} onClick={() => { router.push(routesAdaptive.news.byId(news.id)) }}>
                         <span className={`${type === SIZE_ELEMENT.PREVIEW ? 'text-sm' : 'text-base'} `}>
                             {BUTTON_READ_FULL_NEWS[locale]}
                         </span>
