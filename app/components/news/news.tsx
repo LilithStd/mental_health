@@ -58,6 +58,9 @@ export default function News({ news, typeNews }: NewsProps) {
         <div className={`flex flex-col p-4 rounded-large bg-primary-color/30 border border-primary-color/30 h-full`}>
             <h3 className="font-bold">{news.title}</h3>
             <p>{cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
+            <div className={`flex w-full justify-start ml-auto mt-auto`}>
+                {mediaRatingComponent(typeNews)}
+            </div>
             <div className={`flex w-full justify-end mt-auto`}>
                 <button className={`bg-primary-color p-4 rounded-large flex cursor-pointer hover:scale-105 transition`} onClick={() => { router.push(routesAdaptive.news.byId(news.id)) }}>
                     <span className={``}>
@@ -80,6 +83,9 @@ export default function News({ news, typeNews }: NewsProps) {
             <p className={``}>
                 {cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}
             </p>
+            <div className={`flex w-full justify-start ml-auto mt-auto`}>
+                {mediaRatingComponent(typeNews)}
+            </div>
 
             <div className="flex w-full justify-end mt-auto">
                 <button
