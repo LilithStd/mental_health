@@ -28,7 +28,7 @@ export default async function CurrentNews({
     return (
         <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
             {currentNews && (
-                <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 p-4 `}>
+                <div className={`flex w-full flex-col flex-1 max-w-6xl border border-primary-color/30 rounded-large bg-primary-color/20 p-4 shadow-lg`}>
                     <div className={`flex w-full justify-start mb-4`}>
                         <ReturnButton pathToReturn={routesAdaptive.media.root} />
                     </div>

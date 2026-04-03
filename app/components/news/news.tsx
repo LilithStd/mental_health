@@ -39,43 +39,49 @@ export default function News({ news, typeNews }: NewsProps) {
     // components
     const mediaRatingComponent = (type: SIZE_ELEMENT) => {
         return (
-            <div className={`flex flex-col w-full items-center gap-2`}>
-                <div className={`flex w-full items-start gap-2`}>
-                    <HashTags hashTags={['#mentalhealth', '#news']} type={type}/>
+            <div className={`flex  w-full  gap-2 border border-primary-color/30 rounded-large p-2 items-center justify-between`}>
+               <div className={`flex flex-col w-full gap-2`}>
+                    <div>
+                        <div className={`flex items-start gap-2`}>
+                        <HashTags hashTags={['#mentalhealth', '#news']} type={type}/>
+                    </div>
+                        <div className={`flex  justify-start ml-auto mt-auto`}>
+                            <span className={`text-sm`}>News date public: {news.createdAt}</span>
+                        </div>
+                    </div>
+               </div>
+                <div className={`flex w-full justify-end mt-auto`}>
+                    {type === SIZE_ELEMENT.FULL ?      <div className={`bg-primary-color/50 p-2 rounded-large flex cursor-pointer hover:scale-105 transition`}>
+                    <a href={news.link} target="_blank" rel="noopener noreferrer" className={``}>Source Link</a>
+                </div> : <button className={`bg-primary-color/50 p-2 rounded-large flex cursor-pointer hover:scale-105 transition`} onClick={() => { router.push(routesAdaptive.news.byId(news.id)) }}>
+                        <span className={`${type === SIZE_ELEMENT.PREVIEW ? 'text-sm' : 'text-base'} `}>
+                            {BUTTON_READ_FULL_NEWS[locale]}
+                        </span>
+                    </button>}
+                    
                 </div>
-                <div className={`flex w-full justify-start ml-auto mt-auto`}>
-                    <span className={`text-sm`}>News date public: {news.createdAt}</span>
-                </div>
-                
             </div>
         )
     }
     
     const previewNewsComponent = <div className={`grid grid-cols-[0.4fr_1fr] w-full gap-4  p-4  bg-primary-color/30 border border-primary-color/30 rounded-large`}>
         <div className={`flex w-full  bg-primary-color/30 border border-primary-color/30 rounded-large items-center justify-center`}>
-            <PhotoIcon className={``} />
+            <PhotoIcon className={``} fill={'green'}/>
         </div>
         <div className={`flex flex-col p-4 rounded-large bg-primary-color/30 border border-primary-color/30 h-full`}>
             <h3 className="font-bold">{news.title}</h3>
             <p>{cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
-            <div className={`flex w-full justify-start ml-auto mt-auto`}>
+            <div className={`flex w-full justify-start ml-auto mt-auto pt-2`}>
                 {mediaRatingComponent(typeNews)}
             </div>
-            <div className={`flex w-full justify-end mt-auto`}>
-                <button className={`bg-primary-color p-4 rounded-large flex cursor-pointer hover:scale-105 transition`} onClick={() => { router.push(routesAdaptive.news.byId(news.id)) }}>
-                    <span className={``}>
-                        {BUTTON_READ_FULL_NEWS[locale]}
-                    </span>
-
-                </button>
-            </div>
+            
         </div>
 
     </div>
 
     const mediumNewsComponent = <div className={`grid grid-cols-[0.45fr_1fr] w-full bg-primary-color/30 border border-primary-color/30 rounded-large`}>
         <div className={`image-size-large   rounded-large items-center justify-center`}>
-            <PhotoIcon className={` `} />
+            <PhotoIcon className={` `} fill={'green'}/>
         </div>
         <div className="flex flex-col p-4 rounded-large  h-full">
             <h3 className="font-bold">{news.title}</h3>
@@ -87,14 +93,14 @@ export default function News({ news, typeNews }: NewsProps) {
                 {mediaRatingComponent(typeNews)}
             </div>
 
-            <div className="flex w-full justify-end mt-auto">
+            {/* <div className="flex w-full justify-end mt-auto">
                 <button
                     className="bg-primary-color p-4 rounded-large flex cursor-pointer hover:scale-105 transition"
                     onClick={() => { router.push(routesAdaptive.news.byId(news.id)) }}
                 >
                     <span>{BUTTON_READ_FULL_NEWS[locale]}</span>
                 </button>
-            </div>
+            </div> */}
         </div>
 
 
@@ -105,7 +111,7 @@ export default function News({ news, typeNews }: NewsProps) {
         <div className={`grid grid-cols-[0.35fr_1fr] w-full p-4  rounded-large`
         }>
             <div className={`image-size-large  rounded-large items-center justify-center`}>
-                <PhotoIcon className={``} />
+                <PhotoIcon className={``} fill={'green'}/>
             </div>
             <div className={`flex flex-col w-full gap-4 p-4 rounded-large`}>
                 <h3 className="font-bold">{news.title}</h3>
@@ -113,9 +119,7 @@ export default function News({ news, typeNews }: NewsProps) {
                 <div>
                     {mediaRatingComponent(typeNews)}
                 </div>
-                <div className={`flex w-full  justify-end rounded-large cursor-pointer`}>
-                    <a href={news.link} target="_blank" rel="noopener noreferrer" className={`bg-primary-color flex justify-end w-fit text-shadow-lg p-4 rounded-large`}>Source Link</a>
-                </div>
+          
 
             </div>
 
