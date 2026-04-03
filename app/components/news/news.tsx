@@ -39,7 +39,7 @@ export default function News({ news, typeNews }: NewsProps) {
     // components
     const mediaRatingComponent = (type: SIZE_ELEMENT) => {
         return (
-            <div className={`flex  w-full ${type === SIZE_ELEMENT.FULL ? '' : 'bg-primary-color/30 shadow-md border border-primary-color/30'}  gap-2 justify-center items-center align-center  rounded-large p-2`}>
+            <div className={`flex  w-full ${type === SIZE_ELEMENT.FULL ? '' : 'bg-primary-color/30 shadow-md border border-primary-color/30'} h-full  gap-2 justify-center items-center align-center  rounded-large p-2`}>
                <div className={`flex flex-col w-full gap-2`}>
                     <div>
                         <div className={`flex items-start gap-2`}>
@@ -108,27 +108,24 @@ export default function News({ news, typeNews }: NewsProps) {
 
 
     const fullNewsComponent =
-        <div className={`grid grid-cols-[0.35fr_1fr] w-full p-4  rounded-large`
-        }>
-            <div className={`image-size-large  rounded-large items-center justify-center`}>
-                <PhotoIcon className={``} fill={'green'}/>
+       <div className="grid grid-cols-[0.35fr_1fr] h-full w-full p-4 rounded-large">
+            <div className="image-size-large rounded-large items-center justify-center">
+                <PhotoIcon fill="green" />
             </div>
-            <div className={`flex flex-col w-full gap-4 p-4 rounded-large`}>
+            <div className="flex flex-col w-full h-full gap-4 p-4 rounded-large">
                 <h3 className="font-bold">{news.title}</h3>
                 <p>{news.content}</p>
-                <div>
-                    {mediaRatingComponent(typeNews)}
+                <div className="flex  justify-start mt-auto">
+                {mediaRatingComponent(typeNews)}
                 </div>
-          
-
             </div>
 
-        </div >
+</div>
 
     //  
     return (
-        <div className={`w-full  flex justify-center`}>
-            <div className={`flex w-full max-w-6xl  rounded-large`}>
+        <div className={`w-full h-full  flex justify-center`}>
+            <div className={`flex w-full h-full items-center max-w-6xl  rounded-large`}>
                 {typeNews === SIZE_ELEMENT.PREVIEW && previewNewsComponent}
                 {typeNews === SIZE_ELEMENT.MEDIUM && mediumNewsComponent}
                 {typeNews === SIZE_ELEMENT.FULL && fullNewsComponent}
