@@ -152,12 +152,12 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                 </div>
             </div>
             <div>
-                {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl font-bold" /> : <h2 className={`flex h-fit text-2xl  rounded-large font-jura font-bold text-shadow-lg`}>{article.title}</h2>}
+                {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl" /> : <h2 className={`flex h-fit text-2xl  rounded-large font-bold`}>{article.title}</h2>}
                 {isEditTtitle && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditTitle(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditTitle(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
-                {isEditAuthor ? <input name="author" type="text" value={editAuthor} onChange={editAuthorHandler} className="text-xl " /> : <h3 className={`font-jura italic opacity-70 flex items-center gap-2`}>
+                {isEditAuthor ? <input name="author" type="text" value={editAuthor} onChange={editAuthorHandler} className="text-xl " /> : <h3 className={`italic opacity-70 flex items-center gap-2`}>
                     by {!article.author || article.author.length === 0 ? "Unknown Author" : article.author}
                 </h3>}
-                <span className={`text-sm font-jura italic opacity-70`}>Created on: {formattedDate}</span>
+                <span className={`text-sm  italic opacity-70`}>Created on: {formattedDate}</span>
             </div>
 
         </div>
