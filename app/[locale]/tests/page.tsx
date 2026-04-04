@@ -3,7 +3,7 @@ import { useLocale } from "@/app/hooks/useLocale";
 import { LocaleType } from "@/app/types/types";
 import Loading from "@/app/components/shared/loading";
 import Test from "@/app/components/tests/test";
-import { TEST_TYPE } from "@/app/globalConsts/globalEnum";
+import { SIZE_ELEMENT, TEST_TYPE } from "@/app/globalConsts/globalEnum";
 import { useEffect, useState } from "react";
 
 
@@ -60,7 +60,7 @@ export default function Tests() {
             <div className={`flex flex-col flex-1 max-w-6xl border border-primary-color/30 rounded-large bg-primary-color/20 p-4 shadow-lg w-full`}>
                 <div className={`grid grid-cols-1 md:grid-cols-2  mb-4 max-content-main-container`}>
                     {loading ? <Loading fullScreen={true} /> : tests.map((test) => (
-                        <Test key={test.id} test={test} testType={TEST_TYPE.PREVIEW} />
+                        <Test key={test.id} test={test} testType={SIZE_ELEMENT.PREVIEW} />
                     ))}
                 </div>
 
