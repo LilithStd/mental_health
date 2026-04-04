@@ -46,11 +46,11 @@ export default function Form({ test, formResult, openModalCallback }: FormProps)
             {test.questions.map((question) => (
                 <div key={question.title[locale]} className="flex justify-center items-center flex-col gap-2">
                     <h2>{question.title[locale]}:</h2>
-                    <div className={`flex items-center justify-center bg-mainContainer rounded-large p-2 gap-2`}>
+                    <div className={`flex items-center justify-center bg-primary-color/30 rounded-large p-2 gap-2`}>
                         {question.variants.map((variant) => (
                             <label
                                 key={variant.id}
-                                className={`flex flex-col bg-accentElement p-2 rounded-medium items-center cursor-pointer`}
+                                className={`flex flex-col bg-primary-color/30 border border-primary-color/30 p-2 rounded-large items-center cursor-pointer shadow-md`}
                             >
                                 <span>{variant.title}</span>
                                 <input
