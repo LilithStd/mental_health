@@ -52,7 +52,7 @@ export default function Form({ test, formResult, openModalCallback }: FormProps)
                                 key={variant.id}
                                 className={`flex flex-col bg-primary-color/30 border border-primary-color/30 p-2 rounded-large items-center cursor-pointer shadow-md`}
                             >
-                                <span>{variant.title}</span>
+                                <span>{variant.title[locale]}</span>
                                 <input
                                     type="radio"
                                     name={question.title[locale]}

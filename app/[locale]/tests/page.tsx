@@ -10,7 +10,11 @@ import { useEffect, useState } from "react";
 
 type QuestionVariant = {
     id: string
-    title: string
+    title: {
+        en: string
+        ru: string
+        lv: string
+    }
     count: number
 }
 type Question = {

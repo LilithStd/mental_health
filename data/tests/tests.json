@@ -23,18 +23,39 @@
                 },
 				"variants":[
 					{
+						"id": "0",
+						"title": {
+                            "en": "Never",
+                            "ru": "Ни разу",
+                            "lv": "Nemaz"
+                        },
+						"count": 0
+					},
+					{
 						"id": "1",
-						"title":"111111",
+						"title": {
+                            "en": "Several days",
+                            "ru": "Несколько дней",
+                            "lv": "Dažas dienas"
+                        },
 						"count": 1
 					},
 					{
 						"id":"2",
-						"title":"22222",
+						"title": {
+                            "en": "More than a week",
+                            "ru": "Более недели",
+                            "lv": "Vairāk nekā nedēļu"
+                        },
 						"count": 2
 					},
 					{
 						"id":"3",
-						"title":"33333",
+						"title": {
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
 						"count": 3
 					}
 
@@ -48,18 +69,39 @@
                 },
 				"variants":[
 					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
 						"id": "1",
-						"title":"111111",
+						"title":{
+                            "en": "Several days",
+                            "ru": "Несколько дней",
+                            "lv": "Dažas dienas"
+                        },
 						"count": 1
 					},
 					{
 						"id": "2",
-						"title":"22222",
+						"title":{
+                            "en": "More than a week",
+                            "ru": "Более недели",
+                            "lv": "Vairāk nekā nedēļu"
+                        },
 						"count": 2
 					},
 					{
 						"id": "3",
-						"title":"33333",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
 						"count": 3
 					}
 
@@ -73,18 +115,39 @@
                 },
 				"variants":[
 					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
 						"id": "1",
-						"title":"111111",
+						"title":{
+                            "en": "Several days",
+                            "ru": "Несколько дней",
+                            "lv": "Dažas dienas"
+                        },
 						"count": 1
 					},
 					{
 						"id": "2",
-						"title":"22222",
+						"title":{
+                            "en": "More than a week",
+                            "ru": "Более недели",
+                            "lv": "Vairāk nekā nedēļu"
+                        },
 						"count": 2
 					},
 					{
 						"id": "3",
-						"title":"33333",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
 						"count": 3
 					}
 
@@ -116,18 +179,39 @@
                 },
 				"variants":[
 					{
+						"id": "0",
+						"title": {
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
 						"id": "1",
-						"title":"111111",
+						"title": {
+							"en": "Several days",
+							"ru": "Несколько дней",
+							"lv": "Dažas dienas"
+						},
 						"count": 1
 					},
 					{
 						"id": "2",
-						"title":"22222",
+						"title": {
+							"en": "More than a week",
+							"ru": "Более недели",
+							"lv": "Vairāk nekā nedēļu"
+						},
 						"count": 2
 					},
 					{
 						"id": "3",
-						"title":"33333",
+						"title": {
+							"en": "Almost every day",
+							"ru": "Почти каждый день",
+							"lv": "Gandrīz katru dienu"
+						},
 						"count": 3
 					}
 
@@ -141,18 +225,39 @@
                 },
 				"variants":[
 					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
 						"id": "1",
-						"title":"111111",
+						"title":{
+                            "en": "Several days",
+                            "ru": "Несколько дней",
+                            "lv": "Dažas dienas"
+                        },
 						"count": 1
 					},
 					{
 						"id": "2",
-						"title":"22222",
+						"title":{
+                            "en": "More than a week",
+                            "ru": "Более недели",
+                            "lv": "Vairāk nekā nedēļu"
+                        },
 						"count": 2
 					},
 					{
 						"id": "3",
-						"title":"33333",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
 						"count": 3
 					}
 
@@ -166,18 +271,39 @@
                 },
 				"variants":[
 					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
 						"id": "1",
-						"title":"111111",
+						"title":{
+                            "en": "Several days",
+                            "ru": "Несколько дней",
+                            "lv": "Dažas dienas"
+                        },
 						"count": 1
 					},
 					{
 						"id": "2",
-						"title":"22222",
+						"title":{
+                            "en": "More than a week",
+                            "ru": "Более недели",
+                            "lv": "Vairāk nekā nedēļu"
+                        },
 						"count": 2
 					},
 					{
 						"id": "3",
-						"title":"33333",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
 						"count": 3
 					}
 
@@ -209,18 +335,39 @@
                 },
 				"variants":[
 					{
+						"id":"0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
 						"id": "1",
-						"title":"111111",
+						"title":{
+                            "en": "Several days",
+                            "ru": "Несколько дней",
+                            "lv": "Dažas dienas"
+                        },
 						"count": 1
 					},
 					{
 						"id": "2",
-						"title":"22222",
+						"title":{
+                            "en": "More than a week",
+                            "ru": "Более недели",
+                            "lv": "Vairāk nekā nedēļu"
+                        },
 						"count": 2
 					},
 					{
 						"id": "3",
-						"title":"33333",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
 						"count": 3
 					}
 
@@ -234,18 +381,39 @@
                 },
 				"variants":[
 					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
 						"id": "1",
-						"title":"111111",
+						"title":{
+                            "en": "Several days",
+                            "ru": "Несколько дней",
+                            "lv": "Dažas dienas"
+                        },
 						"count": 1
 					},
 					{
 						"id": "2",
-						"title":"22222",
+						"title":{
+                            "en": "More than a week",
+                            "ru": "Более недели",
+                            "lv": "Vairāk nekā nedēļu"
+                        },
 						"count": 2
 					},
 					{
 						"id": "3",
-						"title":"33333",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
 						"count": 3
 					}
 
@@ -259,18 +427,39 @@
                 },
 				"variants":[
 					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
 						"id": "1",
-						"title":"111111",
+						"title":{
+                            "en": "Several days",
+                            "ru": "Несколько дней",
+                            "lv": "Dažas dienas"
+                        },
 						"count": 1
 					},
 					{
 						"id": "2",
-						"title":"22222",
+						"title":{
+                            "en": "More than a week",
+                            "ru": "Более недели",
+                            "lv": "Vairāk nekā nedēļu"
+                        },
 						"count": 2
 					},
 					{
 						"id": "3",
-						"title":"33333",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
 						"count": 3
 					}
 
@@ -302,18 +491,39 @@
                 },
 				"variants":[
 					{
+						"id": "0",
+						"title":{
+                            "en": "Never",
+                            "ru": "Ни разу",
+                            "lv": "Nemaz"
+                        },
+						"count": 0
+					},
+					{
 						"id": "1",
-						"title":"111111",
+						"title":{
+                            "en": "Several days",
+                            "ru": "Несколько дней",
+                            "lv": "Dažas dienas"
+                        },
 						"count": 1
 					},
 					{
 						"id": "2",
-						"title":"22222",
+						"title":{
+                            "en": "More than a week",
+                            "ru": "Более недели",
+                            "lv": "Vairāk nekā nedēļu"
+                        },
 						"count": 2
 					},
 					{
 						"id": "3",
-						"title":"33333",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
 						"count": 3
 					}
 
@@ -327,18 +537,39 @@
                 },
 				"variants":[
 					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
 						"id": "1",
-						"title":"111111",
+						"title":{
+                            "en": "Several days",
+                            "ru": "Несколько дней",
+                            "lv": "Dažas dienas"
+                        },
 						"count": 1
 					},
 					{
 						"id": "2",
-						"title":"22222",
+						"title":{
+                            "en": "More than a week",
+                            "ru": "Более недели",
+                            "lv": "Vairāk nekā nedēļu"
+                        },
 						"count": 2
 					},
 					{
 						"id": "3",
-						"title":"33333",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
 						"count": 3
 					}
 
@@ -352,18 +583,39 @@
                 },
 				"variants":[
 					{
+						"id": "0",
+						"title":{
+                            "en": "Never",
+                            "ru": "Ни разу",
+                            "lv": "Nemaz"
+                        },
+						"count": 0
+					},
+					{
 						"id": "1",
-						"title":"111111",
+						"title":{
+                            "en": "Several days",
+                            "ru": "Несколько дней",
+                            "lv": "Dažas dienas"
+                        },
 						"count": 1
 					},
 					{
 						"id": "2",
-						"title":"22222",
+						"title":{
+                            "en": "More than a week",
+                            "ru": "Более недели",
+                            "lv": "Vairāk nekā nedēļu"
+                        },
 						"count": 2
 					},
 					{
 						"id": "3",
-						"title":"33333",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
 						"count": 3
 					}
 
@@ -395,18 +647,39 @@
                 },
 				"variants":[
 					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
 						"id": "1",
-						"title":"111111",
+						"title":{
+							"en": "Several days",
+							"ru": "Несколько дней",
+							"lv": "Dažas dienas"
+						},
 						"count": 1
 					},
 					{
 						"id": "2",
-						"title":"22222",
+						"title":{
+							"en": "More than a week",
+							"ru": "Более недели",
+							"lv": "Vairāk nekā nedēļu"
+						},
 						"count": 2
 					},
 					{
 						"id": "3",
-						"title":"33333",
+						"title":{
+							"en": "Almost every day",
+							"ru": "Почти каждый день",
+							"lv": "Gandrīz katru dienu"
+						},
 						"count": 3
 					}
 
@@ -420,18 +693,39 @@
                 },
 				"variants":[
 					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
 						"id": "1",
-						"title":"111111",
+						"title":{
+							"en": "Several days",
+							"ru": "Несколько дней",
+							"lv": "Dažas dienas"
+						},
 						"count": 1
 					},
 					{
 						"id": "2",
-						"title":"22222",
+						"title":{
+							"en": "More than a week",
+							"ru": "Более недели",
+							"lv": "Vairāk nekā nedēļu"
+						},
 						"count": 2
 					},
 					{
 						"id": "3",
-						"title":"33333",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
 						"count": 3
 					}
 
@@ -445,18 +739,39 @@
                 },
 				"variants":[
 					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
 						"id": "1",
-						"title":"111111",
+						"title":{
+							"en": "Several days",
+							"ru": "Несколько дней",
+							"lv": "Dažas dienas"
+						},
 						"count": 1
 					},
 					{
 						"id": "2",
-						"title":"22222",
+						"title":{
+							"en": "More than a week",
+							"ru": "Более недели",
+							"lv": "Vairāk nekā nedēļu"
+						},
 						"count": 2
 					},
 					{
 						"id": "3",
-						"title":"33333",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
 						"count": 3
 					}
 
@@ -488,18 +803,39 @@
                 },
 				"variants":[
 					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
 						"id": "1",
-						"title":"111111",
+						"title":{
+							"en": "Several days",
+							"ru": "Несколько дней",
+							"lv": "Dažas dienas"
+						},
 						"count": 1
 					},
 					{
 						"id": "2",
-						"title":"22222",
+						"title":{
+							"en": "More than a week",
+							"ru": "Более недели",
+							"lv": "Vairāk nekā nedēļu"
+						},
 						"count": 2
 					},
 					{
 						"id": "3",
-						"title":"33333",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
 						"count": 3
 					}
 
@@ -513,18 +849,39 @@
                 },
 				"variants":[
 					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
 						"id": "1",
-						"title":"111111",
+						"title":{
+							"en": "Several days",
+							"ru": "Несколько дней",
+							"lv": "Dažas dienas"
+						},
 						"count": 1
 					},
 					{
 						"id": "2",
-						"title":"22222",
+						"title":{
+							"en": "More than a week",
+							"ru": "Более недели",
+							"lv": "Vairāk nekā nedēļu"
+						},
 						"count": 2
 					},
 					{
 						"id": "3",
-						"title":"33333",
+						"title":{
+							"en": "Almost every day",
+							"ru": "Почти каждый день",
+							"lv": "Gandrīz katru dienu"
+						},
 						"count": 3
 					}
 
@@ -538,18 +895,39 @@
                 },
 				"variants":[
 					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
 						"id": "1",
-						"title":"111111",
+						"title":{
+							"en": "Several days",
+							"ru": "Несколько дней",
+							"lv": "Dažas dienas"
+						},
 						"count": 1
 					},
 					{
 						"id": "2",
-						"title":"22222",
+						"title":{
+							"en": "More than a week",
+							"ru": "Более недели",
+							"lv": "Vairāk nekā nedēļu"
+						},
 						"count": 2
 					},
 					{
 						"id": "3",
-						"title":"33333",
+						"title":{
+							"en": "Almost every day",
+							"ru": "Почти каждый день",
+							"lv": "Gandrīz katru dienu"
+						},
 						"count": 3
 					}
 
