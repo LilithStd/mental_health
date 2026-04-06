@@ -7,6 +7,7 @@ import Loading from "@/app/components/shared/loading";
 import { routes } from "@/app/helpers/helpersFunctions";
 import { useLocale } from "@/app/hooks/useLocale";
 import { LocaleType } from "@/app/types/types";
+import ReturnButton from "@/app/components/returnButton";
 
 
 export default function TestCurrent({
@@ -17,6 +18,8 @@ export default function TestCurrent({
     const { id } = use(params)
     const [currentTest, setCurrentTest] = useState<TestType | null>(null);
     const [error, setError] = useState(false)
+    const  locale  = useLocale() as LocaleType;
+    const routesAdaptive = routes(locale)
     useEffect(() => {
         fetch(`/api/tests?id=${id}`)
             .then(r => {
@@ -35,6 +38,7 @@ export default function TestCurrent({
     return (
         <div className={`flex flex-col indents-main-container rounded-large flex-1 items-center`}>
             <div className={`flex flex-col flex-1  max-w-6xl  rounded-large bg-primary-color/20 border border-primary-color/20 shadow-md  p-4`}>
+                <ReturnButton pathToReturn={routesAdaptive.tests.root} />
                 {error ? "Error loading test." : currentTest ? <Test test={currentTest} testType={SIZE_ELEMENT.FULL} /> : <Loading fullScreen={true} />}
             </div>
 
