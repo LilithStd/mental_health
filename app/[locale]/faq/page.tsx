@@ -12,7 +12,7 @@ export default function FaqPage() {
     return (
         <div className={`flex flex-col indents-main-container  flex-1 items-center overflow-hidden`}>
 
-            <div className={`flex w-full flex-col flex-1 border border-primary-color/30 max-w-6xl relative  rounded-large bg-primary-color/20 p-4 `}>
+            <div className={`flex w-full flex-col flex-1 border border-primary-color/30 max-w-6xl relative  rounded-large bg-primary-color/20 p-4 shadow-md`}>
                 <Image src={FaqPageImagebackground} alt="FAQ Background" fill className="object-cover opacity-5" />
                 <div className={`flex flex-col bg-primary-color/30 w-fit mx-auto rounded-large p-4 justify-center items-center relative z-10 mb-8`}>
                     <h2 className={`text-2xl font-bold `}>(F.A.Q)</h2>

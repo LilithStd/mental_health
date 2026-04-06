@@ -9,7 +9,7 @@ export default function PricingPage() {
     const locale = useLocale() as LocaleType
     return (
         <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
-            <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 border border-primary-color/20 p-4 `}>
+            <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 border border-primary-color/20 p-4 shadow-md`}>
                 <h2 className={`text-5xl justify-center text-center font-bold`}>{PricesPageContent[locale].title}</h2>
                 <p className={`text-center mt-2`}>{PricesPageContent[locale].description}</p>
                 <div className={`grid grid-cols-2 gap-4 mt-4 justify-center`}>
