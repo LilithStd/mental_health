@@ -1,10 +1,11 @@
 
 import { getArticleLikes } from "@/app/serverActions/likesStorage";
 import Article from "./article";
-import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum";
-import { ArticleType } from "./articlesClient";
 
-export default async function ArticleServerLikesWrapper({ article, type }: { article: ArticleType, type: ARTICLE_TYPE }) {
+import { ArticleType } from "./articlesClient";
+import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum";
+
+export default async function ArticleServerLikesWrapper({ article, type }: { article: ArticleType, type: SIZE_ELEMENT }) {
     const likes = await getArticleLikes(article.id)
     return (
         <Article article={article} initialLikesCount={likes.likesCount} typeArticle={type} />

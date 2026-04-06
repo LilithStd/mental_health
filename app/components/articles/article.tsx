@@ -223,13 +223,13 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             {isEditArticle && cancelEditArticleComponent}
         </div>
     const mediumArticleComponent =
-        <div className="flex flex-col mb-4 p-2 h-full">
+        <div className="flex flex-col mb-4 p-2 h-full bg-primary-color/30 border border-primary-color/30 shadow-md rounded-large">
 
-            <div className="flex w-full rounded-large bg-primary-color/30 border border-primary-color/30 shadow-md p-4">
+            <div className="flex w-full rounded-large  p-2">
                 {mainMetaDataArticleComponent}
             </div>
 
-            <div className="flex flex-col  flex-1 p-2 rounded-large bg-primary-color/30 border border-primary-color/30 shadow-md mt-4">
+            <div className="flex flex-col  flex-1 p-2 rounded-large">
                 <p className={`p-4`}>
                     {cropContent(article.content, CROP_CONTAINER_SIZE.MEDIUM)}
                 </p>

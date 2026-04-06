@@ -35,7 +35,7 @@ export default async function ArticlesClient({ initialArticles, type }: Articles
 
 
     const randomArticlesComponent = <div className={`flex flex-col indents-main-container rounded-large  `}>
-        <h2 className={`text-3xl  bg-mainContainer rounded-large  p-4 mb-4`}>{MediaPageContent[locale].random_articles}</h2>
+        <h2 className={`text-3xl  bg-primary-color/30 rounded-large  p-4 mb-4`}>{MediaPageContent[locale].random_articles}</h2>
         <div className={`flex flex-col gap-4`}>
             {articles.map((article) =>
                 <ArticleClient key={article.id} article={article} type={type} />
@@ -46,7 +46,7 @@ export default async function ArticlesClient({ initialArticles, type }: Articles
     const regularArticlesComponent =
         <div className={`flex flex-col indents-main-container backdrop-blur-md rounded-medium flex-1 items-center`}>
 
-            <div className={`flex flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/30 border border-primary-color/30 p-4`}>
+            <div className={`flex flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 border border-primary-color/20 p-4`}>
                 <div className={`flex w-full justify-start mb-4`}>
                     <ReturnButton pathToReturn={routesAdaptive.media.root} />
                 </div>
