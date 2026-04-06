@@ -9,9 +9,9 @@ export default function PricingPage() {
     const locale = useLocale() as LocaleType
     return (
         <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
-            <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-mainContainer p-4 `}>
-                <h2 className={`text-5xl justify-center text-center font-pattaya font-bold`}>{PricesPageContent[locale].title}</h2>
-                <p className={`text-center font-poiret font-bold mt-2`}>{PricesPageContent[locale].description}</p>
+            <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 border border-primary-color/20 p-4 `}>
+                <h2 className={`text-5xl justify-center text-center font-bold`}>{PricesPageContent[locale].title}</h2>
+                <p className={`text-center mt-2`}>{PricesPageContent[locale].description}</p>
                 <div className={`grid grid-cols-2 gap-4 mt-4 justify-center`}>
                     <div className={`flex justify-center items-center`}>
                         <Image src={DoctorPricing} alt="Doctor Pricing" className='w-200 p-4 rounded-large' />
@@ -19,8 +19,8 @@ export default function PricingPage() {
                     <div className={`flex flex-col gap-4`}>
                         {PricesPageContent[locale].list.map((item, index) => (
                             <div key={index}>
-                                <h2 className={`text-xl font-pattaya font-bold`}>{item.title}</h2>
-                                <p className={`font-poiret font-bold`}>{item.description}</p>
+                                <h2 className={`text-xl font-bold`}>{item.title}</h2>
+                                <p className={``}>{item.description}</p>
                             </div>
                         ))}
                     </div>
