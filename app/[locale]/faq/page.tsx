@@ -12,7 +12,7 @@ export default function FaqPage() {
     return (
         <div className={`flex flex-col indents-main-container  flex-1 items-center overflow-hidden`}>
 
-            <div className={`flex w-full flex-col flex-1 max-w-6xl relative  rounded-large bg-primary-color/20 p-4 `}>
+            <div className={`flex w-full flex-col flex-1 border border-primary-color/30 max-w-6xl relative  rounded-large bg-primary-color/20 p-4 `}>
                 <Image src={FaqPageImagebackground} alt="FAQ Background" fill className="object-cover opacity-5" />
                 <div className={`flex flex-col bg-primary-color/30 w-fit mx-auto rounded-large p-4 justify-center items-center relative z-10 mb-8`}>
                     <h2 className={`text-2xl font-bold `}>(F.A.Q)</h2>
@@ -24,7 +24,7 @@ export default function FaqPage() {
                         <details 
                             key={index}
                             onToggle={() => setIsOpenFaqElement(isOpenFaqElement === index ? null : index)}
-                            className={`list-disc list-inside mb-4  bg-primary-color/20 p-4 rounded-large  hover:bg-primary-color/50 cursor-pointer ${isOpenFaqElement === index ? "backdrop-blur-md " : ""}`}>
+                            className={`list-disc list-inside mb-4 p-4 rounded-large  hover:bg-primary-color/50 cursor-pointer ${isOpenFaqElement === index ? "backdrop-blur-md bg-primary-color/30 border border-primary-color/30" : "bg-primary-color/20 border border-primary-color/20"}`}>
                             <summary className={`font-bold`}>{faq.question}</summary>
                             <p className={`italic text-lg`}>{faq.answer}</p>
                         </details>
