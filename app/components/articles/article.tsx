@@ -123,13 +123,13 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         }
         const tagsComponent = (type: SIZE_ELEMENT) => {
         return (
-            <div className={`flex  bg-primary-color/30 border border-primary-color/30  shadow-sm rounded-large p-2 gap-2 text-xs`}>
+            <div className={`flex  bg-primary-color/30 border border-primary-color/30  shadow-sm rounded-large p-2 gap-2 text-xs `}>
                 <HashTags hashTags={['example', 'sample', 'test']} type={type}/>
             </div>
         )
     }
         return (
-                <div className={`flex items-center w-fit gap-2 p-2 shadow-sm rounded-large bg-primary-color/30 border border-primary-color/30`}>
+                <div className={`flex items-center w-full gap-2 shadow-sm rounded-large bg-primary-color/30 border border-primary-color/30`}>
                     {favoritesComponent(type)}
                     {tagsComponent(type)}
                     {redirectButtonComponent(type)}
@@ -147,7 +147,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                             rounded-large
                             `}
             >
-                <div className={`flex justify-center items-center rounded-circle bg-primary-color/30  p-2`}>
+                <div className={`flex justify-center items-center rounded-circle bg-primary-color/30`}>
                     <AuthorIcon className="w-30 h-30 fill-current" />
                 </div>
             </div>
@@ -162,19 +162,19 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
 
         </div>
 
-    const redirectButtonComponent = (type: SIZE_ELEMENT) => <div className={`flex  justify-end mt-auto`}>
+    const redirectButtonComponent = (type: SIZE_ELEMENT) => <div className={`flex p-2 shadow-sm rounded-large bg-primary-color/50 border border-primary-color/30`}>
         <Link
-            className={`bg-buttonContainer p-2 rounded-large flex justify-center items-center cursor-pointer hover:scale-105`}
+            className={`flex justify-center items-center cursor-pointer`}
             href={routesAdaptive.articles.byId(article.id)}
         >
-            <span className={`${type === SIZE_ELEMENT.FULL ? 'text-md' : 'text-xs '} whitespace-nowrap`}>{BUTTON_READ_FULL_ARTICLE[locale]}</span>
+            <span className={`${type === SIZE_ELEMENT.FULL ? 'text-md' : 'text-xs '}  whitespace-nowrap`}>{BUTTON_READ_FULL_ARTICLE[locale]}</span>
         </Link>
     </div>
     const interactionBlockComponent =
-        <div className={`flex flex-col items-center justify-between mt-2`}>
-            <div className={`flex w-full justify-between flex-col gap-2  `}>
+        <div className={`flex flex-col  w-full gap-2 items-start justify-between mt-2`}>
+            <div className={`flex flex-col w-full`}>
                 {raitingItemComponent(typeArticle)}                
-                <span className={`text-sm p-2 italic opacity-50`}>Published on: {formattedDate}</span>
+                <span className={`text-sm pl-2 pt-2 italic opacity-40`}>Published on: {formattedDate}</span>
             </div>
 
             
@@ -221,7 +221,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             {isEditArticle && cancelEditArticleComponent}
         </div>
     const mediumArticleComponent =
-        <div className="flex  flex-col mb-4 p-2 h-full bg-primary-color/30 border border-primary-color/30 shadow-md rounded-large">
+        <div className="flex  flex-col p-2 h-full bg-primary-color/30 border border-primary-color/30 shadow-md rounded-large">
 
             <div className={`flex w-full rounded-large`}>
                 {mainMetaDataArticleComponent}
@@ -232,7 +232,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                     {cropContent(article.content, CROP_CONTAINER_SIZE.MEDIUM)}
                 </p>
 
-                <div className="flex w-full justify-start">
+                <div className={`w-full flex`}>
                     {interactionBlockComponent}
                 </div>
             </div>
@@ -308,7 +308,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         </div>;
     // 
     return (
-        <article key={article.id} className={`rounded-large   w-full  flex flex-col gap-2`}>
+        <article key={article.id} className={`rounded-large   w-full  flex flex-col`}>
             {typeArticle === SIZE_ELEMENT.PREVIEW && previewArticleComponent}
             {typeArticle === SIZE_ELEMENT.MEDIUM && mediumArticleComponent}
             {typeArticle === SIZE_ELEMENT.FULL && fullArticleComponent}
