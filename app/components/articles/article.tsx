@@ -129,7 +129,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         )
     }
         return (
-                <div className={`flex items-center w-full gap-2 shadow-sm rounded-large bg-primary-color/30 border border-primary-color/30`}>
+                <div className={`flex items-center justify-between w-full gap-2 shadow-sm rounded-large bg-primary-color/30 border border-primary-color/30`}>
                     {favoritesComponent(type)}
                     {tagsComponent(type)}
                     {redirectButtonComponent(type)}
@@ -171,7 +171,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         </Link>
     </div>
     const interactionBlockComponent =
-        <div className={`flex flex-col  w-full gap-2 items-start justify-between mt-2`}>
+        <div className={`flex flex-col  w-full gap-2 items-start mt-2`}>
             <div className={`flex flex-col w-full`}>
                 {raitingItemComponent(typeArticle)}                
                 <span className={`text-sm pl-2 pt-2 italic opacity-40`}>Published on: {formattedDate}</span>
@@ -232,7 +232,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
                     {cropContent(article.content, CROP_CONTAINER_SIZE.MEDIUM)}
                 </p>
 
-                <div className={`w-full flex`}>
+                <div className={`w-full mt-auto flex`}>
                     {interactionBlockComponent}
                 </div>
             </div>
