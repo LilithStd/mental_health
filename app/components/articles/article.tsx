@@ -167,7 +167,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             className={`bg-buttonContainer p-2 rounded-large flex justify-center items-center cursor-pointer hover:scale-105`}
             href={routesAdaptive.articles.byId(article.id)}
         >
-            <span className={` ${type === SIZE_ELEMENT.FULL ? 'text-md' : 'text-xs'} text-shadow-lg`}>{BUTTON_READ_FULL_ARTICLE[locale]}</span>
+            <span className={`${type === SIZE_ELEMENT.FULL ? 'text-md' : 'text-xs '} whitespace-nowrap`}>{BUTTON_READ_FULL_ARTICLE[locale]}</span>
         </Link>
     </div>
     const interactionBlockComponent =
@@ -221,18 +221,18 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             {isEditArticle && cancelEditArticleComponent}
         </div>
     const mediumArticleComponent =
-        <div className="flex flex-col mb-4 p-2 h-full bg-primary-color/30 border border-primary-color/30 shadow-md rounded-large">
+        <div className="flex  flex-col mb-4 p-2 h-full bg-primary-color/30 border border-primary-color/30 shadow-md rounded-large">
 
-            <div className="flex w-full rounded-large  p-2">
+            <div className={`flex w-full rounded-large`}>
                 {mainMetaDataArticleComponent}
             </div>
 
             <div className="flex flex-col  flex-1 p-2 rounded-large">
-                <p className={`p-4`}>
+                <p className={`text-sm  whitespace-pre-wrap leading-relaxed`}>
                     {cropContent(article.content, CROP_CONTAINER_SIZE.MEDIUM)}
                 </p>
 
-                <div className="flex w-full justify-start ml-auto mt-auto">
+                <div className="flex w-full justify-start">
                     {interactionBlockComponent}
                 </div>
             </div>
@@ -308,7 +308,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         </div>;
     // 
     return (
-        <article key={article.id} className={`rounded-large  w-full  flex flex-col gap-2`}>
+        <article key={article.id} className={`rounded-large   w-full  flex flex-col gap-2`}>
             {typeArticle === SIZE_ELEMENT.PREVIEW && previewArticleComponent}
             {typeArticle === SIZE_ELEMENT.MEDIUM && mediumArticleComponent}
             {typeArticle === SIZE_ELEMENT.FULL && fullArticleComponent}

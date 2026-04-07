@@ -44,7 +44,7 @@ export default async function ArticlesClient({ initialArticles, type }: Articles
     </div>
 
     const regularArticlesComponent =
-            <div className={`flex flex-col flex-1   rounded-large   p-4`}>
+            <div className={`flex flex-col flex-1 rounded-large p-4`}>
                 <div className={`flex w-full justify-start mb-4`}>
                     <ReturnButton pathToReturn={routesAdaptive.media.root} />
                 </div>
@@ -59,7 +59,7 @@ export default async function ArticlesClient({ initialArticles, type }: Articles
             </div>
     return (
         <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
-            <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 border border-primary-color/10 p-4 shadow-md`}>
+            <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 border border-primary-color/30 p-4 shadow-md`}>
                 {type === SIZE_ELEMENT.PREVIEW ? randomArticlesComponent : regularArticlesComponent}
             </div>
         </div>
