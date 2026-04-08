@@ -91,7 +91,7 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
 
     // components
     const AuthSignInComponent = (
-        <div className={`flex flex-col   bg-white/20 backdrop-blur-md items-center justify-center gap-2 p-4 `}>
+        <div className={`bg-white/30 backdrop-blur-md p-6 rounded-lg  flex flex-col items-center justify-center gap-4`}>
             <form action={signInUserHandler} className={`flex flex-col items-center justify-center gap-2`} key={props.typeAuthorization}>
                 <input name="email" type="email" placeholder={INPUT_PLACEHOLDERS.EMAIL[locale]} className={`mb-2 p-2 rounded-small w-64 border`} required />
                 <input name="password" type="password" placeholder={INPUT_PLACEHOLDERS.PASSWORD[locale]} className={`mb-2 p-2 rounded-small w-64 border`} required />
@@ -115,7 +115,7 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
 
     )
     const AuthRegistrationComponent = (
-        <div className={`flex flex-col bg-mainContainer items-center justify-center gap-2 p-4`}>
+        <div className={`flex flex-col bg-primary-color/50 items-center justify-center gap-2 p-4`}>
             <form
                 className="flex flex-col items-center justify-center gap-2"
                 onSubmit={createUserHandler}
@@ -172,7 +172,7 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
 
     )
     const successfullyUserCreatedComponent = () => (
-        <div className={`flex flex-col bg-mainContainer items-center justify-center gap-2 p-4`}>
+        <div className={`flex flex-col bg-primary-color/50 items-center justify-center gap-2 p-4 rounded-large`}>
             <h2>User successfully created!</h2>
             <button onClick={successfullyUserCreatedHandler} className="bg-blue-500 p-2 rounded-small w-64 cursor-pointer">
                 Return
@@ -181,7 +181,7 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
     )
     // 
     return (
-        <div className={`flex flex-col bg-mainContainer items-center justify-center gap-2 p-4 rounded-large`}>
+        <div className={`flex flex-col bg-primary-color/50 items-center justify-center gap-2 p-4 rounded-large`}>
             {succerssfullyCreated ? successfullyUserCreatedComponent() : <>
                 <h2 className={``}>{props.contentTypeAuthorization}</h2>
                 <h2 className="p-2 bg-amber-600" onClick={resetUserStore}>Res</h2>
