@@ -48,22 +48,21 @@ export default function Test({ test, testType }: TestProps) {
         setIsModalOpen(true);
     }
     // components
-    const buttonReadMore =
 
-        <button
-            className={`px-4 py-2 mt-4 cursor-pointer rounded-large bg-buttonContainer`}
-            onClick={() => router.push(routesAdaptive.tests.byId(test.id))}
-        >
-            <span className={`text-shadow-lg`}>{BUTTON_VIEW_ALL[locale]}</span>
-        </button>
     const socialRatingComponent = (type: SIZE_ELEMENT) => {
         return (
-            <div className={`flex  w-full bg-primary-color/30 shadow-md border border-primary-color/30  gap-2 justify-center items-center align-center  rounded-large p-2`}>
-                <div className={`flex flex-col w-full gap-2`}>
-                    <div className={`flex items-center p-2 gap-2`}>
-                        <HashTags hashTags={['example', 'sample', 'test']} type={testType}/>
-                    </div>
-                    {buttonReadMore}
+            <div className={`flex  w-full bg-primary-color/20 shadow-sm border border-primary-color/30 items-center  rounded-large `}>
+                    <div className={`flex justify-between items-center w-full gap-2 rounded-large`}>
+                        <div className={`flex pl-2`}>
+                            <HashTags hashTags={['example', 'sample', 'test']} type={testType}/>
+                        </div>
+                        
+                        <button
+                            className={`p-2 cursor-pointer rounded-large bg-primary-color/50 border border-primary-color/30 shadow-sm  flex justify-center items-center`}
+                            onClick={() => router.push(routesAdaptive.tests.byId(test.id))}
+                        >
+                            <span className={`text-sm`}>{BUTTON_VIEW_ALL[locale]}</span>
+                        </button>
                 </div>
             </div>
         )
