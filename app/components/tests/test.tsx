@@ -51,7 +51,7 @@ export default function Test({ test, testType }: TestProps) {
 
     const socialRatingComponent = (type: SIZE_ELEMENT) => {
         return (
-            <div className={`flex  w-full bg-primary-color/20 shadow-sm border border-primary-color/30 items-center  rounded-large `}>
+            <div className={`flex mt-2  w-full bg-primary-color/20 shadow-sm border border-primary-color/30 items-center  rounded-large `}>
                     <div className={`flex justify-between items-center w-full gap-2 rounded-large`}>
                         <div className={`flex pl-2`}>
                             <HashTags hashTags={['example', 'sample', 'test']} type={testType}/>
@@ -71,9 +71,9 @@ export default function Test({ test, testType }: TestProps) {
     const previewTestComponent =
         <div className={`bg-primary-color/20 border border-primary-color/30 shadow-md p-4 rounded-large `}>
             <div>
-                <h2>{test.title[locale]}</h2>
-                <p>{TYPES_OF_TEST[locale]}: {test.label}</p>
-                <span>Group: {test.content[locale]}</span>
+                <h2 className={`text-lg text-center font-bold`}>{test.title[locale]}</h2>
+                {/* <p>{TYPES_OF_TEST[locale]}: {test.label}</p> */}
+                <span className={`text-sm`}>{test.content[locale]}</span>
             </div>
             {socialRatingComponent(testType)}
         </div>
@@ -99,7 +99,7 @@ export default function Test({ test, testType }: TestProps) {
 
     // functions
     return (
-        <div className={`flex flex-col p-4 max-w-6xl`}>
+        <div className={`flex flex-col p-2 max-w-6xl`}>
             {testType === SIZE_ELEMENT.PREVIEW ? previewTestComponent : fullTestComponent}
             {testResult && isModalOpen &&
                 <ModalWindowMain openStatusCallBack={isModalOpen} closeStatusCallBack={() => setIsModalOpen(false)}>
