@@ -20,6 +20,7 @@ import { useLocale } from "@/app/hooks/useLocale"
 import { BUTTON_READ_FULL_ARTICLE } from "@/translate/mediaPage/mediaPageContent"
 import HashTags from "../shared/hashTags"
 import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum"
+import { useArticleStore } from "@/app/store/articleStore"
 
 
 
@@ -32,6 +33,7 @@ interface ArticleProps {
 
 
 export default function Article({ article, typeArticle, initialLikesCount }: ArticleProps) {
+    const createArticle = useArticleStore((state) => state.createArticle)
     const [isEditArticle, setIsEditArticle] = useState(false);
     const [isChanged, setIsChanged] = useState(false);
     const [userPrivilege, setUserPrivilege] = useState(false);
@@ -93,12 +95,8 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         router.refresh()
         setIsLiked(data.isLiked)
     }
-const checkArticles = async () => {
-  const res = await fetch("/api/articles");
-  const data = await res.json();
-  console.log(data);
-};
-    checkArticles()
+
+
     const editArticleHandler = () => {
         setIsEditArticle(true);
     }
@@ -294,6 +292,19 @@ const checkArticles = async () => {
                 )}
 
                 {isEditContent && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditContent(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditContent(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
+            </div>
+            <div>
+                <button onClick={ () => { 
+                    createArticle(
+                        {
+                "multiLanguage": true,
+                "title": { "en": "Hello", "ru": "Привет", "lv": "Sveiki" },
+                "description": { "en": "Desc", "ru": "Описание", "lv": "Apraksts" },
+                "content": { "en": "Content", "ru": "Контент", "lv": "Saturs" },
+            
+}
+                    )
+                    }}>Create Article</button>
             </div>
             <div className={`flex items-center justify-end  p-2`}>
                 {userPrivilege &&
