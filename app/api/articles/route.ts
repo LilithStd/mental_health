@@ -1,18 +1,20 @@
 import { connectDB } from "@/app/lib/connectDB";
-import { Article } from "@/app/models/article";
 
 
 export async function GET() {
-  await connectDB();
+  const conn = await connectDB();
 
-  // создать запись
-  await Article.create({
-    title: "Привет",
-    content: "Тестовая статья",
-  });
+  // 👇 получаем "сырой" доступ к базе
+  const db = conn.connection.db;
 
-  // получить все
-  const articles = await Article.find();
-  console.log(articles);
-  return Response.json(articles);
+  if (!db) {
+    return Response.json({ error: "Database connection failed" }, { status: 500 });
+  }
+
+  // список коллекций
+  const collections = await db.listCollections().toArray();
+
+  console.log("Collections:", collections);
+
+  return Response.json({ collections });
 }

@@ -93,11 +93,11 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         router.refresh()
         setIsLiked(data.isLiked)
     }
-    const checkArticles = async () => {
-        const res = await fetch("/api/articles");
-        const data = await res.json();
-        console.log(data);
-    }
+const checkArticles = async () => {
+  const res = await fetch("/api/articles");
+  const data = await res.json();
+  console.log(data);
+};
     checkArticles()
     const editArticleHandler = () => {
         setIsEditArticle(true);

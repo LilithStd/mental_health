@@ -11,6 +11,7 @@ export const LOCALES = ['en', 'lv', 'ru'] as const
 export type LocaleType = (typeof LOCALES)[number]
 export type ArticleType = {
     id: number
+    multiLanguage:boolean 
     title: {
         en: string
         ru: string
