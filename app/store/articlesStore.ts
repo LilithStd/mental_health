@@ -16,7 +16,8 @@ export const useGlobalStore = create<ArticlesStoreInterface>()(
             getArticleById: (id: string) => {
                 return get().articles.find(article => article.id === Number(id))
             },
-            postNewArticle: (article: ArticleType) => {}
+            postNewArticle: (article: ArticleType) => {},
+            deleteArticleById: (id: string) => {},
         }),
         {name: 'articles-store'}, 
     ),
