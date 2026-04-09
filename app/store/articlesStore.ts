@@ -10,6 +10,10 @@ export const useGlobalStore = create<ArticlesStoreInterface>()(
     persist(
         (set, get) => ({
             articles: [],
+            setAllArticles: (articles: ArticleType[]) => {
+                
+                set({ articles })
+            },
             getAllArticles: () => {
                 return get().articles
             },

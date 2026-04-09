@@ -1,19 +1,10 @@
+// app/api/articles/route.ts
+// import { ArticleType } from "@/types/article";
 
-import { connectDB } from "@/app/lib/connectDB";
-import { Article } from "../../models/article";
+import { Article } from "@/app/models/article";
+import { ArticleType } from "@/app/types/types";
 
-
-export async function GET() {
-  await connectDB();
-
-  // создать запись
-  await Article.create({
-    title: "Привет",
-    content: "Тестовая статья",
-  });
-
-  // получить все
-  const articles = await Article.find();
-
+export async function GET(): Promise<Response> {
+  const articles: ArticleType[] = await Article.find();
   return Response.json(articles);
 }
