@@ -1,7 +1,7 @@
 'use client'
 
 import Favorites from "../shared/favorites"
-import { useEffect, useState, useTransition } from "react"
+import { use, useEffect, useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
 // import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum"
 import { canEditContent } from "@/app/serverActions/permissions"
@@ -71,7 +71,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         }
         checkLiked()
     }, [currentAuthUser, article.id])
-
+    
     // functions
     const handleLike = async () => {
         if (!currentAuthUser || !currentAuthUser.id) {
@@ -93,6 +93,12 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         router.refresh()
         setIsLiked(data.isLiked)
     }
+    const checkArticles = async () => {
+        const res = await fetch("/api/articles");
+        const data = await res.json();
+        console.log(data);
+    }
+    checkArticles()
     const editArticleHandler = () => {
         setIsEditArticle(true);
     }
