@@ -1,28 +1,38 @@
+import mongoose, { Schema, Document, Model } from "mongoose";
+import { MultiLanguageText } from "../types/types";
 
-import { model, models, Schema } from "mongoose";
-import { ArticleType } from "../types/types";
 
-// import { ArticleType } from "@/types/article";
+interface IArticle extends Document {
+  multiLanguage: boolean;
+  title: MultiLanguageText | string;
+  description?: MultiLanguageText | string;
+  content: MultiLanguageText | string;
+  createdAt: Date;
+  tags?: string[];
+  likes?: number;
+}
 
-const ArticleSchema = new Schema<ArticleType>({
-    id: Number,
-    multiLanguage: Boolean,
-    title: {
-        en: String,
-        ru: String,
-        lv: String
-    },
-    description: {
-        en: String,
-        ru: String,
-        lv: String
-    },
-    content: {
-        en: String,
-        ru: String,
-        lv: String
-    },
-    date: String
+const ArticleSchema: Schema<IArticle> = new Schema({
+  multiLanguage: { type: Boolean, default: true },
+  title: {
+    en: String,
+    ru: String,
+    lv: String,
+  },
+  description: {
+    en: String,
+    ru: String,
+    lv: String,
+  },
+  content: {
+    en: String,
+    ru: String,
+    lv: String,
+  },
+  createdAt: { type: Date, default: Date.now },
+  tags: [String],
+  likes: { type: Number, default: 0 },
 });
 
-export const Article = models.Article || model<ArticleType>("Article", ArticleSchema);
+export const Article: Model<IArticle> =
+  mongoose.models.Article || mongoose.model<IArticle>("Article", ArticleSchema);

@@ -9,23 +9,16 @@ export type UserAuthType = {
 
 export const LOCALES = ['en', 'lv', 'ru'] as const
 export type LocaleType = (typeof LOCALES)[number]
+export type MultiLanguageText = {
+    en: string
+    ru: string
+    lv: string
+}
 export type ArticleType = {
     id: number
     multiLanguage:boolean 
-    title: {
-        en: string
-        ru: string
-        lv: string
-    }
-    description: {
-        en: string
-        ru: string
-        lv: string
-    }
-    content: {
-        en: string
-        ru: string
-        lv: string
-    }
-    date: string
+    title: MultiLanguageText | string
+    description: MultiLanguageText | string
+    content: MultiLanguageText | string
+    createdAt: string
 }
