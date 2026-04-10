@@ -3,23 +3,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/app/lib/connectDB";
 import { Article } from "@/app/models/article";
 import { ArticleType } from "@/app/types/types";
+import { getAllArticles } from "@/app/service/articleService";
 
 // GET — возвращаем все статьи
-export async function GET(): Promise<Response> {
-  await connectDB();
-
-  const articlesDB = await Article.find();
-
-  const articles: ArticleType[] = articlesDB.map((article) => ({
-    id: article._id.toString(),
-    multiLanguage: article.multiLanguage,
-    title: article.title,
-    author: article.author || "",
-    description: article.description || "",
-    content: article.content,
-    createdAt: article.createdAt.toISOString(),
-  }));
-
+export async function GET() {
+  const articles = await getAllArticles();
   return Response.json(articles);
 }
 

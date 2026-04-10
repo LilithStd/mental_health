@@ -4,7 +4,7 @@ import ArticleClient from "./articleClient";
 import NewArticleButton from "./articleComponents/newArticleButton";
 import { routes } from "@/app/helpers/helpersFunctions";
 import ReturnButton from "../returnButton";
-import {  LocaleType } from "@/app/types/types";
+import {  ArticleType, LocaleType } from "@/app/types/types";
 import { MediaPageContent } from "@/translate/mediaPage/mediaPageContent";
 // import { getLocale } from "@/app/hooks/server/getLocale";
 import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum";
@@ -15,13 +15,13 @@ import { useLocale } from "@/app/hooks/useLocale";
 
 
 
-export type ArticleType = {
-    id: number
-    title: string
-    author: string
-    content: string
-    createdAt: string
-}
+// export type ArticleType = {
+//     id: number
+//     title: string
+//     author: string
+//     content: string
+//     createdAt: string
+// }
 
 interface ArticlesClientProps {
     initialArticles: ArticleType[],
