@@ -293,7 +293,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
 
                 {isEditContent && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditContent(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditContent(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
             </div>
-            <div>
+            {/* <div>
                 <button onClick={ () => { 
                     createArticle(
                         {
@@ -305,7 +305,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
 }
                     )
                     }}>Create Article</button>
-            </div>
+            </div> */}
             <div className={`flex items-center justify-end  p-2`}>
                 {userPrivilege &&
                     editArticleButtonsComponent

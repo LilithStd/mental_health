@@ -15,10 +15,11 @@ export type MultiLanguageText = {
     lv: string
 }
 export type ArticleType = {
-    id: number
+    id: string
     multiLanguage:boolean 
     title: MultiLanguageText | string
     description: MultiLanguageText | string
     content: MultiLanguageText | string
+    author: string
     createdAt: string
 }

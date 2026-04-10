@@ -5,17 +5,22 @@ import { Article } from "@/app/models/article";
 import { ArticleType } from "@/app/types/types";
 
 // GET — возвращаем все статьи
-export async function GET() {
-  try {
-    await connectDB();
+export async function GET(): Promise<Response> {
+  await connectDB();
 
-    const articles = await Article.find().sort({ createdAt: -1 });
+  const articlesDB = await Article.find();
 
-    return NextResponse.json(articles);
-  } catch (error) {
-    console.error("GET /api/articles error:", error);
-    return NextResponse.json({ message: "Server error" }, { status: 500 });
-  }
+  const articles: ArticleType[] = articlesDB.map((article) => ({
+    id: article._id.toString(),
+    multiLanguage: article.multiLanguage,
+    title: article.title,
+    author: article.author || "",
+    description: article.description || "",
+    content: article.content,
+    createdAt: article.createdAt.toISOString(),
+  }));
+
+  return Response.json(articles);
 }
 
 // POST — создаём новую статью
