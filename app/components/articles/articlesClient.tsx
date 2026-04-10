@@ -8,8 +8,8 @@ import {  ArticleType, LocaleType } from "@/app/types/types";
 import { MediaPageContent } from "@/translate/mediaPage/mediaPageContent";
 // import { getLocale } from "@/app/hooks/server/getLocale";
 import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum";
-import { ArticleTypes } from "@/app/models/article";
 import { useLocale } from "@/app/hooks/useLocale";
+import Article from "./article";
 
 
 
@@ -40,7 +40,7 @@ export default  function ArticlesClient({ initialArticles, type }: ArticlesClien
         <h2 className={`text-3xl  bg-primary-color/30 rounded-large  p-4 mb-4`}>{MediaPageContent[locale].random_articles}</h2>
         <div className={`flex flex-col gap-4`}>
             {articles.map((article) =>
-                <ArticleClient key={article.id} article={article} type={type} />
+                <Article key={article.id} article={article} type={type} />
             )}
         </div>
     </div>
@@ -55,7 +55,7 @@ export default  function ArticlesClient({ initialArticles, type }: ArticlesClien
                 </div>
                 <div className={`grid grid-cols-1 md:grid-cols-2 gap-4  max-content-main-container`}>
                     {articles.map((article) =>
-                        <ArticleClient key={article.id} article={article} type={type} />
+                        <Article key={article.id} article={article} type={type} />
                     )}
                 </div>
             </div>

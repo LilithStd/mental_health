@@ -4,7 +4,7 @@ import { MultiLanguageText } from "../types/types";
 
 
 export interface ArticleTypes extends Document {
-  id:number;
+  id:string;
   multiLanguage: boolean;
   title: MultiLanguageText | string;
   description?: MultiLanguageText | string;
@@ -17,7 +17,7 @@ export interface ArticleTypes extends Document {
 }
 
 const ArticleSchema: Schema<ArticleTypes> = new Schema({
-  id: { type: Number, required: true, unique: true },
+  id: { type: String, required: true, unique: true },
   multiLanguage: { type: Boolean, default: true },
   title: { en: String, ru: String, lv: String },
   author: { type: String },

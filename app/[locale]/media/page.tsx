@@ -12,7 +12,7 @@ import Link from "next/link";
 export default async function MediaPage() {
     const locale = await getLocale() as LocaleType
     const routesAdaptive = routes(locale)
-    console.log("Locale in MediaPage:", locale)
+
     return (
         <div className={`flex flex-col indents-main-container  flex-1 items-center `}>
 
@@ -22,7 +22,7 @@ export default async function MediaPage() {
                     <Link href={routesAdaptive.articles.root} className={`bg-primary-color/50 p-4 rounded-large`}>{MediaPageContent[locale].title_articles}</Link>
                 </div>
 
-                <RandomArticleBlock />
+                {/* <RandomArticleBlock /> */}
                 <RandomNewsBlock />
 
             </div>

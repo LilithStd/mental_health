@@ -1,7 +1,7 @@
 'use client'
 
 import Favorites from "../shared/favorites"
-import { use, useEffect, useState, useTransition } from "react"
+import { useEffect, useState, useTransition } from "react"
 import { useRouter } from "next/navigation"
 // import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum"
 import { canEditContent } from "@/app/serverActions/permissions"
@@ -11,11 +11,10 @@ import { updateArticleAction } from "@/app/serverActions/updateArticle"
 import { CROP_CONTAINER_SIZE } from "@/app/globalConsts/globalConsts"
 import { cropContent, routes } from "@/app/helpers/helpersFunctions"
 import AuthorIcon from "@/public/icons/user/User.svg"
-import { ArticleType } from "./articlesClient"
 import { useAuth } from "@/app/authClientWrapper"
 import { checkIfUserLiked } from "@/app/serverActions/likesStorage"
 import Link from "next/link"
-import { LocaleType } from "@/app/types/types"
+import { ArticleType, LocaleType } from "@/app/types/types"
 import { useLocale } from "@/app/hooks/useLocale"
 import { BUTTON_READ_FULL_ARTICLE } from "@/translate/mediaPage/mediaPageContent"
 import HashTags from "../shared/hashTags"
@@ -64,39 +63,6 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
         checkPrivilege();
     }, [currentAuthUser]);
 
-    useEffect(() => {
-        const checkLiked = async () => {
-            if (currentAuthUser && currentAuthUser.id) {
-                const isLiked = await checkIfUserLiked(article.id, currentAuthUser.id)
-                setIsLiked(isLiked)
-            }
-        }
-        checkLiked()
-    }, [currentAuthUser, article.id])
-    
-    // functions
-    const handleLike = async () => {
-        if (!currentAuthUser || !currentAuthUser.id) {
-            alert('You must be logged in to like articles.');
-            return;
-        }
-        const res = await fetch('/api/articleLikes', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                articleId: article.id,
-                userId: currentAuthUser.id,
-            }),
-        })
-
-        const data = await res.json()
-
-        setLikesCount(data.likesCount)
-        router.refresh()
-        setIsLiked(data.isLiked)
-    }
-
-
     const editArticleHandler = () => {
         setIsEditArticle(true);
     }
@@ -121,7 +87,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
             isFavorite={isLiked}
             type={type}
             counterFavorites={likesCount}
-            callBackIsFavorite={handleLike}
+            // callBackIsFavorite={handleLike}
         />
         </div>) 
         }
