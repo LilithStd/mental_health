@@ -6,6 +6,7 @@ import { getAllArticles } from "@/app/serverActions/articleStorage"
 
 
 export default async function ArticlesPage() {
+    // const articles = await getAllArticles()
     const articles = await getAllArticles()
     return <ArticlesClient initialArticles={articles} type={SIZE_ELEMENT.MEDIUM} />
 
