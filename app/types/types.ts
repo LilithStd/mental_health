@@ -17,9 +17,9 @@ export type MultiLanguageText = {
 export type ArticleType = {
     id: string
     multiLanguage:boolean 
-    title: MultiLanguageText | string
-    description?: MultiLanguageText | string
-    content: MultiLanguageText | string
+    title: MultiLanguageText
+    description?: MultiLanguageText
+    content: MultiLanguageText
     tags: string[]
     likes: number
     author?: string

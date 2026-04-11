@@ -6,9 +6,9 @@ import { MultiLanguageText } from "../types/types";
 export interface ArticleTypes extends Document {
   id:string;
   multiLanguage: boolean;
-  title: MultiLanguageText | string;
-  description?: MultiLanguageText | string;
-  content: MultiLanguageText | string;
+  title: MultiLanguageText;
+  description?: MultiLanguageText;
+  content: MultiLanguageText;
   author?: string;
   tags: string[];
   likes: number;

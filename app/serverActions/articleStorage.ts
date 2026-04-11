@@ -54,17 +54,17 @@ export async function getArticleById(id: number) {
   console.log('getArticleById called with id:', id);
   ensureFile()
   const articles = await getAllArticles()
-  return articles.find(a => a.id === id) || null
+  return articles.find(a => a.id === Number(id)) || null
 }
 
 export function updateArticle(
-  id: number,
+  id: string,
   data: Partial<Omit<Article, 'id'>>
 ): Article | null {
   ensureFile()
 
   const articles = getAllArticles()
-  const index = articles.findIndex(a => a.id === id)
+  const index = articles.findIndex(a => a.id === Number(id))
 
   if (index === -1) return null
 
