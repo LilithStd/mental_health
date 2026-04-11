@@ -10,14 +10,13 @@ export interface ArticleTypes extends Document {
   description?: MultiLanguageText | string;
   content: MultiLanguageText | string;
   author?: string;
-  tags?: string[];
-  likes?: number;
+  tags: string[];
+  likes: number;
   createdAt: Date;
   updatedAt?: Date;
 }
 
 const ArticleSchema: Schema<ArticleTypes> = new Schema({
-  id: { type: String, required: true, unique: true },
   multiLanguage: { type: Boolean, default: true },
   title: { en: String, ru: String, lv: String },
   author: { type: String },

@@ -13,8 +13,14 @@ export default async function ArticlesPage() {
     // const articles = await getAllArticles()
     // const getAllArticles = useArticleStore((state) => state.getAllArticles)
     const articles = await getAllArticles()
+    console.log('articles', articles)
 
 
-    return <ArticlesClient initialArticles={articles} type={SIZE_ELEMENT.MEDIUM} />
+    return <ArticlesClient initialArticles={articles} typeArticle={SIZE_ELEMENT.MEDIUM} />
+    return (
+        <div>
+            {<p>articles page</p>}
+        </div>
+    )
 
 }
