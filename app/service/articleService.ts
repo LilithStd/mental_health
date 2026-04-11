@@ -18,8 +18,9 @@ function mapArticle(a: ArticleTypes): ArticleType {
 }
 
 export async function getAllArticles() {
-  await connectDB();
-  return Article.find().lean();
+    await connectDB();
+    const articles = await Article.find().lean();
+    return articles.map(mapArticle);
 }
 
 export async function createArticle(data: Partial<ArticleTypes>) {

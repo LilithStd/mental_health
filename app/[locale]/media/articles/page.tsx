@@ -17,10 +17,4 @@ export default async function ArticlesPage() {
 
 
     return <ArticlesClient initialArticles={articles} typeArticle={SIZE_ELEMENT.MEDIUM} />
-    return (
-        <div>
-            {<p>articles page</p>}
-        </div>
-    )
-
 }
