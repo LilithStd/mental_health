@@ -67,7 +67,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         setIsEditArticle(true);
     }
     const editTitleHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEditTitle(e.target.value);
+        setEditTitle({ ...editTitle, [locale]: e.target.value });
         setIsChanged(true);
     }
     const editAuthorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -75,7 +75,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         setIsChanged(true);
     }
     const editContentHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setEditContent(e.target.value);
+        setEditContent({ ...editContent, [locale]: e.target.value });
         setIsChanged(true);
     }
     // components
@@ -122,7 +122,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                 </div>
             </div>
             <div>
-                {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle} onChange={editTitleHandler} className="text-3xl" /> : <h2 className={`flex h-fit text-2xl  rounded-large font-bold`}>{article.title[locale]}</h2>}
+                {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle[locale]} onChange={editTitleHandler} className="text-3xl" /> : <h2 className={`flex h-fit text-2xl  rounded-large font-bold`}>{article.title[locale]}</h2>}
                 {isEditTtitle && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditTitle(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditTitle(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
                 {isEditAuthor ? <input name="author" type="text" value={editAuthor} onChange={editAuthorHandler} className="text-xl " /> : <h3 className={`italic opacity-70 flex items-center gap-2`}>
                     by {!article.author || article.author.length === 0 ? "Unknown Author" : article.author}
@@ -158,7 +158,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         <button className={`bg-buttonContainer rounded-large p-2 cursor-pointer`}
             onClick={() => {
                 startTransition(() =>
-                    updateArticleAction(article.id, editTitle, editContent)
+                    updateArticleAction(article.id, editTitle.en, editContent.en)
                 )
                 setIsEditContent(false)
                 setIsEditTitle(false)
@@ -199,7 +199,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
             <div className="flex flex-col  flex-1 p-2 rounded-large">
                 <p className={`text-sm  whitespace-pre-wrap leading-relaxed`}>
-                    {cropContent(article.content, CROP_CONTAINER_SIZE.MEDIUM)}
+                    {cropContent(article.content[locale], CROP_CONTAINER_SIZE.MEDIUM)}
                 </p>
 
                 <div className={`w-full mt-auto flex`}>
@@ -223,7 +223,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             {mainMetaDataArticleComponent}
             <div className="flex flex-col p-4 rounded-large">
                 <p className={``}>
-                    {cropContent(article.content, CROP_CONTAINER_SIZE.SMALL)}
+                    {cropContent(article.content[locale], CROP_CONTAINER_SIZE.SMALL)}
                 </p>
                 {interactionBlockComponent}
             </div>
@@ -238,7 +238,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             <div className={`flex flex-col items-center p-2 gap-4 mb-4`}>
                 {isEditContent ? (
                     <textarea
-                        value={editContent}
+                        value={editContent.en}
                         onChange={editContentHandler}
                         className="
                                 w-full
@@ -253,7 +253,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                     />
                 ) : (
                     <p className="whitespace-pre-wrap leading-relaxed">
-                        {editContent}
+                        {editContent.en}
                     </p>
                 )}
 
@@ -283,7 +283,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                     isFavorite={isLiked}
                     type={SIZE_ELEMENT.FULL}
                     counterFavorites={likesCount}
-                    callBackIsFavorite={handleLike}
+                    // callBackIsFavorite={handleLike}
                 />
                 <HashTags hashTags={['example', 'sample', 'test']} type={SIZE_ELEMENT.FULL}/>
             </div>
