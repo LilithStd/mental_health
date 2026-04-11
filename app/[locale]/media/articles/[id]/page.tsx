@@ -24,7 +24,7 @@ export default async function ArticlePage({
         return <div>Статья не найдена</div>
     }
 
-    const likes = await getArticleLikes(article.id)
+    // const likes = await getArticleLikes(article.id)
 
     return (
         <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
@@ -34,7 +34,7 @@ export default async function ArticlePage({
                 </div>
                 <Article
                     article={article}
-                    initialLikesCount={likes.likesCount}
+                    // initialLikesCount={likes.likesCount}
                     typeArticle={SIZE_ELEMENT.FULL}
                 />
             </div>

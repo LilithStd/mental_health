@@ -1,27 +1,14 @@
 'use client'
-// import { ARTICLE_TYPE } from "@/app/globalConsts/globalEnum";
-import ArticleClient from "./articleClient";
+
 import NewArticleButton from "./articleComponents/newArticleButton";
 import { routes } from "@/app/helpers/helpersFunctions";
 import ReturnButton from "../returnButton";
 import {  ArticleType, LocaleType } from "@/app/types/types";
 import { MediaPageContent } from "@/translate/mediaPage/mediaPageContent";
-// import { getLocale } from "@/app/hooks/server/getLocale";
 import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum";
 import { useLocale } from "@/app/hooks/useLocale";
 import Article from "./article";
 
-
-
-
-
-// export type ArticleType = {
-//     id: number
-//     title: string
-//     author: string
-//     content: string
-//     createdAt: string
-// }
 
 interface ArticlesClientProps {
     initialArticles: ArticleType[],
