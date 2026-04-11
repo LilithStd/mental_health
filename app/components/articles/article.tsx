@@ -26,12 +26,12 @@ import { useArticleStore } from "@/app/store/articleStore"
 
 interface ArticleProps {
     article: ArticleType
-    initialLikesCount: number
+    // initialLikesCount: number
     typeArticle: SIZE_ELEMENT
 }
 
 
-export default function Article({ article, typeArticle, initialLikesCount }: ArticleProps) {
+export default function Article({ article, typeArticle }: ArticleProps) {
     const createArticle = useArticleStore((state) => state.createArticle)
     const [isEditArticle, setIsEditArticle] = useState(false);
     const [isChanged, setIsChanged] = useState(false);
@@ -42,7 +42,7 @@ export default function Article({ article, typeArticle, initialLikesCount }: Art
     const [isEditContent, setIsEditContent] = useState(false);
     const [isEditAuthor, setIsEditAuthor] = useState(false);
     const [editAuthor, setEditAuthor] = useState(article.author);
-    const [likesCount, setLikesCount] = useState(initialLikesCount);
+    const [likesCount, setLikesCount] = useState(0);
     const [isLiked, setIsLiked] = useState(false);
     const currentAuthUser = useAuth()
     const [pending, startTransition] = useTransition()
