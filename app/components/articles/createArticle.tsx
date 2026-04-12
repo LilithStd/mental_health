@@ -67,9 +67,11 @@ export default function CreateArticle() {
             <div>
                 
             </div>
-            
+            <div className={`flex gap-4 bg-primary-color/30 border border-primary-color/30 p-2 rounded-large`}>
+                <span>{CreateArticleContent[locale].tags}</span>
+            </div>
             <label className="flex items-center gap-2 cursor-pointer">
-                <span className="mr-2">{CreateArticleContent[locale].multiLanguage}</span>
+                <span className="">{CreateArticleContent[locale].multiLanguage}</span>
                 <div className="relative">
                    <input type="checkbox" className="sr-only peer" checked={multiLanguage} onChange={(event) => setMultiLanguage(event.target.checked)} />
 
@@ -93,21 +95,21 @@ export default function CreateArticle() {
                 <div className={`flex flex-col gap-4`}>
                 <textarea
                 name="enContent"
-                placeholder={`${LANGUAGE.EN} ${CreateArticleContent[locale].contentInput}`}
+                placeholder={`${CreateArticleContent[locale].placeholderContent.en} `}
                 onChange={(event) => setEnContent(event.target.value)}
                 required
                 className={`border border-primary-color/30 p-2 h-32 bg-primary-color/30 rounded-large`}
                 />
                 <textarea
                 name="lvContent"
-                placeholder={`${LANGUAGE.LV} ${CreateArticleContent[locale].contentInput}`}
+                placeholder={`${CreateArticleContent[locale].placeholderContent.lv} `}
                 onChange={(event) => setLvContent(event.target.value)}
                 required
                 className={`border border-primary-color/30 p-2 h-32 bg-primary-color/30 rounded-large`}
                 />
                 <textarea
                 name="ruContent"
-                placeholder={`${LANGUAGE.RU} ${CreateArticleContent[locale].contentInput}`}
+                placeholder={`${CreateArticleContent[locale].placeholderContent.ru} `}
                 onChange={(event) => setRuContent(event.target.value)}
                 required
                 className={`border border-primary-color/30 p-2 h-32 bg-primary-color/30 rounded-large`}
