@@ -7,7 +7,7 @@ import { LocaleType } from "@/app/types/types";
 import { CreateArticleContent } from "@/translate/mediaPage/articleContent/articleContent";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-// import AddTagsIcon from "@/public/icons/";
+import AddTagsIcon from "@/public/icons/PlusCircle.svg";
 
 // interface CreateArticleProps {
 
@@ -68,8 +68,9 @@ export default function CreateArticle() {
             <div>
                 
             </div>
-            <div className={`flex gap-4 bg-primary-color/30 border border-primary-color/30 p-2 rounded-large`}>
+            <div className={`flex flex-col gap-4 bg-primary-color/30 border border-primary-color/30 p-2 rounded-large`}>
                 <span>{CreateArticleContent[locale].tags}</span>
+                <AddTagsIcon className="w-6 h-6" fill={'green'} />
             </div>
             <label className="flex items-center gap-2 cursor-pointer">
                 <span className="">{CreateArticleContent[locale].multiLanguage}</span>
