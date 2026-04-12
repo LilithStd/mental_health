@@ -7,6 +7,7 @@ import { LocaleType } from "@/app/types/types";
 import { CreateArticleContent } from "@/translate/mediaPage/articleContent/articleContent";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+// import AddTagsIcon from "@/public/icons/";
 
 // interface CreateArticleProps {
 
