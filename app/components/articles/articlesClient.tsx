@@ -49,6 +49,7 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
     return (
         <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
             <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 border border-primary-color/30 p-4 shadow-md`}>
+                {/* <NewArticleButton /> */}
                 {typeArticle === SIZE_ELEMENT.PREVIEW ? randomArticlesComponent : regularArticlesComponent}
             </div>
         </div>

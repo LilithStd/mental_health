@@ -17,9 +17,10 @@ export default function NewArticleButton() {
     useEffect(() => {
 
         const checkPrivilege = async () => {
-            const privilege = await canEditContent(currentAuthUser);
+            const privilege = true
+            // const privilege = await canEditContent(currentAuthUser);
             setIsAllowedToEdit(privilege);
-            console.log('User privilege to edit content:', privilege);
+            // console.log('User privilege to edit content:', privilege);
         };
 
         checkPrivilege();
