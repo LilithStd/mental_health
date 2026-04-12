@@ -40,7 +40,7 @@ export default function CreateArticle() {
     return (
         <form
             onSubmit={handleSubmit}
-            className={`flex flex-col gap-4 p-4 max-content-main-container rounded-medium bg-subContainer `}
+            className={`flex flex-col gap-4 p-4 max-content-main-container rounded-medium bg-primary-color/30 border border-primary-color/30 w-full`}
         >
             <h1 className="text-xl font-bold">{locale === 'en' ? 'Create Article' : 'Créer un article'}</h1>
 
