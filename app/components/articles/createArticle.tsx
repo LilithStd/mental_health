@@ -1,4 +1,5 @@
 'use client'
+import { LANGUAGE } from "@/app/globalConsts/globalEnum";
 import { routes } from "@/app/helpers/helpersFunctions";
 import { useLocale } from "@/app/hooks/useLocale";
 import { useGlobalStore } from "@/app/store/globalStore";
@@ -15,6 +16,9 @@ export default function CreateArticle() {
     const routesAdaptive = routes(locale)
     // states
     const [multiLanguage, setMultiLanguage] = useState(false)
+    const [ruContent, setRuContent] = useState('')
+    const [enContent, setEnContent] = useState('')
+    const [lvContent, setLvContent] = useState('')
     //stores
     // consts
     const router = useRouter()
@@ -85,12 +89,38 @@ export default function CreateArticle() {
                 </div>
 
             </label>
-            <textarea
-                name="content"
-                placeholder={CreateArticleContent[locale].contentInput}
+            {multiLanguage ? (
+                <div className={`flex flex-col gap-4`}>
+                <textarea
+                name="enContent"
+                placeholder={`${LANGUAGE.EN} ${CreateArticleContent[locale].contentInput}`}
+                onChange={(event) => setEnContent(event.target.value)}
                 required
                 className={`border border-primary-color/30 p-2 h-32 bg-primary-color/30 rounded-large`}
-            />
+                />
+                <textarea
+                name="lvContent"
+                placeholder={`${LANGUAGE.LV} ${CreateArticleContent[locale].contentInput}`}
+                onChange={(event) => setLvContent(event.target.value)}
+                required
+                className={`border border-primary-color/30 p-2 h-32 bg-primary-color/30 rounded-large`}
+                />
+                <textarea
+                name="ruContent"
+                placeholder={`${LANGUAGE.RU} ${CreateArticleContent[locale].contentInput}`}
+                onChange={(event) => setRuContent(event.target.value)}
+                required
+                className={`border border-primary-color/30 p-2 h-32 bg-primary-color/30 rounded-large`}
+                />
+                </div>
+                
+            ): <textarea
+                name="content"
+                placeholder={`${CreateArticleContent[locale].contentInput}`}
+                required
+                className={`border border-primary-color/30 p-2 h-32 bg-primary-color/30 rounded-large`}
+            />}
+            
             <div className={`flex w-full gap-4`}>
                 <button type="button" onClick={handleCancel} className={`bg-primary-color/50 py-2 rounded-large flex-1`}>{CreateArticleContent[locale].cancelButton}</button>
                 <button
