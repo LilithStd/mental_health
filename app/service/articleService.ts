@@ -27,6 +27,7 @@ export async function getAllArticles() {
 
 export async function createArticle(data: Partial<ArticleTypes>) {
   await connectDB();
+  console.log('Creating article with data:', data);
   return Article.create(data);
 }
 
@@ -37,6 +38,12 @@ export async function getArticleById(id: string) {
     if(!article) return null;
         return {
             id: article._id.toString(),
+            author: article.author,
+            tags: article.tags,
+            image: article.image,
+            likes: article.likes,
+            createdAt: article.createdAt.toISOString(),
+            updatedAt: article.updatedAt?.toISOString(),
             title: article.title,
             content: article.content,
         };

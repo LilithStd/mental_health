@@ -23,7 +23,8 @@ export async function POST(req: Request) {
 
   const article = {
     multiLanguage: true,
-
+    author: (formData.get("author") as string) || "Unknown",
+    tags: (formData.get("tags") as string)?.split(",") || [],
     title: {
       en: (formData.get("title_en") as string) || "",
       ru: (formData.get("title_ru") as string) || "",

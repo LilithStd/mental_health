@@ -1,7 +1,21 @@
+
+
 export const PlaceHolderLanguageContent = {
-    en: 'English content',
-    lv: 'Latviešu saturs',
-    ru: 'Русский контент'
+    en: { 
+        content: 'Content',
+        title: 'Title',
+        author: 'Author' 
+    },
+    lv: { 
+        content: 'Saturs',
+        title: 'Nosaukums',
+        author: 'Autors'
+    },
+    ru: { 
+        content: 'Содержание',
+        title: 'Заголовок',
+        author: 'Автор'
+    },
 } as const
 
 export const CreateArticleContent = {

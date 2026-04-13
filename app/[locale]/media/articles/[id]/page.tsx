@@ -21,7 +21,7 @@ export default async function ArticlePage({
     const article = await getArticleById(id)
     const locale = await getLocale() as LocaleType
     const routesAdaptive = routes(locale)
-
+    console.log(article)
     if (!article) {
         return <div>Статья не найдена</div>
     }

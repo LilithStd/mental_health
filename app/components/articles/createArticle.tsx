@@ -32,18 +32,18 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 
     const form = e.currentTarget
     const formData = new FormData(form)
+    console.log('Form data entries:', Array.from(formData.entries())) // Debugging line to check form data;
+    // const res = await fetch('/api/articles', {
+    //     method: 'POST',
+    //     body: formData,
+    // })
 
-    const res = await fetch('/api/articles', {
-        method: 'POST',
-        body: formData,
-    })
-
-    form.reset()
-    if (res.ok) {
-        router.push(routesAdaptive.articles.root)
-    } else {
-        alert('Error creating article')
-    }
+    // form.reset()
+    // if (res.ok) {
+    //     router.push(routesAdaptive.articles.root)
+    // } else {
+    //     alert('Error creating article')
+    // }
 }
 
 return (
@@ -55,10 +55,24 @@ return (
 
             <input
                 name="title"
+                type="text"
                 placeholder={CreateArticleContent[locale].titleInput}
                 required
                 className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
             />
+            <input 
+                type="text" 
+                name="titleEn"
+                required
+                className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
+            />
+            <input 
+                type="text" 
+                name="titleLv"
+                required
+                className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
+            />
+
             <input
                 name="author"
                 placeholder={CreateArticleContent[locale].authorInput}
@@ -98,21 +112,21 @@ return (
                 <textarea
                 name="enContent"
                 placeholder={`${CreateArticleContent[locale].placeholderContent.en} `}
-                onChange={(event) => setEnContent(event.target.value)}
+                // onChange={(event) => setEnContent(event.target.value)}
                 required
                 className={`border border-primary-color/30 p-2 h-32 bg-primary-color/30 rounded-large`}
                 />
                 <textarea
                 name="lvContent"
                 placeholder={`${CreateArticleContent[locale].placeholderContent.lv} `}
-                onChange={(event) => setLvContent(event.target.value)}
+                // onChange={(event) => setLvContent(event.target.value)}
                 required
                 className={`border border-primary-color/30 p-2 h-32 bg-primary-color/30 rounded-large`}
                 />
                 <textarea
                 name="ruContent"
                 placeholder={`${CreateArticleContent[locale].placeholderContent.ru} `}
-                onChange={(event) => setRuContent(event.target.value)}
+                // onChange={(event) => setRuContent(event.target.value)}
                 required
                 className={`border border-primary-color/30 p-2 h-32 bg-primary-color/30 rounded-large`}
                 />
