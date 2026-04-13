@@ -1,10 +1,11 @@
 import { connectDB } from "../lib/connectDB";
 import { Article, ArticleTypes } from "../models/article";
 import { ArticleType } from "../types/types";
+import { Types } from "mongoose";
 
 function mapArticle(a: ArticleTypes): ArticleType {
   return {
-    id: a.id, 
+    id: a._id.toString(), 
     multiLanguage: a.multiLanguage,
     title: a.title,
     description: a.description,
@@ -27,6 +28,18 @@ export async function getAllArticles() {
 export async function createArticle(data: Partial<ArticleTypes>) {
   await connectDB();
   return Article.create(data);
+}
+
+export async function getArticleById(id: string) {
+  await connectDB();
+
+  const article = await Article.findById(new Types.ObjectId(id)).lean();
+    if(!article) return null;
+        return {
+            id: article._id.toString(),
+            title: article.title,
+            content: article.content,
+        };
 }
 
 export async function likeArticle(id: string) {

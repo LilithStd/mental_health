@@ -259,19 +259,6 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
                 {isEditContent && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditContent(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditContent(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
             </div>
-            {/* <div>
-                <button onClick={ () => { 
-                    createArticle(
-                        {
-                "multiLanguage": true,
-                "title": { "en": "Hello", "ru": "Привет", "lv": "Sveiki" },
-                "description": { "en": "Desc", "ru": "Описание", "lv": "Apraksts" },
-                "content": { "en": "Content", "ru": "Контент", "lv": "Saturs" },
-            
-}
-                    )
-                    }}>Create Article</button>
-            </div> */}
             <div className={`flex items-center justify-end  p-2`}>
                 {userPrivilege &&
                     editArticleButtonsComponent
