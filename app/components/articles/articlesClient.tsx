@@ -42,7 +42,7 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
                 </div>
                 <div className={`grid grid-cols-1 md:grid-cols-2 gap-4  max-content-main-container`}>
                     {articles.map((article) =>
-                        <Article key={article.id} article={article} typeArticle={typeArticle} />
+                        <Article key={article.createdAt} article={article} typeArticle={typeArticle} />
                     )}
                 </div>
             </div>
