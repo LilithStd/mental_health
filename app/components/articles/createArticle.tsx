@@ -27,26 +27,26 @@ export default function CreateArticle() {
     const handleCancel = () => {
         router.push(routesAdaptive.articles.root)
     }
-    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault()
+async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
 
-        const form = e.currentTarget
-        const formData = new FormData(form)
+    const form = e.currentTarget
+    const formData = new FormData(form)
 
-        const res = await fetch('/api/articles', {
-            method: 'POST',
-            body: formData,
-        })
+    const res = await fetch('/api/articles', {
+        method: 'POST',
+        body: formData,
+    })
 
-        form.reset()
-        if (res.ok) {
-            router.push(routesAdaptive.articles.root)
-        } else {
-            alert('Error creating article')
-        }
+    form.reset()
+    if (res.ok) {
+        router.push(routesAdaptive.articles.root)
+    } else {
+        alert('Error creating article')
     }
+}
 
-    return (
+return (
         <form
             onSubmit={handleSubmit}
             className={`flex flex-col gap-4 p-4 max-content-main-container rounded-large bg-primary-color/30 border border-primary-color/30 w-full`}

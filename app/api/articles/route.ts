@@ -17,19 +17,35 @@ export async function GET() {
 
 
 export async function POST(req: Request) {
-  try {
-    const body = await req.json();
+  const formData = await req.formData();
 
-    // базовая проверка
-    if (!body.title || !body.content) {
-      return Response.json({ message: "Missing fields" }, { status: 400 });
-    }
+  const image = formData.get("image") as File;
 
-    const article = await createArticle(body);
+  const article = {
+    multiLanguage: true,
 
-    return Response.json(article, { status: 201 });
-  } catch (e) {
-    console.error(e);
-    return Response.json({ message: "Server error" }, { status: 500 });
+    title: {
+      en: (formData.get("title_en") as string) || "",
+      ru: (formData.get("title_ru") as string) || "",
+      lv: (formData.get("title_lv") as string) || "",
+    },
+
+    content: {
+      en: (formData.get("content_en") as string) || "",
+      ru: (formData.get("content_ru") as string) || "",
+      lv: (formData.get("content_lv") as string) || "",
+    },
+  };
+
+  // 👉 обработка файла отдельно
+  if (image && image.size > 0) {
+    const bytes = await image.arrayBuffer();
+    const buffer = Buffer.from(bytes);
+
+    // сохранить (локально / cloud)
   }
+
+  await createArticle(article);
+
+  return Response.json({ ok: true });
 }

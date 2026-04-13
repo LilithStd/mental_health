@@ -11,6 +11,7 @@ function mapArticle(a: ArticleTypes): ArticleType {
     content: a.content,
     author: a.author,
     tags: a.tags,
+    image: a.image,
     likes: a.likes,
     createdAt: a.createdAt.toISOString(),       
     updatedAt: a.updatedAt?.toISOString(),

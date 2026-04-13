@@ -11,6 +11,7 @@ export interface ArticleTypes extends Document {
   content: MultiLanguageText;
   author?: string;
   tags: string[];
+  image?: string;
   likes: number;
   createdAt: Date;
   updatedAt?: Date;
@@ -23,6 +24,7 @@ const ArticleSchema: Schema<ArticleTypes> = new Schema({
   description: { en: String, ru: String, lv: String },
   content: { en: String, ru: String, lv: String },
   tags: [String],
+  image: { type: String },
   likes: { type: Number, default: 0 },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
