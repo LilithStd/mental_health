@@ -52,41 +52,7 @@ return (
             className={`flex flex-col gap-4 p-4 max-content-main-container rounded-large bg-primary-color/30 border border-primary-color/30 w-full`}
         >
             <h1 className="text-xl font-bold">{CreateArticleContent[locale].title}</h1>
-
-            <input
-                name="title"
-                type="text"
-                placeholder={CreateArticleContent[locale].titleInput}
-                required
-                className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
-            />
-            <input 
-                type="text" 
-                name="titleEn"
-                required
-                className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
-            />
-            <input 
-                type="text" 
-                name="titleLv"
-                required
-                className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
-            />
-
-            <input
-                name="author"
-                placeholder={CreateArticleContent[locale].authorInput}
-                required
-                className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
-            />
-            <div>
-                
-            </div>
-            <div className={`flex flex-col gap-4 bg-primary-color/30 border border-primary-color/30 p-2 rounded-large`}>
-                <span>{CreateArticleContent[locale].tags}</span>
-                <AddTagsIcon className="w-6 h-6" fill={'green'} />
-            </div>
-            <label className="flex items-center gap-2 cursor-pointer">
+             <label className="flex items-center gap-2 cursor-pointer">
                 <span className="">{CreateArticleContent[locale].multiLanguage}</span>
                 <div className="relative">
                    <input type="checkbox" className="sr-only peer" checked={multiLanguage} onChange={(event) => setMultiLanguage(event.target.checked)} />
@@ -107,25 +73,87 @@ return (
                 </div>
 
             </label>
+            <div className={`flex flex-col gap-4 md:flex-row`}>
+              <input 
+                type="text" 
+                name="titleEn"
+                placeholder={CreateArticleContent[locale].placeholderContent.en.title}
+                required
+                className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
+            />
+            {multiLanguage && <>
+               <input 
+                type="text" 
+                name="titleLv"
+                placeholder={CreateArticleContent[locale].placeholderContent.lv.title}
+                required
+                className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
+            />
+            <input 
+                type="text" 
+                name="titleRu"
+                placeholder={CreateArticleContent[locale].placeholderContent.ru.title}
+                required
+                className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
+            />
+            </>
+               
+            }
+            
+            </div>
+            
+            <div className={`flex flex-col gap-4 md:flex-row`}>
+            <input
+                name="authorEn"
+                placeholder={CreateArticleContent[locale].placeholderContent.en.author}
+                required
+                className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
+            />
+            {multiLanguage && 
+                <>
+                <input
+                    name="authorLv"
+                    placeholder={CreateArticleContent[locale].placeholderContent.lv.author}
+                    required
+                    className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
+                />
+                <input
+                    name="authorRu"
+                    placeholder={CreateArticleContent[locale].placeholderContent.ru.author}
+                    required
+                    className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
+                />
+            </>}
+            
+            </div>
+           
+            <div>
+                
+            </div>
+            <div className={`flex flex-col gap-4 bg-primary-color/30 border border-primary-color/30 p-2 rounded-large`}>
+                <span>{CreateArticleContent[locale].tags}</span>
+                <AddTagsIcon className="w-6 h-6" fill={'green'} />
+            </div>
+           
             {multiLanguage ? (
                 <div className={`flex flex-col gap-4`}>
                 <textarea
                 name="enContent"
-                placeholder={`${CreateArticleContent[locale].placeholderContent.en} `}
+                placeholder={`${CreateArticleContent[locale].placeholderContent.en.content} `}
                 // onChange={(event) => setEnContent(event.target.value)}
                 required
                 className={`border border-primary-color/30 p-2 h-32 bg-primary-color/30 rounded-large`}
                 />
                 <textarea
                 name="lvContent"
-                placeholder={`${CreateArticleContent[locale].placeholderContent.lv} `}
+                placeholder={`${CreateArticleContent[locale].placeholderContent.lv.content} `}
                 // onChange={(event) => setLvContent(event.target.value)}
                 required
                 className={`border border-primary-color/30 p-2 h-32 bg-primary-color/30 rounded-large`}
                 />
                 <textarea
                 name="ruContent"
-                placeholder={`${CreateArticleContent[locale].placeholderContent.ru} `}
+                placeholder={`${CreateArticleContent[locale].placeholderContent.ru.content} `}
                 // onChange={(event) => setRuContent(event.target.value)}
                 required
                 className={`border border-primary-color/30 p-2 h-32 bg-primary-color/30 rounded-large`}
