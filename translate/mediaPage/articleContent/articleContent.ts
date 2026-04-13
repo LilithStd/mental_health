@@ -1,20 +1,24 @@
 
 
+
 export const PlaceHolderLanguageContent = {
     en: { 
         content: 'Content',
         title: 'Title',
-        author: 'Author' 
+        author: 'Author',
+        hashTags: '# Hash Tags'
     },
     lv: { 
         content: 'Saturs',
         title: 'Nosaukums',
-        author: 'Autors'
+        author: 'Autors',
+        hashTags: '# Hash Tags'
     },
     ru: { 
         content: 'Содержание',
         title: 'Заголовок',
-        author: 'Автор'
+        author: 'Автор',
+        hashTags: '# Хэштеги'
     },
 } as const
 
