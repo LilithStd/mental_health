@@ -3,7 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/app/lib/connectDB";
 import { Article } from "@/app/models/article";
 import { ArticleType } from "@/app/types/types";
-import { getAllArticles } from "@/app/service/articleService";
+
+import { createArticle, getAllArticles } from "@/app/service/articleService";
 
 // GET — возвращаем все статьи
 export async function GET() {
@@ -12,34 +13,23 @@ export async function GET() {
 }
 
 // POST — создаём новую статью
-export async function POST(req: NextRequest) {
+// app/api/articles/route.ts
+
+
+export async function POST(req: Request) {
   try {
-    await connectDB();
+    const body = await req.json();
 
-    // тело запроса
-    const body = (await req.json()) as Omit<ArticleType, "id" | "createdAt">;
-
-    // генерируем createdAt
-    const createdAt = new Date();
-
-    // создаём статью через Mongoose
-    const article = await Article.create({
-      ...body,
-      createdAt,
-    });
-
-    return NextResponse.json(article, { status: 201 });
-  } catch (error: unknown) {
-    console.error("POST /api/articles error:", error);
-
-    // duplicate slug
-    if (error && typeof error === "object" && "code" in error && (error as { code: number }).code === 11000) {
-      return NextResponse.json(
-        { message: "Article with this slug already exists" },
-        { status: 400 }
-      );
+    // базовая проверка
+    if (!body.title || !body.content) {
+      return Response.json({ message: "Missing fields" }, { status: 400 });
     }
 
-    return NextResponse.json({ message: "Server error" }, { status: 500 });
+    const article = await createArticle(body);
+
+    return Response.json(article, { status: 201 });
+  } catch (e) {
+    console.error(e);
+    return Response.json({ message: "Server error" }, { status: 500 });
   }
 }
