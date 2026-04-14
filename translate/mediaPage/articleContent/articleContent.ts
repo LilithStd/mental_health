@@ -32,6 +32,7 @@ export const CreateArticleContent = {
     en: {
         title: 'Create Article',
         titleInput: 'Title',
+        selectedLanguage: 'Selected language',
         authorInput: 'Author',
         contentInput: 'Content',
         descriptionInput: 'Description',
@@ -44,6 +45,7 @@ export const CreateArticleContent = {
     lv: {
         title: 'Izveidot rakstu',
         titleInput: 'Nosaukums',
+        selectedLanguage: 'Izvēlētā valoda',
         contentInput: 'Saturs',
         authorInput: 'Autors',
         descriptionInput: 'Apraksts',
@@ -56,6 +58,7 @@ export const CreateArticleContent = {
     ru: {
         title: 'Создать статью',
         titleInput: 'Заголовок',
+        selectedLanguage: 'Выбранный язык',
         authorInput: 'Автор',
         contentInput: 'Содержание',
         descriptionInput: 'Описание',

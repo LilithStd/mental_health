@@ -3,7 +3,7 @@ import { LANGUAGE } from "@/app/globalConsts/globalEnum";
 import { routes } from "@/app/helpers/helpersFunctions";
 import { useLocale } from "@/app/hooks/useLocale";
 import { useGlobalStore } from "@/app/store/globalStore";
-import { LocaleType } from "@/app/types/types";
+import { LOCALES, LocaleType } from "@/app/types/types";
 import { CreateArticleContent } from "@/translate/mediaPage/articleContent/articleContent";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -26,11 +26,8 @@ export default function CreateArticle() {
         contentAvailableLanguage: [],
         authorAvailableLanguage: []
     })
+    const [selectedLanguage, setSelectedLanguage] = useState<LocaleType>(locale)
     const [multiLanguage, setMultiLanguage] = useState(false)
-    const [enTitle, setEnTitle] = useState('')
-    const [ruContent, setRuContent] = useState('')
-    const [enContent, setEnContent] = useState('')
-    const [lvContent, setLvContent] = useState('')
     //stores
     // consts
     const router = useRouter()
@@ -84,6 +81,26 @@ return (
                 </div>
 
             </label>
+            <div>
+                <span>{CreateArticleContent[locale].selectedLanguage}: </span>
+                <span>{selectedLanguage}</span>
+                {LOCALES.map((item) => (
+                                <div
+                                    key={item}
+                                    className={`${selectedLanguage === item ? 'bg-activeElement' : ''} rounded-medium p-2`}
+                                >
+                                    <button
+                                        className={`text-text ${selectedLanguage === item ? 'font-bold' : ''} cursor-pointer`}
+                                        onClick={() => {
+                                            // switchLocale(item);
+                                            // setIsOpen(false);
+                                        }}
+                                    >
+                                        {item.toUpperCase()}
+                                    </button>
+                                </div>
+                            ))}
+            </div>
             <div className={`flex flex-col gap-4 md:flex-row`}>
               <input 
                 type="text" 
