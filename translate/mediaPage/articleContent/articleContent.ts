@@ -1,5 +1,11 @@
 
-
+export const ArticleContent = {
+    en: {
+        noTitle: 'no available title in this language',
+        noAuthor: 'no available author in this language',
+        noContent: 'no available content in this language',
+    },
+} as const 
 
 export const PlaceHolderLanguageContent = {
     en: { 

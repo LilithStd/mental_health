@@ -33,17 +33,17 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     const form = e.currentTarget
     const formData = new FormData(form)
     console.log('Form data entries:', Array.from(formData.entries())) // Debugging line to check form data;
-    // const res = await fetch('/api/articles', {
-    //     method: 'POST',
-    //     body: formData,
-    // })
+    const res = await fetch('/api/articles', {
+        method: 'POST',
+        body: formData,
+    })
 
-    // form.reset()
-    // if (res.ok) {
-    //     router.push(routesAdaptive.articles.root)
-    // } else {
-    //     alert('Error creating article')
-    // }
+    form.reset()
+    if (res.ok) {
+        router.push(routesAdaptive.articles.root)
+    } else {
+        alert('Error creating article')
+    }
 }
 
 return (
@@ -138,21 +138,21 @@ return (
             {multiLanguage ? (
                 <div className={`flex flex-col gap-4`}>
                 <textarea
-                name="enContent"
+                name="contentEn"
                 placeholder={`${CreateArticleContent[locale].placeholderContent.en.content} `}
                 // onChange={(event) => setEnContent(event.target.value)}
                 required
                 className={`border border-primary-color/30 p-2 h-32 bg-primary-color/30 rounded-large`}
                 />
                 <textarea
-                name="lvContent"
+                name="contentLv"
                 placeholder={`${CreateArticleContent[locale].placeholderContent.lv.content} `}
                 // onChange={(event) => setLvContent(event.target.value)}
                 required
                 className={`border border-primary-color/30 p-2 h-32 bg-primary-color/30 rounded-large`}
                 />
                 <textarea
-                name="ruContent"
+                name="contentRu"
                 placeholder={`${CreateArticleContent[locale].placeholderContent.ru.content} `}
                 // onChange={(event) => setRuContent(event.target.value)}
                 required
