@@ -84,14 +84,8 @@ return (
             </label>
           <div className="relative flex items-center gap-2">
                     <span>{CreateArticleContent[locale].selectedLanguage}: </span>
-                    <button
-                        type="button"
-                        onClick={() => setIsChoosedLanguage(true)}
-                        className="bg-primary-color/50 p-1 font-bold rounded-large"
-                    >
-                        {selectedLanguage.toUpperCase()}
-                    </button>
-                    {isChoosedLanguage && (
+     
+                    
                         <div className="
                         absolute 
                         -top-5 
@@ -104,7 +98,8 @@ return (
                         p-2 rounded-large
                         z-10
                         ">
-                        {LOCALES.map((item) => (
+                        {isChoosedLanguage ? 
+                                      LOCALES.map((item) => (
                             <button
                             key={item}
                             onClick={() => {
@@ -118,30 +113,40 @@ return (
                             >
                             {item.toUpperCase()}
                             </button>
-                        ))}
+                        ))
+                        
+                         : 
+                        <button
+                                type="button"
+                                onClick={() => setIsChoosedLanguage(true)}
+                                className="bg-primary-color/50 p-1 font-bold rounded-large"
+                            >
+                        {selectedLanguage.toUpperCase()}
+                    </button>}
+                      
                         </div>
-                    )}
+                
                 </div>
             <div className={`flex flex-col gap-4 md:flex-row`}>
               <input 
                 type="text" 
-                name="titleEn"
-                placeholder={CreateArticleContent[locale].placeholderContent.en.title}
+                name={`title${selectedLanguage}`}
+                placeholder={CreateArticleContent[locale].placeholderContent[selectedLanguage].title}
                 required
                 className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
             />
             {multiLanguage && <>
                <input 
                 type="text" 
-                name="titleLv"
-                placeholder={CreateArticleContent[locale].placeholderContent.lv.title}
+                name={`titleen`}
+                placeholder={CreateArticleContent[locale].placeholderContent.en.title}
                 required
                 className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
             />
             <input 
                 type="text" 
-                name="titleRu"
-                placeholder={CreateArticleContent[locale].placeholderContent.ru.title}
+                name={`titlelv`}
+                placeholder={CreateArticleContent[locale].placeholderContent.lv.title}
                 required
                 className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
             />
@@ -153,21 +158,21 @@ return (
             
             <div className={`flex flex-col gap-4 md:flex-row`}>
             <input
-                name="authorEn"
-                placeholder={CreateArticleContent[locale].placeholderContent.en.author}
+                name={`author${selectedLanguage}`}
+                placeholder={CreateArticleContent[locale].placeholderContent[selectedLanguage].author}
                 required
                 className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
             />
             {multiLanguage && 
                 <>
                 <input
-                    name="authorLv"
+                    name={`authorlv`}
                     placeholder={CreateArticleContent[locale].placeholderContent.lv.author}
                     required
                     className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
                 />
                 <input
-                    name="authorRu"
+                    name={`authorru`}
                     placeholder={CreateArticleContent[locale].placeholderContent.ru.author}
                     required
                     className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
