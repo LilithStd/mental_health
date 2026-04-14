@@ -26,6 +26,7 @@ export default function CreateArticle() {
         contentAvailableLanguage: [],
         authorAvailableLanguage: []
     })
+    const [isChoosedLanguage, setIsChoosedLanguage] = useState(false)
     const [selectedLanguage, setSelectedLanguage] = useState<LocaleType>(locale)
     const [multiLanguage, setMultiLanguage] = useState(false)
     //stores
@@ -81,26 +82,46 @@ return (
                 </div>
 
             </label>
-            <div>
-                <span>{CreateArticleContent[locale].selectedLanguage}: </span>
-                <span>{selectedLanguage}</span>
-                {LOCALES.map((item) => (
-                                <div
-                                    key={item}
-                                    className={`${selectedLanguage === item ? 'bg-activeElement' : ''} rounded-medium p-2`}
-                                >
-                                    <button
-                                        className={`text-text ${selectedLanguage === item ? 'font-bold' : ''} cursor-pointer`}
-                                        onClick={() => {
-                                            // switchLocale(item);
-                                            // setIsOpen(false);
-                                        }}
-                                    >
-                                        {item.toUpperCase()}
-                                    </button>
-                                </div>
-                            ))}
-            </div>
+          <div className="relative flex items-center gap-2">
+                    <span>{CreateArticleContent[locale].selectedLanguage}: </span>
+                    <button
+                        type="button"
+                        onClick={() => setIsChoosedLanguage(true)}
+                        className="bg-primary-color/50 p-1 font-bold rounded-large"
+                    >
+                        {selectedLanguage.toUpperCase()}
+                    </button>
+                    {isChoosedLanguage && (
+                        <div className="
+                        absolute 
+                        -top-5 
+                        mt-2 
+                        left-35
+                        flex 
+                        gap-2
+                        bg-primary-color/20
+                        backdrop-blur-md
+                        p-2 rounded-large
+                        z-10
+                        ">
+                        {LOCALES.map((item) => (
+                            <button
+                            key={item}
+                            onClick={() => {
+                                setSelectedLanguage(item as LocaleType)
+                                setIsChoosedLanguage(false)
+                            }}
+                            className={`
+                                p-1 rounded-large border border-primary-color/30
+                                ${selectedLanguage === item ? 'bg-primary-color/50 font-bold' : 'bg-primary-color/30'}
+                            `}
+                            >
+                            {item.toUpperCase()}
+                            </button>
+                        ))}
+                        </div>
+                    )}
+                </div>
             <div className={`flex flex-col gap-4 md:flex-row`}>
               <input 
                 type="text" 
