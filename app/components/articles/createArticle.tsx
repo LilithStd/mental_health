@@ -16,7 +16,18 @@ export default function CreateArticle() {
     const locale = useLocale() as LocaleType
     const routesAdaptive = routes(locale)
     // states
+    type CreateArticleOption = {
+        titleAvailableLanguage: string[],
+        contentAvailableLanguage: string[]
+        authorAvailableLanguage: string[]
+    }
+    const [availableLanguage, setAvailableLanguage] = useState<CreateArticleOption>({
+        titleAvailableLanguage: [],
+        contentAvailableLanguage: [],
+        authorAvailableLanguage: []
+    })
     const [multiLanguage, setMultiLanguage] = useState(false)
+    const [enTitle, setEnTitle] = useState('')
     const [ruContent, setRuContent] = useState('')
     const [enContent, setEnContent] = useState('')
     const [lvContent, setLvContent] = useState('')
