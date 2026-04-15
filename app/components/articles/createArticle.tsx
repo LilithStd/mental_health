@@ -87,7 +87,7 @@ return (
                 </div>
 
             </label>
-          <div className={`${multiLanguage ? 'opacity-50 pointer-events-none' : 'cursor-pointer'} relative flex items-center gap-2`}> 
+          <div aria-disabled={multiLanguage} className={`${multiLanguage ? 'opacity-50 pointer-events-none' : 'cursor-pointer'} relative flex items-center gap-2`}> 
                     <span>{CreateArticleContent[locale].selectedLanguage}: </span>
                         <div className={`
                             
