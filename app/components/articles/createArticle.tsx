@@ -8,6 +8,7 @@ import { CreateArticleContent } from "@/translate/mediaPage/articleContent/artic
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import AddTagsIcon from "@/public/icons/PlusCircle.svg";
+import { set } from "mongoose";
 
 // interface CreateArticleProps {
 
@@ -64,7 +65,11 @@ return (
              <label className="flex items-center gap-2 cursor-pointer">
                 <span className="">{CreateArticleContent[locale].multiLanguage}</span>
                 <div className="relative">
-                   <input type="checkbox" className="sr-only peer" checked={multiLanguage} onChange={(event) => setMultiLanguage(event.target.checked)} />
+                   <input type="checkbox" className="sr-only peer" checked={multiLanguage} onChange={(event) => (
+                        setMultiLanguage(event.target.checked),
+                        setIsChoosedLanguage(false),
+                        setSelectedLanguage(locale)
+                    )} />
 
                 <div className="
                     w-11 h-6  rounded-full
@@ -82,25 +87,28 @@ return (
                 </div>
 
             </label>
-          <div className="relative flex items-center gap-2">
+          <div className={`${multiLanguage ? 'opacity-50 pointer-events-none' : 'cursor-pointer'} relative flex items-center gap-2`}> 
                     <span>{CreateArticleContent[locale].selectedLanguage}: </span>
-                        <div className="
-                        absolute 
-                        -top-5 
-                        mt-2 
-                        left-35
-                        flex 
-                        gap-2
-                        bg-primary-color/20
-                        backdrop-blur-md
-                        p-2 rounded-large
-                        z-10
-                        ">
+                        <div className={`
+                            
+                            absolute 
+                            -top-5 
+                            mt-2 
+                            left-35
+                            flex 
+                            gap-2
+                            bg-primary-color/20
+                            backdrop-blur-md
+                            p-2 rounded-large
+                            
+                            z-10
+                            `}>
                         {isChoosedLanguage ? 
                                 LOCALES.map((item) => (
                                     <button
                                     key={item}
                                     onClick={() => {
+                                        if(multiLanguage) return
                                         setSelectedLanguage(item as LocaleType)
                                         setIsChoosedLanguage(false)
                                     }}
@@ -125,7 +133,7 @@ return (
                       
                         </div>
                 
-                </div>
+            </div>
             <div className={`flex flex-col gap-4 md:flex-row`}>
               <input 
                 type="text" 
