@@ -18,19 +18,23 @@ export default function ConsultationForm() {
         ref.current?.reset()
         alert('Request sent!')
     }
-    async function testSend() {
-        const res = await fetch('/api/sendEmail', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                name: 'Test User',
-                email: 'test@example.com',
-                message: 'This is a test message.'
-            }),
-        })
-        alert('Test request sent!')
+    const testSend = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+            const res = await fetch("/api/sendEmail", {
+                method: "POST",
+                body: JSON.stringify({
+                name: "John Doe",
+                email: "john.doe@example.com",
+                message: "This is a test message.",
+                }),
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                alert("Отправлено!");
+            }
     }
 
     return (
