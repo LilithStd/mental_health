@@ -84,8 +84,6 @@ return (
             </label>
           <div className="relative flex items-center gap-2">
                     <span>{CreateArticleContent[locale].selectedLanguage}: </span>
-     
-                    
                         <div className="
                         absolute 
                         -top-5 
@@ -99,30 +97,31 @@ return (
                         z-10
                         ">
                         {isChoosedLanguage ? 
-                                      LOCALES.map((item) => (
-                            <button
-                            key={item}
-                            onClick={() => {
-                                setSelectedLanguage(item as LocaleType)
-                                setIsChoosedLanguage(false)
-                            }}
-                            className={`
-                                p-1 rounded-large border border-primary-color/30
-                                ${selectedLanguage === item ? 'bg-primary-color/50 font-bold' : 'bg-primary-color/30'}
-                            `}
-                            >
-                            {item.toUpperCase()}
+                                LOCALES.map((item) => (
+                                    <button
+                                    key={item}
+                                    onClick={() => {
+                                        setSelectedLanguage(item as LocaleType)
+                                        setIsChoosedLanguage(false)
+                                    }}
+                                    className={`
+                                        font-bold rounded-large border border-primary-color/30
+                                        ${selectedLanguage === item ? 'bg-primary-color/50 ' : 'bg-primary-color/30'}
+                                    `}
+                                    >
+                                    {item.toUpperCase()}
+                                    </button>
+                                ))
+                                
+                                : 
+                                <button
+                                        type="button"
+                                        onClick={() => setIsChoosedLanguage(true)} 
+                                        className={`font-bold border border-primary-color/30 bg-primary-color/50   rounded-large`}
+                                    >
+                                {selectedLanguage.toUpperCase()}
                             </button>
-                        ))
-                        
-                         : 
-                        <button
-                                type="button"
-                                onClick={() => setIsChoosedLanguage(true)}
-                                className="bg-primary-color/50 p-1 font-bold rounded-large"
-                            >
-                        {selectedLanguage.toUpperCase()}
-                    </button>}
+                        }
                       
                         </div>
                 
