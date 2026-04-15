@@ -18,7 +18,20 @@ export default function ConsultationForm() {
         ref.current?.reset()
         alert('Request sent!')
     }
-    // 
+    async function testSend() {
+        const res = await fetch('/api/sendEmail', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: 'Test User',
+                email: 'test@example.com',
+                message: 'This is a test message.'
+            }),
+        })
+        alert('Test request sent!')
+    }
 
     return (
         <div className={`flex flex-col w-full  max-w-6xl  rounded-large `}>
@@ -59,6 +72,7 @@ export default function ConsultationForm() {
                 </div>
 
             </form>
+            <button onClick={testSend}>test send</button>
         </div>
     )
 }
