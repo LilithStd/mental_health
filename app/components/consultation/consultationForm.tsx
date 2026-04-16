@@ -37,6 +37,23 @@ export default function ConsultationForm() {
             }
     }
 
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target as HTMLFormElement);
+
+        const res = await fetch("/api/sendEmail", {
+            method: "POST",
+            body: formData,
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+            alert("Отправлено!");
+        }
+        };
+
     return (
         <div className={`flex flex-col w-full  max-w-6xl  rounded-large `}>
             <form ref={ref} action={action} className={`mx-auto  p-4 items-center rounded-large bg-primary-color/20 border border-primary-color/20 shadow-md max-content-main-container`}>
