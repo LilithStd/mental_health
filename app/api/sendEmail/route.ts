@@ -4,7 +4,11 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
-    const { name, email, message } = await req.json();
+    const formData = await req.formData();
+
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
 
     const { data, error } = await resend.emails.send({
       from: "onboarding@resend.dev",
@@ -18,12 +22,17 @@ export async function POST(req: Request) {
     });
 
     if (error) {
-      console.error(error);
+      console.error("RESEND ERROR:", error);
       return Response.json({ success: false, error });
     }
 
     return Response.json({ success: true, data });
   } catch (err) {
+    console.error("SERVER ERROR:", err);
     return Response.json({ success: false, error: String(err) });
   }
 }
+
+
+
+
