@@ -1,69 +1,72 @@
-'use client'
+
 import { useLocale } from "@/app/hooks/useLocale";
 import { LocaleType } from "@/app/types/types";
 import Loading from "@/app/components/shared/loading";
 import Test from "@/app/components/tests/test";
 import { SIZE_ELEMENT, TEST_TYPE } from "@/app/globalConsts/globalEnum";
-import { useEffect, useState } from "react";
+
+import { getAllTests } from "@/app/service/testSerive";
 
 
 
-type QuestionVariant = {
-    id: string
-    title: {
-        en: string
-        ru: string
-        lv: string
-    }
-    count: number
-}
-type Question = {
-    title: {
-        en: string
-        ru: string
-        lv: string
-    }
-    variants: QuestionVariant[]
-}
+// type QuestionVariant = {
+//     id: string
+//     title: {
+//         en: string
+//         ru: string
+//         lv: string
+//     }
+//     count: number
+// }
+// type Question = {
+//     title: {
+//         en: string
+//         ru: string
+//         lv: string
+//     }
+//     variants: QuestionVariant[]
+// }
 
-export type TestType = {
-    id: number
-    label: string
-    title: {
-        en: string
-        ru: string
-        lv: string
-    }
-    content: {
-        en: string
-        ru: string
-        lv: string
-    }
-    questions: Question[]
-}
+// export type TestType = {
+//     id: number
+//     label: string
+//     title: {
+//         en: string
+//         ru: string
+//         lv: string
+//     }
+//     content: {
+//         en: string
+//         ru: string
+//         lv: string
+//     }
+//     questions: Question[]
+// }
 
-export default function Tests() {
+export default async function Tests() {
+    const tests = await getAllTests();
+    console.log(tests);
     // states
-    const locale = useLocale() as LocaleType
-    const [tests, setTests] = useState<TestType[]>([]);
-    const [loading, setLoading] = useState(true);
+    // const locale = useLocale() as LocaleType
+    // const [tests, setTests] = useState<TestType[]>([]);
+    // const [loading, setLoading] = useState(true);
     // stores
 
-    useEffect(() => {
-        fetch('/api/tests')
-            .then(res => res.json())
-            .then(data => {
-                setTests(data.tests)
-                setLoading(false)
-            })
-    }, [])
+    // useEffect(() => {
+    //     fetch('/api/tests')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setTests(data.tests)
+    //             setLoading(false)
+    //         })
+    // }, [])
 
     return (
         <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
             {/* <Search /> */}
             <div className={`flex flex-col flex-1 max-w-6xl border border-primary-color/30 rounded-large bg-primary-color/20 p-4 shadow-lg w-full`}>
                 <div className={`grid grid-cols-1 md:grid-cols-2  mb-4 max-content-main-container`}>
-                    {loading ? <Loading fullScreen={true} /> : tests.map((test) => (
+                    {tests.map((test) => (
                         <Test key={test.id} test={test} testType={SIZE_ELEMENT.PREVIEW} />
                     ))}
                 </div>
