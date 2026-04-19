@@ -1,6 +1,6 @@
 'use client'
 
-import { TestType } from "@/app/[locale]/tests/page";
+
 import { rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import { useLocale } from "@/app/hooks/useLocale";
 import { calcTestResult } from "@/app/serverActions/calcTestResult";
@@ -9,7 +9,7 @@ import { useGlobalStore } from "@/app/store/globalStore";
 
 import { useRef, useState } from "react";
 import { useFormState } from "react-dom";
-import { LocaleType } from "@/app/types/types";
+import { LocaleType, TestType } from "@/app/types/types";
 import { GetTestResultButton } from "@/translate/testPage/testPage";
 
 interface FormProps {

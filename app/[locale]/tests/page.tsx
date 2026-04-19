@@ -45,7 +45,6 @@ import { getAllTests } from "@/app/service/testSerive";
 
 export default async function Tests() {
     const tests = await getAllTests();
-    console.log(tests);
     // states
     // const locale = useLocale() as LocaleType
     // const [tests, setTests] = useState<TestType[]>([]);

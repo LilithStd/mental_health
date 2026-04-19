@@ -2,11 +2,11 @@
 import { useGlobalStore } from "@/app/store/globalStore"
 import Favorites from "../shared/favorites"
 import { useRouter } from "next/navigation"
-import { LocaleType } from "@/app/types/types";
+import { LocaleType, TestType } from "@/app/types/types";
 import Form from "./form"
 import { rounded, sizes, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import { SIZE_ELEMENT, TEST_TYPE } from "@/app/globalConsts/globalEnum"
-import { TestType } from "@/app/[locale]/tests/page"
+
 import { useState } from "react"
 import ModalWindowMain from "../modalWindowMain"
 import TestModalWindow from "./testModalWindow"
