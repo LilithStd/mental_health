@@ -81,16 +81,16 @@ export default function Test({ test, testType }: TestProps) {
 
     const fullTestComponent =
 
-        <div className={`bg-primary-color/20 border border-primary-color/30 shadow-md p-4 rounded-large   grid gap-4  grid-cols-[0.5fr_1fr]`}>
+        <div className={`bg-primary-color/20 border border-primary-color/30 shadow-md p-4 rounded-large   grid gap-4  `}>
             <div className={`flex flex-col  rounded-large  p-4`}>
-                <div className={`flex flex-col mb-4 bg-primary-color/30 rounded-large p-4`}>
+                <div className={`flex flex-col mb-4 bg-primary-color/30 border border-primary-color/30 rounded-large p-4`}>
                     <h2>{test.title[locale]}</h2>
                     <p>{TYPES_OF_TEST[locale]}: {test.label}</p>
                 </div>
 
                 <span>{test.content[locale]}</span>
             </div>
-            <div className={`flex justify-center  rounded-large p-4`}>
+            <div className={`flex justify-center w-full  rounded-large p-4`}>
                 <Form test={test} formResult={setTestResult} openModalCallback={onOpenModal} />
             </div>
 
