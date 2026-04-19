@@ -1,13 +1,15 @@
 [
     {
 		
-		"id": 1769454841360,
+		"id": "1769454841360",
 		"label": "DEPRESSION",
 		"title": {
             "en": "Depressive",
             "ru": "Депрессивные расстройства",
             "lv": "Depresīvie traucējumi"
         },
+		"createdAt": "2024-06-26T12:00:00.000Z",
+		"updatedAt": "2024-06-26T12:00:00.000Z",
 		"content":{
             "en": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
             "ru": "Существует множество вариантов отрывков Lorem Ipsum, но большинство из них подверглись изменениям в той или иной форме, с добавлением юмора или случайных слов, которые выглядят совершенно неправдоподобно. Если вы собираетесь использовать отрывок Lorem Ipsum, вам нужно убедиться, что в середине текста нет ничего смущающего.",

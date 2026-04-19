@@ -1,25 +1,28 @@
-'use client'
+
 import Test from "@/app/components/tests/test";
 import { SIZE_ELEMENT, TEST_TYPE } from "@/app/globalConsts/globalEnum";
-import { use, useEffect, useState } from "react"
+
 
 import Loading from "@/app/components/shared/loading";
 import { routes } from "@/app/helpers/helpersFunctions";
-import { useLocale } from "@/app/hooks/useLocale";
+
 import { LocaleType, TestType } from "@/app/types/types";
 import ReturnButton from "@/app/components/returnButton";
+import { getLocale } from "@/app/hooks/server/getLocale";
+import { getTestById } from "@/app/service/testSerive";
 
 
-export default function TestCurrent({
+export default async function TestCurrent({
     params,
 }: {
-    params: Promise<{ id: string }>
+    params: { id: string }
 }) {
-    const { id } = use(params)
-    const [currentTest, setCurrentTest] = useState<TestType | null>(null);
-    const [error, setError] = useState(false)
-    const  locale  = useLocale() as LocaleType;
+    const { id } = await params
+    // const [currentTest, setCurrentTest] = useState<TestType | null>(null);
+    // const [error, setError] = useState(false)
+    const  locale  = await getLocale() as LocaleType;
     const routesAdaptive = routes(locale)
+    const test = await getTestById(id)
     // useEffect(() => {
     //     fetch(`/api/tests?id=${id}`)
     //         .then(r => {
@@ -39,7 +42,7 @@ export default function TestCurrent({
         <div className={`flex flex-col indents-main-container rounded-large flex-1 items-center`}>
             <div className={`flex flex-col flex-1  max-w-6xl  rounded-large bg-primary-color/20 border border-primary-color/20 shadow-md  p-4`}>
                 <ReturnButton pathToReturn={routesAdaptive.tests.root} />
-                {error ? "Error loading test." : currentTest ? <Test test={currentTest} testType={SIZE_ELEMENT.FULL} /> : <Loading fullScreen={true} />}
+                <Test test={test} testType={SIZE_ELEMENT.FULL} />
             </div>
 
 
