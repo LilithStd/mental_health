@@ -1,64 +1,71 @@
-import { NextResponse } from 'next/server'
-import fs from 'fs'
-import path from 'path'
+// import { NextResponse } from 'next/server'
+// import fs from 'fs'
+// import path from 'path'
 
-type QuestionVariant = {
-    id:string
-    title:string
-    count:number
-}
-type Question = {
-    id:string
-    variant: QuestionVariant[]
-}
+import { getAllTests } from "@/app/service/testSerive";
 
-type Test = {
-  id: number
-  label: string
-  title: {
-    EN: string
-    RU: string
-    LV: string
-  }
-  content: string
-  questions: Question[]
-}
+// type QuestionVariant = {
+//     id:string
+//     title:string
+//     count:number
+// }
+// type Question = {
+//     id:string
+//     variant: QuestionVariant[]
+// }
 
-const dataDir = path.join(process.cwd(), 'data', 'tests')
-const filePath = path.join(dataDir, 'tests.json')
+// type Test = {
+//   id: number
+//   label: string
+//   title: {
+//     EN: string
+//     RU: string
+//     LV: string
+//   }
+//   content: string
+//   questions: Question[]
+// }
 
-function ensureFileExists() {
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true })
-  }
-  if (!fs.existsSync(filePath)) {
-    fs.writeFileSync(filePath, '[]', 'utf-8')
-  }
-}
+// const dataDir = path.join(process.cwd(), 'data', 'tests')
+// const filePath = path.join(dataDir, 'tests.json')
 
-export async function GET(req: Request) {
-  ensureFileExists()
+// function ensureFileExists() {
+//   if (!fs.existsSync(dataDir)) {
+//     fs.mkdirSync(dataDir, { recursive: true })
+//   }
+//   if (!fs.existsSync(filePath)) {
+//     fs.writeFileSync(filePath, '[]', 'utf-8')
+//   }
+// }
 
-  const { searchParams } = new URL(req.url)
-  const id = searchParams.get('id')
+// export async function GET(req: Request) {
+//   ensureFileExists()
 
-  const raw = fs.readFileSync(filePath, 'utf-8')
-  const tests: Test[] = JSON.parse(raw)
+//   const { searchParams } = new URL(req.url)
+//   const id = searchParams.get('id')
 
-  // 👉 Получение одной статьи
-  if (id) {
-    const test = tests.find(a => a.id === Number(id))
+//   const raw = fs.readFileSync(filePath, 'utf-8')
+//   const tests: Test[] = JSON.parse(raw)
 
-    if (!test) {
-      return NextResponse.json(
-        { error: 'Test not found' },
-        { status: 404 }
-      )
-    }
+//   // 👉 Получение одной статьи
+//   if (id) {
+//     const test = tests.find(a => a.id === Number(id))
 
-    return NextResponse.json({ test: test })
-  }
+//     if (!test) {
+//       return NextResponse.json(
+//         { error: 'Test not found' },
+//         { status: 404 }
+//       )
+//     }
 
-  // 👉 Получение всех статей
-  return NextResponse.json({ tests: tests })
+//     return NextResponse.json({ test: test })
+//   }
+
+//   // 👉 Получение всех статей
+//   return NextResponse.json({ tests: tests })
+// }
+
+export async function GET() {
+  const tests = await getAllTests();
+  return Response.json(tests);
 }
