@@ -17,9 +17,9 @@
 		"questions":[
 			{
 				"title": {
-                    "en": "Depressing question 1",
-                    "ru": "Депрессивный вопрос 1",
-                    "lv": "Depresīvs jautājums 1"
+                    "en": "Have you lost interest or pleasure in doing things?",
+                    "ru": "У Вас отсутствовали интерес и удовольствие что-либо делать",
+                    "lv": "Vai Jums nav intereses un prieka darīt lietas"
                 },
 				"variants":[
 					{
@@ -63,9 +63,9 @@
 			},
 			{
 				"title": {
-                    "en": "Depressing question 2",
-                    "ru": "Депрессивный вопрос 2",
-                    "lv": "Depresīvs jautājums 2"
+                    "en": "Feeling down, depressed, or hopeless",
+                    "ru": "Плохое настроение, подавленность или чувство безнадежности",
+                    "lv": "Jūtaties nomākts, depresīvs vai bezcerīgs"
                 },
 				"variants":[
 					{
@@ -109,9 +109,285 @@
 			},
 			{
 				"title": {
-                    "en": "Depressing question 3",
-                    "ru": "Депрессивный вопрос 3",
-                    "lv": "Depresīvs jautājums 3"
+                    "en": "Trouble sleeping, interrupted sleep, or sleeping too much",
+                    "ru": "Вам было трудно заснуть, у Вас был прерывистый сон, или Вы слишком много спали",
+                    "lv": "Jums bija grūtības aizmigt, miegs bija pārtraukts vai gulējāt pārāk daudz"
+                },
+				"variants":[
+					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
+						"id": "1",
+						"title":{
+                            "en": "Several days",
+                            "ru": "Несколько дней",
+                            "lv": "Dažas dienas"
+                        },
+						"count": 1
+					},
+					{
+						"id": "2",
+						"title":{
+                            "en": "More than a week",
+                            "ru": "Более недели",
+                            "lv": "Vairāk nekā nedēļu"
+                        },
+						"count": 2
+					},
+					{
+						"id": "3",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
+						"count": 3
+					}
+
+				]
+			},
+			{
+				"title": {
+                    "en": "Feeling tired or having little energy",
+                    "ru": "Чувство усталости или обессиленности",
+                    "lv": "Jūtaties noguris vai jums ir maz enerģijas"
+                },
+				"variants":[
+					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
+						"id": "1",
+						"title":{
+                            "en": "Several days",
+                            "ru": "Несколько дней",
+                            "lv": "Dažas dienas"
+                        },
+						"count": 1
+					},
+					{
+						"id": "2",
+						"title":{
+                            "en": "More than a week",
+                            "ru": "Более недели",
+                            "lv": "Vairāk nekā nedēļu"
+                        },
+						"count": 2
+					},
+					{
+						"id": "3",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
+						"count": 3
+					}
+
+				]
+			},
+			{
+				"title": {
+                    "en": "Changes in appetite",
+                    "ru": "Пониженный или повышенный аппетит",
+                    "lv": "Samazināta vai palielināta apetīte"
+                },
+				"variants":[
+					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
+						"id": "1",
+						"title":{
+                            "en": "Several days",
+                            "ru": "Несколько дней",
+                            "lv": "Dažas dienas"
+                        },
+						"count": 1
+					},
+					{
+						"id": "2",
+						"title":{
+                            "en": "More than a week",
+                            "ru": "Более недели",
+                            "lv": "Vairāk nekā nedēļu"
+                        },
+						"count": 2
+					},
+					{
+						"id": "3",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
+						"count": 3
+					}
+
+				]
+			},
+			{
+				"title": {
+                    "en": "Feeling down or hopeless about yourself, feeling like a failure, or that you have let your family down",
+                    "ru": "Недовольство собой, считали себя неудачником(-цей), были в себе разочарованы, мысли о том, что подвели свою семью",
+                    "lv": "Neapmierinātība ar sevi, uzskatījāt sevi par neveiksminieku(-ci), bijāt vīlušies(-as) sevī, domas par to, ka esat pievīlis(-usi) savu ģimeni"
+                },
+				"variants":[
+					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
+						"id": "1",
+						"title":{
+                            "en": "Several days",
+                            "ru": "Несколько дней",
+                            "lv": "Dažas dienas"
+                        },
+						"count": 1
+					},
+					{
+						"id": "2",
+						"title":{
+                            "en": "More than a week",
+                            "ru": "Более недели",
+                            "lv": "Vairāk nekā nedēļu"
+                        },
+						"count": 2
+					},
+					{
+						"id": "3",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
+						"count": 3
+					}
+
+				]
+			},
+			{
+				"title": {
+                    "en": "Difficulty concentrating on things, such as reading the newspaper or watching television",
+                    "ru": "Трудно концентрироваться на чем-либо, например, на чтении газет или просмотре телепередач",
+                    "lv": "Grūtības koncentrēties uz kaut ko, piemēram, lasot avīzi vai skatoties televizoru"
+                },
+				"variants":[
+					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
+						"id": "1",
+						"title":{
+                            "en": "Several days",
+                            "ru": "Несколько дней",
+                            "lv": "Dažas dienas"
+                        },
+						"count": 1
+					},
+					{
+						"id": "2",
+						"title":{
+                            "en": "More than a week",
+                            "ru": "Более недели",
+                            "lv": "Vairāk nekā nedēļu"
+                        },
+						"count": 2
+					},
+					{
+						"id": "3",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
+						"count": 3
+					}
+
+				]
+			},
+			{
+				"title": {
+                    "en": "Your movements and speech were slowed down, which was noticeable to others, or you were agitated and restless, and your movements were much more active than usual",
+                    "ru": "Ваши движения и речь были замедлены, что было заметно для окружающих, или Вы были взволнованы и суетливы, а движения — намного активнее, чем обычно",
+                    "lv": "Jūsu kustības un runa bija lēnākas, nekā parasti, un to varēja pamanīt apkārtējie, vai arī Jūs bijāt uzbudināts(-a) un nemierīgs(-a), un kustības bija daudz aktīvākas nekā parasti"
+                },
+				"variants":[
+					{
+						"id": "0",
+						"title":{
+							"en": "Never",
+							"ru": "Ни разу",
+							"lv": "Nemaz"
+						},
+						"count": 0
+					},
+					{
+						"id": "1",
+						"title":{
+                            "en": "Several days",
+                            "ru": "Несколько дней",
+                            "lv": "Dažas dienas"
+                        },
+						"count": 1
+					},
+					{
+						"id": "2",
+						"title":{
+                            "en": "More than a week",
+                            "ru": "Более недели",
+                            "lv": "Vairāk nekā nedēļu"
+                        },
+						"count": 2
+					},
+					{
+						"id": "3",
+						"title":{
+                            "en": "Almost every day",
+                            "ru": "Почти каждый день",
+                            "lv": "Gandrīz katru dienu"
+                        },
+						"count": 3
+					}
+
+				]
+			},
+			{
+				"title": {
+                    "en": "Thoughts of suicide or self-harm",
+                    "ru": "Мысли о самоубийстве или о нанесении себе какого-нибудь другого вреда",
+                    "lv": "Domāšana par pašnāvību vai par kāda cita kaitējuma nodarīšanu sev"
                 },
 				"variants":[
 					{
