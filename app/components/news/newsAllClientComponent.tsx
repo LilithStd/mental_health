@@ -1,10 +1,10 @@
 // import { NEWS_TYPE } from "@/app/globalConsts/globalEnum"
-import News, { NewsType } from "./news"
+import News from "./news"
 import CreateNewsButtonComponent from "./newsComponents/createNewsButtonComponent"
 import { routes } from "@/app/helpers/helpersFunctions"
 import ReturnButton from "../returnButton"
 import { getLocale } from "@/app/hooks/server/getLocale"
-import { LocaleType } from "@/app/types/types"
+import { LocaleType, NewsType } from "@/app/types/types"
 import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum"
 
 interface NewsClientComponentProps {

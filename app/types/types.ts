@@ -21,6 +21,7 @@ export type ArticleType = {
     description?: MultiLanguageText
     content: MultiLanguageText
     tags: string[]
+    links?: string[]
     likes: number
     image?: string
     author?: string
@@ -36,6 +37,7 @@ export type NewsType = {
     content: MultiLanguageText
     tags: string[]
     image?: string
+    links?: string[]
     createdAt: string
     updatedAt?: string
 }

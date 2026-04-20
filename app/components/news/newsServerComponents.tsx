@@ -1,4 +1,4 @@
-import { getAllNews } from "@/app/serverActions/newsStorage"
+import { getAllNews } from "@/app/service/newsService"
 import NewsAllClientComponent from "./newsAllClientComponent"
 
 

@@ -8,18 +8,18 @@ import { useRouter } from "next/navigation"
 import PhotoIcon from '@/public/icons/Photo.svg'
 import ReturnButton from "../returnButton"
 import { useLocale } from "@/app/hooks/useLocale"
-import { LocaleType } from "@/app/types/types"
+import { LocaleType, NewsType } from "@/app/types/types"
 import { BUTTON_READ_FULL_NEWS } from "@/translate/mediaPage/mediaPageContent"
 import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum"
 import HashTags from "../shared/hashTags"
 
-export type NewsType = {
-    id: number
-    title: string
-    content: string
-    createdAt: string
-    link: string
-}
+// export type NewsType = {
+//     id: number
+//     title: string
+//     content: string
+//     createdAt: string
+//     link: string
+// }
 
 interface NewsProps {
     news: NewsType,
@@ -52,7 +52,9 @@ export default function News({ news, typeNews }: NewsProps) {
                </div>
                 <div className={`flex w-full justify-end items-center`}>
                     {type === SIZE_ELEMENT.FULL ? <div className={`bg-primary-color/50 p-2 rounded-large flex cursor-pointer hover:scale-105 transition`}>
-                    <a href={news.link} target="_blank" rel="noopener noreferrer" className={``}>Source Link</a>
+                    {news.links && news.links.length > 0 && news.links.map((link, index) => (
+                        <a key={index} href={link} target="_blank" rel="noopener noreferrer" className={``}>Source Link</a>
+                    ))}
                 </div> : <button className={`justify-center items-center bg-primary-color/50 p-2 rounded-large flex cursor-pointer hover:scale-105 transition`} onClick={() => { router.push(routesAdaptive.news.byId(news.id)) }}>
                         <span className={`${type === SIZE_ELEMENT.PREVIEW ? 'text-sm' : 'text-base'} `}>
                             {BUTTON_READ_FULL_NEWS[locale]}
@@ -69,8 +71,8 @@ export default function News({ news, typeNews }: NewsProps) {
             <PhotoIcon className={``} fill={'green'}/>
         </div>
         <div className={`flex flex-col p-4 rounded-large bg-primary-color/30 border border-primary-color/30 h-full`}>
-            <h3 className="font-bold">{news.title}</h3>
-            <p>{cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}</p>
+            <h3 className="font-bold">{news.title[locale]}</h3>
+            <p>{cropContent(news.content[locale], CROP_CONTAINER_SIZE.MEDIUM)}</p>
             <div className={`flex w-full justify-start ml-auto mt-auto pt-2`}>
                 {mediaRatingComponent(typeNews)}
             </div>
@@ -84,10 +86,10 @@ export default function News({ news, typeNews }: NewsProps) {
             <PhotoIcon className={` `} fill={'green'}/>
         </div>
         <div className="flex flex-col p-4 rounded-large  h-full">
-            <h3 className="font-bold">{news.title}</h3>
+            <h3 className="font-bold">{news.title[locale]}</h3>
 
             <p className={``}>
-                {cropContent(news.content, CROP_CONTAINER_SIZE.MEDIUM)}
+                {cropContent(news.content[locale], CROP_CONTAINER_SIZE.MEDIUM)}
             </p>
             <div className={`flex w-full justify-start ml-auto mt-auto`}>
                 {mediaRatingComponent(typeNews)}
@@ -113,8 +115,8 @@ export default function News({ news, typeNews }: NewsProps) {
                 <PhotoIcon fill="green" />
             </div>
             <div className="flex flex-col w-full h-full gap-4 p-4 rounded-large">
-                <h3 className="font-bold">{news.title}</h3>
-                <p>{news.content}</p>
+                <h3 className="font-bold">{news.title[locale]}</h3>
+                <p>{news.content[locale]}</p>
                 <div className="flex  justify-start mt-auto">
                 {mediaRatingComponent(typeNews)}
                 </div>
