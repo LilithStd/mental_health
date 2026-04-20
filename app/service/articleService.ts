@@ -39,6 +39,7 @@ export async function getArticleById(id: string) {
         return {
             id: article._id.toString(),
             author: article.author,
+            multiLanguage: article.multiLanguage,
             tags: article.tags,
             image: article.image,
             likes: article.likes,

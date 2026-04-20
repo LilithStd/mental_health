@@ -18,26 +18,9 @@ export default async function TestCurrent({
     params: { id: string }
 }) {
     const { id } = await params
-    // const [currentTest, setCurrentTest] = useState<TestType | null>(null);
-    // const [error, setError] = useState(false)
     const  locale  = await getLocale() as LocaleType;
     const routesAdaptive = routes(locale)
     const test = await getTestById(id)
-    // useEffect(() => {
-    //     fetch(`/api/tests?id=${id}`)
-    //         .then(r => {
-    //             if (!r.ok) {
-    //                 setError(true)
-    //                 return null
-    //             }
-    //             return r.json()
-    //         })
-    //         .then(data => {
-    //             if (data) {
-    //                 setCurrentTest(data.test)
-    //             }
-    //         })
-    // }, [id])
     return (
         <div className={`flex flex-col indents-main-container rounded-large flex-1 items-center`}>
             <div className={`flex flex-col flex-1  max-w-6xl  rounded-large bg-primary-color/20 border border-primary-color/20 shadow-md  p-4`}>

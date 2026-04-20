@@ -18,11 +18,11 @@ export default async function ArticlePage({
 }) {
     const { id} = await params
 
-    const article = await getArticleById(id)
+    const articleById = await getArticleById(id)
     const locale = await getLocale() as LocaleType
     const routesAdaptive = routes(locale)
-    console.log(article)
-    if (!article) {
+    console.log(articleById)
+    if (!articleById) {
         return <div>Статья не найдена</div>
     }
 
@@ -35,7 +35,7 @@ export default async function ArticlePage({
                     <ReturnButton pathToReturn={routesAdaptive.articles.root} />
                 </div>
                 <Article
-                    article={article}
+                    article={articleById}
                     // initialLikesCount={likes.likesCount}
                     typeArticle={SIZE_ELEMENT.FULL}
                 />
