@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import fs from 'fs'
 import path from 'path'
+import { getAllNews } from '@/app/service/newsService'
 const dataDir = path.join(process.cwd(), 'data', 'news')
 const filePath = path.join(dataDir, 'news.json')
 
@@ -21,30 +22,31 @@ function ensureFileExists() {
   }
 }
 
-export async function GET(req: Request) {
-  ensureFileExists()
+export async function GET() {
+  const news = await getAllNews();
+  // ensureFileExists()
 
-  const { searchParams } = new URL(req.url)
-  const id = searchParams.get('id')
+  // const { searchParams } = new URL(req.url)
+  // const id = searchParams.get('id')
 
-  const raw = fs.readFileSync(filePath, 'utf-8')
-  const news: NewsType[] = JSON.parse(raw)
+  // const raw = fs.readFileSync(filePath, 'utf-8')
+  // const news: NewsType[] = JSON.parse(raw)
 
-  if (id) {
-    const newsItem = news.find(a => a.id === Number(id))
+  // if (id) {
+  //   const newsItem = news.find(a => a.id === Number(id))
     
-    if (!newsItem) {
-      return NextResponse.json(
-        { error: 'News not found' },
-        { status: 404 }
-      )
-    }
+  //   if (!newsItem) {
+  //     return NextResponse.json(
+  //       { error: 'News not found' },
+  //       { status: 404 }
+  //     )
+  //   }
     
-    return NextResponse.json({ news: newsItem })
-  }
+  //   return NextResponse.json({ news: newsItem })
+  // }
 
   // 👉 Получение всех статей
-  return NextResponse.json({ news })
+  return NextResponse.json(news)
 }
 
 export async function POST(req: Request) {
