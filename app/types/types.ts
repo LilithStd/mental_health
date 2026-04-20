@@ -28,8 +28,20 @@ export type ArticleType = {
     updatedAt?: string
 }
 
+export type NewsType = {
+    id: string
+    multiLanguage:boolean 
+    title: MultiLanguageText
+    description?: MultiLanguageText
+    content: MultiLanguageText
+    tags: string[]
+    image?: string
+    createdAt: string
+    updatedAt?: string
+}
+
 export type TestType = {
-     id:string,
+    id:string,
     label: string,
     title: {
         en: string,
