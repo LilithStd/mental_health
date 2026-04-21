@@ -13,7 +13,7 @@ import TestModalWindow from "./testModalWindow"
 import { routes } from "@/app/helpers/helpersFunctions"
 import { useLocale } from "@/app/hooks/useLocale"
 
-import { BUTTON_READ_MORE, BUTTON_VIEW_ALL } from "@/translate/global/button";
+import { BUTTON_READ_MORE, BUTTON_TEST, BUTTON_VIEW_ALL } from "@/translate/global/button";
 import HashTags from "../shared/hashTags";
 import { TYPES_OF_TEST } from "@/translate/testPage/testPage";
 
@@ -62,7 +62,7 @@ export default function Test({ test, testType }: TestProps) {
                             className={`p-2 cursor-pointer rounded-large bg-primary-color/50 border border-primary-color/30 shadow-sm  flex justify-center items-center`}
                             onClick={() => router.push(routesAdaptive.tests.byId(test.id))}
                         >
-                            <span className={`text-sm`}>{BUTTON_VIEW_ALL[locale]}</span>
+                            <span className={`text-sm`}>{BUTTON_TEST[locale]}</span>
                         </button>
                 </div>
             </div>
