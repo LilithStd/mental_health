@@ -38,8 +38,8 @@ export default function ConsultationForm() {
         };
 
     return (
-        <div className={`flex flex-col w-full  max-w-6xl  rounded-large `}>
-            <form ref={ref} onSubmit={handleSubmit} className={`mx-auto  p-4 items-center rounded-large bg-primary-color/20 border border-primary-color/20 shadow-md max-content-main-container`}>
+       
+            <form ref={ref} onSubmit={handleSubmit} className={`mx-auto  p-4 items-center rounded-large  shadow-md max-content-main-container`}>
                 <label className={`flex justify-center text-3xl text-center mb-2`}>{ConsultationPageContent[locale].title}</label>
                 <div className={`flex gap-4 flex-col w-full items-center h-full`}>
                     <div className={`flex items-center gap-2 w-1/2`}>
@@ -76,6 +76,6 @@ export default function ConsultationForm() {
                 </div>
 
             </form>
-        </div>
+        
     )
 }
