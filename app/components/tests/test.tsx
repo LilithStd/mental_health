@@ -12,9 +12,10 @@ import ModalWindowMain from "../modalWindowMain"
 import TestModalWindow from "./testModalWindow"
 import { routes } from "@/app/helpers/helpersFunctions"
 import { useLocale } from "@/app/hooks/useLocale"
-import { TYPES_OF_TEST } from "@/translate/test/test";
+
 import { BUTTON_READ_MORE, BUTTON_VIEW_ALL } from "@/translate/global/button";
 import HashTags from "../shared/hashTags";
+import { TYPES_OF_TEST } from "@/translate/testPage/testPage";
 
 
 
@@ -72,7 +73,6 @@ export default function Test({ test, testType }: TestProps) {
         <div className={`bg-primary-color/20 border border-primary-color/30 shadow-md p-4 rounded-large `}>
             <div>
                 <h2 className={`text-lg text-center font-bold`}>{test.title[locale]}</h2>
-                {/* <p>{TYPES_OF_TEST[locale]}: {test.label}</p> */}
                 <span className={`text-sm`}>{test.content[locale]}</span>
             </div>
             {socialRatingComponent(testType)}

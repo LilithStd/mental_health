@@ -9,6 +9,12 @@ export const BUTTON_VIEW_ALL = {
     ru: 'Посмотреть полностью',
 } as const
 
+export const BUTTON_TEST = {
+    en: 'Take the test',
+    lv: 'Aizpildīt testu',
+    ru: 'Пройти тест',
+} as const
+
 export const BUTTON_RETURN = {
     en: 'Return',
     lv: 'Atgriezties',

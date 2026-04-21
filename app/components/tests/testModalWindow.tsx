@@ -8,7 +8,8 @@ import { useAuthorizationStore } from "@/app/store/authorizationStore";
 import { useGlobalStore } from "@/app/store/globalStore";
 import { LocaleType } from "@/app/types/types";
 import { BUTTON_CLOSE } from "@/translate/global/button";
-import { LOGIN_TO_SAVE_RESULT_BUTTON, RESULT_TEST_CONTENT, SAVE_RESULT_BUTTON } from "@/translate/test/test";
+import { LOGIN_TO_SAVE_RESULT_BUTTON, RESULT_TEST_CONTENT, SAVE_RESULT_BUTTON } from "@/translate/testPage/testPage";
+
 
 
 interface TestModalWindowProps {

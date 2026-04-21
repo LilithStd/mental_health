@@ -18,7 +18,7 @@ export default async function NewsAllClientComponent({ initialNews }: NewsClient
 
     return (
         <div className={`flex flex-col indents-main-container  flex-1 items-center `}>
-                <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 border border-primary-color/30 p-4 shadow-md`}>
+                <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 border border-primary-color/30 p-4 shadow-lg`}>
                     <div className={`flex w-full justify-start mb-4`}>
                         <ReturnButton pathToReturn={routesAdaptive.media.root} />
                     </div>
