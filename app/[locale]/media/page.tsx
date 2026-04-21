@@ -1,6 +1,6 @@
 
 import RandomArticleBlock from "@/app/components/blockRandomElements/randomArticleBlock";
-import RandomNewsBlock from "@/app/components/consultation/randomNewsBlock";
+import RandomNewsBlock from "@/app/components/news/randomNewsBlock";
 import { routes } from "@/app/helpers/helpersFunctions";
 import { getLocale } from "@/app/hooks/server/getLocale";
 import { LocaleType } from "@/app/types/types";

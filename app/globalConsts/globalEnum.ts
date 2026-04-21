@@ -60,6 +60,17 @@ export enum TEST_TYPE {
 	FULL = 'FULL',
 }
 
+export enum CONSULTATION_TYPE {
+	MAIN = 'MAIN',
+	ADDITIONAL = 'ADDITIONAL',
+}
+
+export enum ADDITIONAL_METHOD_TYPE {
+	MAIL = 'MAIL',
+	PHONE = 'PHONE',
+	MESSENGER = 'MESSENGER',
+}
+
 // export enum NEWS_TYPE {
 // 	PREVIEW = 'PREVIEW',
 // 	MEDIUM = 'MEDIUM',
