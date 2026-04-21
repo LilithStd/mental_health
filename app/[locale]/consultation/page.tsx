@@ -20,12 +20,21 @@ export default function Consultation() {
             </div>
         )
     }
+    const additionalMethodComponent = () => {
+        return (
+            <div className={`flex flex-col gap-4 p-4 items-center`}>
+                <h2 className={`text-2xl`}>Additional method</h2>
+                <p className={`text-center`}>Here will be additional method for consultation</p>
+            </div>
+        )
+    }
 
     return (
         <div className={`flex flex-col indents-main-container  rounded-medium flex-1 items-center`}>
             <div className={`flex flex-col w-full  max-w-6xl bg-primary-color/20 border border-primary-color/20 rounded-large `}>
                  {methodToChangeTypeConsultationComponent()}
                 {methodToConsult === CONSULTATION_TYPE.MAIN && <ConsultationForm />}
+                {methodToConsult === CONSULTATION_TYPE.ADDITIONAL && additionalMethodComponent()}
             </div>
            
         </div>
