@@ -1,10 +1,18 @@
 'use client';
 import ConsultationForm from "@/app/components/consultation/consultationForm";
 import { CONSULTATION_TYPE } from "@/app/globalConsts/globalEnum";
+import { routes } from "@/app/helpers/helpersFunctions";
+import { useLocale } from "@/app/hooks/useLocale";
+import { LocaleType } from "@/app/types/types";
+import { CONSULTATION_TYPE_CONTENT, LINK_TO_CONSULTATION } from "@/translate/consultationPage/consultationPage";
+import Link from "next/link";
 import { useState } from "react";
 
 
 export default function Consultation() {
+    // methods
+    const locale = useLocale() as LocaleType
+    const routesAdaptive = routes(locale)
     // stores
     // functions
 
@@ -21,10 +29,18 @@ export default function Consultation() {
         )
     }
     const additionalMethodComponent = () => {
+        return <ConsultationForm />
+    }
+    const mainMethodComponent = () => {
+        
         return (
             <div className={`flex flex-col gap-4 p-4 items-center`}>
-                <h2 className={`text-2xl`}>Additional method</h2>
-                <p className={`text-center`}>Here will be additional method for consultation</p>
+                <h2 className={`text-2xl`}>{CONSULTATION_TYPE_CONTENT.MAIN.title[locale]}</h2>
+                <div>
+                    <p className={`text-center`}>{CONSULTATION_TYPE_CONTENT.MAIN.description[locale]}</p>
+                    <Link href={LINK_TO_CONSULTATION} className={`text-primary-color underline`}>{CONSULTATION_TYPE_CONTENT.MAIN.linkText[locale]}</Link>
+                </div>
+                
             </div>
         )
     }
@@ -33,7 +49,7 @@ export default function Consultation() {
         <div className={`flex flex-col indents-main-container  rounded-medium flex-1 items-center`}>
             <div className={`flex flex-col w-full  max-w-6xl bg-primary-color/20 border border-primary-color/20 rounded-large `}>
                  {methodToChangeTypeConsultationComponent()}
-                {methodToConsult === CONSULTATION_TYPE.MAIN && <ConsultationForm />}
+                {methodToConsult === CONSULTATION_TYPE.MAIN && mainMethodComponent()}
                 {methodToConsult === CONSULTATION_TYPE.ADDITIONAL && additionalMethodComponent()}
             </div>
            
