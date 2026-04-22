@@ -38,7 +38,7 @@ export default function Consultation() {
                 <h2 className={`text-2xl`}>{CONSULTATION_TYPE_CONTENT.MAIN.title[locale]}</h2>
                 <div>
                     <p className={`text-center`}>{CONSULTATION_TYPE_CONTENT.MAIN.description[locale]}</p>
-                    <Link href={LINK_TO_CONSULTATION} className={`text-primary-color underline`}>{CONSULTATION_TYPE_CONTENT.MAIN.linkText[locale]}</Link>
+                    <Link  target="_blank" rel="noopener noreferrer" href={LINK_TO_CONSULTATION} className={`text-primary-color underline`}>{CONSULTATION_TYPE_CONTENT.MAIN.linkText[locale]}</Link>
                 </div>
                 
             </div>
