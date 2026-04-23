@@ -20,6 +20,7 @@ import { BUTTON_READ_FULL_ARTICLE } from "@/translate/mediaPage/mediaPageContent
 import HashTags from "../shared/hashTags"
 import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum"
 import { useArticleStore } from "@/app/store/articleStore"
+import Image from "next/image"
 
 
 
@@ -260,6 +261,9 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                 )}
 
                 {isEditContent && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditContent(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditContent(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
+            </div>
+            <div>
+                <Image src={article.image ? article.image : ''} alt="Article Image" width={500} height={500} />
             </div>
             <div className={`flex items-center justify-end  p-2`}>
                 {userPrivilege &&

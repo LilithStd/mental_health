@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useState, useRef } from 'react'
 
 export default function ImageUpload() {
@@ -58,10 +59,13 @@ export default function ImageUpload() {
         )}
 
         {preview && (
-          <img
+          <Image
             src={preview}
+
             alt="preview"
             className="absolute inset-0 w-full h-full object-cover rounded-large"
+            width={500}
+            height={500}
           />
         )}
 
@@ -77,6 +81,7 @@ export default function ImageUpload() {
       <input
         ref={inputRef}
         type="file"
+        name='image'
         accept="image/*"
         onChange={handleChange}
         className="hidden"

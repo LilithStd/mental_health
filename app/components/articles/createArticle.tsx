@@ -8,6 +8,7 @@ import { CreateArticleContent } from "@/translate/mediaPage/articleContent/artic
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import AddTagsIcon from "@/public/icons/PlusCircle.svg";
+import ImageUpload from "./articleComponents/ImageUpload";
 
 
 // interface CreateArticleProps {
@@ -48,7 +49,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         body: formData,
     })
 
-    form.reset()
+    // form.reset()
     if (res.ok) {
         router.push(routesAdaptive.articles.root)
     } else {
@@ -188,7 +189,7 @@ return (
             </div>
 
             <div>
-                <input type="file" className="" />
+                <ImageUpload />
             </div>
             <div className={`flex flex-col gap-4 bg-primary-color/30 border border-primary-color/30 p-2 rounded-large`}>
                 <span>{CreateArticleContent[locale].tags}</span>
