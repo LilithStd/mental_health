@@ -9,7 +9,7 @@ export interface ArticleTypes extends Document {
   title: MultiLanguageText;
   description?: MultiLanguageText;
   content: MultiLanguageText;
-  author?: string;
+  author?: MultiLanguageText;
   tags: string[];
   image?: string;
   likes: number;
@@ -20,7 +20,7 @@ export interface ArticleTypes extends Document {
 const ArticleSchema: Schema<ArticleTypes> = new Schema({
   multiLanguage: { type: Boolean, default: true },
   title: { en: String, ru: String, lv: String },
-  author: { type: String },
+  author: { en: String, ru: String, lv: String },
   description: { en: String, ru: String, lv: String },
   content: { en: String, ru: String, lv: String },
   tags: [String],

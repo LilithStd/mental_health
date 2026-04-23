@@ -24,7 +24,7 @@ export type ArticleType = {
     links?: string[]
     likes: number
     image?: string
-    author?: string
+    author?: MultiLanguageText
     createdAt: string
     updatedAt?: string
 }

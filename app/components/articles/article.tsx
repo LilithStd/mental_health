@@ -71,7 +71,9 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         setIsChanged(true);
     }
     const editAuthorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEditAuthor(e.target.value);
+        if (editAuthor) {
+            setEditAuthor({ ...editAuthor, [locale]: e.target.value });
+        }
         setIsChanged(true);
     }
     const editContentHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -124,8 +126,8 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             <div>
                 {isEditArticle && isEditTtitle ? <input name="title" type="text" value={editTitle[locale]} onChange={editTitleHandler} className="text-3xl" /> : <h2 className={`flex h-fit text-2xl  rounded-large font-bold`}>{article.title[locale]}</h2>}
                 {isEditTtitle && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditTitle(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditTitle(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
-                {isEditAuthor ? <input name="author" type="text" value={editAuthor} onChange={editAuthorHandler} className="text-xl " /> : <h3 className={`italic opacity-70 flex items-center gap-2`}>
-                    by {!article.author || article.author.length === 0 ? "Unknown Author" : article.author}
+                {isEditAuthor ? <input name="author" type="text" value={article.author ? article.author[locale] : ''} onChange={editAuthorHandler} className="text-xl " /> : <h3 className={`italic opacity-70 flex items-center gap-2`}>
+                    by <span>{article.author ? article.author[locale] : 'Unknown author'}</span>
                 </h3>}
                 <span className={`text-sm  italic opacity-70`}>Created on: {formattedDate}</span>
             </div>

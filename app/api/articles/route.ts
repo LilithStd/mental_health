@@ -86,8 +86,8 @@ export async function GET() {
 // }
 export async function POST(req: Request) {
   const formData = await req.formData();
-
   const image = formData.get("image") as File;
+
   console.log('Received form data:', formData);
 
   
@@ -148,7 +148,7 @@ export async function POST(req: Request) {
     },
   };
   console.log('Parsed article data:', article);
-  // await createArticle(article);
+  await createArticle(article);
 
   return Response.json({ ok: true });
 }
