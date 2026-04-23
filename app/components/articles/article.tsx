@@ -233,8 +233,16 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
         </div>
     const fullArticleComponent =
-        <div className={`flex flex-col w-full  mb-4 p-2`}>
-            <div className={`flex rounded  max-w-6xl rounded-large  mb-2 w-full`}>
+        <div className={` w-full  mb-4 p-2`}>
+            <div className={`grid grid-cols-[0.4fr_1fr] rounded  max-w-6xl rounded-large  mb-2 w-full`}>
+                <div>
+                    <Image 
+                        src={article.image ? article.image : ''} 
+                        alt="Article Image" 
+                        width={250}         
+                        height={250} 
+                        className={`rounded-large`} />
+                </div>
                 {mainMetaDataArticleComponent}
 
             </div>
@@ -262,9 +270,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
                 {isEditContent && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditContent(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditContent(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
             </div>
-            <div>
-                <Image src={article.image ? article.image : ''} alt="Article Image" width={500} height={500} />
-            </div>
+       
             <div className={`flex items-center justify-end  p-2`}>
                 {userPrivilege &&
                     editArticleButtonsComponent
