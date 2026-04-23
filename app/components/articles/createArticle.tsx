@@ -8,7 +8,7 @@ import { CreateArticleContent } from "@/translate/mediaPage/articleContent/artic
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import AddTagsIcon from "@/public/icons/PlusCircle.svg";
-import { set } from "mongoose";
+
 
 // interface CreateArticleProps {
 
@@ -164,32 +164,31 @@ return (
             </div>
             
             <div className={`flex flex-col gap-4 md:flex-row`}>
-            <input
-                name={`author${selectedLanguage}`}
-                placeholder={CreateArticleContent[locale].placeholderContent[selectedLanguage].author}
-                required
-                className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
-            />
-            {multiLanguage && 
-                <>
                 <input
-                    name={`authorlv`}
-                    placeholder={CreateArticleContent[locale].placeholderContent.lv.author}
+                    name={`author${selectedLanguage}`}
+                    placeholder={CreateArticleContent[locale].placeholderContent[selectedLanguage].author}
                     required
                     className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
                 />
-                <input
-                    name={`authorru`}
-                    placeholder={CreateArticleContent[locale].placeholderContent.ru.author}
-                    required
-                    className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
-                />
-            </>}
-            
+                {multiLanguage && 
+                    <>
+                    <input
+                        name={`authorlv`}
+                        placeholder={CreateArticleContent[locale].placeholderContent.lv.author}
+                        required
+                        className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
+                    />
+                    <input
+                        name={`authorru`}
+                        placeholder={CreateArticleContent[locale].placeholderContent.ru.author}
+                        required
+                        className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
+                    />
+                </>}
             </div>
-           
+
             <div>
-                
+                <input type="file" className="" />
             </div>
             <div className={`flex flex-col gap-4 bg-primary-color/30 border border-primary-color/30 p-2 rounded-large`}>
                 <span>{CreateArticleContent[locale].tags}</span>
