@@ -81,6 +81,9 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         setEditContent({ ...editContent, [locale]: e.target.value });
         setIsChanged(true);
     }
+    const updateArticleRedirectHandler = () => {
+        router.push(routesAdaptive.articles.update(article.id));
+    }
     // components
 
     const raitingItemComponent = (type: SIZE_ELEMENT) => {
@@ -251,6 +254,12 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                         </div>
                         
                 </div>
+            </div>
+            <div className={`flex gap-2`}>
+                <button className={`bg-buttonContainer rounded-large p-2 cursor-pointer`}
+                    onClick={updateArticleRedirectHandler}>
+                    Update
+                </button>
             </div>
             <div className={`flex items-center justify-end  p-2`}>
                 {userPrivilege &&

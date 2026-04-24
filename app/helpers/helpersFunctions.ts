@@ -60,10 +60,12 @@ export function pickRandomUnique<T>(array: T[], count: number): T[] {
 export const routes = (locale: string) => {
   const prefix = `/${locale}`;
 
-  return {articles: {
+  return {
+  articles: {
     root: `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.ARTICLES}`,
     create: () => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.ARTICLES}/create`,
     byId: (id: number | string) => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.ARTICLES}/${id}`,
+    update: (id: number | string) => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.ARTICLES}/${id}/update`,
     edit: (id: number | string) => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.ARTICLES}/${id}/edit`,
   },
   media: {
