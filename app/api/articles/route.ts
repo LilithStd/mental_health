@@ -148,7 +148,7 @@ export async function POST(req: Request) {
     },
   };
   console.log('Parsed article data:', article);
-  await createArticle(article);
+  // await createArticle(article);
 
   return Response.json({ ok: true });
 }

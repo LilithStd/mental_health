@@ -138,7 +138,7 @@ return (
             <div className={`flex flex-col gap-4 md:flex-row`}>
               <input 
                 type="text" 
-                name={`title${selectedLanguage}`}
+                name={`${multiLanguage ? `titleen` : `title${selectedLanguage}`}`}
                 placeholder={CreateArticleContent[locale].placeholderContent[selectedLanguage].title}
                 required
                 className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
@@ -146,15 +146,15 @@ return (
             {multiLanguage && <>
                <input 
                 type="text" 
-                name={`titleen`}
-                placeholder={CreateArticleContent[locale].placeholderContent.en.title}
+                name={`titlelv`}
+                placeholder={CreateArticleContent[locale].placeholderContent.lv.title}
                 required
                 className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
             />
             <input 
                 type="text" 
-                name={`titlelv`}
-                placeholder={CreateArticleContent[locale].placeholderContent.lv.title}
+                name={`titleru`}
+                placeholder={CreateArticleContent[locale].placeholderContent.ru.title}
                 required
                 className={`border border-primary-color/30 p-2 bg-primary-color/30 rounded-large`}
             />
