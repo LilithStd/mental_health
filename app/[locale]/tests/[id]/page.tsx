@@ -18,7 +18,7 @@ export default async function TestCurrent({
     params: { id: string }
 }) {
     const { id } = await params
-    const  locale  = await getLocale() as LocaleType;
+    const locale  = await getLocale() as LocaleType;
     const routesAdaptive = routes(locale)
     const test = await getTestById(id)
     return (
