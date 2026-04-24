@@ -54,7 +54,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
     const formattedDate = date.toLocaleDateString('sv-SE');
     const router = useRouter();
-    console.log('article', article)
+    // console.log('article', article)
 
     useEffect(() => {
         const checkPrivilege = async () => {
