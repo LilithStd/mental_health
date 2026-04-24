@@ -54,7 +54,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
     const formattedDate = date.toLocaleDateString('sv-SE');
     const router = useRouter();
-
+    console.log('article', article)
 
     useEffect(() => {
         const checkPrivilege = async () => {
@@ -234,7 +234,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         </div>
     const fullArticleComponent =
         <div className={` w-full  mb-4 p-2`}>
-            <div className={`flex  rounded  max-w-6xl rounded-large  mb-2 w-full`}>
+            <div className={`flex border rounded  max-w-6xl rounded-large  mb-2 w-full`}>
                 <div className={`flex items-start gap-4 p-2   w-full`}>
                     <Image 
                         src={article.image ? article.image : ''} 
@@ -242,25 +242,16 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                         width={250}         
                         height={250} 
                         className={`rounded-large`} />
-                        <div>
-                        <div className={`flex flex-col items-center p-2 gap-4 mb-4`}>
+                      
+                        <div className={`flex flex-col gap-4 mb-4`}>
                             {mainMetaDataArticleComponent}
-                            <p className="whitespace-pre-wrap leading-relaxed">
+                            <p className={` whitespace-pre-wrap leading-relaxed`}>
                                 {article.content[locale]}
                             </p>
-                            
-
-                {isEditContent && isChanged ? <EditActiveIcon className={`inline-block w-6 h-6 mb-4 cursor-pointer`} onClick={() => { setIsEditContent(false) }} /> : isEditArticle && <EditInactiveIcon onClick={() => { setIsEditContent(true) }} className={`inline-block w-6 h-6 mb-4 cursor-pointer`} />}
-            </div>
                         </div>
-                    
-                    
+                        
                 </div>
-                
-
             </div>
-           
-       
             <div className={`flex items-center justify-end  p-2`}>
                 {userPrivilege &&
                     editArticleButtonsComponent
