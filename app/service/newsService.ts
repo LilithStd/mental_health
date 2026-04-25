@@ -32,6 +32,10 @@ export async function getNewsById(id: string) {
     return {
         id: news._id.toString(),
         title: news.title,
+        multiLanguage: news.multiLanguage,
+        description: news.description,
+        image: news.image,
+        tags: news.tags,
         content: news.content,
         createdAt: news.createdAt.toISOString(),
         updatedAt: news.updatedAt?.toISOString()

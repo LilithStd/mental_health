@@ -6,7 +6,8 @@ import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum";
 // import { NEWS_TYPE } from "@/app/globalConsts/globalEnum";
 import { routes } from "@/app/helpers/helpersFunctions";
 import { getLocale } from "@/app/hooks/server/getLocale";
-import { getNewsById } from "@/app/serverActions/newsStorage";
+import { getNewsById } from "@/app/service/newsService";
+// import { getNewsById } from "@/app/serverActions/newsStorage";
 import { LocaleType } from "@/app/types/types";
 
 
@@ -23,7 +24,7 @@ export default async function CurrentNews({
     // stores
     // state
     // const [currentNews, setCurrentNews] = useState<NewsType | null>(null)
-    const currentNews = await getNewsById(Number(id))
+    const currentNews = await getNewsById(id)
 
     return (
         <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
