@@ -1,3 +1,4 @@
+
 import { connectDB } from "../lib/connectDB";
 import { Article, ArticleTypes } from "../models/article";
 import { ArticleType } from "../types/types";
@@ -11,7 +12,7 @@ function mapArticle(a: ArticleTypes): ArticleType {
     description: a.description,
     content: a.content,
     author: a.author,
-    tags: a.tags,
+    hashTags: a.hashTags,
     image: a.image,
     likes: a.likes,
     createdAt: a.createdAt.toISOString(),       
@@ -40,7 +41,7 @@ export async function getArticleById(id: string) {
             id: article._id.toString(),
             author: article.author,
             multiLanguage: article.multiLanguage,
-            tags: article.tags,
+            hashTags: article.hashTags,
             image: article.image,
             likes: article.likes,
             createdAt: article.createdAt.toISOString(),

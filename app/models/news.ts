@@ -7,7 +7,7 @@ export interface NewsTypes extends Document {
     title: MultiLanguageText,
     description?: MultiLanguageText,
     content: MultiLanguageText,
-    tags: string[],
+    hashTags: string[],
     image?: string,
     createdAt: Date,
     updatedAt?: Date
@@ -18,7 +18,7 @@ const NewsSchema: Schema<NewsTypes> = new Schema({
     title: { type: Object, required: true },
     description: { type: Object },
     content: { type: Object, required: true },
-    tags: { type: [String], required: true },
+    hashTags: { type: [String], required: true },
     image: { type: String },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },

@@ -10,7 +10,7 @@ function mapNews(news: NewsTypes): NewsType {
         title: news.title,
         description: news.description,
         image: news.image,
-        tags: news.tags,
+        hashTags: news.hashTags,
         content: news.content,
         createdAt: news.createdAt.toISOString(),
         updatedAt: news.updatedAt?.toISOString()
@@ -35,7 +35,7 @@ export async function getNewsById(id: string) {
         multiLanguage: news.multiLanguage,
         description: news.description,
         image: news.image,
-        tags: news.tags,
+        hashTags: news.hashTags,
         content: news.content,
         createdAt: news.createdAt.toISOString(),
         updatedAt: news.updatedAt?.toISOString()

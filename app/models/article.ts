@@ -10,7 +10,7 @@ export interface ArticleTypes extends Document {
   description?: MultiLanguageText;
   content: MultiLanguageText;
   author?: MultiLanguageText;
-  tags: string[];
+  hashTags: string[];
   image?: string;
   likes: number;
   createdAt: Date;
@@ -23,7 +23,7 @@ const ArticleSchema: Schema<ArticleTypes> = new Schema({
   author: { en: String, ru: String, lv: String },
   description: { en: String, ru: String, lv: String },
   content: { en: String, ru: String, lv: String },
-  tags: [String],
+  hashTags: [String],
   image: { type: String },
   likes: { type: Number, default: 0 },
   createdAt: { type: Date, default: Date.now },
