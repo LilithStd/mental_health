@@ -6,6 +6,7 @@ import ReturnButton from "../returnButton"
 import { getLocale } from "@/app/hooks/server/getLocale"
 import { LocaleType, NewsType } from "@/app/types/types"
 import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum"
+import { MediaPageContent } from "@/translate/mediaPage/mediaPageContent"
 
 interface NewsClientComponentProps {
     initialNews: NewsType[],
@@ -25,9 +26,15 @@ export default async function NewsAllClientComponent({ initialNews }: NewsClient
                     <CreateNewsButtonComponent />
                     {/* {isCreateArticleVisible && <CreateNews />} */}
 
-                    {news.map((newsItem) => (
-                        <News key={newsItem.id} news={newsItem} typeNews={SIZE_ELEMENT.MEDIUM} />
-                    ))}
+                    <div className={`flex text-center w-full flex-col gap-4`}>
+                        {news.length === 0 ? (
+                        <p>{MediaPageContent[locale].noNews}</p>
+                    ) : (
+                        news.map((newsItem) => (
+                            <News key={newsItem.id} news={newsItem} typeNews={SIZE_ELEMENT.MEDIUM} />
+                        ))
+                    )}
+                    </div> 
                 </div>
             
         </div>

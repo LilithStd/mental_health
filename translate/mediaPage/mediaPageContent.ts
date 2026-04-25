@@ -1,21 +1,27 @@
 export const MediaPageContent = {
     en:{
-        title_news:'News',
-        title_articles:'Articles',
-        random_news:'Random news',
-        random_articles:'Random articles',
+        titleNews:'News',
+        titleArticles:'Articles',
+        randomNews:'Random news',
+        randomArticles:'Random articles',
+        noNews:'No news found',
+        noArticles:'No articles found',
     },
     lv:{
-        title_news:'Jaunumi',
-        title_articles:'Raksti',
-        random_news:'Neatbilstoši jaunumi',
-        random_articles:'Neatbilstoši raksti',
+        titleNews:'Jaunumi',
+        titleArticles:'Raksti',
+        randomNews:'Neatbilstoši jaunumi',
+        randomArticles:'Neatbilstoši raksti',
+        noNews:'Nav atrastu jaunumu',
+        noArticles:'Nav atrastu rakstu',
     },
     ru:{
-        title_news:'Новости',
-        title_articles:'Статьи',
-        random_news:'Случайные новости',
-        random_articles:'Случайные статьи',
+        titleNews:'Новости',
+        titleArticles:'Статьи',
+        randomNews:'Случайные новости',
+        randomArticles:'Случайные статьи',
+        noNews:'Новости не найдены',
+        noArticles:'Статьи не найдены',
     }
 } as const
 

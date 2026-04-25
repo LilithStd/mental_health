@@ -18,8 +18,8 @@ export default async function MediaPage() {
 
             <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 pt-4`}>
                 <div className={`flex w-full justify-center gap-4 mb-4`}>
-                    <Link href={routesAdaptive.news.root} className={`bg-primary-color/50 p-4 rounded-large`}>{MediaPageContent[locale].title_news}</Link>
-                    <Link href={routesAdaptive.articles.root} className={`bg-primary-color/50 p-4 rounded-large`}>{MediaPageContent[locale].title_articles}</Link>
+                    <Link href={routesAdaptive.news.root} className={`bg-primary-color/50 p-4 rounded-large`}>{MediaPageContent[locale].titleNews}</Link>
+                    <Link href={routesAdaptive.articles.root} className={`bg-primary-color/50 p-4 rounded-large`}>{MediaPageContent[locale].titleArticles}</Link>
                 </div>
 
                 {/* <RandomArticleBlock /> */}
