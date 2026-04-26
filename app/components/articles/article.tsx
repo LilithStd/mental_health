@@ -236,7 +236,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
         </div>
     const fullArticleComponent =
-        <div className={` w-full  mb-4 p-2`}>
+        <div className={` w-full  mb-4 `}>
             <div className={` border rounded max-w-6xl rounded-large mb-2 p-4 bg-primary-color/30 border-primary-color/30`}>
                     <Image 
                         src={article.image ? article.image : ''} 
@@ -250,8 +250,8 @@ export default function Article({ article, typeArticle }: ArticleProps) {
                     </div>
                     
                     <p className={``}>
-                            {article.content[locale]}
-                        </p>
+                        {article.content[locale]}
+                    </p>
                     
                         
                         
