@@ -237,23 +237,25 @@ export default function Article({ article, typeArticle }: ArticleProps) {
         </div>
     const fullArticleComponent =
         <div className={` w-full  mb-4 p-2`}>
-            <div className={`flex border rounded max-w-6xl rounded-large  mb-2 w-full`}>
-                <div className={`flex gap-4 p-2   w-full`}>
+            <div className={` border rounded max-w-6xl rounded-large mb-2 p-4 bg-primary-color/30 border-primary-color/30`}>
                     <Image 
                         src={article.image ? article.image : ''} 
-                        alt="Article Image" 
-                        width={200}         
-                        height={200} 
-                        className={`rounded-large`} />
-                      
-                    <div className={`flex flex-col gap-4 mb-4`}>
+                        alt="Article Image"
+                        width={400}
+                        height={300}  
+                        className={` rounded-large float-left mr-4 mb-2`} 
+                    />
+                    <div className={`pb-4`}>
                         {mainMetaDataArticleComponent}
-                        <p className={``}>
+                    </div>
+                    
+                    <p className={``}>
                             {article.content[locale]}
                         </p>
-                    </div>
+                    
                         
-                </div>
+                        
+                   
             </div>
             <div className={`flex gap-2`}>
                 <button className={`bg-buttonContainer rounded-large p-2 cursor-pointer`}

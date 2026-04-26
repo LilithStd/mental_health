@@ -1,15 +1,10 @@
 import UpdateArticle from "@/app/components/articles/articleComponents/updateArticle"
 import { routes } from "@/app/helpers/helpersFunctions"
 import { getLocale } from "@/app/hooks/server/getLocale"
-import { useLocale } from "@/app/hooks/useLocale"
 import { getArticleById } from "@/app/service/articleService"
-import { ArticleType, LocaleType } from "@/app/types/types"
-import { Params } from "next/dist/server/request/params"
+import {  LocaleType } from "@/app/types/types"
 
 
-interface UpdateArticleComponent {
-    updatedArticle: ArticleType
-}
 
 export default async function UpdateArticlePage({
     params,
