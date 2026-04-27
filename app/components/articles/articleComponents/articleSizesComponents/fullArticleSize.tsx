@@ -6,15 +6,15 @@ import Image from "next/image"
 import MetaDataArticle from "./articleSizesComponents/metaDataArticle"
 import UpdateArticleButtonRedirect from "./articleSizesComponents/updateArticleButtonRedirect"
 import { formattedDate } from "@/app/helpers/helpersFunctions"
-import { getLocale } from "@/app/hooks/server/getLocale"
+import { useLocale } from "@/app/hooks/useLocale"
 
 
 interface FullArticleSizeProps {
     article:ArticleType
 }
 
-export default async function FullArticleSize({article}: FullArticleSizeProps) {
-    const locale = await getLocale() as LocaleType;
+export default  function FullArticleSize({article}: FullArticleSizeProps) {
+    const locale =  useLocale() as LocaleType;
     return (
         <div className={` w-full  mb-4 `}>
                 <div className={` border rounded max-w-6xl rounded-large mb-2 p-4 bg-primary-color/30 border-primary-color/30`}>
