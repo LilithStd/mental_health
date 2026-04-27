@@ -32,6 +32,11 @@ export const searchElementsInArray = <T>(
   )
 }
 
+export const formattedDate = (date: string) => {
+  const tempDate = new Date(date);
+  return tempDate.toLocaleDateString('sv-SE');
+};
+
 export const cropContent = (content: string, maxLength: number): string => {
   if (content.length <= maxLength) {
     return content;
