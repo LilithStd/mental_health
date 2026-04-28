@@ -3,6 +3,8 @@ import MetaDataArticle from "./articleSizesComponents/metaDataArticle"
 import { cropContent } from "@/app/helpers/helpersFunctions"
 import { CROP_CONTAINER_SIZE } from "@/app/globalConsts/globalConsts"
 import { useLocale } from "@/app/hooks/useLocale"
+import InteractionBlockArticle from "./articleSizesComponents/interactionBlockArticle"
+import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum"
 
 interface MediumSizeArticleProps {
     article: ArticleType // Define any props that MediumSizeArticle might need
@@ -23,7 +25,7 @@ export default function MediumSizeArticle({ article }: MediumSizeArticleProps) {
                     </p>
     
                     <div className={`w-full mt-auto flex`}>
-                        {interactionBlockComponent}
+                        <InteractionBlockArticle article={article} typeArticle={SIZE_ELEMENT.MEDIUM}/>
                     </div>
                 </div>
     

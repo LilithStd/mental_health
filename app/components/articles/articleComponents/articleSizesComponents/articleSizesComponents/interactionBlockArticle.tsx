@@ -1,16 +1,18 @@
 import { formattedDate } from "@/app/helpers/helpersFunctions"
+import RatingArticle from "./ratingArticle"
+import { ArticleType } from "@/app/types/types"
 
 interface InteractionBlockArticleProps {
     typeArticle: string,
-    date: string
+    article:ArticleType
 }
 
-export default function InteractionBlockArticle({ typeArticle, date }: InteractionBlockArticleProps) {
+export default function InteractionBlockArticle({ typeArticle, article }: InteractionBlockArticleProps) {
   return (
         <div className={`flex flex-col  w-full gap-2 items-start mt-2`}>
             <div className={`flex flex-col w-full`}>
-                {raitingItemComponent(typeArticle)}                
-                <span className={`text-sm pl-2 pt-2 italic opacity-40`}>Published on: {formattedDate(date)}</span>
+                <RatingArticle article={article}/>                
+                <span className={`text-sm pl-2 pt-2 italic opacity-40`}>Published on: {formattedDate(article.createdAt)}</span>
             </div>
 
             
