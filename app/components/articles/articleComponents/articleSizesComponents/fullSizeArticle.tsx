@@ -7,6 +7,7 @@ import MetaDataArticle from "./articleSizesComponents/metaDataArticle"
 import UpdateArticleButtonRedirect from "./articleSizesComponents/updateArticleButtonRedirect"
 import { formattedDate } from "@/app/helpers/helpersFunctions"
 import { useLocale } from "@/app/hooks/useLocale"
+import { ArticleContent } from "@/translate/mediaPage/articleContent/articleContent"
 
 
 interface FullArticleSizeProps {
@@ -45,7 +46,7 @@ export default  function FullArticleSize({article}: FullArticleSizeProps) {
                     />
                     <HashTags hashTags={['example', 'sample', 'test']} type={SIZE_ELEMENT.FULL}/>
                 </div>
-                <span className={`text-sm p-2  opacity-50 `}>Published  on: {formattedDate(article.createdAt)}</span>
+                <span className={`text-sm p-2  opacity-50 `}>{ArticleContent[locale].publishedOn}: {formattedDate(article.createdAt)}</span>
             </div>
   )
 }
