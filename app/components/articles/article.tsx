@@ -22,6 +22,8 @@ import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum"
 import { useArticleStore } from "@/app/store/articleStore"
 import Image from "next/image"
 import FullArticleSize from "./articleComponents/articleSizesComponents/fullSizeArticle"
+import MediumSizeArticle from "./articleComponents/articleSizesComponents/mediumSizeArticle"
+import SmallSizeArticle from "./articleComponents/articleSizesComponents/smallSizeArticle"
 
 
 
@@ -279,8 +281,8 @@ export default function Article({ article, typeArticle }: ArticleProps) {
     // 
     return (
         <article key={article.id} className={`rounded-large   w-full  flex flex-col`}>
-            {typeArticle === SIZE_ELEMENT.PREVIEW && previewArticleComponent}
-            {typeArticle === SIZE_ELEMENT.MEDIUM && mediumArticleComponent}
+            {typeArticle === SIZE_ELEMENT.PREVIEW && <SmallSizeArticle article={article}/>}
+            {typeArticle === SIZE_ELEMENT.MEDIUM && <MediumSizeArticle article={article}/>}
             {typeArticle === SIZE_ELEMENT.FULL && <FullArticleSize article={article}/>}
         </article>
 
