@@ -235,47 +235,47 @@ export default function Article({ article, typeArticle }: ArticleProps) {
             </div>
 
         </div>
-    const fullArticleComponent =
-        <div className={` w-full  mb-4 `}>
-            <div className={` border rounded max-w-6xl rounded-large mb-2 p-4 bg-primary-color/30 border-primary-color/30`}>
-                    <Image 
-                        src={article.image ? article.image : ''} 
-                        alt="Article Image"
-                        width={400}
-                        height={300}  
-                        className={` rounded-large float-left mr-4 mb-2`} 
-                    />
-                    <div className={`pb-4`}>
-                        {mainMetaDataArticleComponent}
-                    </div>
+    // const fullArticleComponent =
+    //     <div className={` w-full  mb-4 `}>
+    //         <div className={` border rounded max-w-6xl rounded-large mb-2 p-4 bg-primary-color/30 border-primary-color/30`}>
+    //                 <Image 
+    //                     src={article.image ? article.image : ''} 
+    //                     alt="Article Image"
+    //                     width={400}
+    //                     height={300}  
+    //                     className={` rounded-large float-left mr-4 mb-2`} 
+    //                 />
+    //                 <div className={`pb-4`}>
+    //                     {mainMetaDataArticleComponent}
+    //                 </div>
                     
-                    <p className={``}>
-                        {article.content[locale]}
-                    </p>
-            </div>
-            <div className={`flex gap-2`}>
-                <button className={`bg-buttonContainer rounded-large p-2 cursor-pointer`}
-                    onClick={updateArticleRedirectHandler}>
-                    Update
-                </button>
-            </div>
-            <div className={`flex items-center justify-end  p-2`}>
-                {userPrivilege &&
-                    editArticleButtonsComponent
-                }
-            </div>
-            <div className={`flex w-full justify-start gap-4 items-center p-2`}>
-                {/* {interactionBlockComponent} */}
-                <Favorites
-                    isFavorite={isLiked}
-                    type={SIZE_ELEMENT.FULL}
-                    counterFavorites={likesCount}
-                    // callBackIsFavorite={handleLike}
-                />
-                <HashTags hashTags={['example', 'sample', 'test']} type={SIZE_ELEMENT.FULL}/>
-            </div>
-            <span className={`text-sm p-2  opacity-50 `}>Published  on: {formattedDate}</span>
-        </div>;
+    //                 <p className={``}>
+    //                     {article.content[locale]}
+    //                 </p>
+    //         </div>
+    //         <div className={`flex gap-2`}>
+    //             <button className={`bg-buttonContainer rounded-large p-2 cursor-pointer`}
+    //                 onClick={updateArticleRedirectHandler}>
+    //                 Update
+    //             </button>
+    //         </div>
+    //         <div className={`flex items-center justify-end  p-2`}>
+    //             {userPrivilege &&
+    //                 editArticleButtonsComponent
+    //             }
+    //         </div>
+    //         <div className={`flex w-full justify-start gap-4 items-center p-2`}>
+    //             {/* {interactionBlockComponent} */}
+    //             <Favorites
+    //                 isFavorite={isLiked}
+    //                 type={SIZE_ELEMENT.FULL}
+    //                 counterFavorites={likesCount}
+    //                 // callBackIsFavorite={handleLike}
+    //             />
+    //             <HashTags hashTags={['example', 'sample', 'test']} type={SIZE_ELEMENT.FULL}/>
+    //         </div>
+    //         <span className={`text-sm p-2  opacity-50 `}>Published  on: {formattedDate}</span>
+    //     </div>;
     // 
     return (
         <article key={article.id} className={`rounded-large   w-full  flex flex-col`}>
