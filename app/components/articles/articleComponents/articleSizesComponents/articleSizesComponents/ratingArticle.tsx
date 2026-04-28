@@ -6,16 +6,17 @@ import RedirectButton from './redirectButton'
 import { ArticleType } from '@/app/types/types'
 
 interface RatingArticleProps {
-    article:ArticleType
+    article:ArticleType,
+    typeArticle: SIZE_ELEMENT
 }
 
-export default function RatingArticle({ article }: RatingArticleProps) {
+export default function RatingArticle({ article, typeArticle }: RatingArticleProps) {
   return (
                 <div className={`flex items-center justify-between w-full gap-2 shadow-sm rounded-large bg-primary-color/30 border border-primary-color/30`}>
-                    <Favorites isFavorite={false} type={SIZE_ELEMENT.PREVIEW} />
+                    <Favorites isFavorite={false} type={typeArticle} />
                     {/* {tagsComponent(type)} */}
-                    <HashTags hashTags={['example', 'sample', 'test']} type={SIZE_ELEMENT.PREVIEW} />
-                    <RedirectButton articleId={article.id} sizeElement={SIZE_ELEMENT.PREVIEW} />
+                    <HashTags hashTags={['example', 'sample', 'test']} type={typeArticle} />
+                    <RedirectButton articleId={article.id} sizeElement={typeArticle} />
                 </div>
         )
 }

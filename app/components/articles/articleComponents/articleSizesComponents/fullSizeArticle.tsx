@@ -37,7 +37,6 @@ export default  function FullArticleSize({article}: FullArticleSizeProps) {
                    <UpdateArticleButtonRedirect articleId={article.id} />
                 </div>
                 <div className={`flex w-full justify-start gap-4 items-center p-2`}>
-                    {/* {interactionBlockComponent} */}
                     <Favorites
                         isFavorite={false}
                         type={SIZE_ELEMENT.FULL}
