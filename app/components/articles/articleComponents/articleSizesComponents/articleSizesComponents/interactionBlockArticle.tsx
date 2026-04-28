@@ -15,8 +15,6 @@ export default function InteractionBlockArticle({ typeArticle, article }: Intera
                 <RatingArticle article={article} typeArticle={typeArticle}/>                
                 <span className={`text-sm pl-2 pt-2 italic opacity-40`}>Published on: {formattedDate(article.createdAt)}</span>
             </div>
-
-            
         </div>
   )
 }

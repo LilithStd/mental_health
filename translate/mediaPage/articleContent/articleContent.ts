@@ -1,10 +1,36 @@
 
 export const ArticleContent = {
     en: {
+        withoutContent:{
         noTitle: 'no available title in this language',
         noAuthor: 'no available author in this language',
         noContent: 'no available content in this language',
+        },
+        author: 'author',
+        publishedOn: 'Published on',
+        updatedOn: 'Updated on',
+        
     },
+    lv: {
+        withoutContent:{
+        noTitle: 'nav pieejams nosaukums šajā valodā',
+        noAuthor: 'nav pieejams autors šajā valodā',
+        noContent: 'nav pieejams saturs šajā valodā',
+        },
+        author: 'autors',
+        publishedOn: 'Publicēts',
+        updatedOn: 'Atjaunināts',
+    },
+    ru: {
+        withoutContent:{
+        noTitle: 'нет доступного заголовка на этом языке',
+        noAuthor: 'нет доступного автора на этом языке',
+        noContent: 'нет доступного содержания на этом языке',
+        },
+        author: 'автор',
+        publishedOn: 'Опубликовано',
+        updatedOn: 'Обновлено',
+    }
 } as const 
 
 export const PlaceHolderLanguageContent = {
