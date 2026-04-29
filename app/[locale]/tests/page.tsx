@@ -66,7 +66,7 @@ export default async function Tests() {
             <div className={`flex flex-col flex-1 max-w-6xl border border-primary-color/30 rounded-large bg-primary-color/20 p-4 shadow-lg w-full`}>
                 <div className={`grid grid-cols-1 md:grid-cols-2  mb-4 max-content-main-container`}>
                     {tests.map((test) => (
-                        <Test key={test.id} test={test} testType={SIZE_ELEMENT.PREVIEW} />
+                        <Test key={test.id} test={test} testType={SIZE_ELEMENT.SMALL} />
                     ))}
                 </div>
 

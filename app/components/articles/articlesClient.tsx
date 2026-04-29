@@ -53,7 +53,7 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
                 {articles.length === 0 ? (
                     <p>{MediaPageContent[locale].noArticles}</p>
                 ) : (
-                    typeArticle === SIZE_ELEMENT.PREVIEW ? randomArticlesComponent : regularArticlesComponent
+                    typeArticle === SIZE_ELEMENT.SMALL ? randomArticlesComponent : regularArticlesComponent
                 )}
             </div>
         </div>

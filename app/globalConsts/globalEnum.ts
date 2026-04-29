@@ -39,7 +39,7 @@ export enum ROLE_AUTH_USER_PRIVILEGE {
 }
 
 export enum SIZE_ELEMENT {
-	PREVIEW = 'PREVIEW',
+	SMALL = 'SMALL',
 	MEDIUM = 'MEDIUM',
 	FULL = 'FULL',
 }

@@ -56,7 +56,7 @@ export default function News({ news, typeNews }: NewsProps) {
                         <a key={index} href={link} target="_blank" rel="noopener noreferrer" className={``}>Source Link</a>
                     ))}
                 </div> : <button className={`justify-center items-center bg-primary-color/50 p-2 rounded-large flex cursor-pointer hover:scale-105 transition`} onClick={() => { router.push(routesAdaptive.news.byId(news.id)) }}>
-                        <span className={`${type === SIZE_ELEMENT.PREVIEW ? 'text-sm' : 'text-base'} `}>
+                        <span className={`${type === SIZE_ELEMENT.SMALL ? 'text-sm' : 'text-base'} `}>
                             {BUTTON_READ_FULL_NEWS[locale]}
                         </span>
                     </button>}
@@ -128,7 +128,7 @@ export default function News({ news, typeNews }: NewsProps) {
     return (
         <div className={`w-full h-full  flex justify-center`}>
             <div className={`flex w-full h-full items-center max-w-6xl  rounded-large`}>
-                {typeNews === SIZE_ELEMENT.PREVIEW && previewNewsComponent}
+                {typeNews === SIZE_ELEMENT.SMALL && previewNewsComponent}
                 {typeNews === SIZE_ELEMENT.MEDIUM && mediumNewsComponent}
                 {typeNews === SIZE_ELEMENT.FULL && fullNewsComponent}
             </div>
