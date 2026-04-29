@@ -100,7 +100,7 @@ export default function Test({ test, testType }: TestProps) {
     // functions
     return (
         <div className={`flex flex-col p-2 max-w-6xl`}>
-            {testType === SIZE_ELEMENT.PREVIEW ? previewTestComponent : fullTestComponent}
+            {testType === SIZE_ELEMENT.SMALL ? previewTestComponent : fullTestComponent}
             {testResult && isModalOpen &&
                 <ModalWindowMain openStatusCallBack={isModalOpen} closeStatusCallBack={() => setIsModalOpen(false)}>
                     <TestModalWindow result={testResult} onCloseCallback={onCloseModal} testId={test.label} />
