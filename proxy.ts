@@ -29,8 +29,11 @@ export function proxy(request: NextRequest) {
 
   // пути, где НЕ нужна авторизация
   const isPublicPage =
-    pathname.includes("/login") ||
-    pathname.includes("/register");
+      pathname.includes("/login") ||
+      pathname.includes("/register") || 
+      pathname.includes("/api") ||
+      pathname.includes("/_next") ||
+      pathname.includes("/favicon.ico");
 
   if (!token && !isPublicPage) {
     return NextResponse.redirect(
