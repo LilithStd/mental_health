@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
+import { APP_PATH_ROUTER } from "./app/globalConsts/globalEnum";
 
 const defaultLocale = "en";
 const locales = ["en", "ru", "lv"];
@@ -29,18 +30,24 @@ export function proxy(request: NextRequest) {
 
   // пути, где НЕ нужна авторизация
 const PUBLIC_PATHS = [
-  "/login",
-  "/register",
+  APP_PATH_ROUTER.MAIN,
+  APP_PATH_ROUTER.TESTS,
+  APP_PATH_ROUTER.NEWS,
+  APP_PATH_ROUTER.ARTICLES,
+  APP_PATH_ROUTER.CONSULTATION,
+  APP_PATH_ROUTER.FAQ,
+  APP_PATH_ROUTER.PRICING,
+  APP_PATH_ROUTER.AUTHORIZATION
 ];
 
 const isPublicPage = PUBLIC_PATHS.some((path) =>
   pathname.includes(path)
 );
-  if (!token && !isPublicPage) {
+if (!token && !isPublicPage) {
     return NextResponse.redirect(
       new URL(`/${locale}/login`, request.url)
     );
-  }
+}
 
   try {
     if (token) {

@@ -3,7 +3,6 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { connectDB } from "@/app/lib/connectDB";
 import { User } from "@/app/models/user";
-import { cookies } from "next/headers";
 
 export async function POST(req: Request) {
   const { email, password } = await req.json();
@@ -34,7 +33,8 @@ export async function POST(req: Request) {
 
     httpOnly: true,
 
-    secure: process.env.NODE_ENV === "production",
+    // secure: process.env.NODE_ENV === "production",
+    secure: false,
 
     path: "/",
 
