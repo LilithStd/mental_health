@@ -28,13 +28,14 @@ export function proxy(request: NextRequest) {
   const token = request.cookies.get("token")?.value;
 
   // пути, где НЕ нужна авторизация
-  const isPublicPage =
-      pathname.includes("/login") ||
-      pathname.includes("/register") || 
-      pathname.includes("/api") ||
-      pathname.includes("/_next") ||
-      pathname.includes("/favicon.ico");
+const PUBLIC_PATHS = [
+  "/login",
+  "/register",
+];
 
+const isPublicPage = PUBLIC_PATHS.some((path) =>
+  pathname.includes(path)
+);
   if (!token && !isPublicPage) {
     return NextResponse.redirect(
       new URL(`/${locale}/login`, request.url)
