@@ -3,10 +3,11 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { connectDB } from "@/app/lib/connectDB";
 import { User } from "@/app/models/user";
+import { cookies } from "next/headers";
 
 export async function POST(req: Request) {
   const { email, password } = await req.json();
-    
+
   await connectDB();
 
   const user = await User.findOne({ email });
@@ -22,10 +23,24 @@ export async function POST(req: Request) {
   }
 
   const token = jwt.sign(
-    { userId: user._id },
+    { userId: user._id.toString() },
     process.env.JWT_SECRET!,
     { expiresIn: "7d" }
   );
 
-  return NextResponse.json({ token });
+  const response = NextResponse.json({ success: true });
+
+  response.cookies.set("token", token, {
+
+    httpOnly: true,
+
+    secure: process.env.NODE_ENV === "production",
+
+    path: "/",
+
+    maxAge: 7 * 24 * 60 * 60,
+
+  });
+
+  return response;
 }
