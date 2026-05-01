@@ -1,28 +1,26 @@
 import { NextResponse } from "next/server";
-import clientPromise from "@/lib/mongodb";
+
+
 import bcrypt from "bcrypt";
+import { connectDB } from "@/app/lib/connectDB";
+import { User } from "@/app/models/user";
 
 export async function POST(req: Request) {
   const { email, password } = await req.json();
 
-  if (!email || !password) {
-    return NextResponse.json({ error: "Missing fields" }, { status: 400 });
-  }
+  await connectDB();
 
-  const client = await clientPromise;
-  const db = client.db("mydb");
+  const existing = await User.findOne({ email });
 
-  const existingUser = await db.collection("users").findOne({ email });
-
-  if (existingUser) {
+  if (existing) {
     return NextResponse.json({ error: "User exists" }, { status: 400 });
   }
 
-  const hashedPassword = await bcrypt.hash(password, 10);
+  const hashed = await bcrypt.hash(password, 10);
 
-  await db.collection("users").insertOne({
+  await User.create({
     email,
-    password: hashedPassword,
+    password: hashed,
   });
 
   return NextResponse.json({ success: true });
