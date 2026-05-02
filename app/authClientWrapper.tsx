@@ -1,23 +1,21 @@
-'use client'
+"use client";
 
-import { createContext, useContext } from "react"
-import { UserAuthType } from "./types/types"
+import { createContext, useContext } from "react";
+import { UserAuthType } from "./types/types";
 
-const AuthContext = createContext<UserAuthType | null>(null)
-export const useAuth = () => useContext(AuthContext)
+const AuthContext = createContext<UserAuthType | null>(null);
 
 interface AuthProviderProps {
-    user: UserAuthType | null
-    children: React.ReactNode
+  user: UserAuthType | null;
+  children: React.ReactNode;
 }
 
-
-export function AuthProvider({ user, children }: AuthProviderProps) {
-    return (
-        <AuthContext.Provider value={user}>
-            {children}
-        </AuthContext.Provider>
-    )
+export default function AuthProvider({ user, children }: AuthProviderProps) {
+  return (
+    <AuthContext.Provider value={user}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
-
+export const useUser = () => useContext(AuthContext);

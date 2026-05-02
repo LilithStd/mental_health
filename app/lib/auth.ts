@@ -27,6 +27,9 @@ export async function getCurrentUser() {
 
     return {
       id: user._id.toString(),
+      name: user.name,
+      role: user.role || "user",
+      privileges: user.privileges || "basic",
       email: user.email,
     };
   } catch {
