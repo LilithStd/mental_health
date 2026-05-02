@@ -90,7 +90,8 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
             body: JSON.stringify({
                 email: formData.get('email'),
                 password: formData.get('password'),
-            })
+            }),
+            credentials: "include",
         }).then(res => res.json())
         .catch(err => {
             console.error('Login error:', err);
@@ -102,7 +103,6 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
             setError(resultCheck.error)
             return
         }
-        router.push(routesAdaptive.users.root);
         props.closeCallback()
     }
 

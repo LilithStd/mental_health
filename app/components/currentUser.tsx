@@ -1,4 +1,4 @@
-import { getCurrentUser } from "../serverActions/auth/auth";
+import { getCurrentUser } from "@/app/lib/auth";
 import { redirect } from "next/navigation";
 
 interface UserProps {

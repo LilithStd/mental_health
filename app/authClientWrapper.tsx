@@ -11,6 +11,7 @@ interface AuthProviderProps {
 }
 
 export default function AuthProvider({ user, children }: AuthProviderProps) {
+    // console.log("AuthProvider user:", user);
   return (
     <AuthContext.Provider value={user}>
       {children}

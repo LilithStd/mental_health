@@ -7,7 +7,9 @@ const locales = ["en", "ru", "lv"];
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-
+  if (pathname.startsWith("/api")) {
+  return NextResponse.next();
+}
   // 🌍 1. Редирект с /
   if (pathname === "/") {
     return NextResponse.redirect(

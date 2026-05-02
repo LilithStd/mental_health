@@ -20,7 +20,7 @@ export default function ModalWindowWrapper({ currentAuthUser }: ModalWindowWrapp
     const [authorizationType, setAuthorizationType] = useState<AUTHORIZATION_STATUS>(AUTHORIZATION_STATUS.SIGN_IN);
     const locale = useLocale() as LocaleType
     // const currentLanguage = useGlobalStore((state) => state.currentLanguage);
-    console.log('currentAuthUser in ModalWindowWrapper', currentAuthUser)
+    // console.log('currentAuthUser in ModalWindowWrapper', currentAuthUser)
 
     const openModalWindowHandler = () => {
         setIsOpenModalWindow(true);

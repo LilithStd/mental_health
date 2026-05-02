@@ -1,6 +1,7 @@
 'use client'
 
-import { useAuth } from "@/app/authClientWrapper";
+import { useUser } from "@/app/authClientWrapper";
+// import { useAuth } from "@/app/authClientWrapper";
 import { rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles";
 import { useLocale } from "@/app/hooks/useLocale";
 
@@ -21,7 +22,7 @@ interface TestModalWindowProps {
 export default function TestModalWindow({ result, testId, onCloseCallback }: TestModalWindowProps) {
     // stores
     // const currentTheme = useGlobalStore((state) => state.currentTheme);
-    const currentAuthUser = useAuth();
+    const currentAuthUser = useUser();
     const locale = useLocale() as LocaleType
 
     // functions
