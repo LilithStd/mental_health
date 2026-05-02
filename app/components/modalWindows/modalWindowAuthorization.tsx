@@ -1,11 +1,14 @@
 'use client'
-import { AUTHORIZATION_STATUS } from "@/app/globalConsts/globalEnum";
+import { APP_PATH_ROUTER, AUTHORIZATION_STATUS } from "@/app/globalConsts/globalEnum";
+import { routes } from "@/app/helpers/helpersFunctions";
 import { useLocale } from "@/app/hooks/useLocale";
 import { loginAction } from "@/app/serverActions/auth/auth";
 import { useGlobalStore } from "@/app/store/globalStore";
 import { useMockAuthStore } from "@/app/store/mockAuthStore";
 import { AUTH_METHODS_SYSTEM_MESSAGES, INPUT_PLACEHOLDERS } from "@/app/template/text";
 import { LocaleType } from "@/app/types/types";
+import { useRouter } from "next/navigation";
+import router from "next/router";
 import { useState } from "react";
 
 
@@ -20,6 +23,8 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
     //state
     const [succerssfullyCreated, setSuccessfullyCreated] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
+    
+    
     // 
     // stores
     // global store
@@ -28,6 +33,7 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
     const checkAlreadyExists = useMockAuthStore((state) => state.checkUserExists);
     const resetUserStore = useMockAuthStore((state) => state.resetStore);
     const locale = useLocale() as LocaleType;
+    const routesAdaptive = routes(locale)
     // 
     //functions
     const setAuthSignType = () => {
@@ -96,7 +102,7 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
             setError(resultCheck.error)
             return
         }
-
+        router.push(routesAdaptive.users.root);
         props.closeCallback()
     }
 

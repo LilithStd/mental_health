@@ -22,7 +22,7 @@ export async function getCurrentUser() {
     await connectDB();
 
     const user = await User.findById(decoded.userId).lean();
-
+    // console.log('user in getCurrentUser', user)
     if (!user) return null;
 
     return {
