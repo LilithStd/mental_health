@@ -5,7 +5,6 @@ import ModalWindowMain from "../modalWindowMain";
 import ModalWindowAuthorization from "./modalWindowAuthorization";
 import { AUTHORIZATION_TEXT } from "@/app/template/text";
 import { AUTHORIZATION_STATUS } from "@/app/globalConsts/globalEnum";
-import { useGlobalStore } from "@/app/store/globalStore";
 import { LocaleType, UserAuthType } from "@/app/types/types";
 import AuthUserComponent from "../authorization/authUserComponent";
 import NoneAuthUserComponent from "../authorization/noneAuthUserComponent";
@@ -13,7 +12,7 @@ import { useLocale } from "@/app/hooks/useLocale";
 
 
 interface ModalWindowWrapperProps {
-    currentAuthUser?: UserAuthType
+    currentAuthUser: UserAuthType | null
 }
 
 export default function ModalWindowWrapper({ currentAuthUser }: ModalWindowWrapperProps) {
