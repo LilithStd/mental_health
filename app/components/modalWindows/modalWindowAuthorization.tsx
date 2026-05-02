@@ -42,7 +42,7 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
     // handlers
 
     const createUserApiHandler = async (email: string, pass: string) => {
-        const res = await fetch('/api/users', {
+        const res = await fetch('/api/userRegistration', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password: pass })
@@ -78,10 +78,22 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
     }
 
     const signInUserHandler = async (formData: FormData) => {
-        const result = await loginAction(formData)
+        const result = fetch('/api/userLogin', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                email: formData.get('email'),
+                password: formData.get('password'),
+            })
+        }).then(res => res.json())
+        .catch(err => {
+            console.error('Login error:', err);
+            return { error: 'An error occurred during login.' };
+        });
+        const resultCheck = await result;
 
-        if (result?.error) {
-            setError(result.error)
+        if (resultCheck?.error) {
+            setError(resultCheck.error)
             return
         }
 
