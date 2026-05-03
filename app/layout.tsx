@@ -56,7 +56,7 @@ export default async function RootLayout({
 }>) {
 
   const currentAuthUser = await getCurrentUser()
-  console.log("Current Auth User in RootLayout:", currentAuthUser);
+
   return (
     <html lang="en">
       <body

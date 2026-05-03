@@ -4,7 +4,7 @@ export type UserAuthType = {
     id: string,
     email: string,
     role: string
-    privilege: ROLE_AUTH_USER_PRIVILEGE
+    privileges: ROLE_AUTH_USER_PRIVILEGE
 }
 
 export const LOCALES = ['en', 'lv', 'ru'] as const
