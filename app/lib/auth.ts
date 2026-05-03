@@ -13,6 +13,8 @@ export async function getCurrentUser(): Promise<UserAuthType | null> {
 
   const token = cookieStore.get("token")?.value;
 
+
+
   if (!token) return null;
 
   try {
