@@ -18,9 +18,11 @@ export default  function CurrentUser() {
 
     return (
         <div className={``}>
-            <p>
-                Current Auth User Email: {currentAuthUser.email}
-            </p>
+            <h2>Current User Info:</h2>
+            <p>Email: {currentAuthUser.email}</p>
+            <p>Role: {currentAuthUser.role}</p>
+            <p>Privileges: {currentAuthUser.privileges}</p>
+          
         </div>
     )
 }
