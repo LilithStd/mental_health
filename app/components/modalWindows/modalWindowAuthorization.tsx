@@ -8,7 +8,6 @@ import { useMockAuthStore } from "@/app/store/mockAuthStore";
 import { AUTH_METHODS_SYSTEM_MESSAGES, INPUT_PLACEHOLDERS } from "@/app/template/text";
 import { LocaleType } from "@/app/types/types";
 import { useRouter } from "next/navigation";
-import router from "next/router";
 import { useState } from "react";
 
 
@@ -23,7 +22,7 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
     //state
     const [succerssfullyCreated, setSuccessfullyCreated] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
-    
+    const router = useRouter()
     
     // 
     // stores
@@ -103,6 +102,7 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
             setError(resultCheck.error)
             return
         }
+        router.refresh();
         props.closeCallback()
     }
 

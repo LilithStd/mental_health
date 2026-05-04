@@ -23,8 +23,13 @@ export default function AuthUserComponent({ authUser }: AuthUserComponentProps) 
         setIsOpenUserMenu((prev) => !prev)
     }
     const logoutCurrentAuthUserHandler = async () => {
-        await logoutAction()
-        router.refresh()
+        await fetch("/api/userLogout", {
+
+        method: "POST",
+
+        });
+
+        router.refresh();
 
     }
     const redirectToUserPageHandler = () => {
