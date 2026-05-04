@@ -3,7 +3,6 @@
 import { useUser } from '@/app/authClientWrapper';
 import { routes } from '@/app/helpers/helpersFunctions'
 import { useLocale } from '@/app/hooks/useLocale';
-import { canEditContent } from '@/app/serverActions/permissions';
 import { LocaleType } from '@/app/types/types';
 import { BUTTON_NEW_ARTICLE } from '@/translate/mediaPage/mediaPageContent';
 import { useRouter } from 'next/navigation'

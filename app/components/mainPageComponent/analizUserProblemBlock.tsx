@@ -2,8 +2,6 @@
 import { routes } from '@/app/helpers/helpersFunctions'
 import { useLocale } from '@/app/hooks/useLocale'
 import { LocaleType } from '@/app/types/types'
-import HumanWithProblem from '@/public/images/problems/sad_human_with_problem.png'
-import CloudCartoonVisualizationProblem from '@/public/images/problems/cloudCartoon2.png'
 import ButterFlyBGImage from '@/public/images/background/butterFlyBG(edit).png'
 import { AnalizeUserProblemContent } from '@/translate/mainPage/analiazeUserProblemBlock'
 import Image from 'next/image'
@@ -76,7 +74,7 @@ export default function AnalizUserProblemBlock() {
 
                 <h2 className={`text-5xl p-4 font-geistSans font-bold `}>{AnalizeUserProblemContent[locale].TITLE}</h2>
                 <div className="flex gap-2 w-full justify-center items-center flex-wrap">
-                    {AnalizeUserProblemContent[locale].PROBLEMS.map((problem, index) => (
+                    {AnalizeUserProblemContent[locale].PROBLEMS.slice(0, 6).map((problem, index) => (
 
                         <div
                             key={index}
@@ -84,22 +82,14 @@ export default function AnalizUserProblemBlock() {
                             ref={refs.setReference}
                             onClick={(e) => openModalWindowHandler(index, e.currentTarget)}
                         >
-                            {isOpenModalWindow && activeIndex === index && popUpWindowComponent(problem.description)}
+                            {/* {isOpenModalWindow && activeIndex === index && popUpWindowComponent(problem.description)} */}
 
 
 
 
                             <div className={` cursor-pointer`}>
-                                <div className={`relative w-full h-32 rounded-large  flex justify-center items-center bg-primary-color/50 p-4 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : 'border border-primary-color/30'} border border-primary-color/30 cursor-pointer transition-transform duration-300 ${activeIndex === index ? 'scale-105 z-1000' : ''}`}>
-                                    {/* <Image
-                                        src={CloudCartoonVisualizationProblem}
-                                        alt="Cloud"
-                                        fill
-                                        className={` transition-blur duration-300  object-cover ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105'}`}
-                                    /> */}
-
-
-                                    <button className={`transition-blur  duration-100 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105'} p-2 relative z-200`}>
+                                <div className={`relative  w-full rounded-large  flex justify-center items-center bg-primary-color/50 p-4 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : 'border border-primary-color/30'} border border-primary-color/30 cursor-pointer transition-transform duration-300 ${activeIndex === index ? 'scale-105 z-1000 ' : 'h-32'}`}>
+                                    <button className={`transition-blur  duration-100 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105 w-full'} p-2 relative z-200`}>
                                         {problem.symptom}
                                     </button>
 
@@ -113,11 +103,7 @@ export default function AnalizUserProblemBlock() {
 
                     ))}
                 </div>
-            </div>
-            {/* <div className={`flex justify-center items-center`}>
-                <Image src={HumanWithProblem} alt="Human with Problem" className=' rounded-large' />
-            </div> */}
-            
+            </div>            
             <div className={`flex w-full flex-col gap-4 p-6 justify-center items-center text-center rounded-large `}>
                 <h2 className={`text-4xl font-geistSans font-bold `}>{AnalizeUserProblemContent[locale].TITLE_2}</h2>
                 <Link href={routesAdaptive.consultation.root} className={`p-4 justify-center items-center bg-buttonContainer rounded-large cursor-pointer font-geistSans font-bold w-fit z-10`}>{AnalizeUserProblemContent[locale].SIGN_UP_BUTTON}</Link>
