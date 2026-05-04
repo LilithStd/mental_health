@@ -1,5 +1,6 @@
 'use client';
-import { useAuth } from '@/app/authClientWrapper';
+
+import { useUser } from '@/app/authClientWrapper';
 import { routes } from '@/app/helpers/helpersFunctions'
 import { useLocale } from '@/app/hooks/useLocale';
 import { canEditContent } from '@/app/serverActions/permissions';
@@ -10,7 +11,7 @@ import { useEffect, useState } from 'react';
 
 export default function NewArticleButton() {
     const route = useRouter()
-    const currentAuthUser = useAuth()
+    const currentAuthUser = useUser()
     const locale = useLocale() as LocaleType
     const [isAllowedToEdit, setIsAllowedToEdit] = useState(false);
 
