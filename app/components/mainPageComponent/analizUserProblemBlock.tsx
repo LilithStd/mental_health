@@ -17,6 +17,7 @@ export default function AnalizUserProblemBlock() {
     // state
     const [isOpenModalWindow, setIsOpenModalWindow] = useState(false);
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const [selectedProblemContent, setSelectedProblemContent] = useState<string | null>(null);
 
 
     const { refs, floatingStyles } = useFloating({
@@ -36,10 +37,12 @@ export default function AnalizUserProblemBlock() {
         setIsOpenModalWindow(true);
         if (activeIndex === index) {
             setActiveIndex(null);
+            setSelectedProblemContent(null);
             return;
         }
 
         setActiveIndex(index);
+        setSelectedProblemContent(AnalizeUserProblemContent[locale].PROBLEMS[index].description);
 
         if (el) {
             refs.setReference(el);
@@ -70,7 +73,7 @@ export default function AnalizUserProblemBlock() {
 
     const selectedProblem = (content: string) => {
         return (
-            <div className={`absolute  mt-2 w-[700] bg-white rounded-medium shadow-lg p-4 z-10`}>
+            <div className={`absolute  mt-2 w-[700] h-[300] bg-primary-color rounded-large shadow-lg p-4 z-2000`}>
                 {content}
             </div>
         )
@@ -82,14 +85,17 @@ export default function AnalizUserProblemBlock() {
 
                 <h2 className={`text-5xl p-4 font-geistSans font-bold `}>{AnalizeUserProblemContent[locale].TITLE}</h2>
                 <div className="flex gap-2 w-full justify-center items-center flex-wrap">
-                    {selectedProblem('lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')}
+                    {isOpenModalWindow && selectedProblemContent !== null && selectedProblem(selectedProblemContent)}
                     {AnalizeUserProblemContent[locale].PROBLEMS.map((problem, index) => (
 
                         <div
                             key={index}
                             className="relative w-60 min-h-40 p-4 rounded-large flex justify-center items-center "
                             ref={refs.setReference}
-                            onClick={(e) => openModalWindowHandler(index, e.currentTarget)}
+                            onClick={(e) => (
+                                openModalWindowHandler(index, e.currentTarget)
+                                
+                            )}
                         >
                             {/* {isOpenModalWindow && activeIndex === index && popUpWindowComponent(problem.description)} */}
 
