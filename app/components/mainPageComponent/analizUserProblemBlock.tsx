@@ -50,6 +50,8 @@ export default function AnalizUserProblemBlock() {
     }
     const closeModalWindowHandler = () => {
         setIsOpenModalWindow(false);
+        setActiveIndex(null);
+        setSelectedProblemContent(null);
     }
 
     const popUpWindowComponent = (description: string) => {
@@ -73,8 +75,8 @@ export default function AnalizUserProblemBlock() {
 
     const selectedProblem = (content: string) => {
         return (
-            <div className={`absolute  mt-2 w-[700] h-[300] bg-primary-color rounded-large shadow-lg p-4 z-2000`}>
-                {content}
+            <div className={`absolute  mt-2 w-[700] h-[300] bg-primary-color rounded-large shadow-lg p-4 z-2000`} onClick={() => {isOpenModalWindow && closeModalWindowHandler()}}>
+                {content}   
             </div>
         )
     }
