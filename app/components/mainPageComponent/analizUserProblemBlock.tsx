@@ -68,13 +68,22 @@ export default function AnalizUserProblemBlock() {
         )
     }
 
+    const selectedProblem = (content: string) => {
+        return (
+            <div className={`absolute  mt-2 w-[700] bg-white rounded-medium shadow-lg p-4 z-10`}>
+                {content}
+            </div>
+        )
+    }
+
     return (
         <div className={`flex flex-col gap-4 justify-center relative items-center bg-primary-color/20 rounded-large p-6 shadow-lg backdrop-blur-md w-full border border-primary-color/30`}>
             <div className={`grid grid-cols-1 gap-2 justify-center items-center text-center rounded-large p-6`}>
 
                 <h2 className={`text-5xl p-4 font-geistSans font-bold `}>{AnalizeUserProblemContent[locale].TITLE}</h2>
                 <div className="flex gap-2 w-full justify-center items-center flex-wrap">
-                    {AnalizeUserProblemContent[locale].PROBLEMS.slice(0, 6).map((problem, index) => (
+                    {selectedProblem('lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')}
+                    {AnalizeUserProblemContent[locale].PROBLEMS.map((problem, index) => (
 
                         <div
                             key={index}
@@ -88,11 +97,13 @@ export default function AnalizUserProblemBlock() {
 
 
                             <div className={` cursor-pointer`}>
-                                <div className={`relative  w-full rounded-large  flex justify-center items-center bg-primary-color/50 p-4 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : 'border border-primary-color/30'} border border-primary-color/30 cursor-pointer transition-transform duration-300 ${activeIndex === index ? 'scale-105 z-1000 ' : 'h-32'}`}>
-                                    <button className={`transition-blur  duration-100 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105 w-full'} p-2 relative z-200`}>
+                                <div className={`relative  w-full h-32 rounded-large  flex justify-center items-center bg-primary-color/50 p-4 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : 'border border-primary-color/30'} border border-primary-color/30 cursor-pointer transition-transform duration-300 ${activeIndex === index ? 'scale-105 z-1000 ' : ''}`}>
+                                    <button className={`transition-blur  duration-100 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105 flex w-full  '} p-2 z-200`}>
                                         {problem.symptom}
+                                        
                                     </button>
-
+                                    {/* {isOpenModalWindow && activeIndex === index && selectedProblem(problem.description)} */}
+                                    
                                 </div>
 
                             </div>
