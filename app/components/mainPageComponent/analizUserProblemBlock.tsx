@@ -80,14 +80,12 @@ export default function AnalizUserProblemBlock() {
             </div>
         )
     }
-
-    return (
-        <div className={`flex flex-col gap-4 justify-center relative items-center bg-primary-color/20 rounded-large p-6 shadow-lg backdrop-blur-md w-full border border-primary-color/30`}>
+    const oldComponentRelease = <div className={`flex flex-col gap-4 justify-center relative items-center bg-primary-color/20 rounded-large p-6 shadow-lg backdrop-blur-md w-full border border-primary-color/30`}>
             <div className={`grid grid-cols-1 gap-2 justify-center items-center text-center rounded-large p-6`}>
 
                 <h2 className={`text-5xl p-4 font-geistSans font-bold `}>{AnalizeUserProblemContent[locale].TITLE}</h2>
                 <div className="flex gap-2 w-full justify-center items-center flex-wrap">
-                    {isOpenModalWindow && selectedProblemContent !== null && selectedProblem(selectedProblemContent)}
+                    {/* {isOpenModalWindow && selectedProblemContent !== null && selectedProblem(selectedProblemContent)} */}
                     {AnalizeUserProblemContent[locale].PROBLEMS.map((problem, index) => (
 
                         <div
@@ -99,7 +97,7 @@ export default function AnalizUserProblemBlock() {
                                 
                             )}
                         >
-                            {/* {isOpenModalWindow && activeIndex === index && popUpWindowComponent(problem.description)} */}
+                            {isOpenModalWindow && activeIndex === index && popUpWindowComponent(problem.description)}
 
 
 
@@ -110,8 +108,6 @@ export default function AnalizUserProblemBlock() {
                                         {problem.symptom}
                                         
                                     </button>
-                                    {/* {isOpenModalWindow && activeIndex === index && selectedProblem(problem.description)} */}
-                                    
                                 </div>
 
                             </div>
@@ -129,6 +125,41 @@ export default function AnalizUserProblemBlock() {
 
             </div>
             <Image src={ButterFlyBGImage} alt="Butterfly Background" fill className='rounded-large object-cover opacity-30 z-0' />
+        </div>
+    const newComponentRelease = <div className={`flex gap-4 justify-center relative  bg-primary-color/20 rounded-large shadow-lg backdrop-blur-md w-full border border-primary-color/30`}>
+        {AnalizeUserProblemContent[locale].PROBLEMS.map((problem, index) => (
+
+            <div
+                key={index}
+                className="relative  rounded-large flex justify-center items-center "
+                ref={refs.setReference}
+                onClick={(e) => (
+                    openModalWindowHandler(index, e.currentTarget)
+                    
+                )}
+            >
+                {isOpenModalWindow && activeIndex === index && popUpWindowComponent(problem.description)}
+                <div className={` cursor-pointer`}>
+                    <div className={`flex w-full h-32 rounded-large justify-center items-center bg-primary-color/50 p-4 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : 'border border-primary-color/30'} border border-primary-color/30 cursor-pointer transition-transform duration-300 ${activeIndex === index ? 'scale-105 z-1000 ' : ''}`}>
+                        <button className={`transition-blur  duration-100 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105 flex w-full  '} p-2 z-200`}>
+                            {problem.symptom}
+                            
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        ))}
+    </div>
+            
+
+    return (
+        <div className={`flex flex-col indents-main-container flex-1 items-center`}>
+            <div className={`flex flex-col p-4 w-full flex-1  max-w-6xl  rounded-large bg-primary-color/30 items-center justify-start gap-4`}>
+                {newComponentRelease}
+            </div>
         </div>
     )
 }
