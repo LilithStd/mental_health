@@ -128,7 +128,7 @@ export default function AnalizUserProblemBlock() {
             <Image src={ButterFlyBGImage} alt="Butterfly Background" fill className='rounded-large object-cover opacity-30 z-0' />
         </div>
     const newComponentRelease = <div className={`flex gap-2 p-4 justify-center relative  bg-primary-color/20 rounded-large shadow-lg backdrop-blur-md w-full border border-primary-color/30`}>
-        {/* {AnalizeUserProblemContent[locale].PROBLEMS.map((problem, index) => (
+        {AnalizeUserProblemContent[locale].PROBLEMS.map((problem, index) => (
 
             <div
                 key={index}
@@ -152,60 +152,7 @@ export default function AnalizUserProblemBlock() {
 
             </div>
 
-        ))} */}
-
-        <div className="grid grid-cols-6 gap-4">
-
-        {AnalizeUserProblemContent[locale].PROBLEMS.map((item, index) => (
-            <div
-                key={index}
-                onClick={() =>
-                    setActiveIndex(activeIndex === index ? null : index)
-                }
-
-            className={`
-
-                relative
-
-                p-4 rounded-large
-
-                bg-subContainer
-
-                cursor-pointer
-
-                transition-all duration-300
-
-                ${activeIndex === index
-
-                ? 'col-span-3 scale-100 z-10'
-
-                : 'hover:scale-105'
-
-                }
-
-            `}
-
-            >
-
-            <h3 className="font-bold">{item.symptom}</h3>
-
-            {/* раскрытый контент */}
-
-            {activeIndex === index && (
-
-                <p className="mt-2">
-
-                {item.description}
-
-                </p>
-
-            )}
-
-            </div>
-
         ))}
-
-</div>
     </div>
             
 
