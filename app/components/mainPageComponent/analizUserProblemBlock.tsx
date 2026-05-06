@@ -17,6 +17,7 @@ export default function AnalizUserProblemBlock() {
     // state
     const [isOpenModalWindow, setIsOpenModalWindow] = useState(false);
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    // const [activeIndex, setActiveIndex] = useState<number | null>(null)
     const [selectedProblemContent, setSelectedProblemContent] = useState<string | null>(null);
 
 
@@ -126,8 +127,8 @@ export default function AnalizUserProblemBlock() {
             </div>
             <Image src={ButterFlyBGImage} alt="Butterfly Background" fill className='rounded-large object-cover opacity-30 z-0' />
         </div>
-    const newComponentRelease = <div className={`flex gap-2 justify-center relative  bg-primary-color/20 rounded-large shadow-lg backdrop-blur-md w-full border border-primary-color/30`}>
-        {AnalizeUserProblemContent[locale].PROBLEMS.map((problem, index) => (
+    const newComponentRelease = <div className={`flex gap-2 p-4 justify-center relative  bg-primary-color/20 rounded-large shadow-lg backdrop-blur-md w-full border border-primary-color/30`}>
+        {/* {AnalizeUserProblemContent[locale].PROBLEMS.map((problem, index) => (
 
             <div
                 key={index}
@@ -140,8 +141,8 @@ export default function AnalizUserProblemBlock() {
             >
                 {isOpenModalWindow && activeIndex === index && popUpWindowComponent(problem.description)}
                 <div className={` cursor-pointer`}>
-                    <div className={`flex w-full h-32 rounded-large justify-center items-center bg-primary-color/50 p-4 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : 'border border-primary-color/30'} border border-primary-color/30 cursor-pointer transition-transform duration-300 ${activeIndex === index ? 'scale-105 z-1000 ' : ''}`}>
-                        <button className={`transition-blur  duration-100 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105 flex w-full  '} p-2 z-200`}>
+                    <div className={`flex w-full h-32  rounded-large justify-center items-center bg-primary-color/50 p-4 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : 'border border-primary-color/30'} border border-primary-color/30 cursor-pointer transition-transform duration-300 ${activeIndex === index ? 'scale-105 z-1000 ' : ''}`}>
+                        <button className={` transition-blur  duration-100 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105 flex w-full  '} p-2 z-200`}>
                             {problem.symptom}
                             
                         </button>
@@ -151,13 +152,66 @@ export default function AnalizUserProblemBlock() {
 
             </div>
 
+        ))} */}
+
+        <div className="grid grid-cols-6 gap-4">
+
+        {AnalizeUserProblemContent[locale].PROBLEMS.map((item, index) => (
+            <div
+                key={index}
+                onClick={() =>
+                    setActiveIndex(activeIndex === index ? null : index)
+                }
+
+            className={`
+
+                relative
+
+                p-4 rounded-large
+
+                bg-subContainer
+
+                cursor-pointer
+
+                transition-all duration-300
+
+                ${activeIndex === index
+
+                ? 'col-span-3 scale-100 z-10'
+
+                : 'hover:scale-105'
+
+                }
+
+            `}
+
+            >
+
+            <h3 className="font-bold">{item.symptom}</h3>
+
+            {/* раскрытый контент */}
+
+            {activeIndex === index && (
+
+                <p className="mt-2">
+
+                {item.description}
+
+                </p>
+
+            )}
+
+            </div>
+
         ))}
+
+</div>
     </div>
             
 
     return (
         <div className={`flex flex-col flex-1 items-center`}>
-            <div className={`flex flex-col p-4 w-full flex-1  max-w-6xl  rounded-large bg-primary-color/20 border border-primary-color/30 items-center justify-start gap-4`}>
+            <div className={`flex flex-col p-4 w-full flex-1  max-w-6xl  rounded-large bg-primary-color/20 border border-primary-color/30  items-center justify-start gap-4`}>
                 {newComponentRelease}
             </div>
         </div>
