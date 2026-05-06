@@ -74,13 +74,6 @@ export default function AnalizUserProblemBlock() {
         )
     }
 
-    const selectedProblem = (content: string) => {
-        return (
-            <div className={`absolute  mt-2 w-[700] h-[300] bg-primary-color rounded-large shadow-lg p-4 z-2000`} onClick={() => {isOpenModalWindow && closeModalWindowHandler()}}>
-                {content}   
-            </div>
-        )
-    }
     const oldComponentRelease = <div className={`flex flex-col gap-4 justify-center relative items-center bg-primary-color/20 rounded-large p-6 shadow-lg backdrop-blur-md w-full border border-primary-color/30`}>
             <div className={`grid grid-cols-1 gap-2 justify-center items-center text-center rounded-large p-6`}>
 
@@ -127,12 +120,12 @@ export default function AnalizUserProblemBlock() {
             </div>
             <Image src={ButterFlyBGImage} alt="Butterfly Background" fill className='rounded-large object-cover opacity-30 z-0' />
         </div>
-    const newComponentRelease = <div className={`flex gap-2 p-4 justify-center relative  bg-primary-color/20 rounded-large shadow-lg backdrop-blur-md w-full border border-primary-color/30`}>
+    const newComponentRelease = <div className={`grid grid-cols-6 gap-2 p-4 justify-center relative  bg-primary-color/20 rounded-large shadow-lg backdrop-blur-md w-full border border-primary-color/30`}>
         {AnalizeUserProblemContent[locale].PROBLEMS.map((problem, index) => (
 
             <div
                 key={index}
-                className="relative  rounded-large flex justify-center items-center "
+                className="relative cursor-pointer rounded-large flex justify-center items-center "
                 ref={refs.setReference}
                 onClick={(e) => (
                     openModalWindowHandler(index, e.currentTarget)
@@ -141,8 +134,8 @@ export default function AnalizUserProblemBlock() {
             >
                 {isOpenModalWindow && activeIndex === index && popUpWindowComponent(problem.description)}
                 <div className={` cursor-pointer`}>
-                    <div className={`flex w-full h-32  rounded-large justify-center items-center bg-primary-color/50 p-4 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : 'border border-primary-color/30'} border border-primary-color/30 cursor-pointer transition-transform duration-300 ${activeIndex === index ? 'scale-105 z-1000 ' : ''}`}>
-                        <button className={` transition-blur  duration-100 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105 flex w-full  '} p-2 z-200`}>
+                    <div className={`grid h-32  rounded-large justify-center items-center bg-primary-color/50 p-4 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : 'border border-primary-color/30'} border border-primary-color/30 cursor-pointer transition-transform duration-300 ${activeIndex === index ? 'scale-105 z-1000 ' : ''}`}>
+                        <button className={`grid transition-blur  duration-100 ${activeIndex !== null && activeIndex !== index ? 'blur-sm' : ''} ${activeIndex === index && 'scale-105 '} p-2 z-200`}>
                             {problem.symptom}
                             
                         </button>
