@@ -126,7 +126,7 @@ export default function AnalizUserProblemBlock() {
             </div>
             <Image src={ButterFlyBGImage} alt="Butterfly Background" fill className='rounded-large object-cover opacity-30 z-0' />
         </div>
-    const newComponentRelease = <div className={`flex gap-4 justify-center relative  bg-primary-color/20 rounded-large shadow-lg backdrop-blur-md w-full border border-primary-color/30`}>
+    const newComponentRelease = <div className={`flex gap-2 justify-center relative  bg-primary-color/20 rounded-large shadow-lg backdrop-blur-md w-full border border-primary-color/30`}>
         {AnalizeUserProblemContent[locale].PROBLEMS.map((problem, index) => (
 
             <div
@@ -156,8 +156,8 @@ export default function AnalizUserProblemBlock() {
             
 
     return (
-        <div className={`flex flex-col indents-main-container flex-1 items-center`}>
-            <div className={`flex flex-col p-4 w-full flex-1  max-w-6xl  rounded-large bg-primary-color/30 items-center justify-start gap-4`}>
+        <div className={`flex flex-col flex-1 items-center`}>
+            <div className={`flex flex-col p-4 w-full flex-1  max-w-6xl  rounded-large bg-primary-color/20 border border-primary-color/30 items-center justify-start gap-4`}>
                 {newComponentRelease}
             </div>
         </div>
