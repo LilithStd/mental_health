@@ -29,8 +29,9 @@ export default function AppImage({
   priority = false,
   className,
 }: AppImageProps) {
-  const src = getImagePath(type, imageName, entityId)
 
+  const src = getImagePath(type, imageName, entityId)
+    console.log("AppImage src:", src) // Логируем путь к изображению для отладки
   return (
     <Image
       loader={cloudinaryLoader}

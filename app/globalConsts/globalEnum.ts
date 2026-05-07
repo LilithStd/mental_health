@@ -89,14 +89,14 @@ export enum UPDATE_USER_DATA_TYPE {
 }
 
 export enum  MAIN_APP_IMAGE_ROUTES {
-	MENTAL_HEALTH = 'mental_health/',
+	MENTAL_HEALTH = 'mental_health',
 }
 
 export enum IMAGES_UPLOAD_PATH {
-	GLOBAL = MAIN_APP_IMAGE_ROUTES.MENTAL_HEALTH + 'global/',
-	ARTICLE = MAIN_APP_IMAGE_ROUTES.MENTAL_HEALTH + 'articles/',
-	NEWS = MAIN_APP_IMAGE_ROUTES.MENTAL_HEALTH + 'news/',
-	USER = MAIN_APP_IMAGE_ROUTES.MENTAL_HEALTH + 'user/',
+	GLOBAL =  'global',
+	ARTICLE = 'articles',
+	NEWS = 'news',
+	USER = 'user',
 }
 
 export enum APP_PATH_ROUTER {

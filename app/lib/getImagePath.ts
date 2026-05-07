@@ -3,7 +3,7 @@
 import { IMAGES_UPLOAD_PATH } from "../globalConsts/globalEnum"
 
 
-const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+const CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME
 
 export function getImagePath(
   type: IMAGES_UPLOAD_PATH,
@@ -13,7 +13,7 @@ export function getImagePath(
   const base = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload`
 
   if (type === IMAGES_UPLOAD_PATH.GLOBAL) {
-    return `${base}/mental_health/global/${imageName}`
+    return `${base}/mental_health/global/bio/${imageName}`
   }
 
   return `${base}/mental_health/${type}/${entityId}/${imageName}`
