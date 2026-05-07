@@ -11,7 +11,7 @@ import WelcomeBlockComponent from "../components/mainPageComponent/welcomeBlock"
 import { LocaleType } from "../types/types";
 
 
-export default function Main({ locale }: { locale: LocaleType }) {
+export default function Main() {
 
   // stores
 
@@ -42,9 +42,9 @@ export default function Main({ locale }: { locale: LocaleType }) {
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large shadow-lg backdrop-blur-md `}>
         <FaqBlock />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large shadow-lg backdrop-blur-md `}>
+      {/* <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large shadow-lg backdrop-blur-md `}>
         <LastStepBlock />
-      </div>
+      </div> */}
     </main>
   );
 }
