@@ -10,13 +10,14 @@ import { IMAGES_UPLOAD_PATH } from '@/app/globalConsts/globalEnum'
 
 export default function AboutDoctorBlock() {
     const locale = useLocale() as LocaleType
-    const doctorPhotoName = 'AleksandraKonevnina-9_1_rh6krb'
+    const doctorPhotoName = 'AleksandraKonevnina-9_1_cmemvb'
+
     return (
 
         <div className={`grid grid-cols-2 rounded-large bg-primary-color/20 backdrop-blur-md p-6 border border-primary-color/30 shadow-lg items-center`}>
             <div className={`flex justify-center items-center`}>
                 {/* <Image src={DoctorImage} alt="Doctor Image" className='rounded-large' /> */}
-                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={doctorPhotoName} width={300} height={300} alt="Doctor Image" className='rounded-large' />
+                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={doctorPhotoName} width={600} height={600} alt="Doctor Image" className='rounded-large' />
             </div>
             <div className={`flex flex-col gap-2 p-6`}>
                 <h2 className={`text-5xl font-geistSans font-bold `}>{AboutDoctorContent[locale].TITLE}</h2>
