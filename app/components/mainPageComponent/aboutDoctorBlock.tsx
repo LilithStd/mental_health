@@ -31,24 +31,18 @@ export default function AboutDoctorBlock() {
                     </div>
                     <div>
                         <h3 className={`text-2xl font-geistSans font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_2}</h3>
-                        <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_2}</p>
+                        <p className={`italic text-md`}>{AboutDoctorContent[locale].DESCRIPTION_2}</p>
                     </div>
-                         <div>
-                    <h3 className={`text-2xl font-geistSans font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_3}</h3>
-                    <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_3}</p>
+                    <div>
+                        <h3 className={`text-2xl font-geistSans font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_3}</h3>
+                        <p className={`italic text-md`}>{AboutDoctorContent[locale].DESCRIPTION_3}</p>
+                    </div>
                 </div>
-                    
-                
-                </div>
-                
-                
             </div>
-            <div className={`flex flex-col gap-2 p-6`}>
-                
-           
+            <div className={`flex flex-col gap-4 `}>
                 <div>
                     <h3 className={`text-2xl font-geistSans font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_4}</h3>
-                    <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_4}</p>
+                    <p className={`italic text-md`}>{AboutDoctorContent[locale].DESCRIPTION_4}</p>
                 </div>
             </div>
 
