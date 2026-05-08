@@ -20,7 +20,7 @@ export default function AboutConsultation() {
         <div className={`grid grid-cols-2 gap-4 p-6 justify-center items-center bg-primary-color/20 backdrop-blur-md rounded-large text-center border border-primary-color/30 shadow-lg`}>
             <div className={`flex justify-center items-center`}>
                 {/* <Image src={HelpingAbstract} alt="Helping Abstract" className='cover scale-170 rounded-large' /> */}
-                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={HelpingAbstractImage} width={600} height={600} alt="Helping Abstract" className='rounded-large' />
+                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={HelpingAbstractImage} width={1280} height={1024} alt="Helping Abstract" className='rounded-large scale-170' />
             </div>
             <div className={`flex flex-col gap-4 p-6 justify-center items-center text-left`}>
                 <h2 className={`text-3xl font-bold `}>{AboutConsultationContent[locale].TITLE}</h2>

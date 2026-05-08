@@ -99,6 +99,8 @@ export enum IMAGES_UPLOAD_PATH {
 	USER = 'user',
 }
 
+
+
 export enum APP_PATH_ROUTER {
 	MAIN = '/',
 	NEWS = '/news',

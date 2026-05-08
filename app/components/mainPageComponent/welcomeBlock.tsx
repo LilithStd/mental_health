@@ -10,6 +10,8 @@ import { WelcomeBlockContent } from '@/translate/mainPage/welcomeBlock'
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { IMAGES_UPLOAD_PATH } from '@/app/globalConsts/globalEnum'
+import AppImage from '../shared/appImage'
 
 
 
@@ -20,12 +22,13 @@ export default function WelcomeBlock() {
 
     const routesAdaptive = routes(localeAdapted as LocaleType)
     const listPriviliges = WelcomeBlockContent[localeAdapted].PRIVILEGES_LIST
+    const BrainIllustration = 'mentalHealthWomenSmall_m7rckc'
 
     return (
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 w-full p-4 rounded-large items-center bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30`}>
             {/* <Image src={DoctorImage} alt="Doctor Image" className='rounded-large' /> */}
             {/* <Image src={ButterFlyImageBg} alt="Butterfly Background" fill className="object-cover opacity-20" /> */}
-            <Image src={BrainIllustration} alt="Brain Illustration" className='object-cover w-full scale-120 rounded-large' />
+            <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={BrainIllustration} width={600} height={600} alt="Brain Illustration" className='rounded-large scale-120' />
             <div>
                 <h2 className={`text-5xl font-geistSans font-bold`}>{WelcomeBlockContent[localeAdapted].TITLE}</h2>
                 <p className={`font-geistSans  text-xl`}>{WelcomeBlockContent[localeAdapted].DESCRIPTION}</p>
