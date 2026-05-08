@@ -14,22 +14,38 @@ export default function AboutDoctorBlock() {
 
     return (
 
-        <div className={`grid grid-cols-2 rounded-large bg-primary-color/20 backdrop-blur-md p-6 border border-primary-color/30 shadow-lg items-center`}>
-            <div className={`flex justify-center items-center`}>
-                {/* <Image src={DoctorImage} alt="Doctor Image" className='rounded-large' /> */}
-                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={doctorPhotoName} width={600} height={600} alt="Doctor Image" className='rounded-large' />
-            </div>
-            <div className={`flex flex-col gap-2 p-6`}>
-                <h2 className={`text-5xl font-geistSans font-bold `}>{AboutDoctorContent[locale].TITLE}</h2>
-                <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION}</p>
+        <div className={`
+            gap-6
+            rounded-large
+            bg-primary-color/20
+            backdrop-blur-md
+            p-6
+            border border-primary-color/30
+            shadow-lg`}>
+            <div className={`flex justify-center`}>
+                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={doctorPhotoName} width={600} height={600} alt="Doctor Image" className='rounded-large float-left mr-4' />
                 <div>
-                    <h3 className={`text-2xl font-geistSans font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_2}</h3>
-                    <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_2}</p>
-                </div>
-                <div>
+                    <div>
+                        <h2 className={`text-5xl font-geistSans font-bold `}>{AboutDoctorContent[locale].TITLE}</h2>
+                        <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION}</p>
+                    </div>
+                    <div>
+                        <h3 className={`text-2xl font-geistSans font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_2}</h3>
+                        <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_2}</p>
+                    </div>
+                         <div>
                     <h3 className={`text-2xl font-geistSans font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_3}</h3>
                     <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_3}</p>
                 </div>
+                    
+                
+                </div>
+                
+                
+            </div>
+            <div className={`flex flex-col gap-2 p-6`}>
+                
+           
                 <div>
                     <h3 className={`text-2xl font-geistSans font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_4}</h3>
                     <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_4}</p>
