@@ -10,12 +10,13 @@ import CheckIcon from "@/public/icons/Check.svg";
 import CheckIconList from "@/public/icons/ClipboardDocumentCheck.svg";
 import { IMAGES_UPLOAD_PATH } from "@/app/globalConsts/globalEnum";
 import AppImage from "../shared/appImage";
+import { UPLOAD_IMAGE_NAME } from "@/app/globalConsts/globalConsts";
 
 
 export default function AboutConsultation() {
     const locale = useLocale() as LocaleType
     const routesAdaptive = routes(locale)
-    const HelpingAbstractImage  = 'helpingAbstract_Big_x9leww'
+    const HelpingAbstractImage  = UPLOAD_IMAGE_NAME.global.mainPage.aboutConsultation
     return (
         <div className={`grid grid-cols-2 gap-4 p-6 justify-center items-center bg-primary-color/20 backdrop-blur-md rounded-large text-center border border-primary-color/30 shadow-lg`}>
             <div className={`flex justify-center items-center`}>

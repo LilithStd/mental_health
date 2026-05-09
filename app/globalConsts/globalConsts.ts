@@ -19,4 +19,10 @@ export const  UPLOAD_IMAGE_NAME = {
 	bio: {
         photo: 'AleksandraKonevnina-9_1_cmemvb',
     },
+    global: {
+        mainPage: {
+            welcomeBlock: 'mentalHealthWomenSmall_m7rckc',
+            aboutConsultation:'helpingAbstract_Big_x9leww'
+        }
+    }
 }
