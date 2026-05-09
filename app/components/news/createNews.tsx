@@ -4,7 +4,7 @@ import { useLocale } from "@/app/hooks/useLocale";
 import { LocaleType } from "@/app/types/types";
 
 import { useRouter } from "next/navigation";
-import { use } from "react";
+
 
 export default function CreateNews() {
     // stores

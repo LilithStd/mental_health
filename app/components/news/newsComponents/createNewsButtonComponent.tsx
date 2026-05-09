@@ -1,5 +1,6 @@
 'use client'
-import { useAuth } from "@/app/authClientWrapper";
+
+import { useUser } from "@/app/authClientWrapper";
 import { routes } from "@/app/helpers/helpersFunctions";
 import { useLocale } from "@/app/hooks/useLocale";
 import { canEditContent } from "@/app/serverActions/permissions";
@@ -12,7 +13,7 @@ export default function CreateNewsButtonComponent() {
     // stores
     // state
     // consts
-    const currentAuthUser = useAuth()
+    const currentAuthUser = useUser()
     const router = useRouter()
     const localeAdapted = useLocale() as LocaleType
     const [isAllowedToEdit, setIsAllowedToEdit] = useState(false);
