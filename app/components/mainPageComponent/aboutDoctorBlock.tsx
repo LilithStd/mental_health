@@ -1,16 +1,14 @@
 'use client'
-import { routes } from '@/app/helpers/helpersFunctions'
 import { useLocale } from '@/app/hooks/useLocale'
 import { LocaleType } from '@/app/types/types'
-import DoctorImage from '@/public/images/doctor/doctor_2.png'
 import { AboutDoctorContent } from '@/translate/mainPage/aboutDoctor'
-import Image from 'next/image'
 import AppImage from '../shared/appImage'
 import { IMAGES_UPLOAD_PATH } from '@/app/globalConsts/globalEnum'
+import { UPLOAD_IMAGE_NAME } from '@/app/globalConsts/globalConsts'
 
 export default function AboutDoctorBlock() {
     const locale = useLocale() as LocaleType
-    const doctorPhotoName = 'AleksandraKonevnina-9_1_cmemvb'
+    const doctorPhotoName = UPLOAD_IMAGE_NAME.bio.photo
 
     return (
 
@@ -22,7 +20,7 @@ export default function AboutDoctorBlock() {
             p-6
             border border-primary-color/30
             shadow-lg`}>
-            <div className={`justify-center`}>
+            <div className={`grid grid-cols-2 gap-4 justify-center`}>
                 <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={doctorPhotoName} width={500} height={800} alt="Doctor Image" className='rounded-large float-left mr-4' />
                 <div>
                     <div>
@@ -38,8 +36,8 @@ export default function AboutDoctorBlock() {
                         <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_3}</p>
                     </div>
                 </div>
-                <h3 className={`text-2xl font-geistSans font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_4}</h3>
-                    <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_4}</p>
+                {/* <h3 className={`text-2xl font-geistSans font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_4}</h3> */}
+                    {/* <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_4}</p> */}
             </div>
             <div className={`flex flex-col gap-4 `}>
                 <div>

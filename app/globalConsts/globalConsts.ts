@@ -13,3 +13,10 @@ export const CROP_CONTAINER_SIZE = {
     MEDIUM: 400,
     LARGE: 800,
 }
+
+
+export const  UPLOAD_IMAGE_NAME = {
+	bio: {
+        photo: 'AleksandraKonevnina-9_1_cmemvb',
+    },
+}
