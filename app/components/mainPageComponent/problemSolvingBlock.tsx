@@ -67,7 +67,7 @@ export default function ProblemSolvingBlock() {
     }
     const probmlemSolvingBlock = () => {
         return (
-            <div className="flex flex-col gap-4 items-start relative">
+            <div className="flex gap-4 items-start relative">
                 {ProblemSolvingBlockContent[localeAdapted].problems.map((problem, index) => (
                     <div
                         key={index}
@@ -76,7 +76,7 @@ export default function ProblemSolvingBlock() {
                         cursor-pointer 
                         p-4 
                         flex
-                        min-w-80
+                        
                         rounded-large 
                         ${problem.color}
                         max-w-164
