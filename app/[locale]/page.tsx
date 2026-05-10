@@ -8,7 +8,7 @@ import PricesBlock from "../components/mainPageComponent/pricesBlock";
 import ProblemSolvingBlock from "../components/mainPageComponent/problemSolvingBlock";
 import TestsBlock from "../components/mainPageComponent/testsBlock";
 import WelcomeBlockComponent from "../components/mainPageComponent/welcomeBlock";
-import { LocaleType } from "../types/types";
+
 
 
 export default function Main() {
@@ -27,9 +27,9 @@ export default function Main() {
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large  shadow-lg backdrop-blur-md `}>
         <ProblemSolvingBlock />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large  shadow-lg backdrop-blur-md `}>
+      {/* <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large  shadow-lg backdrop-blur-md `}>
         <AnalizUserProblemBlock />
-      </div>
+      </div> */}
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large shadow-lg backdrop-blur-md `}>
         <AboutConsultation />
       </div>
