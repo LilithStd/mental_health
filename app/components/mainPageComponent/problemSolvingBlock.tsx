@@ -65,8 +65,38 @@ export default function ProblemSolvingBlock() {
             </div>
         )
     }
-
     const probmlemSolvingBlock = () => {
+        return (
+            <div className="flex flex-col gap-4 items-start relative">
+                {ProblemSolvingBlockContent[localeAdapted].problems.map((problem, index) => (
+                    <div
+                        key={index}
+                        onClick={() => selectedProblemHandler(index)}
+                        className={`
+                        cursor-pointer 
+                        p-4 
+                        flex
+                        min-w-80
+                        rounded-large 
+                        ${problem.color}
+                        max-w-164
+                        transition-all duration-300
+                        ${selectedProblemIndex === index ? 'absolute' : ''}
+                        `}
+                    >
+                        <h3 className="font-bold">{problem.problem}</h3>
+
+                        {selectedProblemIndex === index && (
+                            <p className="mt-2">{problem.description}</p>
+                        )}
+
+                    </div>
+
+                ))}
+            </div>
+        )
+    }
+    const probmlemSolvingBlockPreviewRealesation = () => {
         return (
             <div className="grid grid-cols-2 gap-4 items-start grid-flow-row-dense">
                 {ProblemSolvingBlockContent[localeAdapted].problems.map((problem, index) => (
