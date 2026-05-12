@@ -16,11 +16,15 @@ export default function TestsBlock() {
     const routesAdaptive = routes(locale);
     return (
 
-        <div className={`flex flex-col gap-4 p-6 justify-center items-center bg-primary-color/20 backdrop-blur-md rounded-large text-center border border-primary-color/30 shadow-lg`}>
+        <div className={`flex gap-4 p-6 justify-around items-center bg-primary-color/20 backdrop-blur-md rounded-large text-center border border-primary-color/30 shadow-lg`}>
+            <div className={`flex flex-col ml-4 gap-4 justify-center items-center text-center`}>
+                <h2 className={`text-5xl font-bold `}>{TestsBlockContent[locale].title}</h2>
+                <p className={`italic text-lg`}>{TestsBlockContent[locale].description}</p>
+                <Link href={routesAdaptive.tests.root} className={`mt-4 px-4 py-2 bg-buttonContainer rounded-large font-bold`}>{TestsBlockContent[locale].buttonText}</Link>
+            </div>
             <AppImage width={300} height={300} imageName={UPLOAD_IMAGE_NAME.global.mainPage.tests.butterFlyViolet} alt="Test Butterfly" type={IMAGES_UPLOAD_PATH.GLOBAL}/>
-            <h2 className={`text-5xl font-bold `}>{TestsBlockContent[locale].title}</h2>
-            <p className={`italic text-lg`}>{TestsBlockContent[locale].description}</p>
-            <Link href={routesAdaptive.tests.root} className={`mt-4 px-4 py-2 bg-buttonContainer rounded-large font-bold`}>{TestsBlockContent[locale].buttonText}</Link>
+            
+            
         </div>
 
     )
