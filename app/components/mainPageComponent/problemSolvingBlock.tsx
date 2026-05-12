@@ -70,14 +70,36 @@ export default function ProblemSolvingBlock() {
     }
     const probmlemSolvingBlock = () => {
         return (
-            <div className="flex gap-4 items-start relative">
+            <div className="flex gap-4 m-20  items-start relative">
                 <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={UPLOAD_IMAGE_NAME.global.mainPage.problemSolvingBlock.brainImage} width={600} height={600} alt="Human with Problem" className=' p-4 rounded-large z-10' />
-                <div>
+                
                     <button className={`absolute w-[200px] h-[200px] top-50 left-120 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[0].color} font-bold`}>
                         {ProblemSolvingBlockContent[localeAdapted].problems[0].problem}
                     </button>
-                    
-                </div>
+                    <button className={`absolute w-[200px] h-[200px] -top-10 left-115 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[1].color} font-bold`}>
+                        {ProblemSolvingBlockContent[localeAdapted].problems[1].problem}
+                    </button>
+                    <button className={`absolute w-[200px] h-[200px] top-58 -left-20 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[2].color} font-bold`}>
+                        {ProblemSolvingBlockContent[localeAdapted].problems[2].problem}
+                    </button>
+                    <button className={`absolute w-[200px] h-[200px] top-8 -left-18 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[3].color} font-bold`}>
+                        {ProblemSolvingBlockContent[localeAdapted].problems[3].problem}
+                    </button>
+                    <button className={`absolute w-[200px] h-[200px] top-8 -left-18 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[3].color} font-bold`}>
+                        {ProblemSolvingBlockContent[localeAdapted].problems[3].problem}
+                    </button>
+                    <button className={`absolute w-[200px] h-[200px] -top-20 left-51 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[4].color} font-bold`}>
+                        {ProblemSolvingBlockContent[localeAdapted].problems[4].problem}
+                    </button>
+                    <button className={`absolute w-[200px] h-[200px] -top-20 left-51 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[4].color} font-bold`}>
+                        {ProblemSolvingBlockContent[localeAdapted].problems[4].problem}
+                    </button>
+                    <button className={`absolute w-[200px] h-[200px] -bottom-20 left-55 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[5].color} font-bold`}>
+                        {ProblemSolvingBlockContent[localeAdapted].problems[5].problem}
+                    </button>
+                     
+                     
+            
                 {/* {ProblemSolvingBlockContent[localeAdapted].problems.map((problem, index) => (
                     <div
                         key={index}
