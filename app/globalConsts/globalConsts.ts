@@ -22,9 +22,10 @@ export const  UPLOAD_IMAGE_NAME = {
     global: {
         mainPage: {
             welcomeBlock: 'mentalHealthWomenSmall_m7rckc',
-            consultation:'helpingAbstract_Big_x9leww',
+            aboutConsultation:'helpingAbstract_Big_x9leww',
             tests:{
-                butterFlyBlue:'butterflyBlue_gygdwh'
+                butterFlyBlue:'butterflyBlue_gygdwh',
+                butterFlyViolet:'butterflyViolet_iahnmk'
             }
         },
         
