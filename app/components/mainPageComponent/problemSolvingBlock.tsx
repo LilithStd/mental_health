@@ -71,8 +71,14 @@ export default function ProblemSolvingBlock() {
     const probmlemSolvingBlock = () => {
         return (
             <div className="flex gap-4 items-start relative">
-                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={UPLOAD_IMAGE_NAME.global.mainPage.problemSolvingBlock.brainImage} width={600} height={600} alt="Human with Problem" className=' p-4 rounded-large' />
-                {ProblemSolvingBlockContent[localeAdapted].problems.map((problem, index) => (
+                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={UPLOAD_IMAGE_NAME.global.mainPage.problemSolvingBlock.brainImage} width={600} height={600} alt="Human with Problem" className=' p-4 rounded-large z-10' />
+                <div>
+                    <button className={`absolute w-[200px] h-[200px] top-50 left-120 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[0].color} font-bold`}>
+                        {ProblemSolvingBlockContent[localeAdapted].problems[0].problem}
+                    </button>
+                    
+                </div>
+                {/* {ProblemSolvingBlockContent[localeAdapted].problems.map((problem, index) => (
                     <div
                         key={index}
                         onClick={() => selectedProblemHandler(index)}
@@ -96,7 +102,7 @@ export default function ProblemSolvingBlock() {
 
                     </div>
 
-                ))}
+                ))} */}
             </div>
         )
     }
