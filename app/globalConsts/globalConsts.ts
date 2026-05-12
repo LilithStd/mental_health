@@ -26,6 +26,9 @@ export const  UPLOAD_IMAGE_NAME = {
             tests:{
                 butterFlyBlue:'butterflyBlue_gygdwh',
                 butterFlyViolet:'butterflyViolet_iahnmk'
+            },
+            problemSolvingBlock: {
+                brainImage:'brainSegmented_z47azg',
             }
         },
         

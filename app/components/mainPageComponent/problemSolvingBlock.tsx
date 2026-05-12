@@ -6,6 +6,9 @@ import { ProblemSolvingBlockContent } from '@/translate/mainPage/ProblemSolvingB
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import { useState } from 'react'
+import AppImage from '../shared/appImage'
+import { IMAGES_UPLOAD_PATH } from '@/app/globalConsts/globalEnum'
+import { UPLOAD_IMAGE_NAME } from '@/app/globalConsts/globalConsts'
 
 export default function ProblemSolvingBlock() {
     const localeAdapted = useLocale() as LocaleType;
@@ -68,6 +71,7 @@ export default function ProblemSolvingBlock() {
     const probmlemSolvingBlock = () => {
         return (
             <div className="flex gap-4 items-start relative">
+                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={UPLOAD_IMAGE_NAME.global.mainPage.problemSolvingBlock.brainImage} width={600} height={600} alt="Human with Problem" className=' p-4 rounded-large' />
                 {ProblemSolvingBlockContent[localeAdapted].problems.map((problem, index) => (
                     <div
                         key={index}

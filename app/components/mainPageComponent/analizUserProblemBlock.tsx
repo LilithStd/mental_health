@@ -9,6 +9,9 @@ import Link from 'next/link'
 
 import { useState } from 'react'
 import { autoUpdate, flip, offset, shift, useFloating } from '@floating-ui/react'
+import AppImage from '../shared/appImage'
+import { UPLOAD_IMAGE_NAME } from '@/app/globalConsts/globalConsts'
+import { IMAGES_UPLOAD_PATH } from '@/app/globalConsts/globalEnum'
 
 
 export default function AnalizUserProblemBlock() {
@@ -121,7 +124,8 @@ export default function AnalizUserProblemBlock() {
             <Image src={ButterFlyBGImage} alt="Butterfly Background" fill className='rounded-large object-cover opacity-30 z-0' />
         </div>
     const newComponentRelease = <div className={`grid grid-cols-6 gap-2 p-4 justify-center relative  bg-primary-color/20 rounded-large shadow-lg backdrop-blur-md w-full border border-primary-color/30`}>
-        {AnalizeUserProblemContent[locale].PROBLEMS.map((problem, index) => (
+        <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={UPLOAD_IMAGE_NAME.global.mainPage.tests.butterFlyViolet} width={1280} height={1024} alt="Butterfly Background" className='rounded-large object-cover opacity-30 z-0 col-span-6' />
+        {/* {AnalizeUserProblemContent[locale].PROBLEMS.map((problem, index) => (
 
             <div
                 key={index}
@@ -145,7 +149,7 @@ export default function AnalizUserProblemBlock() {
 
             </div>
 
-        ))}
+        ))} */}
     </div>
             
 

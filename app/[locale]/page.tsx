@@ -36,9 +36,9 @@ export default function Main() {
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large shadow-lg backdrop-blur-md `}>
         <TestsBlock />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large shadow-lg backdrop-blur-md `}>
+      {/* <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large shadow-lg backdrop-blur-md `}>
         <PricesBlock />
-      </div>
+      </div> */}
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large shadow-lg backdrop-blur-md `}>
         <FaqBlock />
       </div>
