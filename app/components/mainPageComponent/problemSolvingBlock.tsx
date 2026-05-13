@@ -80,7 +80,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[0].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[0].description && (
-                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                <p className={`text-[6px] p-2 m-2`}>{hoveredProblem}</p>
                         )}
                     </button>
                     <button 
@@ -90,7 +90,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[1].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[1].description && (
-                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                <p className={`text-[6px] p-4`}>{hoveredProblem}</p>
                         )}
                     </button>
                     <button 
@@ -110,7 +110,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[3].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[3].description && (
-                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                <p className={`text-[6px] p-2 m-2`}>{hoveredProblem}</p>
                         )}
                     </button>
                     <button 
@@ -130,7 +130,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[4].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description && (
-                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                <p className={`text-[6px] p-2 m-4`}>{hoveredProblem}</p>
                         )}
                     </button>
                     <button 
@@ -140,7 +140,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[4].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description && (
-                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                <p className={`text-[6px] p-2 m-4`}>{hoveredProblem}</p>
                         )}
                     </button>
                     <button 
@@ -150,7 +150,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[5].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[5].description && (
-                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                <p className={`text-[6px] p-2 m-4`}>{hoveredProblem}</p>
                         )}
                     </button>
                      
