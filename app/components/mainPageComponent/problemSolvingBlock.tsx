@@ -154,33 +154,6 @@ export default function ProblemSolvingBlock() {
                         )}
                     </button>
                      
-                     
-            
-                {/* {ProblemSolvingBlockContent[localeAdapted].problems.map((problem, index) => (
-                    <div
-                        key={index}
-                        onClick={() => selectedProblemHandler(index)}
-                        className={`
-                        cursor-pointer 
-                        p-4 
-                        flex
-                        
-                        rounded-large 
-                        ${problem.color}
-                        max-w-164
-                        transition-all duration-300
-                        ${selectedProblemIndex === index ? 'absolute' : ''}
-                        `}
-                    >
-                        <h3 className="font-bold">{problem.problem}</h3>
-
-                        {selectedProblemIndex === index && (
-                            <p className="mt-2">{problem.description}</p>
-                        )}
-
-                    </div>
-
-                ))} */}
             </div>
         )
     }
@@ -222,14 +195,5 @@ export default function ProblemSolvingBlock() {
             <h2 className={`text-3xl mb-4 font-bold `}>{ProblemSolvingBlockContent[localeAdapted].title}</h2>
             {probmlemSolvingBlock()}
         </div>
-        // <div className={`grid grid-cols-2 w-full rounded-large p-6`}>
-        //     <div className={`grid items-start justify-start rounded-large p-4`}>
-        //         <h2 className={`text-3xl mb-4 font-pattaya font-bold `}>{ProblemSolvingBlockContent[localeAdapted].title}</h2>
-        //         {probmlemSolvingBlock()}
-        //     </div>
-        //     <div className={`grid items-center justify-end rounded-large p-4`}>
-        //         <Image src={HumanWithProblem} alt="Human with Problem" className=' p-4 rounded-large' />
-        //     </div>
-        // </div>
     )
 }
