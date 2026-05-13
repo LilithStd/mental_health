@@ -79,6 +79,9 @@ export default function ProblemSolvingBlock() {
                         onMouseLeave={() => setHoveredProblem('')}
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[0].problem}
+                        {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[0].description && (
+                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                        )}
                     </button>
                     <button 
                         className={`absolute hover:scale-200 hover:z-100 w-[200px] h-[200px] -top-10 left-115 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[1].color} font-bold`}
@@ -86,6 +89,9 @@ export default function ProblemSolvingBlock() {
                         onMouseLeave={() => setHoveredProblem('')}
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[1].problem}
+                        {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[1].description && (
+                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                        )}
                     </button>
                     <button 
                         className={`absolute hover:scale-200 hover:z-100 w-[200px] h-[200px] top-58 -left-20 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[2].color} font-bold`}
@@ -93,6 +99,9 @@ export default function ProblemSolvingBlock() {
                         onMouseLeave={() => setHoveredProblem('')}
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[2].problem}
+                        {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[2].description && (
+                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                        )}
                     </button>
                     <button 
                         className={`absolute hover:scale-200 hover:z-100 w-[200px] h-[200px] top-8 -left-18 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[3].color} font-bold`}
@@ -100,6 +109,9 @@ export default function ProblemSolvingBlock() {
                         onMouseLeave={() => setHoveredProblem('')}
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[3].problem}
+                        {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[3].description && (
+                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                        )}
                     </button>
                     <button 
                         className={`absolute hover:scale-200 hover:z-100 w-[200px] h-[200px] top-8 -left-18 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[3].color} font-bold`}
@@ -107,6 +119,9 @@ export default function ProblemSolvingBlock() {
                         onMouseLeave={() => setHoveredProblem('')}
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[3].problem}
+                        {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[3].description && (
+                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                        )}
                     </button>
                     <button 
                         className={`absolute hover:scale-200 hover:z-100 w-[200px] h-[200px] -top-20 left-51 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[4].color} font-bold`}
@@ -114,6 +129,9 @@ export default function ProblemSolvingBlock() {
                         onMouseLeave={() => setHoveredProblem('')}
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[4].problem}
+                        {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description && (
+                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                        )}
                     </button>
                     <button 
                         className={`absolute hover:scale-200 hover:z-100 w-[200px] h-[200px] -top-20 left-51 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[4].color} font-bold`}
@@ -121,6 +139,9 @@ export default function ProblemSolvingBlock() {
                         onMouseLeave={() => setHoveredProblem('')}
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[4].problem}
+                        {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description && (
+                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                        )}
                     </button>
                     <button 
                         className={`absolute hover:scale-200 hover:z-100 w-[200px] h-[200px] -bottom-20 left-55 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[5].color} font-bold`}
@@ -128,6 +149,9 @@ export default function ProblemSolvingBlock() {
                         onMouseLeave={() => setHoveredProblem('')}
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[5].problem}
+                        {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[5].description && (
+                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                        )}
                     </button>
                      
                      
