@@ -40,6 +40,13 @@ export default function ProblemSolvingBlock() {
             </div>
         );
     }
+    const readMoreButton = (problem:string) => {
+        return (
+            <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-300">
+                Read More
+            </button>
+        )
+    }
     const popUpWindowComponent = (color: string, description: string) => {
         return (
             <div className={`
@@ -80,7 +87,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[0].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[0].description && (
-                                <p className={`text-[6px] p-2 m-2`}>{hoveredProblem}</p>
+                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
                         )}
                     </button>
                     <button 
@@ -90,7 +97,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[1].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[1].description && (
-                                <p className={`text-[6px] p-4`}>{hoveredProblem}</p>
+                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
                         )}
                     </button>
                     <button 
@@ -130,7 +137,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[4].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description && (
-                                <p className={`text-[6px] p-2 m-4`}>{hoveredProblem}</p>
+                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
                         )}
                     </button>
                     <button 
@@ -140,7 +147,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[4].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description && (
-                                <p className={`text-[6px] p-2 m-4`}>{hoveredProblem}</p>
+                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
                         )}
                     </button>
                     <button 
@@ -150,7 +157,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[5].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[5].description && (
-                                <p className={`text-[6px] p-2 m-4`}>{hoveredProblem}</p>
+                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
                         )}
                     </button>
                      
