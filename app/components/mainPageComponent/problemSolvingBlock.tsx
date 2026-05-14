@@ -74,7 +74,7 @@ export default function ProblemSolvingBlock() {
             <div className="flex gap-4 m-20  items-start relative">
                 <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={UPLOAD_IMAGE_NAME.global.mainPage.problemSolvingBlock.brainImage} width={600} height={600} alt="Human with Problem" className=' p-4 rounded-large z-1' />
                     <button  
-                        className={`absolute hover:scale-200 hover:z-100 w-[200px] h-[200px] top-50 left-120 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[0].color} font-bold`}
+                        className={`absolute transition-all duration-300 ease-in-out  hover:scale-200 hover:z-100 w-[200px] h-[200px] top-50 left-120 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[0].color} font-bold`}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[0].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
@@ -84,7 +84,7 @@ export default function ProblemSolvingBlock() {
                         )}
                     </button>
                     <button 
-                        className={`absolute hover:scale-200 hover:z-100 w-[200px] h-[200px] -top-10 left-115 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[1].color} font-bold`}
+                        className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] -top-10 left-115 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[1].color} font-bold`}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[1].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
@@ -94,7 +94,7 @@ export default function ProblemSolvingBlock() {
                         )}
                     </button>
                     <button 
-                        className={`absolute hover:scale-200 hover:z-100 w-[200px] h-[200px] top-58 -left-20 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[2].color} font-bold`}
+                        className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] top-58 -left-20 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[2].color} font-bold`}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[2].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
@@ -104,7 +104,7 @@ export default function ProblemSolvingBlock() {
                         )}
                     </button>
                     <button 
-                        className={`absolute hover:scale-200 hover:z-100 w-[200px] h-[200px] top-8 -left-18 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[3].color} font-bold`}
+                        className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] top-8 -left-18 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[3].color} font-bold`}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[3].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
@@ -114,7 +114,7 @@ export default function ProblemSolvingBlock() {
                         )}
                     </button>
                     <button 
-                        className={`absolute hover:scale-200 hover:z-100 w-[200px] h-[200px] top-8 -left-18 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[3].color} font-bold`}
+                        className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] top-8 -left-18 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[3].color} font-bold`}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[3].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
@@ -124,7 +124,7 @@ export default function ProblemSolvingBlock() {
                         )}
                     </button>
                     <button 
-                        className={`absolute hover:scale-200 hover:z-100 w-[200px] h-[200px] -top-20 left-51 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[4].color} font-bold`}
+                        className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] -top-20 left-51 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[4].color} font-bold`}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[4].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
@@ -134,7 +134,7 @@ export default function ProblemSolvingBlock() {
                         )}
                     </button>
                     <button 
-                        className={`absolute hover:scale-200 hover:z-100 w-[200px] h-[200px] -top-20 left-51 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[4].color} font-bold`}
+                        className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] -top-20 left-51 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[4].color} font-bold`}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[4].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
@@ -144,7 +144,7 @@ export default function ProblemSolvingBlock() {
                         )}
                     </button>
                     <button 
-                        className={`absolute hover:scale-200 hover:z-100 w-[200px] h-[200px] -bottom-20 left-55 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[5].color} font-bold`}
+                        className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] -bottom-20 left-55 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[5].color} font-bold`}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[5].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
