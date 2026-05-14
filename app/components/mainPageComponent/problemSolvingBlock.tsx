@@ -80,16 +80,31 @@ export default function ProblemSolvingBlock() {
         return (
             <div className="flex gap-4 m-20  items-start relative">
                 <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={UPLOAD_IMAGE_NAME.global.mainPage.problemSolvingBlock.brainImage} width={600} height={600} alt="Human with Problem" className=' p-4 rounded-large z-1' />
-                    <button  
-                        className={`absolute transition-all duration-300 ease-in-out  hover:scale-200 hover:z-100 w-[200px] h-[200px] top-50 left-120 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[0].color} font-bold`}
+                    <div  
+                        className={`
+                            absolute 
+                            transition-all 
+                            duration-300 
+                            ease-in-out   
+                            hover:scale-200 
+                            hover:z-100 w-[200px] h-[200px] top-50 left-120 z-0 rounded-full 
+                            justify-center 
+                            items-center 
+                            flex
+                            flex-col
+                            ${ProblemSolvingBlockContent[localeAdapted].problems[0].color} font-bold`}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[0].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[0].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[0].description && (
+                            <div>
                                 <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[0].problem)}
+                            </div>
+                                
                         )}
-                    </button>
+                    </div>
                     <button 
                         className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] -top-10 left-115 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[1].color} font-bold`}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[1].description)}
