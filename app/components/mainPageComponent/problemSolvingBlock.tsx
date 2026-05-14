@@ -170,7 +170,26 @@ export default function ProblemSolvingBlock() {
                         )}
                     </div>
                     <div
-                        className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] top-8 -left-18 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[3].color} font-bold`}
+                        className={`
+                            absolute 
+                            transition-all 
+                            duration-300 
+                            ease-in-out 
+                            hover:scale-200 
+                            hover:z-100 
+                            w-[200px] 
+                            h-[200px] 
+                            top-8 
+                            -left-18 
+                            z-0 
+                            rounded-full 
+                            ${ProblemSolvingBlockContent[localeAdapted].problems[3].color} 
+                            font-bold
+                            justify-center 
+                            items-center 
+                            flex
+                            flex-col
+                        `}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[3].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
@@ -184,7 +203,26 @@ export default function ProblemSolvingBlock() {
                         )}
                     </div>
                     <div
-                        className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] top-8 -left-18 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[3].color} font-bold`}
+                        className={`
+                            absolute 
+                            transition-all 
+                            duration-300 
+                            ease-in-out 
+                            hover:scale-200 
+                            hover:z-100 
+                            w-[200px] 
+                            h-[200px] 
+                            top-8 
+                            -left-18 
+                            z-0 
+                            rounded-full 
+                            ${ProblemSolvingBlockContent[localeAdapted].problems[3].color} 
+                            font-bold
+                            justify-center 
+                            items-center 
+                            flex
+                            flex-col
+                        `}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[3].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
@@ -210,7 +248,26 @@ export default function ProblemSolvingBlock() {
                         )}
                     </button>
                     <div 
-                        className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] -top-20 left-51 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[4].color} font-bold`}
+                        className={`
+                            absolute 
+                            transition-all 
+                            duration-300 
+                            ease-in-out 
+                            hover:scale-200 
+                            hover:z-100 
+                            w-[200px] 
+                            h-[200px] 
+                            -top-20 
+                            left-51 
+                            z-0 
+                            rounded-full 
+                            ${ProblemSolvingBlockContent[localeAdapted].problems[4].color} 
+                            font-bold
+                            justify-center 
+                            items-center 
+                            flex
+                            flex-col
+                        `}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[4].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
@@ -223,7 +280,25 @@ export default function ProblemSolvingBlock() {
                         )}
                     </div>
                     <div 
-                        className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] -bottom-20 left-55 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[5].color} font-bold`}
+                        className={`
+                            absolute 
+                            transition-all 
+                            duration-300 
+                            ease-in-out 
+                            hover:scale-200 
+                            hover:z-100 
+                            w-[200px] 
+                            h-[200px] 
+                            -bottom-20 
+                            left-55 
+                            z-0 
+                            rounded-full 
+                            ${ProblemSolvingBlockContent[localeAdapted].problems[5].color} font-bold 
+                            justify-center 
+                            items-center 
+                            flex 
+                            flex-col
+                        `}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[5].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
