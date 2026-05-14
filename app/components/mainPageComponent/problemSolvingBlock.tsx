@@ -105,46 +105,97 @@ export default function ProblemSolvingBlock() {
                                 
                         )}
                     </div>
-                    <button 
-                        className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] -top-10 left-115 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[1].color} font-bold`}
+                    <div 
+                        className={`
+                            absolute 
+                            transition-all
+                            duration-300 
+                            ease-in-out 
+                            hover:scale-200 
+                            hover:z-100 
+                            w-[200px] h-[200px] 
+                            -top-10 
+                            left-115 
+                            z-0 
+                            rounded-full 
+                            ${ProblemSolvingBlockContent[localeAdapted].problems[1].color} 
+                            font-bold
+                            justify-center 
+                            items-center 
+                            flex
+                            flex-col
+                        `}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[1].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[1].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[1].description && (
+                            <div>
                                 <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[1].problem)}
+                            </div>
                         )}
-                    </button>
-                    <button 
-                        className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] top-58 -left-20 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[2].color} font-bold`}
+                    </div>
+                    <div 
+                        className={`
+                            absolute 
+                            transition-all 
+                            duration-300 
+                            ease-in-out 
+                            hover:scale-200 
+                            hover:z-100 
+                            w-[200px] 
+                            h-[200px] 
+                            top-58 
+                            -left-20 
+                            z-0 
+                            rounded-full 
+                            ${ProblemSolvingBlockContent[localeAdapted].problems[2].color} 
+                            font-bold
+                            justify-center 
+                            items-center 
+                            flex
+                            flex-col
+                        `}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[2].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[2].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[2].description && (
+                            <div>
                                 <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[2].problem)}
+                            </div>
+                                
                         )}
-                    </button>
-                    <button 
+                    </div>
+                    <div
                         className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] top-8 -left-18 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[3].color} font-bold`}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[3].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[3].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[3].description && (
+                            <div>
                                 <p className={`text-[6px] p-2 m-2`}>{hoveredProblem}</p>
+                                {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[3].problem)}
+                            </div>
+                                
                         )}
-                    </button>
-                    <button 
+                    </div>
+                    <div
                         className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] top-8 -left-18 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[3].color} font-bold`}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[3].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[3].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[3].description && (
-                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                <div>
+                                    <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                    {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[3].problem)}
+                                </div>
                         )}
-                    </button>
+                    </div>
                     <button 
                         className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] -top-20 left-51 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[4].color} font-bold`}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[4].description)}
@@ -152,29 +203,38 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[4].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description && (
-                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                <div>
+                                    <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                    {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[4].problem)}
+                                </div>
                         )}
                     </button>
-                    <button 
+                    <div 
                         className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] -top-20 left-51 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[4].color} font-bold`}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[4].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[4].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description && (
-                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                <div>
+                                    <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                    {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[4].problem)}
+                                </div>
                         )}
-                    </button>
-                    <button 
+                    </div>
+                    <div 
                         className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] -bottom-20 left-55 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[5].color} font-bold`}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[5].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[5].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[5].description && (
-                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                <div>
+                                    <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                    {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[5].problem)}
+                                </div>
                         )}
-                    </button>
+                    </div>
                      
             </div>
         )
