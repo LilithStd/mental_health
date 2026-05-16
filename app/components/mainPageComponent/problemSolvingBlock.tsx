@@ -42,7 +42,7 @@ export default function ProblemSolvingBlock() {
     }
     const readMoreButton = (problem:string) => {
         return (
-            <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-300">
+            <button className={`bg-secondary-color p-2 hover:bg-accentElement rounded-large text-[8px] transition-colors duration-300`}>
                 Read More
             </button>
         )
@@ -98,7 +98,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[0].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[0].description && (
-                            <div>
+                            <div className={`flex flex-col items-center justify-center`}>
                                 <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
                                 {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[0].problem)}
                             </div>
@@ -234,7 +234,7 @@ export default function ProblemSolvingBlock() {
                                 </div>
                         )}
                     </div>
-                    <button 
+                    <div 
                         className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] -top-20 left-51 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[4].color} font-bold`}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[4].description)}
                         onMouseLeave={() => setHoveredProblem('')}
@@ -246,7 +246,7 @@ export default function ProblemSolvingBlock() {
                                     {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[4].problem)}
                                 </div>
                         )}
-                    </button>
+                    </div>
                     <div 
                         className={`
                             absolute 
