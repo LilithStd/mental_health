@@ -88,7 +88,8 @@ export default function ProblemSolvingBlock() {
                             ease-in-out   
                             hover:scale-200 
                             hover:z-100 w-[200px] h-[200px] top-50 left-120 z-0 rounded-full 
-                            justify-center 
+                            justify-center
+                            p-2 
                             items-center 
                             flex
                             flex-col
@@ -130,7 +131,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[1].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[1].description && (
-                            <div>
+                            <div className={`flex flex-col items-center justify-center`}>
                                 <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
                                 {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[1].problem)}
                             </div>
@@ -162,7 +163,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[2].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[2].description && (
-                            <div>
+                            <div className={`flex flex-col items-center justify-center`}>
                                 <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
                                 {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[2].problem)}
                             </div>
@@ -195,7 +196,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[3].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[3].description && (
-                            <div>
+                            <div className={`flex flex-col items-center justify-center`}>
                                 <p className={`text-[6px] p-2 m-2`}>{hoveredProblem}</p>
                                 {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[3].problem)}
                             </div>
@@ -228,7 +229,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[3].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[3].description && (
-                                <div>
+                                <div className={`flex flex-col items-center justify-center`}>
                                     <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
                                     {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[3].problem)}
                                 </div>
@@ -241,7 +242,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[4].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description && (
-                                <div>
+                                <div className={`flex flex-col items-center justify-center`}>
                                     <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
                                     {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[4].problem)}
                                 </div>
@@ -273,7 +274,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[4].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description && (
-                                <div>
+                                <div className={`flex flex-col items-center justify-center`}>
                                     <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
                                     {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[4].problem)}
                                 </div>
@@ -304,7 +305,7 @@ export default function ProblemSolvingBlock() {
                     >
                         {ProblemSolvingBlockContent[localeAdapted].problems[5].problem}
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[5].description && (
-                                <div>
+                                <div className={`flex flex-col items-center justify-center`}>
                                     <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
                                     {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[5].problem)}
                                 </div>
