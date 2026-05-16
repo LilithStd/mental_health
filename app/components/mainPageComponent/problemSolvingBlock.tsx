@@ -97,7 +97,7 @@ export default function ProblemSolvingBlock() {
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[0].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
-                        <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[0].problem ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[0].problem}</span>
+                        <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[0].description ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[0].problem}</span>
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[0].description && (
                             <div className={`flex flex-col items-center justify-center`}>
                                 <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
@@ -130,7 +130,7 @@ export default function ProblemSolvingBlock() {
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[1].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
-                        <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[1].problem ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[1].problem}</span>
+                        <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[1].description ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[1].problem}</span>
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[1].description && (
                             <div className={`flex flex-col items-center justify-center`}>
                                 <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
@@ -163,7 +163,7 @@ export default function ProblemSolvingBlock() {
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[2].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
-                         <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[2].problem ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[2].problem}</span>
+                         <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[2].description ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[2].problem}</span>
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[2].description && (
                             <div className={`flex flex-col items-center justify-center`}>
                                 <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
@@ -197,7 +197,7 @@ export default function ProblemSolvingBlock() {
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[3].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
-                        <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[3].problem ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[3].problem}</span>
+                        <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[3].description ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[3].problem}</span>
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[3].description && (
                                 <div className={`flex flex-col items-center justify-center`}>
                                     <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
@@ -230,7 +230,7 @@ export default function ProblemSolvingBlock() {
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[4].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
-                        <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].problem ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[4].problem}</span>
+                        <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[4].problem}</span>
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description && (
                                 <div className={`flex flex-col items-center justify-center`}>
                                     <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
@@ -262,7 +262,7 @@ export default function ProblemSolvingBlock() {
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[5].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
-                        <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[5].problem ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[5].problem}</span>
+                        <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[5].description ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[5].problem}</span>
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[5].description && (
                                 <div className={`flex flex-col items-center justify-center`}>
                                     <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
