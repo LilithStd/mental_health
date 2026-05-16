@@ -172,7 +172,7 @@ export default function ProblemSolvingBlock() {
                                 
                         )}
                     </div>
-                    <div
+                    {/* <div
                         className={`
                             absolute 
                             transition-all 
@@ -205,7 +205,7 @@ export default function ProblemSolvingBlock() {
                             </div>
                                 
                         )}
-                    </div>
+                    </div> */}
                     <div
                         className={`
                             absolute 
@@ -239,7 +239,7 @@ export default function ProblemSolvingBlock() {
                                 </div>
                         )}
                     </div>
-                    <div 
+                    {/* <div 
                         className={`absolute transition-all duration-300 ease-in-out hover:scale-200 hover:z-100 w-[200px] h-[200px] p-2 -top-20 left-51 z-0 rounded-full ${ProblemSolvingBlockContent[localeAdapted].problems[4].color} font-bold`}
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[4].description)}
                         onMouseLeave={() => setHoveredProblem('')}
@@ -251,7 +251,7 @@ export default function ProblemSolvingBlock() {
                                     {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[4].problem)}
                                 </div>
                         )}
-                    </div>
+                    </div> */}
                     <div 
                         className={`
                             absolute 
@@ -277,7 +277,7 @@ export default function ProblemSolvingBlock() {
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[4].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
-                        <span className={`p-2 ${hoveredProblem ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[4].problem}</span>
+                        <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].problem ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[4].problem}</span>
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description && (
                                 <div className={`flex flex-col items-center justify-center`}>
                                     <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
