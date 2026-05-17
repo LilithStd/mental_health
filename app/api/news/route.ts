@@ -24,28 +24,6 @@ function ensureFileExists() {
 
 export async function GET() {
   const news = await getAllNews();
-  // ensureFileExists()
-
-  // const { searchParams } = new URL(req.url)
-  // const id = searchParams.get('id')
-
-  // const raw = fs.readFileSync(filePath, 'utf-8')
-  // const news: NewsType[] = JSON.parse(raw)
-
-  // if (id) {
-  //   const newsItem = news.find(a => a.id === Number(id))
-    
-  //   if (!newsItem) {
-  //     return NextResponse.json(
-  //       { error: 'News not found' },
-  //       { status: 404 }
-  //     )
-  //   }
-    
-  //   return NextResponse.json({ news: newsItem })
-  // }
-
-  // 👉 Получение всех статей
   return NextResponse.json(news)
 }
 

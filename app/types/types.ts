@@ -42,6 +42,17 @@ export type NewsType = {
     updatedAt?: string
 }
 
+export type LibraryType = {
+    id: string
+    title: MultiLanguageText
+    description?: MultiLanguageText
+    content: MultiLanguageText
+    hashTags: string[]
+    image?: string
+    createdAt: string
+    updatedAt?: string
+}
+
 export type TestType = {
     id:string,
     label: string,
