@@ -73,6 +73,9 @@ export const routes = (locale: string) => {
     update: (id: number | string) => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.ARTICLES}/${id}/update`,
     edit: (id: number | string) => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.ARTICLES}/${id}/edit`,
   },
+  library:{
+    root: `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.LIBRARY}`,
+  },
   media: {
     root: `${prefix}${APP_PATH_ROUTER.MEDIA}`,
   },

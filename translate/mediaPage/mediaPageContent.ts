@@ -1,7 +1,10 @@
+
+
 export const MediaPageContent = {
     en:{
         titleNews:'News',
         titleArticles:'Articles',
+        titleLibrary:'Library',
         randomNews:'Random news',
         randomArticles:'Random articles',
         noNews:'No news found',
@@ -10,6 +13,7 @@ export const MediaPageContent = {
     lv:{
         titleNews:'Jaunumi',
         titleArticles:'Raksti',
+        titleLibrary:'Bibliotēka',
         randomNews:'Neatbilstoši jaunumi',
         randomArticles:'Neatbilstoši raksti',
         noNews:'Nav atrastu jaunumu',
@@ -18,6 +22,7 @@ export const MediaPageContent = {
     ru:{
         titleNews:'Новости',
         titleArticles:'Статьи',
+        titleLibrary:'Библиотека',
         randomNews:'Случайные новости',
         randomArticles:'Случайные статьи',
         noNews:'Новости не найдены',

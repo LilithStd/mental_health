@@ -106,6 +106,7 @@ export enum APP_PATH_ROUTER {
 	NEWS = '/news',
 	MEDIA = '/media',
 	TESTS = '/tests',
+	LIBRARY = '/library',
 	ARTICLES = '/articles',
 	CONSULTATION = '/consultation',
 	FAQ = '/faq',
@@ -117,4 +118,5 @@ export enum APP_PATH_ROUTER {
 export enum APP_PATH_ROUTER_SUBPATH {
 	ARTICLES = '/articles',
 	NEWS = '/news',
+	LIBRARY = '/library',
 }

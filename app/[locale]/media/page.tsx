@@ -20,6 +20,7 @@ export default async function MediaPage() {
                 <div className={`flex w-full justify-center gap-4 mb-4`}>
                     <Link href={routesAdaptive.news.root} className={`bg-primary-color/50 p-4 rounded-large`}>{MediaPageContent[locale].titleNews}</Link>
                     <Link href={routesAdaptive.articles.root} className={`bg-primary-color/50 p-4 rounded-large`}>{MediaPageContent[locale].titleArticles}</Link>
+                    <Link href={routesAdaptive.library.root} className={`bg-primary-color/50 p-4 rounded-large`}>{MediaPageContent[locale].titleLibrary}</Link>
                 </div>
 
                 {/* <RandomArticleBlock /> */}
