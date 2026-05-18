@@ -1,4 +1,5 @@
 
+import CreateElementLibrary from "@/app/components/library/createElementLibrary"
 import { getLocale } from "@/app/hooks/server/getLocale"
 import { getAllLibrary } from "@/app/service/libraryService"
 import { LocaleType } from "@/app/types/types"
@@ -13,6 +14,9 @@ export default async function LibraryPage() {
   return (
     <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
         <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 pt-4`}>
+        <div>
+            <CreateElementLibrary />
+        </div>
         <div className={`flex w-full justify-center gap-4 mb-4`}>
             <span>{LibraryContent[locale].title}</span>
         </div>
