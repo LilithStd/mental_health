@@ -9,3 +9,15 @@ export const LibraryContent = {
         title:'Библиотека',
     }
 }
+
+export const LibraryGroupElementType = {
+    en:{
+        all:'All',
+    },
+    lv:{
+        all:'Visi',
+    },
+    ru:{
+        all:'Все',
+    }
+} as const
