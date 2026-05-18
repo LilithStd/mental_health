@@ -21,13 +21,38 @@ export async function getAllLibrary() {
     return library.map(mapLibrary);
 }
 
-export async function getLibraryById(id: string) {
+export async function getElementLibraryById(id: string) {
     await connectDB();
-    const library = await Library.findById(id).lean();
-    if (!library) {
-        throw new Error("Library item not found");
+    const elementLibrary = await Library.findById(id).lean();
+    if (!elementLibrary) {
+        throw new Error("Element Library item not found");
     }
-    return mapLibrary(library);
+    return mapLibrary(elementLibrary);
 
     
+}
+
+export async function addElementLibrary(data: Partial<LibraryTypes>) {
+    await connectDB();
+    console.log('Creating library element with data:', data);
+    return Library.create(data);
+}
+
+export async function updateElementLibrary(id: string, data: Partial<LibraryTypes>) {
+    await connectDB();
+    console.log('Updating library element with id:', id, 'and data:', data);
+    const updatedElement = await Library.findByIdAndUpdate(id, data, { new: true }).lean();
+    if (!updatedElement) {
+        throw new Error("Element Library item not found for update");
+    }
+    return mapLibrary(updatedElement);
+}
+
+export async function deleteElementLibrary(id: string) {
+    await connectDB();
+    const deletedElement = await Library.findByIdAndDelete(id).lean();
+    if (!deletedElement) {
+        throw new Error("Element Library item not found for deletion");
+    }
+    return mapLibrary(deletedElement);
 }
