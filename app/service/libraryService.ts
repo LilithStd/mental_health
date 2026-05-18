@@ -20,3 +20,14 @@ export async function getAllLibrary() {
     const library = await Library.find().lean();
     return library.map(mapLibrary);
 }
+
+export async function getLibraryById(id: string) {
+    await connectDB();
+    const library = await Library.findById(id).lean();
+    if (!library) {
+        throw new Error("Library item not found");
+    }
+    return mapLibrary(library);
+
+    
+}

@@ -24,7 +24,7 @@ export async function GET(req: Request) {
   const likes = await getArticleLikes(Number(articleId))
 
   return NextResponse.json({
-    likesCount: likes.length,
+    likesCount: likes.likesCount,
     likes,
   })
 }
