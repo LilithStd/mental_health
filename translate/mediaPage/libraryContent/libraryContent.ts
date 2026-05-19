@@ -12,17 +12,11 @@ export const LibraryContent = {
     }
 }
 
-export const LibraryGroupElementType = {
-    en:{
-        type:GROUP_TYPE_LIBRARY.ALL,
-        all:'All',
+export const LibraryGroupElementType = [
+    {
+        type: GROUP_TYPE_LIBRARY.ALL,
+        en: 'All',
+        lv: 'Visi',
+        ru: 'Все',
     },
-    lv:{
-        type:GROUP_TYPE_LIBRARY.ALL,
-        all:'Visi',
-    },
-    ru:{
-        type:GROUP_TYPE_LIBRARY.ALL,
-        all:'Все',
-    }
-} as const
+]
