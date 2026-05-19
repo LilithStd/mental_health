@@ -6,6 +6,7 @@ function mapLibrary(library: LibraryTypes): LibraryType {
     return {
         id: library._id.toString(),
         title: library.title,
+        type: library.type,
         description: library.description,
         content: library.content,
         hashTags: library.hashTags,

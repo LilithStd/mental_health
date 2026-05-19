@@ -45,6 +45,7 @@ export type NewsType = {
 export type LibraryType = {
     id: string
     title: MultiLanguageText
+    type: string
     description?: MultiLanguageText
     content: MultiLanguageText
     hashTags: string[]
