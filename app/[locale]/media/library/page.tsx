@@ -23,7 +23,7 @@ export default async function LibraryPage() {
             <div className={`flex flex-col gap-4 p-4`}>
                 {library.map(item => (
                     <div key={item.id} className={`flex flex-col gap-2 p-4 bg-primary-color/50 rounded-large`}>
-                        <span className={`text-sm italic`}>Type:{item.type}</span>
+                        <span className={`text-sm italic`}>{LibraryContent[locale].type}:{item.type}</span>
                             <details key={item.id} className={`flex flex-col gap-2 p-4 bg-primary-color/50 rounded-large`}>
                             <summary className={`text-2xl font-bold cursor-pointer`}>{item.title[locale]}</summary>
                             <p>{item.content[locale]}</p>

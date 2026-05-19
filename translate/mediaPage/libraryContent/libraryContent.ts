@@ -3,12 +3,15 @@ import { GROUP_TYPE_LIBRARY } from "@/app/globalConsts/globalEnum"
 export const LibraryContent = {
     en:{
         title:'Library',
+        type: 'Type',
     },
     lv:{
         title:'Bibliotēka',
+        type: 'Tips',
     },
     ru:{
         title:'Библиотека',
+        type: 'Тип',
     }
 }
 
