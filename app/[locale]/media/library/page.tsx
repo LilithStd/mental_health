@@ -1,6 +1,7 @@
 
 import CreateElementLibrary from "@/app/components/library/createElementLibrary"
 import HashTags from "@/app/components/shared/hashTags"
+import Search from "@/app/components/shared/search"
 import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum"
 import { getLocale } from "@/app/hooks/server/getLocale"
 import { getAllLibrary } from "@/app/service/libraryService"
@@ -19,6 +20,9 @@ export default async function LibraryPage() {
        
         <div className={`flex w-full justify-center gap-4 mb-4`}>
             <span>{LibraryContent[locale].title}</span>
+        </div>
+        <div className={`flex w-full justify-center gap-4 mb-4`}>
+           <input type="text" placeholder={`Search`} className={` p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
         </div>
          <div className={`flex w-full justify-center pr-4 mb-4`}>
             <CreateElementLibrary />
