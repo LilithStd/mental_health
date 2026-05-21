@@ -1,3 +1,4 @@
+import ImageUpload from "@/app/components/articles/articleComponents/ImageUpload";
 import HashTagAdd from "@/app/components/shared/createComponents/hashTagAdd";
 import HashTags from "@/app/components/shared/hashTags";
 import { getLocale } from "@/app/hooks/server/getLocale";
@@ -21,7 +22,9 @@ export default async function CreateElementLibraryPage() {
                 <div className={`flex flex-col gap-2 mb-4`}>
                  <HashTagAdd />
                 </div>
-                
+                <div className={`flex flex-col gap-2 mb-4`}>
+                    <ImageUpload />
+                </div>
                 <textarea name="content" placeholder="Content" className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} rows={10}></textarea>
                 <button type="submit" className={`px-4 py-2 bg-buttonContainer rounded-large font-bold`}>Create</button>
             </form>
