@@ -8,7 +8,7 @@ export default async function HashTagAdd() {
   return (
     <div className={`flex w-full h-full flex-col gap-4 bg-primary-color/30 border border-primary-color/30 p-2 rounded-large`}>
         <span>{CreateArticleContent[locale].tags}</span>
-        <AddTagsIcon className="w-6 h-6" fill={'green'} />
+        <AddTagsIcon className={`w-6 h-6 cursor-pointer hover:scale-110 transition-transform`} fill={'green'} />
     </div>
   )
 }
