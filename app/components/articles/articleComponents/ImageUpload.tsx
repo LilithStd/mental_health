@@ -32,7 +32,7 @@ export default function ImageUpload() {
   }
 
   return (
-    <div className="w-full max-w-md">
+    <div className="w-full ">
 
       {/* Upload area */}
       <div
@@ -41,7 +41,10 @@ export default function ImageUpload() {
         onDrop={handleDrop}
         className="
           relative
-          flex flex-col items-center justify-center
+          flex 
+          flex-col 
+          items-center 
+          justify-center
           w-full 
           h-full
           rounded-large

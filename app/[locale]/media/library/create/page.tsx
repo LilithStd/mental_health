@@ -19,11 +19,11 @@ export default async function CreateElementLibraryPage() {
                         <option key={type.type} value={type.type}>{type[locale]}</option>
                     ))}
                 </select>
-                <div className={`flex gap-4`}>
-                    <div className={`flex gap-2 mb-4`}>
+                <div className={`flex gap-4 w-full`}>
+                    <div className={`flex gap-2 mb-4 w-full`}>
                         <HashTagAdd />
                     </div>
-                    <div className={`flex gap-2 mb-4`}>
+                    <div className={`flex gap-2 mb-4 w-full`}>
                         <ImageUpload />
                     </div>
                 </div>
