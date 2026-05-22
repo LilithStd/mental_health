@@ -19,12 +19,15 @@ export default async function CreateElementLibraryPage() {
                         <option key={type.type} value={type.type}>{type[locale]}</option>
                     ))}
                 </select>
-                <div className={`flex flex-col gap-2 mb-4`}>
-                 <HashTagAdd />
+                <div className={`flex gap-4`}>
+                    <div className={`flex gap-2 mb-4`}>
+                        <HashTagAdd />
+                    </div>
+                    <div className={`flex gap-2 mb-4`}>
+                        <ImageUpload />
+                    </div>
                 </div>
-                <div className={`flex flex-col gap-2 mb-4`}>
-                    <ImageUpload />
-                </div>
+               
                 <textarea name="content" placeholder="Content" className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} rows={10}></textarea>
                 <button type="submit" className={`px-4 py-2 bg-buttonContainer rounded-large font-bold`}>Create</button>
             </form>

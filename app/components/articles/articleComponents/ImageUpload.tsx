@@ -42,7 +42,8 @@ export default function ImageUpload() {
         className="
           relative
           flex flex-col items-center justify-center
-          w-full h-48
+          w-full 
+          h-full
           rounded-large
           border border-primary-color/30
           bg-primary-color/10
