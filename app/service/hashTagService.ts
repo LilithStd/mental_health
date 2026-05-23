@@ -1,9 +1,14 @@
+import { connectDB } from "../lib/connectDB";
+import { HashTag } from "../models/hashTags";
+
 export async function getAllHashTags() {
     await connectDB();
     const hashTags = await HashTag.find().lean();
     return hashTags.map((ht) => ({
         id: ht._id.toString(),
-        name: ht.name,
+        type: ht.type,
+        title: ht.title,
+        color: ht.color,
         createdAt: ht.createdAt.toISOString(),
         updatedAt: ht.updatedAt?.toISOString(),
     }));
