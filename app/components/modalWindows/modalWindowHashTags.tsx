@@ -11,7 +11,7 @@ export default function ModalWindowHashTags() {
         <h2 className="text-lg font-bold">#{HASH_TAGS[locale].hashTags}</h2>
         <div className="flex gap-2 mt-4">
             <div className={`flex items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
-              <span className={`text-sm`}>{HASH_TAGS[locale].availableHashTags}</span>
+              <span className={`text-[12px]`}>{HASH_TAGS[locale].availableHashTags}</span>
             </div>          
             <div className={`flex items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
               <span className={`text-sm`}>{HASH_TAGS[locale].addHashTag}</span>
