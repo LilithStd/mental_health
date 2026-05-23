@@ -31,8 +31,28 @@ export default function ModalWindowHashTags() {
   useEffect(() => {
     hashTags();
   }, [])
+
+  const colorHashTags = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#33FFF5', '#F5FF33'];
+  const colorHashTagsComponent = () => {
+      return (
+          <div className={`flex items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
+              <span className={`text-[12px]`}>{HASH_TAGS[locale].availableHashTags}</span>
+              <div className={`flex gap-2`}>
+                  {colorHashTags.map((color, index) => (
+                      <div key={index} className={`w-6 h-6 rounded-full`} style={{ backgroundColor: color }}></div>
+                  ))}
+              </div>
+          </div>
+      )
+  }
+
   const addHashTagComponent = (
       <div className={`flex items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
+        <form>
+          <input type="text" placeholder={HASH_TAGS[locale].addHashTag} className={`p-2 rounded-small w-full border`} />
+          {colorHashTagsComponent()}
+          <input type="submit" value="Add" className={`mt-2 p-2 rounded-small w-full bg-green-500 text-white cursor-pointer`} />
+        </form>
       </div>
   )
   return (
