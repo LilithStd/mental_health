@@ -75,6 +75,9 @@ export default function ModalWindowHashTags() {
       <div className={`flex items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
         <div className={`flex flex-col gap-2 w-full`}>
           <input type="text" placeholder={HASH_TAGS[locale].addHashTag} className={`p-2 rounded-small w-full border`} value={titleNewHashTag} onChange={(e) => setTitleNewHashTag(e.target.value)} />
+          <select>
+            <option value="">{HASH_TAGS[locale].availableHashTags}</option>
+          </select>
           {colorHashTagsComponent()}
           <button type="submit"  className={`mt-2 p-2 rounded-large bg-green-500  cursor-pointer`} onClick={() => addHashTag(titleNewHashTag, chosedColorHashTags)}>
             <span>Create HashTags</span>

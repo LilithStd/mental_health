@@ -20,7 +20,7 @@ export enum ROLE_AUTHORIZED_USER {
 	OTHER = 'OTHER',
 }
 
-export enum GROUP_TYPE_LIBRARY{
+export enum GROUP_TYPE_LIBRARY {
 	ALL = 'ALL',
 	
 }

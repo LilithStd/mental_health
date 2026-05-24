@@ -1,4 +1,4 @@
-import { getAllHashTags } from "@/app/service/hashTagService";
+import { createHashTag, getAllHashTags } from "@/app/service/hashTagService";
 import { NextResponse } from "next/server";
 
 export async function GET() {
@@ -8,7 +8,11 @@ export async function GET() {
 
 export async function POST(request: Request) {
     const { type, title, color } = await request.json();
-    
-    return NextResponse.json({ message: "Hash tag created successfully" });
+
+    if (!type || !title || !color) {
+        return NextResponse.json({ message: "Missing required fields" }, { status: 400 });
+    }
+    const newHashTag = await createHashTag({ type, title, color });
+    return NextResponse.json({ message: "Hash tag created successfully", hashTag: newHashTag }, { status: 201 });
 }
 
