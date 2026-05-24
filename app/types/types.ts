@@ -44,6 +44,7 @@ export type NewsType = {
 
 export type HashTagType = {
     id: string
+    type: string
     title: MultiLanguageText
     color: string
     createdAt: string

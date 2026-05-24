@@ -8,6 +8,7 @@ export default function ModalWindowHashTags() {
   const locale = useLocale() as LocaleType;
 
   const [hashTagsData, setHashTagsData] = useState<HashTagType[]>([]);
+  const [chosedColorHashTags, setChosedColorHashTags] = useState<string>('');
   const STATUS_ACTIVE_COMPONENT = {
     DEFAULT: 'DEFAULT',
     ADD: 'ADD',
@@ -48,11 +49,11 @@ export default function ModalWindowHashTags() {
 
   const addHashTagComponent = (
       <div className={`flex items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
-        <form>
+        <div className={`flex flex-col gap-2 w-full`}>
           <input type="text" placeholder={HASH_TAGS[locale].addHashTag} className={`p-2 rounded-small w-full border`} />
           {colorHashTagsComponent()}
           <input type="submit" value="Add" className={`mt-2 p-2 rounded-small w-full bg-green-500 text-white cursor-pointer`} />
-        </form>
+        </div>
       </div>
   )
   return (
