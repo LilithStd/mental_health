@@ -8,7 +8,7 @@ export async function GET() {
 
 export async function POST(request: Request) {
     const { type, title, color } = await request.json();
-
+    console.log('Received data:', { type, title, color });
     if (!type || !title || !color) {
         return NextResponse.json({ message: "Missing required fields" }, { status: 400 });
     }

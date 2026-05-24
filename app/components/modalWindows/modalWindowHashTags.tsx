@@ -8,8 +8,9 @@ export default function ModalWindowHashTags() {
   const locale = useLocale() as LocaleType;
 
   const [hashTagsData, setHashTagsData] = useState<HashTagType[]>([]);
-  const [chosedColorHashTags, setChosedColorHashTags] = useState<string>('');
+  const [chosenColorHashTags, setChosenColorHashTags] = useState<string>('');
   const [titleNewHashTag, setTitleNewHashTag] = useState<string>('');
+  const [typeNewHashTag, setTypeNewHashTag] = useState<string>('');
   const STATUS_ACTIVE_COMPONENT = {
     DEFAULT: 'DEFAULT',
     ADD: 'ADD',
@@ -31,12 +32,12 @@ export default function ModalWindowHashTags() {
     }
   }
 
-  const addHashTag = async (title: string, color: string) => {
+  const addHashTag = async (type: string, title: string, color: string) => {
     try {
       const response = await fetch('/api/hashTags', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, color })
+        body: JSON.stringify({type, title, color })
       });
       if (!response.ok) {
         throw new Error('Failed to add hash tag');
@@ -58,28 +59,30 @@ export default function ModalWindowHashTags() {
   const colorHashTagsComponent = () => {
       return (
           <div className={`flex items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
-              <span className={`text-[12px] w-30`}>{chosedColorHashTags === '' ? HASH_TAGS[locale].availableHashTags : HASH_TAGS[locale].chosenColorHashTag}</span>
+              <span className={`text-[12px] w-30`}>{chosenColorHashTags === '' ? HASH_TAGS[locale].availableHashTags : HASH_TAGS[locale].chosenColorHashTag}</span>
               <div className={`flex gap-2`}>
                                   
-                     {chosedColorHashTags === '' ? colorHashTags.map((color, index) => (
-                      <div key={index} className={`cursor-pointer w-6 h-6 rounded-full`} style={{ backgroundColor: color }} onClick={() => setChosedColorHashTags(color)}></div>
+                     {chosenColorHashTags === '' ? colorHashTags.map((color, index) => (
+                      <div key={index} className={`cursor-pointer w-6 h-6 rounded-full`} style={{ backgroundColor: color }} onClick={() => setChosenColorHashTags(color)}></div>
 
-                  )) : <div className={`w-6 h-6 rounded-full`} style={{ backgroundColor: chosedColorHashTags }} onClick={() => setChosedColorHashTags('')}></div>}
+                  )) : <div className={`w-6 h-6 rounded-full`} style={{ backgroundColor: chosenColorHashTags }} onClick={() => setChosenColorHashTags('')}></div>}
                   
               </div>
           </div>
       )
   }
-
+  console.log(typeNewHashTag, titleNewHashTag, chosenColorHashTags);
   const addHashTagComponent = (
       <div className={`flex items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
         <div className={`flex flex-col gap-2 w-full`}>
           <input type="text" placeholder={HASH_TAGS[locale].addHashTag} className={`p-2 rounded-small w-full border`} value={titleNewHashTag} onChange={(e) => setTitleNewHashTag(e.target.value)} />
-          <select>
-            <option value="">{HASH_TAGS[locale].availableHashTags}</option>
+          <select value={typeNewHashTag} onChange={(e) => setTypeNewHashTag(e.target.value)} className={`p-2 rounded-small w-full border`}>
+            {HASH_TAGS[locale].hashTagTypes.map((type) => (
+              <option key={type.value} value={type.value}>{type.label}</option>
+            ))}
           </select>
           {colorHashTagsComponent()}
-          <button type="submit"  className={`mt-2 p-2 rounded-large bg-green-500  cursor-pointer`} onClick={() => addHashTag(titleNewHashTag, chosedColorHashTags)}>
+          <button type="submit"  className={`mt-2 p-2 rounded-large bg-green-500  cursor-pointer`} onClick={() => addHashTag(typeNewHashTag, titleNewHashTag, chosenColorHashTags)}>
             <span>Create HashTags</span>
           </button>
         </div>
