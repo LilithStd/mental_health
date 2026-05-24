@@ -13,3 +13,8 @@ export async function getAllHashTags() {
         updatedAt: ht.updatedAt?.toISOString(),
     }));
 }
+
+export async function createHashTag(data: { type: string, title: Record<string, string>, color: string }) {
+    await connectDB();
+    return HashTag.create(data);
+}

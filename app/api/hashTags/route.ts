@@ -6,3 +6,9 @@ export async function GET() {
     return NextResponse.json(hashTags);
 }
 
+export async function POST(request: Request) {
+    const { type, title, color } = await request.json();
+    
+    return NextResponse.json({ message: "Hash tag created successfully" });
+}
+
