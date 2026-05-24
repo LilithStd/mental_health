@@ -9,6 +9,7 @@ export default function ModalWindowHashTags() {
 
   const [hashTagsData, setHashTagsData] = useState<HashTagType[]>([]);
   const [chosedColorHashTags, setChosedColorHashTags] = useState<string>('');
+  const [titleNewHashTag, setTitleNewHashTag] = useState<string>('');
   const STATUS_ACTIVE_COMPONENT = {
     DEFAULT: 'DEFAULT',
     ADD: 'ADD',
@@ -29,6 +30,26 @@ export default function ModalWindowHashTags() {
       console.error('Error fetching hash tags:', error);
     }
   }
+
+  const addHashTag = async (title: string, color: string) => {
+    try {
+      const response = await fetch('/api/hashTags', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, color })
+      });
+      if (!response.ok) {
+        throw new Error('Failed to add hash tag');
+      }
+      const data = await response.json();
+      console.log(data);
+      // Optionally, you can refresh the hash tags list after adding a new one
+      hashTags();
+    } catch (error) {
+      console.error('Error adding hash tag:', error);
+    }
+  }
+
   useEffect(() => {
     hashTags();
   }, [])
@@ -53,9 +74,11 @@ export default function ModalWindowHashTags() {
   const addHashTagComponent = (
       <div className={`flex items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
         <div className={`flex flex-col gap-2 w-full`}>
-          <input type="text" placeholder={HASH_TAGS[locale].addHashTag} className={`p-2 rounded-small w-full border`} />
+          <input type="text" placeholder={HASH_TAGS[locale].addHashTag} className={`p-2 rounded-small w-full border`} value={titleNewHashTag} onChange={(e) => setTitleNewHashTag(e.target.value)} />
           {colorHashTagsComponent()}
-          <input type="submit" value="Add" className={`mt-2 p-2 rounded-small w-full bg-green-500 text-white cursor-pointer`} />
+          <button type="submit"  className={`mt-2 p-2 rounded-large bg-green-500  cursor-pointer`} onClick={() => addHashTag(titleNewHashTag, chosedColorHashTags)}>
+            <span>Create HashTags</span>
+          </button>
         </div>
       </div>
   )
