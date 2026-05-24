@@ -37,11 +37,14 @@ export default function ModalWindowHashTags() {
   const colorHashTagsComponent = () => {
       return (
           <div className={`flex items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
-              <span className={`text-[12px]`}>{HASH_TAGS[locale].availableHashTags}</span>
+              <span className={`text-[12px]`}>{chosedColorHashTags === '' ? HASH_TAGS[locale].availableHashTags : HASH_TAGS[locale].chosenColorHashTag}</span>
               <div className={`flex gap-2`}>
-                  {colorHashTags.map((color, index) => (
-                      <div key={index} className={`w-6 h-6 rounded-full`} style={{ backgroundColor: color }}></div>
-                  ))}
+                                  
+                     {chosedColorHashTags === '' ? colorHashTags.map((color, index) => (
+                      <div key={index} className={`cursor-pointer w-6 h-6 rounded-full`} style={{ backgroundColor: color }} onClick={() => setChosedColorHashTags(color)}></div>
+
+                  )) : <div className={`w-6 h-6 rounded-full`} style={{ backgroundColor: chosedColorHashTags }}></div>}
+                  
               </div>
           </div>
       )
