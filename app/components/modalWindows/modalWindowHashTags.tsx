@@ -25,6 +25,15 @@ export default function ModalWindowHashTags({ hashTagsCallBack }: ModalWindowHas
   }
   const [statusActiveComponent, setStatusActiveComponent] = useState(STATUS_ACTIVE_COMPONENT.DEFAULT);
 
+  const addHashTagsHandler = (hashTags: HashTagType) => {
+
+    if(!choosenHashTags.some(tag => tag.id === hashTags.id)) {
+        setChosenHashTags((prev) => [...prev, hashTags]);
+    }
+    
+    
+  }
+
   const hashTags = async () => {
     try {
       const response = await fetch('/api/hashTags');
@@ -103,7 +112,7 @@ export default function ModalWindowHashTags({ hashTagsCallBack }: ModalWindowHas
             <div className={`flex flex-col items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
               <span className={`text-[12px]`}>{HASH_TAGS[locale].availableHashTags}</span>
               {hashTagsData.map((tag: HashTagType) => (
-                <div key={tag.id} onClick={() => setChosenHashTags((prev) => [...prev, tag])} className={`cursor-pointer w-full p-2 rounded-small border flex items-center gap-2 ${choosenHashTags.some(chosenTag => chosenTag.id === tag.id) ? 'bg-amber-200' : ''}`}>
+                <div key={tag.id} onClick={() => addHashTagsHandler(tag)} className={`cursor-pointer w-full p-2 rounded-small border flex items-center gap-2 ${choosenHashTags.some(chosenTag => chosenTag.id === tag.id) ? 'bg-amber-200' : ''}`}>
                   <HashTags key={tag.id} hashTags={[tag.title[locale]]} type={SIZE_ELEMENT.SMALL} />
                 </div>
                 
