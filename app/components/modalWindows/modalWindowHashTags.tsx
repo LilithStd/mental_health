@@ -3,6 +3,10 @@ import { HashTagType, LocaleType } from "@/app/types/types";
 import { HASH_TAGS } from "@/translate/shared/hashTags";
 import AddTagsIcon from "@/public/icons/PlusCircle.svg";
 import { useEffect, useState } from "react";
+import { Hash } from "crypto";
+import HashTags from "../shared/hashTags";
+import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum";
+
 
 export default function ModalWindowHashTags() {
   const locale = useLocale() as LocaleType;
@@ -96,9 +100,10 @@ export default function ModalWindowHashTags() {
             <div className={`flex flex-col items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
               <span className={`text-[12px]`}>{HASH_TAGS[locale].availableHashTags}</span>
               {hashTagsData.map((tag: HashTagType) => (
-                  <span key={tag.id} className={`p-1 hover:bg-primary-color/30 rounded-small cursor-pointer flex items-center gap-1`} style={{ backgroundColor: tag.color }}>
-                      {tag.title[locale]}
-                  </span>
+                //   <span key={tag.id} className={`p-1 hover:bg-primary-color/30 rounded-small cursor-pointer flex items-center gap-1`} style={{ backgroundColor: tag.color }}>
+                //        {tag.title[locale]}
+                //  </span>
+                <HashTags key={tag.id} hashTags={[tag.title[locale]]} type={SIZE_ELEMENT.SMALL} />
               ))}
             </div>          
             <div className={`flex items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
