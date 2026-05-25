@@ -7,6 +7,7 @@ export const HASH_TAGS = {
         availableHashTags: 'Available Hash tags',
         chosenColorHashTag: 'Chosen color',
         addHashTag: 'Add hash tag',
+        saveHashTag: 'Save hash tag',
         deleteHashTag: 'Delete hash tag',
         hashTagTypes: [
             {value:DISORDER_TYPE.DEPRESSION, label: 'Depression'},
@@ -22,6 +23,7 @@ export const HASH_TAGS = {
         availableHashTags: 'Pieejamie Hashtagi',
         chosenColorHashTag: 'Izvēlētais krāsas',
         addHashTag: 'Pievienot hashtag',
+        saveHashTag: 'Saglabāt hashtag',
         deleteHashTag: 'Dzēst hashtag',
         hashTagTypes: [
             {value:DISORDER_TYPE.DEPRESSION, label: 'Depresija'},
@@ -37,6 +39,7 @@ export const HASH_TAGS = {
         availableHashTags: 'Доступные хештеги',
         chosenColorHashTag: 'Выбранный цвет',
         addHashTag: 'Добавить хештег',
+        saveHashTag: 'Сохранить хештег',
         deleteHashTag: 'Удалить хештег',
         hashTagTypes: [
             {value:DISORDER_TYPE.DEPRESSION, label: 'Депрессия'},

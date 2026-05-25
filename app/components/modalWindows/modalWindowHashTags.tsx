@@ -17,6 +17,7 @@ export default function ModalWindowHashTags({ hashTagsCallBack }: ModalWindowHas
   const [chosenColorHashTags, setChosenColorHashTags] = useState<string>('');
   const [titleNewHashTag, setTitleNewHashTag] = useState<string>('');
   const [typeNewHashTag, setTypeNewHashTag] = useState<string>('');
+  const [choosenHashTags, setChosenHashTags] = useState<HashTagType[]>([]);
   const STATUS_ACTIVE_COMPONENT = {
     DEFAULT: 'DEFAULT',
     ADD: 'ADD',
@@ -102,11 +103,14 @@ export default function ModalWindowHashTags({ hashTagsCallBack }: ModalWindowHas
             <div className={`flex flex-col items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
               <span className={`text-[12px]`}>{HASH_TAGS[locale].availableHashTags}</span>
               {hashTagsData.map((tag: HashTagType) => (
-                //   <span key={tag.id} className={`p-1 hover:bg-primary-color/30 rounded-small cursor-pointer flex items-center gap-1`} style={{ backgroundColor: tag.color }}>
-                //        {tag.title[locale]}
-                //  </span>
-                <HashTags key={tag.id} hashTags={[tag.title[locale]]} type={SIZE_ELEMENT.SMALL} />
+                <div key={tag.id} onClick={() => setChosenHashTags((prev) => [...prev, tag])} className={`cursor-pointer w-full p-2 rounded-small border flex items-center gap-2 ${choosenHashTags.some(chosenTag => chosenTag.id === tag.id) ? 'bg-amber-200' : ''}`}>
+                  <HashTags key={tag.id} hashTags={[tag.title[locale]]} type={SIZE_ELEMENT.SMALL} />
+                </div>
+                
               ))}
+              <button className={`mt-2 p-2 rounded-large bg-green-500  cursor-pointer`} onClick={() => hashTagsCallBack(choosenHashTags)}>
+                <span>{choosenHashTags.length > 0 ? HASH_TAGS[locale].saveHashTag : HASH_TAGS[locale].addHashTag}</span>
+              </button>
             </div>          
             <div className={`flex items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
               <span className={`text-sm`}>{HASH_TAGS[locale].addHashTag}</span>
