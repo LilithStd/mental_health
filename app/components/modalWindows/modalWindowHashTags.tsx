@@ -71,7 +71,7 @@ export default function ModalWindowHashTags() {
           </div>
       )
   }
-  console.log(typeNewHashTag, titleNewHashTag, chosenColorHashTags);
+  // console.log(typeNewHashTag, titleNewHashTag, chosenColorHashTags);
   const addHashTagComponent = (
       <div className={`flex items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
         <div className={`flex flex-col gap-2 w-full`}>
