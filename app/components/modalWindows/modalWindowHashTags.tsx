@@ -3,12 +3,14 @@ import { HashTagType, LocaleType } from "@/app/types/types";
 import { HASH_TAGS } from "@/translate/shared/hashTags";
 import AddTagsIcon from "@/public/icons/PlusCircle.svg";
 import { useEffect, useState } from "react";
-import { Hash } from "crypto";
 import HashTags from "../shared/hashTags";
 import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum";
 
+interface ModalWindowHashTagsProps {
+    hashTagsCallBack: (hashTags: HashTagType[]) => void
+}
 
-export default function ModalWindowHashTags() {
+export default function ModalWindowHashTags({ hashTagsCallBack }: ModalWindowHashTagsProps) {
   const locale = useLocale() as LocaleType;
 
   const [hashTagsData, setHashTagsData] = useState<HashTagType[]>([]);
