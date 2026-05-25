@@ -93,8 +93,13 @@ export default function ModalWindowHashTags() {
         <h2 className="text-lg font-bold">#{HASH_TAGS[locale].hashTags}</h2>
         {statusActiveComponent === STATUS_ACTIVE_COMPONENT.ADD && addHashTagComponent}
         {statusActiveComponent === STATUS_ACTIVE_COMPONENT.DEFAULT && <div className="flex gap-2 mt-4">
-            <div className={`flex items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
+            <div className={`flex flex-col items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
               <span className={`text-[12px]`}>{HASH_TAGS[locale].availableHashTags}</span>
+              {hashTagsData.map((tag: HashTagType) => (
+                  <span key={tag.id} className={`p-1 hover:bg-primary-color/30 rounded-small cursor-pointer flex items-center gap-1`} style={{ backgroundColor: tag.color }}>
+                      {tag.title[locale]}
+                  </span>
+              ))}
             </div>          
             <div className={`flex items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
               <span className={`text-sm`}>{HASH_TAGS[locale].addHashTag}</span>

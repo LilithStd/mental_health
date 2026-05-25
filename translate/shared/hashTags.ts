@@ -4,7 +4,7 @@ import { DISORDER_TYPE } from "@/app/globalConsts/globalEnum";
 export const HASH_TAGS = {
     en: {
         hashTags: 'Hash tags',
-        availableHashTags: 'Available colors',
+        availableHashTags: 'Available Hash tags',
         chosenColorHashTag: 'Chosen color',
         addHashTag: 'Add hash tag',
         deleteHashTag: 'Delete hash tag',
@@ -19,7 +19,7 @@ export const HASH_TAGS = {
     },
     lv: {
         hashTags: 'Hashtagi',
-        availableHashTags: 'Pieejamie krāsas',
+        availableHashTags: 'Pieejamie Hashtagi',
         chosenColorHashTag: 'Izvēlētais krāsas',
         addHashTag: 'Pievienot hashtag',
         deleteHashTag: 'Dzēst hashtag',
@@ -34,7 +34,7 @@ export const HASH_TAGS = {
     },
     ru: {
         hashTags: 'Хештеги',
-        availableHashTags: 'Доступные цвета',
+        availableHashTags: 'Доступные хештеги',
         chosenColorHashTag: 'Выбранный цвет',
         addHashTag: 'Добавить хештег',
         deleteHashTag: 'Удалить хештег',
