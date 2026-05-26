@@ -111,14 +111,14 @@ export default function ModalWindowHashTags({ hashTagsCallBack }: ModalWindowHas
       </div>
   )
   return (
-    <div className={`absolute flex flex-col backdrop-blur-xl  shadow-md  rounded-large  bg-primary-color/10 border border-primary-color/30 p-4 left-2 min-h-30 top-18 w-[400px] z-50`}>
+    <div className={`absolute flex flex-col backdrop-blur-xl  shadow-md  rounded-large  bg-primary-color/10 border border-primary-color/30 p-4 left-2 min-h-30 top-18  z-50`}>
         <h2 className="text-lg font-bold">#{HASH_TAGS[locale].hashTags}</h2>
         {statusActiveComponent === STATUS_ACTIVE_COMPONENT.ADD && addHashTagComponent}
         {statusActiveComponent === STATUS_ACTIVE_COMPONENT.DEFAULT && <div className="flex gap-2 mt-4">
             <div className={`flex flex-col items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
               <span className={`text-[12px]`}>{HASH_TAGS[locale].availableHashTags}</span>
               {hashTagsData.map((tag: HashTagType) => (
-                <div key={tag.id} onClick={() => addHashTagsHandler(tag)} className={`cursor-pointer hover:scale-110 w-full  rounded-small  flex items-center gap-1 ${choosenHashTags.some(chosenTag => chosenTag.id === tag.id) ? 'bg-amber-200' : ''}`}>
+                <div key={tag.id} onClick={() => addHashTagsHandler(tag)} className={`cursor-pointer hover:scale-110 w-full justify-center p-1 rounded-large  flex items-center gap-1 ${choosenHashTags.some(chosenTag => chosenTag.id === tag.id) ? 'bg-amber-200' : ''}`}>
                   <HashTags key={tag.id} hashTags={[tag.title[locale]]} type={SIZE_ELEMENT.SMALL} />
                 </div>
                 
@@ -130,15 +130,6 @@ export default function ModalWindowHashTags({ hashTagsCallBack }: ModalWindowHas
             <div className={`flex items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
               <span className={`text-sm`}>{HASH_TAGS[locale].addHashTag}</span>
                 <AddTagsIcon className={`w-6 h-6 cursor-pointer hover:scale-110 transition-transform`} fill={'green'} onClick={() => setStatusActiveComponent(STATUS_ACTIVE_COMPONENT.ADD)} />
-                
-                    <ul className={`absolute top-full left-0 mt-2 w-full bg-primary-color/20 border border-primary-color/30 rounded-large p-2 z-50`}>
-                        {hashTagsData.map((tag: HashTagType) => (
-                            <li key={tag.id} className={`p-1 hover:bg-primary-color/30 rounded-small cursor-pointer`}>
-                                {tag.title[locale]}
-                            </li>
-                        ))}
-                    </ul>
-                
             </div>
             <div className={`flex items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
               <span className={`text-sm`}>{HASH_TAGS[locale].deleteHashTag}</span>
