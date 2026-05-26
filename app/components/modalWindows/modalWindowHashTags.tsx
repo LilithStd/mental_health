@@ -98,9 +98,15 @@ export default function ModalWindowHashTags({ hashTagsCallBack }: ModalWindowHas
             ))}
           </select>
           {colorHashTagsComponent()}
-          <button type="submit"  className={`mt-2 p-2 rounded-large bg-green-500  cursor-pointer`} onClick={() => addHashTag(typeNewHashTag, titleNewHashTag, chosenColorHashTags)}>
-            <span>Create HashTags</span>
-          </button>
+          <div className={`flex gap-2 w-full`}>
+            <button type="submit"  className={`mt-2 p-2 w-1/2 rounded-large bg-green-500  cursor-pointer`} onClick={() => addHashTag(typeNewHashTag, titleNewHashTag, chosenColorHashTags)}>
+              <span>{HASH_TAGS[locale].createHashTag}</span>
+            </button>
+            <button className={`mt-1 text-[14px] p-1 w-1/2 rounded-large bg-red-400  cursor-pointer`} onClick={() => setStatusActiveComponent(STATUS_ACTIVE_COMPONENT.DEFAULT)}>
+              <span>{HASH_TAGS[locale].cancelAddingHashTag}</span>
+            </button>
+          </div>
+          
         </div>
       </div>
   )

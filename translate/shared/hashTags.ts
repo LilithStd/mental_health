@@ -9,6 +9,8 @@ export const HASH_TAGS = {
         addHashTag: 'Add hash tag',
         saveHashTag: 'Save hash tag',
         deleteHashTag: 'Delete hash tag',
+        createHashTag: 'Create',
+        cancelAddingHashTag: 'Cancel',
         hashTagTypes: [
             {value:DISORDER_TYPE.DEPRESSION, label: 'Depression'},
             {value:DISORDER_TYPE.SHIZOPHRENIA, label: 'Schizophrenia'},
@@ -25,6 +27,8 @@ export const HASH_TAGS = {
         addHashTag: 'Pievienot hashtag',
         saveHashTag: 'Saglabāt hashtag',
         deleteHashTag: 'Dzēst hashtag',
+        createHashTag: 'Izveidot',
+        cancelAddingHashTag: 'Atcelt',
         hashTagTypes: [
             {value:DISORDER_TYPE.DEPRESSION, label: 'Depresija'},
             {value:DISORDER_TYPE.SHIZOPHRENIA, label: 'Šizofrēnija'},
@@ -41,6 +45,8 @@ export const HASH_TAGS = {
         addHashTag: 'Добавить хештег',
         saveHashTag: 'Сохранить хештег',
         deleteHashTag: 'Удалить хештег',
+        createHashTag: 'Создать',
+        cancelAddingHashTag: 'Отмена',
         hashTagTypes: [
             {value:DISORDER_TYPE.DEPRESSION, label: 'Депрессия'},
             {value:DISORDER_TYPE.SHIZOPHRENIA, label: 'Шизофрения'},
