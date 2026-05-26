@@ -29,6 +29,8 @@ export default function ModalWindowHashTags({ hashTagsCallBack }: ModalWindowHas
 
     if(!choosenHashTags.some(tag => tag.id === hashTags.id)) {
         setChosenHashTags((prev) => [...prev, hashTags]);
+    }else {
+      setChosenHashTags((prev) => prev.filter(tag => tag.id !== hashTags.id));
     }
     
     
