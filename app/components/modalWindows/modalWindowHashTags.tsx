@@ -133,14 +133,17 @@ export default function ModalWindowHashTags({ hashTagsCallBack }: ModalWindowHas
               <button className={`mt-1 text-[14px] p-1 rounded-large bg-green-400  cursor-pointer`} onClick={() => hashTagsCallBack(choosenHashTags)}>
                 <span>{choosenHashTags.length > 0 ? HASH_TAGS[locale].saveHashTag : HASH_TAGS[locale].addHashTag}</span>
               </button>
-            </div>          
-            <div className={`flex flex-col  items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
-             <AddTagsIcon className={`w-6 h-6 cursor-pointer hover:scale-110 transition-transform`} fill={'green'} onClick={() => setStatusActiveComponent(STATUS_ACTIVE_COMPONENT.ADD)} />
-              <span className={`text-sm mt-auto`}>{HASH_TAGS[locale].addHashTag}</span>
-            </div>
+            </div> 
             <div className={`flex flex-col items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
-              <span className={`text-sm mt-auto`}>{HASH_TAGS[locale].deleteHashTag}</span>
-            </div>
+              <div className={`flex flex-col  items-center  bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
+                <AddTagsIcon className={`w-6 h-6 cursor-pointer hover:scale-110 transition-transform`} fill={'green'} onClick={() => setStatusActiveComponent(STATUS_ACTIVE_COMPONENT.ADD)} />
+                <span className={`text-sm mt-auto`}>{HASH_TAGS[locale].addHashTag}</span>
+              </div>
+              <div className={`flex flex-col items-center gap-2 bg-primary-color/30 border border-primary-color/40 p-2 rounded-large`}>
+                <span className={`text-sm mt-auto`}>{HASH_TAGS[locale].deleteHashTag}</span>
+              </div>
+            </div>         
+            
         </div>}
     </div>
   )
