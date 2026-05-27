@@ -7,17 +7,18 @@ import HashTags from "../shared/hashTags";
 import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum";
 
 interface ModalWindowHashTagsProps {
-    hashTagsCallBack: (hashTags: HashTagType[]) => void
+  hashTagsAlreadyAdded?: HashTagType[],
+  hashTagsCallBack: (hashTags: HashTagType[]) => void
 }
 
-export default function ModalWindowHashTags({ hashTagsCallBack }: ModalWindowHashTagsProps) {
+export default function ModalWindowHashTags({ hashTagsAlreadyAdded, hashTagsCallBack }: ModalWindowHashTagsProps) {
   const locale = useLocale() as LocaleType;
 
   const [hashTagsData, setHashTagsData] = useState<HashTagType[]>([]);
   const [chosenColorHashTags, setChosenColorHashTags] = useState<string>('');
   const [titleNewHashTag, setTitleNewHashTag] = useState<string>('');
   const [typeNewHashTag, setTypeNewHashTag] = useState<string>('');
-  const [choosenHashTags, setChosenHashTags] = useState<HashTagType[]>([]);
+  const [choosenHashTags, setChosenHashTags] = useState<HashTagType[]>(hashTagsAlreadyAdded || []);
   const STATUS_ACTIVE_COMPONENT = {
     DEFAULT: 'DEFAULT',
     ADD: 'ADD',

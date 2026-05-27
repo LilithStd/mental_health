@@ -27,7 +27,7 @@ export default  function HashTagAdd() {
             <span>{CreateArticleContent[locale].tags}</span>
             {hashTags.length > 0 ? <HashTags hashTags={hashTags.map(tag => tag.title[locale])} type={SIZE_ELEMENT.FULL} /> : <span className={`text-sm`}>{'nothings'}</span>}
             <AddTagsIcon className={`w-6 h-6 cursor-pointer hover:scale-110 transition-transform`} fill={'green'} onClick={() => setIsOpenModal(!isOpenModal)} />
-            {isOpenModal && <ModalWindowHashTags hashTagsCallBack={addHashTagsHandler} />}
+            {isOpenModal && <ModalWindowHashTags hashTagsAlreadyAdded={hashTags} hashTagsCallBack={addHashTagsHandler} />}
                 
         </div>
   )
