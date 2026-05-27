@@ -114,7 +114,7 @@ export default function ModalWindowHashTags({ hashTagsAlreadyAdded, hashTagsCall
       </div>
   )
   return (
-    <div className={`absolute flex flex-col backdrop-blur-xl  shadow-md  rounded-large  bg-primary-color/10 border border-primary-color/30 p-4 left-2 min-h-30 top-18  z-50`}>
+    <div className={`absolute flex flex-col backdrop-blur-xl  shadow-md  rounded-large  bg-primary-color/10 border border-primary-color/30 p-4 left-2 min-h-30 top-28  z-50`}>
         <div className={`absolute top-2 right-2 p-2 rounded-full bg-primary-color/30 cursor-pointer hover:bg-primary-color/50 transition-colors`} onClick={() => setStatusActiveComponent(STATUS_ACTIVE_COMPONENT.DEFAULT)}>
           <button className={`text-[14px]   cursor-pointer`} onClick={() => (
               setStatusActiveComponent(STATUS_ACTIVE_COMPONENT.DEFAULT),
