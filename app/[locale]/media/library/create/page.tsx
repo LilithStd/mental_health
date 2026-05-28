@@ -13,6 +13,10 @@ export default async function CreateElementLibraryPage() {
             <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg  border border-primary-color/30 p-4`}>
             <form>
                 <input name="title" type="text" placeholder="Title" className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
+                <input name="title" type="text" placeholder="Title" className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
+                <input name="title" type="text" placeholder="Title" className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
+                <input name="description" type="text" placeholder="Description" className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
+                <input name="description" type="text" placeholder="Description" className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
                 <input name="description" type="text" placeholder="Description" className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
                 <select name="locale" className={`w-1/10 p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`}>
                     {LibraryGroupElementType.map(type => (
