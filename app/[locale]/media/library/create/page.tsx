@@ -1,10 +1,13 @@
 import ImageUpload from "@/app/components/articles/articleComponents/ImageUpload";
 import HashTagAdd from "@/app/components/shared/createComponents/hashTagAdd";
 import HashTags from "@/app/components/shared/hashTags";
+import { LANGUAGE_APP } from "@/app/globalConsts/globalConsts";
+import { LANGUAGE } from "@/app/globalConsts/globalEnum";
 import { getLocale } from "@/app/hooks/server/getLocale";
 import { LocaleType } from "@/app/types/types";
 import { CreateArticleContent } from "@/translate/mediaPage/articleContent/articleContent";
-import { LibraryGroupElementType } from "@/translate/mediaPage/libraryContent/libraryContent";
+import { LibraryContent, LibraryGroupElementType } from "@/translate/mediaPage/libraryContent/libraryContent";
+import { HASH_TAGS } from "@/translate/shared/hashTags";
 
 export default async function CreateElementLibraryPage() {
     const locale = await getLocale() as LocaleType
@@ -12,12 +15,12 @@ export default async function CreateElementLibraryPage() {
     <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
             <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg  border border-primary-color/30 p-4`}>
             <form>
-                <input name="titleen" type="text" placeholder="Title" className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
-                <input name="titlelv" type="text" placeholder="Title" className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
-                <input name="titleru" type="text" placeholder="Title" className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
-                <input name="descriptionen" type="text" placeholder="Description" className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
-                <input name="descriptionlv" type="text" placeholder="Description" className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
-                <input name="descriptionru" type="text" placeholder="Description" className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
+                <input name="titleen" type="text" placeholder={LibraryContent[LANGUAGE.EN].createElement.title} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
+                <input name="titlelv" type="text" placeholder={LibraryContent[LANGUAGE.LV].createElement.title} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
+                <input name="titleru" type="text" placeholder={LibraryContent[LANGUAGE.RU].createElement.title} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
+                <input name="descriptionen" type="text" placeholder={LibraryContent[LANGUAGE.EN].createElement.description} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
+                <input name="descriptionlv" type="text" placeholder={LibraryContent[LANGUAGE.LV].createElement.description} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
+                <input name="descriptionru" type="text" placeholder={LibraryContent[LANGUAGE.RU].createElement.description} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
                 <select name="locale" className={`w-1/10 p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`}>
                     {LibraryGroupElementType.map(type => (
                         <option key={type.type} value={type.type}>{type[locale]}</option>
@@ -32,8 +35,10 @@ export default async function CreateElementLibraryPage() {
                     </div>
                 </div>
                
-                <textarea name="content" placeholder="Content" className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} rows={10}></textarea>
-                <button type="submit" className={`px-4 py-2 bg-buttonContainer rounded-large font-bold`}>Create</button>
+                <textarea name="content" placeholder={LibraryContent[LANGUAGE.EN].createElement.content} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} rows={10}></textarea>
+                <textarea name="content" placeholder={LibraryContent[LANGUAGE.LV].createElement.content} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} rows={10}></textarea>
+                <textarea name="content" placeholder={LibraryContent[LANGUAGE.RU].createElement.content} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} rows={10}></textarea>
+                <button type="submit" className={`px-4 py-2 bg-buttonContainer rounded-large font-bold`}>{LibraryContent[locale].createElement.saveButton}</button>
             </form>
             </div>
     </div>
