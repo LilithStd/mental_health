@@ -9,9 +9,12 @@ import { useState } from 'react'
 import AppImage from '../shared/appImage'
 import { IMAGES_UPLOAD_PATH } from '@/app/globalConsts/globalEnum'
 import { UPLOAD_IMAGE_NAME } from '@/app/globalConsts/globalConsts'
+import Link from 'next/link'
+import { routes } from '@/app/helpers/helpersFunctions'
 
 export default function ProblemSolvingBlock() {
     const localeAdapted = useLocale() as LocaleType;
+    const routesAdaptive = routes(localeAdapted)
     const [selectedProblemIndex, setSelectedProblemIndex] = useState<number | null>(null);
     const [hoveredProblem, setHoveredProblem] = useState<string>();
     const selectedProblemHandler = (index: number) => {
@@ -42,9 +45,9 @@ export default function ProblemSolvingBlock() {
     }
     const readMoreButton = (problem:string) => {
         return (
-            <button className={`bg-secondary-color p-2 hover:bg-accentElement rounded-large text-[8px] transition-colors duration-300`}>
+            <Link href={routesAdaptive.library.byId(problem)} className={`bg-secondary-color p-2 hover:bg-accentElement rounded-large text-[8px] transition-colors duration-300`}>
                 Read More
-            </button>
+            </Link>
         )
     }
     const popUpWindowComponent = (color: string, description: string) => {
