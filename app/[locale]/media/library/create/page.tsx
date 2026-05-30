@@ -21,10 +21,18 @@ export default async function CreateElementLibraryPage() {
                     <input name="titlelv" type="text" placeholder={LibraryContent[LANGUAGE.LV].createElement.title} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
                     <input name="titleru" type="text" placeholder={LibraryContent[LANGUAGE.RU].createElement.title} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
                 </fieldset>
-     
-                <input name="descriptionen" type="text" placeholder={LibraryContent[LANGUAGE.EN].createElement.description} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
+                <fieldset className={`mb-4 border border-primary-color/30 rounded-large p-4`}>
+                    <legend className={`text-lg font-bold`}>{LibraryContent[locale].createElement.description}</legend>
+                    <input name="descriptionen" type="text" placeholder={LibraryContent[LANGUAGE.EN].createElement.description} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
                 <input name="descriptionlv" type="text" placeholder={LibraryContent[LANGUAGE.LV].createElement.description} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
                 <input name="descriptionru" type="text" placeholder={LibraryContent[LANGUAGE.RU].createElement.description} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
+                </fieldset>
+                <fieldset className={`mb-4 border border-primary-color/30 rounded-large p-4`}>
+                    <legend className={`text-lg font-bold`}>{LibraryContent[locale].createElement.content}</legend>
+                    <textarea name="contenten" placeholder={LibraryContent[LANGUAGE.EN].createElement.content} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} rows={4}></textarea>
+                    <textarea name="contentlv" placeholder={LibraryContent[LANGUAGE.LV].createElement.content} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} rows={4}></textarea>
+                    <textarea name="contentru" placeholder={LibraryContent[LANGUAGE.RU].createElement.content} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} rows={4}></textarea>
+                </fieldset>
                 <select name="locale" className={`w-1/10 p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`}>
                     {LibraryGroupElementType.map(type => (
                         <option key={type.type} value={type.type}>{type[locale]}</option>
@@ -38,10 +46,7 @@ export default async function CreateElementLibraryPage() {
                         <ImageUpload />
                     </div>
                 </div>
-               
-                <textarea name="content" placeholder={LibraryContent[LANGUAGE.EN].createElement.content} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} rows={10}></textarea>
-                <textarea name="content" placeholder={LibraryContent[LANGUAGE.LV].createElement.content} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} rows={10}></textarea>
-                <textarea name="content" placeholder={LibraryContent[LANGUAGE.RU].createElement.content} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} rows={10}></textarea>
+                
                 <button type="submit" className={`px-4 py-2 bg-buttonContainer rounded-large font-bold`}>{LibraryContent[locale].createElement.saveButton}</button>
             </form>
             </div>
