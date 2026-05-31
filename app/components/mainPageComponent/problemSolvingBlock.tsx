@@ -104,7 +104,7 @@ export default function ProblemSolvingBlock() {
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[0].description && (
                             <div className={`flex flex-col items-center justify-center`}>
                                 <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
-                                {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[0].problem)}
+                                {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[0].id)}
                             </div>
                                 
                         )}
@@ -137,7 +137,7 @@ export default function ProblemSolvingBlock() {
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[1].description && (
                             <div className={`flex flex-col items-center justify-center`}>
                                 <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
-                                {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[1].problem)}
+                                {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[1].id)}
                             </div>
                         )}
                     </div>
@@ -170,7 +170,7 @@ export default function ProblemSolvingBlock() {
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[2].description && (
                             <div className={`flex flex-col items-center justify-center`}>
                                 <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
-                                {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[2].problem)}
+                                {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[2].id)}
                             </div>
                                 
                         )}
@@ -204,7 +204,7 @@ export default function ProblemSolvingBlock() {
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[3].description && (
                                 <div className={`flex flex-col items-center justify-center`}>
                                     <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
-                                    {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[3].problem)}
+                                    {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[3].id)}
                                 </div>
                         )}
                     </div>
@@ -237,7 +237,7 @@ export default function ProblemSolvingBlock() {
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description && (
                                 <div className={`flex flex-col items-center justify-center`}>
                                     <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
-                                    {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[4].problem)}
+                                    {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[4].id)}
                                 </div>
                         )}
                     </div>
@@ -269,7 +269,7 @@ export default function ProblemSolvingBlock() {
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[5].description && (
                                 <div className={`flex flex-col items-center justify-center`}>
                                     <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
-                                    {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[5].problem)}
+                                    {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[5].id)}
                                 </div>
                         )}
                     </div>
