@@ -54,15 +54,15 @@ export default function CreateNews() {
     </div>
 
     return (
-        <div className={`flex flex-col mb-4 p-2 rounded-medium bg-subContainer max-content-main-container gap-4`}>
+        <div className={`flex flex-col mb-4 p-4 rounded-large bg-primary-color/30 max-content-main-container gap-4`}>
             <h2>Create News</h2>
             <form action="" onSubmit={createNews} className={`flex flex-col gap-4 w-full`}>
-                <input type="text" name="title" placeholder="Title" className="w-full mb-2 p-2 rounded-md border border-gray-300" />
-                <textarea name="content" placeholder="Content" className="w-full min-h-40 mb-2 p-2 rounded-md border border-gray-300"></textarea>
-                <input type="text" name="link" placeholder="Link" className="w-full mb-2 p-2 rounded-md border border-gray-300" />
+                <input type="text" name="title" placeholder="Title" className="w-full mb-2 p-2 rounded-large border border-gray-300" />
+                <textarea name="content" placeholder="Content" className="w-full min-h-40 mb-2 p-2 rounded-large border border-gray-300"></textarea>
+                <input type="text" name="link" placeholder="Link" className="w-full mb-2 p-2 rounded-large border border-gray-300" />
                 <div className={`flex w-full gap-4 justify-center`}>
-                    <button type="button" onClick={handleReturnToNews} className={`p-2 bg-buttonContainer rounded-medium w-1/5`}>Cancel</button>
-                    <button type="submit" className={`p-2 bg-buttonContainer rounded-medium w-1/5`}>Create</button>
+                    <button type="button" onClick={handleReturnToNews} className={`p-2 bg-buttonContainer rounded-large w-1/5`}>Cancel</button>
+                    <button type="submit" className={`p-2 bg-buttonContainer rounded-large w-1/5`}>Create</button>
                 </div>
             </form>
         </div>
