@@ -8,9 +8,9 @@ import Image from 'next/image'
 import { useState } from 'react'
 import AppImage from '../shared/appImage'
 import { IMAGES_UPLOAD_PATH } from '@/app/globalConsts/globalEnum'
-import { UPLOAD_IMAGE_NAME } from '@/app/globalConsts/globalConsts'
+import { CROP_CONTAINER_SIZE, UPLOAD_IMAGE_NAME } from '@/app/globalConsts/globalConsts'
 import Link from 'next/link'
-import { routes } from '@/app/helpers/helpersFunctions'
+import { cropContent, routes } from '@/app/helpers/helpersFunctions'
 
 export default function ProblemSolvingBlock() {
     const localeAdapted = useLocale() as LocaleType;
@@ -103,7 +103,7 @@ export default function ProblemSolvingBlock() {
                         <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[0].description ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[0].problem}</span>
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[0].description && (
                             <div className={`flex flex-col items-center justify-center`}>
-                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                <p className={`text-[6px] p-2`}>{cropContent(hoveredProblem, CROP_CONTAINER_SIZE.MEDIUM)}</p>
                                 {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[0].id)}
                             </div>
                                 
@@ -136,7 +136,7 @@ export default function ProblemSolvingBlock() {
                         <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[1].description ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[1].problem}</span>
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[1].description && (
                             <div className={`flex flex-col items-center justify-center`}>
-                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                <p className={`text-[6px] p-2`}>{cropContent(hoveredProblem, CROP_CONTAINER_SIZE.MEDIUM)}</p>
                                 {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[1].id)}
                             </div>
                         )}
@@ -169,7 +169,7 @@ export default function ProblemSolvingBlock() {
                          <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[2].description ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[2].problem}</span>
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[2].description && (
                             <div className={`flex flex-col items-center justify-center`}>
-                                <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                <p className={`text-[6px] p-2`}>{cropContent(hoveredProblem, CROP_CONTAINER_SIZE.MEDIUM)}</p>
                                 {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[2].id)}
                             </div>
                                 
@@ -203,7 +203,7 @@ export default function ProblemSolvingBlock() {
                         <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[3].description ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[3].problem}</span>
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[3].description && (
                                 <div className={`flex flex-col items-center justify-center`}>
-                                    <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                    <p className={`text-[6px] p-2`}>{cropContent(hoveredProblem, CROP_CONTAINER_SIZE.MEDIUM)}</p>
                                     {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[3].id)}
                                 </div>
                         )}
@@ -236,7 +236,7 @@ export default function ProblemSolvingBlock() {
                         <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[4].problem}</span>
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description && (
                                 <div className={`flex flex-col items-center justify-center`}>
-                                    <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                     {cropContent(ProblemSolvingBlockContent[localeAdapted].problems[4].description, CROP_CONTAINER_SIZE.MEDIUM)}
                                     {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[4].id)}
                                 </div>
                         )}
@@ -265,10 +265,11 @@ export default function ProblemSolvingBlock() {
                         onMouseEnter={() => setHoveredProblem(ProblemSolvingBlockContent[localeAdapted].problems[5].description)}
                         onMouseLeave={() => setHoveredProblem('')}
                     >
-                        <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[5].description ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[5].problem}</span>
+                        <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[5].description ? 'text-[10px]' : 'text-md'}`}>     {ProblemSolvingBlockContent[localeAdapted].problems[5].problem}</span>
+                        
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[5].description && (
                                 <div className={`flex flex-col items-center justify-center`}>
-                                    <p className={`text-[6px] p-2`}>{hoveredProblem}</p>
+                                    <p className={`text-[6px] p-2`}>{cropContent(hoveredProblem,CROP_CONTAINER_SIZE.MEDIUM)}</p>
                                     {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[5].id)}
                                 </div>
                         )}
