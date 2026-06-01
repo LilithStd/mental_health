@@ -254,7 +254,9 @@ export default function ProblemSolvingBlock() {
                             h-[200px] 
                             -bottom-20 
                             left-55 
-                            z-0 
+                            z-0
+                            hover:cursor-pointer
+                            hover:z-100 
                             p-2
                             rounded-full 
                             ${ProblemSolvingBlockContent[localeAdapted].problems[5].color} font-bold 
