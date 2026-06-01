@@ -236,7 +236,8 @@ export default function ProblemSolvingBlock() {
                         <span className={`p-2 ${hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description ? 'text-[10px]' : 'text-md'}`}>{ProblemSolvingBlockContent[localeAdapted].problems[4].problem}</span>
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description && (
                                 <div className={`flex flex-col items-center justify-center`}>
-                                     {cropContent(ProblemSolvingBlockContent[localeAdapted].problems[4].description, CROP_CONTAINER_SIZE.MEDIUM)}
+                                    <p className={`text-[6px] p-2`}>{cropContent(hoveredProblem, CROP_CONTAINER_SIZE.MEDIUM)}</p>
+                                    
                                     {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[4].id)}
                                 </div>
                         )}
