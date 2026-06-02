@@ -14,15 +14,15 @@ export const LIST_LINKS = {
 			ru: 'Главная',
 		},
 	},
-	FAQ:{
-		label: 'FAQ',
-		path: APP_PATH_ROUTER.FAQ,
-		translate: {
-			en: 'FAQ',
-			lv: 'BUJ',
-			ru: 'ЧАВО',
-		}
-	},
+	// FAQ:{
+	// 	label: 'FAQ',
+	// 	path: APP_PATH_ROUTER.FAQ,
+	// 	translate: {
+	// 		en: 'FAQ',
+	// 		lv: 'BUJ',
+	// 		ru: 'ЧАВО',
+	// 	}
+	// },
 	TESTS: {
 		label: 'tests',
 		path: APP_PATH_ROUTER.TESTS,
@@ -41,15 +41,15 @@ export const LIST_LINKS = {
 			ru: 'Медиа',
 		},
 	},
-	PRICING: {
-		label: 'pricing',
-		path: APP_PATH_ROUTER.PRICING,
-		translate: {
-			en: 'Prices',
-			lv: 'Cenas',
-			ru: 'Цены',
-		},
-	},
+	// PRICING: {
+	// 	label: 'pricing',
+	// 	path: APP_PATH_ROUTER.PRICING,
+	// 	translate: {
+	// 		en: 'Prices',
+	// 		lv: 'Cenas',
+	// 		ru: 'Цены',
+	// 	},
+	// },
 
 	CONSULTATION: {
 		label: 'consultation',
@@ -203,7 +203,7 @@ export const LINKS = [
 	LIST_LINKS.MAIN,
 	LIST_LINKS.MEDIA,
 	LIST_LINKS.TESTS,
-	LIST_LINKS.FAQ,
+	// LIST_LINKS.FAQ,
 	// LIST_LINKS.PRICING,
 	LIST_LINKS.CONSULTATION,
 ];

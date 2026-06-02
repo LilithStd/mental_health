@@ -87,9 +87,9 @@ export const routes = (locale: string) => {
     root: `${prefix}${APP_PATH_ROUTER.TESTS}`,
     byId: (id: number | string) => `${prefix}${APP_PATH_ROUTER.TESTS}/${id}`,
   },
-  faq: {
-    root: `${prefix}${APP_PATH_ROUTER.FAQ}`,
-  },
+  // faq: {
+  //   root: `${prefix}${APP_PATH_ROUTER.FAQ}`,
+  // },
 
   news: {
     root: `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.NEWS}`,
