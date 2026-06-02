@@ -97,9 +97,9 @@ export const routes = (locale: string) => {
     edit: (id: number | string) => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.NEWS}/${id}/edit`,
     create: () => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.NEWS}/create`,
   },
-  pricing:{
-    root: `${prefix}${APP_PATH_ROUTER.PRICING}`,
-  },
+  // pricing:{
+  //   root: `${prefix}${APP_PATH_ROUTER.PRICING}`,
+  // },
 
   users:{
     root: `${prefix}${APP_PATH_ROUTER.USERS}`,
