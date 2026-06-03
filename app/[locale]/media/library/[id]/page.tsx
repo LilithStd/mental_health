@@ -1,11 +1,13 @@
+import LibraryElement from "@/app/components/library/libraryElement";
 import ReturnButton from "@/app/components/returnButton";
+import { LIBRARY_TYPE } from "@/app/globalConsts/globalEnum";
 import { routes } from "@/app/helpers/helpersFunctions";
 import { getLocale } from "@/app/hooks/server/getLocale";
 import { LocaleType } from "@/app/types/types";
 
 
-export default async function CurrentElementLibraryPage({ params }: { params: { id: string } }) {
-  const { id } = await params;
+export default async function CurrentElementLibraryPage({ params }: { params: { id: string, type: LIBRARY_TYPE } }) {
+  const { id, type } = await params;
   const locale = await getLocale() as LocaleType
   const routesAdaptive = routes(locale)
 
@@ -16,7 +18,7 @@ export default async function CurrentElementLibraryPage({ params }: { params: { 
                 <ReturnButton pathToReturn={routesAdaptive.library.root} />
             </div>
             <div className={`flex w-full justify-center gap-4 mb-4`}>
-                <span>{`${id}`}</span>
+                <LibraryElement id={[...id]} type={type} />
             </div>
         </div>
     </div>

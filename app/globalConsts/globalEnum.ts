@@ -91,6 +91,11 @@ export enum ADDITIONAL_METHOD_TYPE {
 // 	FULL = 'FULL',
 // }
 
+export enum LIBRARY_TYPE {
+	SOLO = 'SOLO',
+	GROUP = 'GROUP',
+}
+
 export enum USER_FAVORITES_ACTION {
 	ADD = 'ADD',
 	REMOVE = 'REMOVE',
