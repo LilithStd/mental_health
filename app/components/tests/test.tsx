@@ -16,6 +16,7 @@ import { useLocale } from "@/app/hooks/useLocale"
 import { BUTTON_READ_MORE, BUTTON_TEST, BUTTON_VIEW_ALL } from "@/translate/global/button";
 import HashTags from "../shared/hashTags";
 import { TYPES_OF_TEST } from "@/translate/testPage/testPage";
+import { HASH_TAGS } from "@/translate/shared/hashTags";
 
 
 
@@ -54,12 +55,13 @@ export default function Test({ test, testType }: TestProps) {
         return (
             <div className={`flex mt-2  w-full bg-primary-color/20 shadow-sm border border-primary-color/30 items-center  rounded-large `}>
                     <div className={`flex justify-between items-center w-full gap-2 rounded-large`}>
-                        <div className={`flex pl-2`}>
+                        <div className={`flex flex-col p-2`}>
+                            <span className={`text-sm italic`}>{HASH_TAGS[locale].hashTags}:</span>
                             <HashTags hashTags={['example', 'sample', 'test']} type={testType}/>
                         </div>
                         
                         <button
-                            className={`p-2 cursor-pointer rounded-large bg-primary-color/50 border border-primary-color/30 shadow-sm  flex justify-center items-center`}
+                            className={`p-2 m-2 cursor-pointer rounded-large bg-primary-color/50 border border-primary-color/30 shadow-sm  flex justify-center items-center`}
                             onClick={() => router.push(routesAdaptive.tests.byId(test.id))}
                         >
                             <span className={`text-sm`}>{BUTTON_TEST[locale]}</span>
