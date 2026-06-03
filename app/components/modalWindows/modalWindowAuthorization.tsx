@@ -8,7 +8,7 @@ import { useMockAuthStore } from "@/app/store/mockAuthStore";
 import { AUTH_METHODS_SYSTEM_MESSAGES, INPUT_PLACEHOLDERS } from "@/app/template/text";
 import { LocaleType } from "@/app/types/types";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
@@ -42,6 +42,14 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
         props.setAuthorizationType(AUTHORIZATION_STATUS.REGISTRATION);
     }
     // Effect
+    useEffect(() => {
+        if (error) {
+            const timer = setTimeout(() => {
+                setError(null);
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [error]);
 
     // 
     // handlers
@@ -110,6 +118,21 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
     // components
     const AuthSignInComponent = (
         <div className={`bg-white/30 backdrop-blur-md p-6 rounded-lg  flex flex-col items-center justify-center gap-4`}>
+            {error && (
+
+        <div
+            className="
+            rounded-large
+            border border-red-500/30
+            bg-red-500/10
+            p-3
+            text-red-400
+            "
+        >
+            {error}
+        </div>
+
+            )}
             <form action={signInUserHandler} className={`flex flex-col items-center justify-center gap-2`} key={props.typeAuthorization}>
                 <input name="email" type="email" placeholder={INPUT_PLACEHOLDERS.EMAIL[locale]} className={`mb-2 p-2 rounded-small w-64 border`} required />
                 <input name="password" type="password" placeholder={INPUT_PLACEHOLDERS.PASSWORD[locale]} className={`mb-2 p-2 rounded-small w-64 border`} required />
@@ -118,7 +141,6 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
                 </button>
             </form>
             <div className={`flex  items-center justify-center gap-2 flex-col`}>
-
                 <h2 className={``}>{AUTH_METHODS_SYSTEM_MESSAGES.NOT_REGISTERED_YET[locale].part1}</h2>
                 <div className={`flex  items-center justify-center gap-2 flex-row`}>
                     <h2>{AUTH_METHODS_SYSTEM_MESSAGES.NOT_REGISTERED_YET[locale].part2}</h2>
@@ -126,7 +148,6 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
                         onClick={setAuthRegType}
                     >{AUTH_METHODS_SYSTEM_MESSAGES.HERE_LINK[locale]}</h2>
                 </div>
-
             </div>
 
         </div>
@@ -202,7 +223,7 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
         <div className={`flex flex-col bg-primary-color/50 items-center justify-center gap-2 p-4 rounded-large`}>
             {succerssfullyCreated ? successfullyUserCreatedComponent() : <>
                 <h2 className={``}>{props.contentTypeAuthorization}</h2>
-                <h2 className="p-2 bg-amber-600" onClick={resetUserStore}>Res</h2>
+                {/* <h2 className="p-2 bg-amber-600" onClick={resetUserStore}>Res</h2> */}
                 {props.typeAuthorization === AUTHORIZATION_STATUS.SIGN_IN ? AuthSignInComponent : AuthRegistrationComponent}
             </>}
 
