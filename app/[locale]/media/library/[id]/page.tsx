@@ -18,7 +18,7 @@ export default async function CurrentElementLibraryPage({ params }: { params: { 
                 <ReturnButton pathToReturn={routesAdaptive.library.root} />
             </div>
             <div className={`flex w-full justify-center gap-4 mb-4`}>
-                <LibraryElement id={[...id]} type={type} />
+                <LibraryElement id={[id]} type={type} />
             </div>
         </div>
     </div>
