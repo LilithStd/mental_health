@@ -1,7 +1,11 @@
-import { getAllLibrary } from "@/app/service/libraryService";
+import { getAllLibrary, getElementLibraryById } from "@/app/service/libraryService";
 import { NextResponse } from "next/server";
 
-export async function GET() {
+export async function GET(id?: string) {
+    if (id) {
+        const libraryElement = await getElementLibraryById(id);
+        return NextResponse.json(libraryElement);
+    }
     const library = await getAllLibrary();
     return NextResponse.json(library)
 }
