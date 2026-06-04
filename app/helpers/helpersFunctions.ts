@@ -75,7 +75,7 @@ export const routes = (locale: string) => {
   },
   library:{
     root: `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.LIBRARY}`,
-    byId: (id: number | string) => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.LIBRARY}/${id}`,
+    byId: (id: readonly string[] | string) => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.LIBRARY}/${Array.isArray(id) ? id.join('-') : id}`,
     create: () => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.LIBRARY}/create`,
     update: (id: number | string) => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.LIBRARY}/${id}/update`,
     edit: (id: number | string) => `${prefix}${APP_PATH_ROUTER.MEDIA}/${APP_PATH_ROUTER_SUBPATH.LIBRARY}/${id}/edit`,
