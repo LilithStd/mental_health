@@ -15,8 +15,16 @@ import { cropContent, routes } from '@/app/helpers/helpersFunctions'
 export default function ProblemSolvingBlock() {
     const localeAdapted = useLocale() as LocaleType;
     const routesAdaptive = routes(localeAdapted)
+    const params  = new URLSearchParams();
     const [selectedProblemIndex, setSelectedProblemIndex] = useState<number | null>(null);
     const [hoveredProblem, setHoveredProblem] = useState<string>();
+
+    const createParamsForLink = (id: readonly string[]) => {
+        id.forEach((problemId) => {
+            params.append('ids', problemId);
+        });
+        return params.toString();
+    }
     const selectedProblemHandler = (index: number) => {
         if (selectedProblemIndex === index) {
             setSelectedProblemIndex(null);
@@ -45,7 +53,7 @@ export default function ProblemSolvingBlock() {
     }
     const readMoreButton = (problemId: readonly string[]) => {
         return (
-            <Link href={routesAdaptive.library.group} className={`bg-secondary-color p-2 hover:bg-accentElement rounded-large text-[8px] transition-colors duration-300`}>
+            <Link href={`${routesAdaptive.library.group}?${createParamsForLink(problemId)}`} className={`bg-secondary-color p-2 hover:bg-accentElement rounded-large text-[8px] transition-colors duration-300`}>
                 Read More
             </Link>
         )
