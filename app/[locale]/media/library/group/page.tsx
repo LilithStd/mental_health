@@ -3,13 +3,12 @@ import { LIBRARY_TYPE } from "@/app/globalConsts/globalEnum";
 
 interface GroupPageProps {
   searchParams: Promise<{
-    ids?: string;
+    ids?: string[];
   }>;
 }
 
 export default async function GroupPage({ searchParams }: GroupPageProps) {
-  const params = await searchParams;
-  const ids = params.ids
+    const { ids = [] } = await searchParams;
 
   return (
     <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
