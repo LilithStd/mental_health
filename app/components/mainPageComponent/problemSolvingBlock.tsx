@@ -43,9 +43,9 @@ export default function ProblemSolvingBlock() {
             </div>
         );
     }
-    const readMoreButton = (problemId:readonly string[]) => {
+    const readMoreButton = (problemId: readonly string[]) => {
         return (
-            <Link href={routesAdaptive.library.byId(problemId)} className={`bg-secondary-color p-2 hover:bg-accentElement rounded-large text-[8px] transition-colors duration-300`}>
+            <Link href={routesAdaptive.library.group} className={`bg-secondary-color p-2 hover:bg-accentElement rounded-large text-[8px] transition-colors duration-300`}>
                 Read More
             </Link>
         )
