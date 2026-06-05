@@ -1,3 +1,4 @@
+import { Types } from "mongoose";
 import { connectDB } from "../lib/connectDB";
 import { LibraryTypes, Library } from "../models/library";
 import { LibraryType } from "../types/types";
@@ -32,12 +33,17 @@ export async function getElementLibraryById(id: string) {
 }
 
 export async function getElementLibraryByIds(ids: string[]) {
-    await connectDB();
-    const elementLibrary = await Library.find({ _id: { $in: ids } }).lean();
-    if (!elementLibrary || elementLibrary.length === 0) {
-        throw new Error("Element Library items not found");
+await connectDB();
+
+  return await Library.find({
+
+    _id: {
+
+      $in: ids.map(id => new Types.ObjectId(id))
+
     }
-    return elementLibrary.map(mapLibrary);
+
+  }).lean();
 }
 
 export async function addElementLibrary(data: Partial<LibraryTypes>) {

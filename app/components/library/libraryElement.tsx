@@ -14,23 +14,6 @@ export default function LibraryElement({ ids, type }: LibraryElementProps) {
 const locale = useLocale() as LocaleType
 const [libraryElements, setLibraryElements] = useState<LibraryType[]>([]);
 
-
-// const fetchLibraryElement = () => {
-    
-//         fetch(`/api/library/${ids[0]}`) // Assuming you want to fetch the first ID for demonstration
-//             .then(response => response.json())
-//             .then(data => {
-//                 console.log('Fetched library element:', data);
-//                 setLibraryElements(prevElements => [...prevElements, data]);
-//             })
-//             .catch(error => {
-//                 console.error('Error fetching library element:', error);
-//             });
-
-// }
-
-// fetchLibraryElement();
-
 useEffect(() => {
     console.log('LibraryElement ids:', ids);
     const fetchLibraryElement = () => {
