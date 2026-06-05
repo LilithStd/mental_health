@@ -25,25 +25,26 @@ export async function getAllLibrary() {
 
 export async function getElementLibraryById(id: string) {
     await connectDB();
+    if (!Types.ObjectId.isValid(id)) {
+        throw new Error("Invalid ObjectId");
+    }
+
     const elementLibrary = await Library.findById(id).lean();
+
     if (!elementLibrary) {
         throw new Error("Element Library item not found");
     }
+
     return mapLibrary(elementLibrary);
 }
 
 export async function getElementLibraryByIds(ids: string[]) {
-await connectDB();
-
-  return await Library.find({
-
-    _id: {
-
-      $in: ids.map(id => new Types.ObjectId(id))
-
+    await connectDB();
+    const elementLibrary =  await Library.find({ _id: { $in: ids } }).lean();
+    if (!elementLibrary || elementLibrary.length === 0) {
+        throw new Error("Element Library items not found");
     }
-
-  }).lean();
+    return elementLibrary.map(mapLibrary);
 }
 
 export async function addElementLibrary(data: Partial<LibraryTypes>) {
