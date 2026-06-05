@@ -6,37 +6,53 @@ import { LibraryType,  LocaleType } from "@/app/types/types";
 import { useEffect, useState } from "react"
 
 interface LibraryElementProps {
-    id: string[]
+    ids: string[]
     type: LIBRARY_TYPE
 }
 
-export default function LibraryElement({ id, type }: LibraryElementProps) {
+export default function LibraryElement({ ids, type }: LibraryElementProps) {
 const locale = useLocale() as LocaleType
 const [libraryElements, setLibraryElements] = useState<LibraryType[]>([]);
-console.log('LibraryElement props:', { id, type });
+
+
+// const fetchLibraryElement = () => {
+    
+//         fetch(`/api/library/${ids[0]}`) // Assuming you want to fetch the first ID for demonstration
+//             .then(response => response.json())
+//             .then(data => {
+//                 console.log('Fetched library element:', data);
+//                 setLibraryElements(prevElements => [...prevElements, data]);
+//             })
+//             .catch(error => {
+//                 console.error('Error fetching library element:', error);
+//             });
+
+// }
+
+// fetchLibraryElement();
 
 useEffect(() => {
-    console.log('LibraryElement id:', id);
-    // const fetchLibraryElement = () => {
+    console.log('LibraryElement ids:', ids);
+    const fetchLibraryElement = () => {
 
-    //         id.map((elementId) => {
-    //             fetch(`/api/library?id=${elementId}`)
-    //                 .then(response => response.json())
-    //                 .then(data => {
-    //                     console.log('Fetched library element:', data);
-    //                     setLibraryElements(prevElements => [...prevElements, data]);
-    //                 })
-    //                 .catch(error => {
-    //                     console.error('Error fetching library element:', error);
-    //                 });
-    //         })
-    //     }
+            ids.map((elementId) => {
+                fetch(`/api/library?id=${elementId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Fetched library element:', data);
+                        setLibraryElements(prevElements => [...prevElements, data]);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching library element:', error);
+                    });
+            })
+        }
     
 
-    // if (id) {
-    //     fetchLibraryElement();
-    // }
-}, [id, type]);
+    if (ids.length > 0) {
+        fetchLibraryElement();
+    }
+}, [ids, type]);
 
 return (
     <div>
