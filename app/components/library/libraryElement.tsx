@@ -6,7 +6,7 @@ import { LibraryType,  LocaleType } from "@/app/types/types";
 import { useEffect, useState } from "react"
 
 interface LibraryElementProps {
-    ids: string[]
+    ids: LibraryType[]
     type: LIBRARY_TYPE
 }
 
