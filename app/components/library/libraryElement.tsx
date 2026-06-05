@@ -18,13 +18,13 @@ const [libraryElements, setLibraryElements] = useState<LibraryType[]>([]);
 
 return (
     <div>
-        {libraryElements.map((element) => (
+        {libraryElements.length > 0 ? libraryElements.map((element) => (
             <div key={element.id}>
                 <h2>{element.title[locale]}</h2>
                 <p>{element.content[locale]}</p>
                 {/* Render other properties of the library element as needed */}
             </div>
-        ))}
+        )) : <p>No library elements found.</p>}
     </div>
   )
 }
