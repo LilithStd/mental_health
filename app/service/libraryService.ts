@@ -42,7 +42,9 @@ export async function getElementLibraryBySlug(slugs: string[]) {
     await connectDB();
     const elementLibrary =  await Library.find({ slug: { $in: slugs } }).lean();
     if (!elementLibrary || elementLibrary.length === 0) {
+        return [];
         throw new Error("Element Library items not found");
+        
     }
     return elementLibrary.map(mapLibrary);
 }
