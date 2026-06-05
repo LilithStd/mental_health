@@ -29,8 +29,15 @@ export async function getElementLibraryById(id: string) {
         throw new Error("Element Library item not found");
     }
     return mapLibrary(elementLibrary);
+}
 
-    
+export async function getElementLibraryByIds(ids: string[]) {
+    await connectDB();
+    const elementLibrary = await Library.find({ _id: { $in: ids } }).lean();
+    if (!elementLibrary || elementLibrary.length === 0) {
+        throw new Error("Element Library items not found");
+    }
+    return elementLibrary.map(mapLibrary);
 }
 
 export async function addElementLibrary(data: Partial<LibraryTypes>) {
