@@ -6,7 +6,7 @@ import { LibraryType,  LocaleType } from "@/app/types/types";
 import { useEffect, useState } from "react"
 
 interface LibraryElementProps {
-    ids: LibraryType[]
+    ids: LibraryType[];
     type: LIBRARY_TYPE
 }
 
@@ -14,28 +14,7 @@ export default function LibraryElement({ ids, type }: LibraryElementProps) {
 const locale = useLocale() as LocaleType
 const [libraryElements, setLibraryElements] = useState<LibraryType[]>([]);
 
-useEffect(() => {
-    console.log('LibraryElement ids:', ids);
-    const fetchLibraryElement = () => {
 
-            ids.map((elementId) => {
-                fetch(`/api/library?id=${elementId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log('Fetched library element:', data);
-                        setLibraryElements(prevElements => [...prevElements, data]);
-                    })
-                    .catch(error => {
-                        console.error('Error fetching library element:', error);
-                    });
-            })
-        }
-    
-
-    if (ids.length > 0) {
-        fetchLibraryElement();
-    }
-}, [ids, type]);
 
 return (
     <div>

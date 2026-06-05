@@ -1,16 +1,16 @@
 import LibraryElement from "@/app/components/library/libraryElement";
 import { LIBRARY_TYPE } from "@/app/globalConsts/globalEnum";
-import { getElementLibraryByIds } from "@/app/service/libraryService";
+import { getElementLibraryBySlug } from "@/app/service/libraryService";
 
 interface GroupPageProps {
   searchParams: Promise<{
-    ids?: string[];
+    slugs?: string[];
   }>;
 }
 
 export default async function GroupPage({ searchParams }: GroupPageProps) {
-  const { ids = [] } = await searchParams;
-  const libraryElements = await getElementLibraryByIds(ids);
+  const { slugs = [] } = await searchParams;
+  const libraryElements = await getElementLibraryBySlug(slugs);
 
   return (
     <div className={`flex flex-col indents-main-container  flex-1 items-center`}>

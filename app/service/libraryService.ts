@@ -38,9 +38,9 @@ export async function getElementLibraryById(id: string) {
     return mapLibrary(elementLibrary);
 }
 
-export async function getElementLibraryByIds(ids: string[]) {
+export async function getElementLibraryBySlug(slugs: string[]) {
     await connectDB();
-    const elementLibrary =  await Library.find({ _id: { $in: ids } }).lean();
+    const elementLibrary =  await Library.find({ slug: { $in: slugs } }).lean();
     if (!elementLibrary || elementLibrary.length === 0) {
         throw new Error("Element Library items not found");
     }
