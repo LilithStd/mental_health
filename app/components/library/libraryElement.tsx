@@ -12,7 +12,7 @@ interface LibraryElementProps {
 
 export default function LibraryElement({ ids, type }: LibraryElementProps) {
 const locale = useLocale() as LocaleType
-const [libraryElements, setLibraryElements] = useState<LibraryType[]>([]);
+const [libraryElements, setLibraryElements] = useState<LibraryType[]>(ids);
 
 
 
