@@ -33,28 +33,32 @@ export default async function CreateElementLibraryPage() {
                     <textarea name="contentlv" placeholder={LibraryContent[LANGUAGE.LV].createElement.content} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} rows={4}></textarea>
                     <textarea name="contentru" placeholder={LibraryContent[LANGUAGE.RU].createElement.content} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} rows={4}></textarea>
                 </fieldset>
-                <fieldset className={` mb-4 gap-2 flex border border-primary-color/30 rounded-large p-4`}>
+                <fieldset className={` mb-4 gap-2 flex flex-col border border-primary-color/30 rounded-large p-4`}>
                     <legend className={`text-lg font-bold`}>{LibraryContent[locale].createElement.indentification}</legend>
-                    <fieldset className={`flex flex-col w-1/2 mb-4 border border-primary-color/30 rounded-large p-4`}>
-                        <legend className={`text-lg font-bold`}>{LibraryContent[locale].createElement.slug}</legend>
-                        <input name="slug" type="text" placeholder={LibraryContent[locale].createElement.slugExample} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
-                    </fieldset>
-                    <fieldset className={`flex flex-col w-1/2 mb-4 border border-primary-color/30 rounded-large p-4`}>
-                        <legend className={`text-lg font-bold`}>{LibraryContent[locale].type}</legend>
-                        <select name="locale" className={`w-1/2 p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`}>
-                            {LibraryGroupElementType.map(type => (
-                                <option key={type.type} value={type.type}>{type[locale]}</option>
-                            ))}
-                </select>
-                    </fieldset>
+                    <div className={`flex gap-4 w-full`}>
+                        <fieldset className={`flex flex-col w-1/2 mb-4 border border-primary-color/30 rounded-large p-4`}>
+                            <legend className={`text-lg font-bold`}>{LibraryContent[locale].createElement.slug}</legend>
+                            <input name="slug" type="text" placeholder={LibraryContent[locale].createElement.slugExample} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
+                        </fieldset>
+                        <fieldset className={`flex flex-col w-1/2 mb-4 border border-primary-color/30 rounded-large p-4`}>
+                            <legend className={`text-lg font-bold`}>{LibraryContent[locale].type}</legend>
+                            <select name="locale" className={`w-1/2 p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`}>
+                                {LibraryGroupElementType.map(type => (
+                                    <option key={type.type} value={type.type}>{type[locale]}</option>
+                                ))}
+                            </select>
+                        </fieldset>
+                    </div>
+                        
+                        <div className={`flex gap-2 mb-4 w-full`}>
+                            <HashTagAdd />
+                        </div>
                 </fieldset>
                 
 
                 <div className={`flex gap-4 w-full`}>
-                    <div className={`flex gap-2 mb-4 w-full`}>
-                        <HashTagAdd />
-                    </div>
-                    <div className={`flex gap-2 mb-4 w-full`}>
+          
+                    <div className={`flex gap-2 mb-4 min-h-[100px] w-full`}>
                         <ImageUpload />
                     </div>
                 </div>
