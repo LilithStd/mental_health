@@ -21,7 +21,7 @@ export default function ProblemSolvingBlock() {
 
     const createParamsForLink = (id: readonly string[]) => {
         id.forEach((problemId) => {
-            params.append('ids', problemId);
+            params.append('slugs', problemId);
         });
         return params.toString();
     }

@@ -10,6 +10,7 @@ interface GroupPageProps {
 
 export default async function GroupPage({ searchParams }: GroupPageProps) {
   const { slugs = [] } = await searchParams;
+  console.log("Received slugs:", await searchParams);
   const libraryElements = await getElementLibraryBySlug(slugs);
 
   return (

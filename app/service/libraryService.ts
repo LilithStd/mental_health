@@ -40,8 +40,10 @@ export async function getElementLibraryById(id: string) {
 
 export async function getElementLibraryBySlug(slugs: string[]) {
     await connectDB();
+    console.log('Fetching library elements with slugs:', slugs);
     const elementLibrary =  await Library.find({ slug: { $in: slugs } }).lean();
     if (!elementLibrary || elementLibrary.length === 0) {
+        // console.warn("No library elements found for the provided slugs:", slugs);
         return []; // Return an empty array if no matching library elements are found        
     }
     return elementLibrary.map(mapLibrary);
