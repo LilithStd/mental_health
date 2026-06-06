@@ -33,7 +33,7 @@ export default async function CreateElementLibraryPage() {
                     <textarea name="contentlv" placeholder={LibraryContent[LANGUAGE.LV].createElement.content} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} rows={4}></textarea>
                     <textarea name="contentru" placeholder={LibraryContent[LANGUAGE.RU].createElement.content} className={`w-full p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} rows={4}></textarea>
                 </fieldset>
-                <fieldset className={`flex border border-primary-color/30 rounded-large p-4`}>
+                <fieldset className={` mb-4 gap-2 flex border border-primary-color/30 rounded-large p-4`}>
                     <legend className={`text-lg font-bold`}>{LibraryContent[locale].createElement.indentification}</legend>
                     <fieldset className={`flex flex-col w-1/2 mb-4 border border-primary-color/30 rounded-large p-4`}>
                         <legend className={`text-lg font-bold`}>{LibraryContent[locale].createElement.slug}</legend>
@@ -59,7 +59,10 @@ export default async function CreateElementLibraryPage() {
                     </div>
                 </div>
                 
-                <button type="submit" className={`px-4 py-2 bg-buttonContainer rounded-large font-bold`}>{LibraryContent[locale].createElement.saveButton}</button>
+                <div className={`flex items-center justify-center gap-4 mb-4 w-full`}>
+                    <button type="submit" className={`px-4 py-2 rounded-large bg-primary-color/50 border border-primary-color/30`}>{LibraryContent[locale].createElement.saveButton}</button>
+                    <button type="reset" className={`px-4 py-2 rounded-large bg-primary-color/50 border border-primary-color/30`}>{LibraryContent[locale].createElement.cancelButton}</button>
+                </div>
             </form>
             </div>
     </div>

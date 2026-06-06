@@ -38,15 +38,28 @@ export async function getElementLibraryById(id: string) {
     return mapLibrary(elementLibrary);
 }
 
-export async function getElementLibraryBySlug(slugs: string[]) {
-    await connectDB();
-    console.log('Fetching library elements with slugs:', slugs);
-    const elementLibrary =  await Library.find({ slug: { $in: slugs } }).lean();
-    if (!elementLibrary || elementLibrary.length === 0) {
-        // console.warn("No library elements found for the provided slugs:", slugs);
-        return []; // Return an empty array if no matching library elements are found        
-    }
-    return elementLibrary.map(mapLibrary);
+export async function getElementLibraryBySlug(
+
+  slugs: string | string[]
+
+) {
+
+  await connectDB();
+
+  const slugArray = Array.isArray(slugs)
+
+    ? slugs
+
+    : [slugs];
+
+  const elementLibrary = await Library.find({
+
+    slug: { $in: slugArray }
+
+  }).lean();
+
+  return elementLibrary.map(mapLibrary);
+
 }
 
 export async function addElementLibrary(data: Partial<LibraryTypes>) {
