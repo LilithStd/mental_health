@@ -6,7 +6,9 @@ export const LibraryContent = {
         type: 'Type',
         createElement:{
             title: 'Title',
-    
+            indentification: 'Identification',
+            slug: 'Slug',
+            slugExample: 'Example: "depression"',
             description: 'Description',
             content: 'Content',
             hashTags: 'Hash tags',
@@ -20,7 +22,9 @@ export const LibraryContent = {
         type: 'Tips',
         createElement:{
             title: 'Nosaukums',
-    
+            indentification: 'Identifikācija',
+            slug: 'Identifikators',
+            slugExample: 'Piemērs: "depresija"',
             description: 'Apraksts',
             content: 'Saturs',
             hashTags: 'Hashtagi',
@@ -34,7 +38,9 @@ export const LibraryContent = {
         type: 'Тип',
         createElement:{
             title: 'Название',
-    
+            indentification: 'Идентификация',
+            slug: 'Идентификатор термина',
+            slugExample: 'Пример: "депрессия"',
             description: 'Описание',
             content: 'Содержание',
             hashTags: 'Хештеги',
