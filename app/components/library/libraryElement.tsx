@@ -1,8 +1,10 @@
 'use client'
 
-import { LIBRARY_TYPE } from "@/app/globalConsts/globalEnum";
+import { LIBRARY_TYPE, SIZE_ELEMENT } from "@/app/globalConsts/globalEnum";
 import { useLocale } from "@/app/hooks/useLocale";
 import { LibraryType,  LocaleType } from "@/app/types/types";
+import HashTags from "../shared/hashTags";
+import { LibraryContent } from "@/translate/mediaPage/libraryContent/libraryContent";
 
 
 interface LibraryElementProps {
@@ -18,15 +20,23 @@ const locale = useLocale() as LocaleType
 
 
 return (
-    <div>
-        <span className={`text-sm font-medium mb-4 block`}>{id}</span>
-        {slugs.length > 0 ? slugs.map((element) => (
-            <div key={element.id}>
-                <h2>{element.title[locale]}</h2>
-                <p>{element.content[locale]}</p>
-                {/* Render other properties of the library element as needed */}
-            </div>
+    <div className={`flex flex-col items-start justify-start w-full`}>
+        <span className={`rounded-large p-2 m-2 bg-primary-color/20 border border-primary-color/30`}>{id}</span>
+        <div className={`flex  flex-col w-full`}>
+            {slugs.length > 0 ? slugs.map((element) => (
+                         <div key={element.id} className={`flex flex-col gap-2 p-4 bg-primary-color/50 rounded-large`}>
+                                       <span className={`text-2xl`}>{element.title[locale]}</span>                        
+                                       <span className={`text-sm italic`}>{LibraryContent[locale].type}:{element.type}</span>   
+                                       <HashTags hashTags={element.hashTags.length > 0 ? element.hashTags : ['depression']} type={SIZE_ELEMENT.SMALL} />
+                                           <details key={element.id} className={`flex flex-col gap-2 p-4 bg-primary-color/50 rounded-large`}>
+                                           
+                                           <summary className={`font-bold cursor-pointer`}>Description</summary>
+                                           <p>{element.content[locale]}</p>
+                                       </details>
+                                   </div>
         )) : <p>No library elements found.</p>}
+        </div>
+        
     </div>
   )
 }
