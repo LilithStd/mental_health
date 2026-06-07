@@ -3,7 +3,7 @@
 import { LIBRARY_TYPE } from "@/app/globalConsts/globalEnum";
 import { useLocale } from "@/app/hooks/useLocale";
 import { LibraryType,  LocaleType } from "@/app/types/types";
-import { useEffect, useState } from "react"
+
 
 interface LibraryElementProps {
     slugs: LibraryType[];
@@ -11,16 +11,16 @@ interface LibraryElementProps {
     type: LIBRARY_TYPE
 }
 
-export default function LibraryElement({ slugs, type }: LibraryElementProps) {
+export default function LibraryElement({ slugs, id, type }: LibraryElementProps) {
 const locale = useLocale() as LocaleType
-const [libraryElements, setLibraryElements] = useState<LibraryType[]>(slugs);
+// const [libraryElements, setLibraryElements] = useState<LibraryType[]>(slugs);
 
 
 
 return (
     <div>
-        <span className={`text-sm font-medium mb-4 block`}>{}</span>
-        {libraryElements.length > 0 ? libraryElements.map((element) => (
+        <span className={`text-sm font-medium mb-4 block`}>{id}</span>
+        {slugs.length > 0 ? slugs.map((element) => (
             <div key={element.id}>
                 <h2>{element.title[locale]}</h2>
                 <p>{element.content[locale]}</p>
