@@ -19,10 +19,11 @@ export default function ProblemSolvingBlock() {
     const [selectedProblemIndex, setSelectedProblemIndex] = useState<number | null>(null);
     const [hoveredProblem, setHoveredProblem] = useState<string>();
 
-    const createParamsForLink = (id: readonly string[]) => {
-        id.forEach((problemId) => {
-            params.append('slugs', problemId);
+    const createParamsForLink = (slugs: readonly string[], id: string) => {
+        slugs.forEach((slug) => {
+            params.append('slugs', slug);
         });
+        params.append('id', id);
         return params.toString();
     }
     const selectedProblemHandler = (index: number) => {
@@ -51,9 +52,9 @@ export default function ProblemSolvingBlock() {
             </div>
         );
     }
-    const readMoreButton = (problemId: readonly string[]) => {
+    const readMoreButton = (problemId: readonly string[], id: string) => {
         return (
-            <Link href={`${routesAdaptive.library.group}?${createParamsForLink(problemId)}`} className={`bg-secondary-color p-2 hover:bg-accentElement rounded-large text-[8px] transition-colors duration-300`}>
+            <Link href={`${routesAdaptive.library.group}?${createParamsForLink(problemId, id)}`} className={`bg-secondary-color p-2 hover:bg-accentElement rounded-large text-[8px] transition-colors duration-300`}>
                 Read More
             </Link>
         )
@@ -112,7 +113,7 @@ export default function ProblemSolvingBlock() {
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[0].description && (
                             <div className={`flex flex-col items-center justify-center`}>
                                 <p className={`text-[6px] p-2`}>{cropContent(hoveredProblem, CROP_CONTAINER_SIZE.MEDIUM)}</p>
-                                {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[0].id)}
+                                {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[0].id, ProblemSolvingBlockContent[localeAdapted].problems[0].problem)}
                             </div>
                                 
                         )}
@@ -145,7 +146,7 @@ export default function ProblemSolvingBlock() {
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[1].description && (
                             <div className={`flex flex-col items-center justify-center`}>
                                 <p className={`text-[6px] p-2`}>{cropContent(hoveredProblem, CROP_CONTAINER_SIZE.MEDIUM)}</p>
-                                {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[1].id)}
+                                {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[1].id, ProblemSolvingBlockContent[localeAdapted].problems[1].problem)}
                             </div>
                         )}
                     </div>
@@ -178,7 +179,7 @@ export default function ProblemSolvingBlock() {
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[2].description && (
                             <div className={`flex flex-col items-center justify-center`}>
                                 <p className={`text-[6px] p-2`}>{cropContent(hoveredProblem, CROP_CONTAINER_SIZE.MEDIUM)}</p>
-                                {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[2].id)}
+                                {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[2].id, ProblemSolvingBlockContent[localeAdapted].problems[2].problem)}
                             </div>
                                 
                         )}
@@ -212,7 +213,7 @@ export default function ProblemSolvingBlock() {
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[3].description && (
                                 <div className={`flex flex-col items-center justify-center`}>
                                     <p className={`text-[6px] p-2`}>{cropContent(hoveredProblem, CROP_CONTAINER_SIZE.MEDIUM)}</p>
-                                    {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[3].id)}
+                                    {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[3].id, ProblemSolvingBlockContent[localeAdapted].problems[3].problem)}
                                 </div>
                         )}
                     </div>
@@ -245,8 +246,7 @@ export default function ProblemSolvingBlock() {
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[4].description && (
                                 <div className={`flex flex-col items-center justify-center`}>
                                     <p className={`text-[6px] p-2`}>{cropContent(hoveredProblem, CROP_CONTAINER_SIZE.MEDIUM)}</p>
-                                    
-                                    {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[4].id)}
+                                    {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[4].id, ProblemSolvingBlockContent[localeAdapted].problems[4].problem)}
                                 </div>
                         )}
                     </div>
@@ -280,7 +280,7 @@ export default function ProblemSolvingBlock() {
                         {hoveredProblem === ProblemSolvingBlockContent[localeAdapted].problems[5].description && (
                                 <div className={`flex flex-col items-center justify-center`}>
                                     <p className={`text-[6px] p-2`}>{cropContent(hoveredProblem,CROP_CONTAINER_SIZE.MEDIUM)}</p>
-                                    {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[5].id)}
+                                    {readMoreButton(ProblemSolvingBlockContent[localeAdapted].problems[5].id, ProblemSolvingBlockContent[localeAdapted].problems[5].problem)}
                                 </div>
                         )}
                     </div>

@@ -14,7 +14,7 @@ export default async function CurrentElementLibraryPage({ params }: { params: { 
   const locale = await getLocale() as LocaleType
   const routesAdaptive = routes(locale)
   const libraryElement = await getElementLibraryById(id);
-  
+
   return (
         <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
         <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
@@ -22,7 +22,7 @@ export default async function CurrentElementLibraryPage({ params }: { params: { 
                 <ReturnButton pathToReturn={routesAdaptive.library.root} />
             </div>
             <div className={`flex w-full justify-center gap-4 mb-4`}>
-                <LibraryElement ids={[libraryElement]} type={type} />
+                <LibraryElement slugs={[libraryElement]} type={type} />
             </div>
         </div>
     </div>

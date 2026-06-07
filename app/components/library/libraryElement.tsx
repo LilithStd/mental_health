@@ -6,13 +6,13 @@ import { LibraryType,  LocaleType } from "@/app/types/types";
 import { useEffect, useState } from "react"
 
 interface LibraryElementProps {
-    ids: LibraryType[];
+    slugs: LibraryType[];
     type: LIBRARY_TYPE
 }
 
-export default function LibraryElement({ ids, type }: LibraryElementProps) {
+export default function LibraryElement({ slugs, type }: LibraryElementProps) {
 const locale = useLocale() as LocaleType
-const [libraryElements, setLibraryElements] = useState<LibraryType[]>(ids);
+const [libraryElements, setLibraryElements] = useState<LibraryType[]>(slugs);
 
 
 
