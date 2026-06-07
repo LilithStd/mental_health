@@ -7,6 +7,7 @@ import { useEffect, useState } from "react"
 
 interface LibraryElementProps {
     slugs: LibraryType[];
+    id: string;
     type: LIBRARY_TYPE
 }
 
@@ -18,6 +19,7 @@ const [libraryElements, setLibraryElements] = useState<LibraryType[]>(slugs);
 
 return (
     <div>
+        <span className={`text-sm font-medium mb-4 block`}>{}</span>
         {libraryElements.length > 0 ? libraryElements.map((element) => (
             <div key={element.id}>
                 <h2>{element.title[locale]}</h2>
