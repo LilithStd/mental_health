@@ -1,6 +1,7 @@
 import { getLocale } from "@/app/hooks/server/getLocale"
 import { LocaleType } from "@/app/types/types"
 import InstagramIcon from "@/public/icons/instagram.svg"
+import FacebookIcon from "@/public/icons/facebook.svg"
 
 
 export default async function Footer() {
@@ -28,7 +29,10 @@ export default async function Footer() {
                         <InstagramIcon className={`w-6 h-6`} />
                         <h3 className={`text-lg font-medium `}>Instagram</h3>
                     </div>
-                    <h3 className={`text-lg font-medium `}>Facebook</h3>
+                    <div className={`flex gap-2`}>
+                        <FacebookIcon className={`w-6 h-6`} />
+                        <h3 className={`text-lg font-medium `}>Facebook</h3>
+                    </div>
                 </div>
             </div>
 
