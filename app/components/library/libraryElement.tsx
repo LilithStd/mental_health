@@ -30,12 +30,12 @@ return (
                                        <HashTags hashTags={element.hashTags.length > 0 ? element.hashTags : ['depression']} type={SIZE_ELEMENT.SMALL} />
                                            <details key={element.id} className={`flex flex-col gap-2 p-4 bg-primary-color/50 rounded-large`}>
                                            
-                                           <summary className={`font-bold cursor-pointer`}>Description</summary>
+                                           <summary className={`font-bold cursor-pointer`}>{LibraryContent[locale].createElement.description}</summary>
                                            <p>{element.content[locale]}</p>
                                        </details>
                                    </div>
         )) : <div className={`flex flex-col gap-2 p-4 rounded-large`}>
-                <p>No library elements found.</p>
+                <p>{LibraryContent[locale].notFoundElement}</p>
             </div>}
         </div>
         
