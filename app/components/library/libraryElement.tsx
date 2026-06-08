@@ -24,7 +24,7 @@ return (
         <span className={`rounded-large p-2 m-2 bg-primary-color/20 border border-primary-color/30`}>{id}</span>
         <div className={`flex  flex-col w-full`}>
             {slugs.length > 0 ? slugs.map((element) => (
-                         <div key={element.id} className={`flex flex-col gap-2 p-4 bg-primary-color/50 rounded-large`}>
+                <div key={element.id} className={`flex flex-col gap-2 p-4 bg-primary-color/50 rounded-large`}>
                                        <span className={`text-2xl`}>{element.title[locale]}</span>                        
                                        <span className={`text-sm italic`}>{LibraryContent[locale].type}:{element.type}</span>   
                                        <HashTags hashTags={element.hashTags.length > 0 ? element.hashTags : ['depression']} type={SIZE_ELEMENT.SMALL} />
@@ -34,7 +34,9 @@ return (
                                            <p>{element.content[locale]}</p>
                                        </details>
                                    </div>
-        )) : <p>No library elements found.</p>}
+        )) : <div className={`flex flex-col gap-2 p-4 rounded-large`}>
+                <p>No library elements found.</p>
+            </div>}
         </div>
         
     </div>

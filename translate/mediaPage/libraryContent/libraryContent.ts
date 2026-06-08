@@ -4,6 +4,7 @@ export const LibraryContent = {
     en:{
         title:'Library',
         type: 'Type',
+        notFoundElement: 'No library elements found.',
         createElement:{
             title: 'Title',
             indentification: 'Identification',
@@ -20,6 +21,7 @@ export const LibraryContent = {
     lv:{
         title:'Bibliotēka',
         type: 'Tips',
+        notFoundElement: 'Nav atrasti bibliotēkas elementi.',
         createElement:{
             title: 'Nosaukums',
             indentification: 'Identifikācija',
@@ -36,6 +38,7 @@ export const LibraryContent = {
     ru:{
         title:'Библиотека',
         type: 'Тип',
+        notFoundElement: 'Элементы библиотеки не найдены.',
         createElement:{
             title: 'Название',
             indentification: 'Идентификация',
