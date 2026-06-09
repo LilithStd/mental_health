@@ -14,6 +14,11 @@ export const CROP_CONTAINER_SIZE = {
     LARGE: 800,
 }
 
+export const SOCIAL_MEDIA_LINKS = {
+    instagram: 'https://www.instagram.com',
+    facebook: 'https://www.facebook.com',
+}
+
 
 export const  UPLOAD_IMAGE_NAME = {
 	bio: {
