@@ -3,6 +3,8 @@ import { LocaleType } from "@/app/types/types"
 import InstagramIcon from "@/public/icons/instagram.svg"
 import FacebookIcon from "@/public/icons/facebook.svg"
 import { FooterContent } from "@/translate/shared/footer"
+import Link from "next/link"
+import { SOCIAL_MEDIA_LINKS } from "@/app/globalConsts/globalConsts"
 
 
 export default async function Footer() {
@@ -28,11 +30,11 @@ export default async function Footer() {
                     <h2 className={`text-2xl font-bold `}>{FooterContent[locale].followUs}</h2>
                     <div className={`flex gap-2`}>
                         <InstagramIcon className={`w-6 h-6`} />
-                        <h3 className={`text-lg font-medium `}>{FooterContent[locale].instagram}</h3>
+                        <Link href={SOCIAL_MEDIA_LINKS.instagram} target="_blank" rel="noopener noreferrer" className={`text-lg font-medium `}>{FooterContent[locale].instagram}</Link>
                     </div>
                     <div className={`flex gap-2`}>
                         <FacebookIcon className={`w-6 h-6`} />
-                        <h3 className={`text-lg font-medium `}>{FooterContent[locale].facebook}</h3>
+                        <Link href={SOCIAL_MEDIA_LINKS.facebook} target="_blank" rel="noopener noreferrer" className={`text-lg font-medium `}>{FooterContent[locale].facebook}</Link>
                     </div>
                 </div>
             </div>
