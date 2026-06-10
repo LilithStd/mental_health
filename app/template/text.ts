@@ -50,7 +50,15 @@ export const LIST_LINKS = {
 	// 		ru: 'Цены',
 	// 	},
 	// },
-
+	ABOUT: {
+		label: 'about',
+		path: APP_PATH_ROUTER.ABOUT,
+		translate: {
+			en: 'About us',
+			lv: 'Par mums',
+			ru: 'О нас',
+		},
+	},
 	CONSULTATION: {
 		label: 'consultation',
 		path: APP_PATH_ROUTER.CONSULTATION,
@@ -203,7 +211,6 @@ export const LINKS = [
 	LIST_LINKS.MAIN,
 	LIST_LINKS.MEDIA,
 	LIST_LINKS.TESTS,
-	// LIST_LINKS.FAQ,
-	// LIST_LINKS.PRICING,
 	LIST_LINKS.CONSULTATION,
+	LIST_LINKS.ABOUT
 ];
