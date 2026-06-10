@@ -130,6 +130,7 @@ export enum APP_PATH_ROUTER {
 	CONSULTATION = '/consultation',
 	// FAQ = '/faq',
 	// PRICING = '/pricing',
+	ABOUT = '/about',
 	USERS = '/user',
 	AUTHORIZATION = '/authorization',
 }

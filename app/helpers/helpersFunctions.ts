@@ -102,7 +102,9 @@ export const routes = (locale: string) => {
   // pricing:{
   //   root: `${prefix}${APP_PATH_ROUTER.PRICING}`,
   // },
-
+  about: {
+    root: `${prefix}${APP_PATH_ROUTER.ABOUT}`,
+  },
   users:{
     root: `${prefix}${APP_PATH_ROUTER.USERS}`,
     byId: (id: number | string) => `${prefix}${APP_PATH_ROUTER.USERS}/${id}`,
