@@ -1,9 +1,10 @@
 'use client'
-import { LINKS } from "../template/text"
+
 import { usePathname } from 'next/navigation';
 import Link from "next/link";
 import { useLocale } from "../hooks/useLocale";
 import { LocaleType } from "../types/types";
+import { LINKS } from '@/translate/global/header';
 
 export default function ListLinks() {
     const pathname = usePathname();

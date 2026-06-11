@@ -5,8 +5,9 @@ import { useLocale } from "@/app/hooks/useLocale";
 import { loginAction } from "@/app/serverActions/auth/auth";
 import { useGlobalStore } from "@/app/store/globalStore";
 import { useMockAuthStore } from "@/app/store/mockAuthStore";
-import { AUTH_METHODS_SYSTEM_MESSAGES, INPUT_PLACEHOLDERS } from "@/app/template/text";
+
 import { LocaleType } from "@/app/types/types";
+import { AUTH_METHODS_SYSTEM_MESSAGES, INPUT_PLACEHOLDERS } from "@/translate/global/header";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 

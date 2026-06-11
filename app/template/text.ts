@@ -1,216 +1,216 @@
 
-import {APP_PATH_ROUTER, AUTHORIZATION_STATUS} from '../globalConsts/globalEnum';
+// import {APP_PATH_ROUTER, AUTHORIZATION_STATUS} from '../globalConsts/globalEnum';
 
 
 
-export const LIST_LINKS = {
+// export const LIST_LINKS = {
 	
-	MAIN: {
-		label: 'main',
-		path: APP_PATH_ROUTER.MAIN,
-		translate: {
-			en: 'Main',
-			lv: 'Galvenais',
-			ru: 'Главная',
-		},
-	},
-	// FAQ:{
-	// 	label: 'FAQ',
-	// 	path: APP_PATH_ROUTER.FAQ,
-	// 	translate: {
-	// 		en: 'FAQ',
-	// 		lv: 'BUJ',
-	// 		ru: 'ЧАВО',
-	// 	}
-	// },
-	TESTS: {
-		label: 'tests',
-		path: APP_PATH_ROUTER.TESTS,
-		translate: {
-			en: 'Tests',
-			lv: 'Tests',
-			ru: 'Тесты',
-		},
-	},
-	MEDIA: {
-		label: 'media',
-		path: APP_PATH_ROUTER.MEDIA,
-		translate: {
-			en: 'Media',
-			lv: 'Mediji',
-			ru: 'Медиа',
-		},
-	},
-	// PRICING: {
-	// 	label: 'pricing',
-	// 	path: APP_PATH_ROUTER.PRICING,
-	// 	translate: {
-	// 		en: 'Prices',
-	// 		lv: 'Cenas',
-	// 		ru: 'Цены',
-	// 	},
-	// },
-	ABOUT: {
-		label: 'about',
-		path: APP_PATH_ROUTER.ABOUT,
-		translate: {
-			en: 'About us',
-			lv: 'Par mums',
-			ru: 'О нас',
-		},
-	},
-	CONSULTATION: {
-		label: 'consultation',
-		path: APP_PATH_ROUTER.CONSULTATION,
-		translate: {
-			en: 'Consultation',
-			lv: 'Konsultācija',
-			ru: 'Консультация',
-		},
-	},
-} as const;
+// 	MAIN: {
+// 		label: 'main',
+// 		path: APP_PATH_ROUTER.MAIN,
+// 		translate: {
+// 			en: 'Main',
+// 			lv: 'Galvenais',
+// 			ru: 'Главная',
+// 		},
+// 	},
+// 	// FAQ:{
+// 	// 	label: 'FAQ',
+// 	// 	path: APP_PATH_ROUTER.FAQ,
+// 	// 	translate: {
+// 	// 		en: 'FAQ',
+// 	// 		lv: 'BUJ',
+// 	// 		ru: 'ЧАВО',
+// 	// 	}
+// 	// },
+// 	TESTS: {
+// 		label: 'tests',
+// 		path: APP_PATH_ROUTER.TESTS,
+// 		translate: {
+// 			en: 'Tests',
+// 			lv: 'Tests',
+// 			ru: 'Тесты',
+// 		},
+// 	},
+// 	MEDIA: {
+// 		label: 'media',
+// 		path: APP_PATH_ROUTER.MEDIA,
+// 		translate: {
+// 			en: 'Media',
+// 			lv: 'Mediji',
+// 			ru: 'Медиа',
+// 		},
+// 	},
+// 	// PRICING: {
+// 	// 	label: 'pricing',
+// 	// 	path: APP_PATH_ROUTER.PRICING,
+// 	// 	translate: {
+// 	// 		en: 'Prices',
+// 	// 		lv: 'Cenas',
+// 	// 		ru: 'Цены',
+// 	// 	},
+// 	// },
+// 	ABOUT: {
+// 		label: 'about',
+// 		path: APP_PATH_ROUTER.ABOUT,
+// 		translate: {
+// 			en: 'About us',
+// 			lv: 'Par mums',
+// 			ru: 'О нас',
+// 		},
+// 	},
+// 	CONSULTATION: {
+// 		label: 'consultation',
+// 		path: APP_PATH_ROUTER.CONSULTATION,
+// 		translate: {
+// 			en: 'Consultation',
+// 			lv: 'Konsultācija',
+// 			ru: 'Консультация',
+// 		},
+// 	},
+// } as const;
 
-export const AUTHORIZATION_TEXT = {
-	REGISTRATION: {
-		label:AUTHORIZATION_STATUS.REGISTRATION,
-		translate: {
-			en: 'Registration',
-			lv: 'Reģistrācija',
-			ru: 'Регистрация',
-	},
-		},
+// export const AUTHORIZATION_TEXT = {
+// 	REGISTRATION: {
+// 		label:AUTHORIZATION_STATUS.REGISTRATION,
+// 		translate: {
+// 			en: 'Registration',
+// 			lv: 'Reģistrācija',
+// 			ru: 'Регистрация',
+// 	},
+// 		},
 		
-	SIGN_IN: {
-		label:AUTHORIZATION_STATUS.SIGN_IN,
-		translate: {
-			en: 'Sign in',
-			lv: 'Pierakstīties',
-			ru: 'Войти',
-		}
-	},
-};
+// 	SIGN_IN: {
+// 		label:AUTHORIZATION_STATUS.SIGN_IN,
+// 		translate: {
+// 			en: 'Sign in',
+// 			lv: 'Pierakstīties',
+// 			ru: 'Войти',
+// 		}
+// 	},
+// };
 
-export const INPUT_PLACEHOLDERS = {
-	EMAIL: {
-		en: 'Email',
-		lv: 'E-pasts',
-		ru: 'Электронная почта',
-	},
-	PASSWORD: {
-		en: 'Password',
-		lv: 'Parole',
-		ru: 'Пароль',
-	},
-	REPEAT_PASSWORD: {
-		en: 'Repeat Password',
-		lv: 'Atkārtot paroli',
-		ru: 'Повторите пароль',
-	},
-	USERNAME: {
-		en: 'Username',
-		lv: 'Lietotājvārds',
-		ru: 'Имя пользователя',
-	},
-	SUBMIT:{
-		en: 'Submit',
-		lv: 'Iesniegt',
-		ru: 'Отправить',
-	},
-}
+// export const INPUT_PLACEHOLDERS = {
+// 	EMAIL: {
+// 		en: 'Email',
+// 		lv: 'E-pasts',
+// 		ru: 'Электронная почта',
+// 	},
+// 	PASSWORD: {
+// 		en: 'Password',
+// 		lv: 'Parole',
+// 		ru: 'Пароль',
+// 	},
+// 	REPEAT_PASSWORD: {
+// 		en: 'Repeat Password',
+// 		lv: 'Atkārtot paroli',
+// 		ru: 'Повторите пароль',
+// 	},
+// 	USERNAME: {
+// 		en: 'Username',
+// 		lv: 'Lietotājvārds',
+// 		ru: 'Имя пользователя',
+// 	},
+// 	SUBMIT:{
+// 		en: 'Submit',
+// 		lv: 'Iesniegt',
+// 		ru: 'Отправить',
+// 	},
+// }
 
-export const AUTH_METHODS_SYSTEM_MESSAGES = {
-	ALREADY_REGISTERED: {
-		en: {
-			part1: 'You are already registered.',
-			part2: ' Please, sign in ',
-		},
-		lv:{
-			part1: 'Jūs jau esat reģistrējies.',
-			part2: ' Lūdzu, pierakstieties šeit ',
-		},
-		ru: {
-			part1: 'Вы уже зарегистрированы.',
-			part2: ' Пожалуйста, войдите ',
-		}
-	},
-	NOT_REGISTERED_YET: {
-		en: {
-			part1: 'Not registered yet?',
-			part2: ' Please, register ',
-		},
-		lv: {
-			part1: 'Vēl neesat reģistrējies?',
-			part2: ' Lūdzu, reģistrējieties.',
-		},
-		ru: {
-			part1: 'Ещё не зарегистрированы?',
-			part2: ' Пожалуйста, зарегистрируйтесь.',
-		},
-	},
-	PASSWORD_MISMATCH: {
-		en: {
-			part1: 'Passwords do not match.',
-			part2: ' Please, try again.',
-		},
-		lv: {
-			part1: 'Paroles nesakrīt.',
-			part2: ' Lūdzu, mēģiniet vēlreiz.',
-		},
-		ru: {
-			part1: 'Пароли не совпадают.',
-			part2: ' Пожалуйста, попробуйте снова.',
-		},
-	},
-	HAVE_ACCOUNT_SIGN_IN: {
-		en: {
-			part1: 'Already have an account?',
-			part2: ' Sign in ',
-		},
+// export const AUTH_METHODS_SYSTEM_MESSAGES = {
+// 	ALREADY_REGISTERED: {
+// 		en: {
+// 			part1: 'You are already registered.',
+// 			part2: ' Please, sign in ',
+// 		},
+// 		lv:{
+// 			part1: 'Jūs jau esat reģistrējies.',
+// 			part2: ' Lūdzu, pierakstieties šeit ',
+// 		},
+// 		ru: {
+// 			part1: 'Вы уже зарегистрированы.',
+// 			part2: ' Пожалуйста, войдите ',
+// 		}
+// 	},
+// 	NOT_REGISTERED_YET: {
+// 		en: {
+// 			part1: 'Not registered yet?',
+// 			part2: ' Please, register ',
+// 		},
+// 		lv: {
+// 			part1: 'Vēl neesat reģistrējies?',
+// 			part2: ' Lūdzu, reģistrējieties.',
+// 		},
+// 		ru: {
+// 			part1: 'Ещё не зарегистрированы?',
+// 			part2: ' Пожалуйста, зарегистрируйтесь.',
+// 		},
+// 	},
+// 	PASSWORD_MISMATCH: {
+// 		en: {
+// 			part1: 'Passwords do not match.',
+// 			part2: ' Please, try again.',
+// 		},
+// 		lv: {
+// 			part1: 'Paroles nesakrīt.',
+// 			part2: ' Lūdzu, mēģiniet vēlreiz.',
+// 		},
+// 		ru: {
+// 			part1: 'Пароли не совпадают.',
+// 			part2: ' Пожалуйста, попробуйте снова.',
+// 		},
+// 	},
+// 	HAVE_ACCOUNT_SIGN_IN: {
+// 		en: {
+// 			part1: 'Already have an account?',
+// 			part2: ' Sign in ',
+// 		},
 	
-		lv: {
-			part1: 'Ir konts?',
-			part2: ' Pierakstīties ',
-		},
-		ru: {
-			part1: 'Есть аккаунт?',
-			part2: ' Войдите ',
-		},
-	},
-	HERE_LINK: {
-		en: 'here',
-		lv: 'šeit',
-		ru: 'здесь',
-	},
-}
+// 		lv: {
+// 			part1: 'Ir konts?',
+// 			part2: ' Pierakstīties ',
+// 		},
+// 		ru: {
+// 			part1: 'Есть аккаунт?',
+// 			part2: ' Войдите ',
+// 		},
+// 	},
+// 	HERE_LINK: {
+// 		en: 'here',
+// 		lv: 'šeit',
+// 		ru: 'здесь',
+// 	},
+// }
 
-export const ROLE_AUTHORIZED_USER_TRANSLATE = {
-	USER: {
-		translate: {
-			en: 'User',
-			lv: 'Lietotājs',
-			ru: 'Пользователь',
-		},
-	},
-	ADMIN: {
-		translate: {
-			en: 'Admin',
-			lv: 'Admins',
-			ru: 'Админ',
-		},
-	},
-	OTHER: {
-		translate: {
-			en: 'Other',
-			lv: 'Cits',
-			ru: 'Другой',
-		},
-	}
-}
+// export const ROLE_AUTHORIZED_USER_TRANSLATE = {
+// 	USER: {
+// 		translate: {
+// 			en: 'User',
+// 			lv: 'Lietotājs',
+// 			ru: 'Пользователь',
+// 		},
+// 	},
+// 	ADMIN: {
+// 		translate: {
+// 			en: 'Admin',
+// 			lv: 'Admins',
+// 			ru: 'Админ',
+// 		},
+// 	},
+// 	OTHER: {
+// 		translate: {
+// 			en: 'Other',
+// 			lv: 'Cits',
+// 			ru: 'Другой',
+// 		},
+// 	}
+// }
 
-export const LINKS = [
-	LIST_LINKS.MAIN,
-	LIST_LINKS.MEDIA,
-	LIST_LINKS.TESTS,
-	LIST_LINKS.CONSULTATION,
-	LIST_LINKS.ABOUT
-];
+// export const LINKS = [
+// 	LIST_LINKS.MAIN,
+// 	LIST_LINKS.MEDIA,
+// 	LIST_LINKS.TESTS,
+// 	LIST_LINKS.CONSULTATION,
+// 	LIST_LINKS.ABOUT
+// ];

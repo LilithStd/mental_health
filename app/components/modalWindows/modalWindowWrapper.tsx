@@ -3,12 +3,13 @@
 import { useState } from "react";
 import ModalWindowMain from "../modalWindowMain";
 import ModalWindowAuthorization from "./modalWindowAuthorization";
-import { AUTHORIZATION_TEXT } from "@/app/template/text";
+
 import { AUTHORIZATION_STATUS } from "@/app/globalConsts/globalEnum";
 import { LocaleType, UserAuthType } from "@/app/types/types";
 import AuthUserComponent from "../authorization/authUserComponent";
 import NoneAuthUserComponent from "../authorization/noneAuthUserComponent";
 import { useLocale } from "@/app/hooks/useLocale";
+import { AUTHORIZATION_TEXT } from "@/translate/global/header";
 
 
 interface ModalWindowWrapperProps {
