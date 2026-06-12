@@ -1,6 +1,8 @@
 'use client';
 import ConsultationForm from "@/app/components/consultation/consultationForm";
-import { CONSULTATION_TYPE } from "@/app/globalConsts/globalEnum";
+import AppImage from "@/app/components/shared/appImage";
+import { UPLOAD_IMAGE_NAME } from "@/app/globalConsts/globalConsts";
+import { CONSULTATION_TYPE, IMAGES_UPLOAD_PATH } from "@/app/globalConsts/globalEnum";
 import { routes } from "@/app/helpers/helpersFunctions";
 import { useLocale } from "@/app/hooks/useLocale";
 import { LocaleType } from "@/app/types/types";
@@ -14,6 +16,8 @@ export default function Consultation() {
     const locale = useLocale() as LocaleType
     const routesAdaptive = routes(locale)
     // stores
+    // consts
+    const ConsultationImage = UPLOAD_IMAGE_NAME.global.consultation.consultationPage
     // functions
 
     // states
@@ -34,9 +38,10 @@ export default function Consultation() {
     const mainMethodComponent = () => {
         
         return (
-            <div className={`flex flex-col gap-4 p-4 items-center`}>
-                <h2 className={`text-2xl`}>{CONSULTATION_TYPE_CONTENT.MAIN.title[locale]}</h2>
+            <div className={`grid grid-cols-2 gap-4 p-4 items-center`}>
+                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={ConsultationImage} width={400} height={400} alt="Consultation Image" className='rounded-large ' />
                 <div>
+                     <h2 className={`text-2xl`}>{CONSULTATION_TYPE_CONTENT.MAIN.title[locale]}</h2>
                     <p className={`text-center`}>{CONSULTATION_TYPE_CONTENT.MAIN.description[locale]}</p>
                     <Link  target="_blank" rel="noopener noreferrer" href={LINK_TO_CONSULTATION} className={`text-primary-color underline`}>{CONSULTATION_TYPE_CONTENT.MAIN.linkText[locale]}</Link>
                 </div>
