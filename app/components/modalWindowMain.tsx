@@ -49,7 +49,7 @@ useEffect(() => {
         className="
           relative
           w-full max-w-lg
-          p-6
+          p-2
           rounded-large
           bg-primary-color/20
           backdrop-blur-md

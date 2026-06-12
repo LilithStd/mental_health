@@ -45,7 +45,7 @@ export default function TestModalWindow({ result, testId, onCloseCallback }: Tes
     // }
     // components
     return (
-        <div className={`backdrop-blur-md p-6 rounded-lg  flex flex-col items-center justify-center gap-4`}>
+        <div className={`backdrop-blur-md p-4 rounded-large  flex flex-col items-center justify-center gap-4`}>
             <h2>{RESULT_TEST_CONTENT[locale]}: {result}</h2>
             <div className={`flex gap-4`}>
                 <button className={` cursor-pointer px-4 py-2 bg-buttonContainer rounded-full`} onClick={onCloseCallback}>{BUTTON_CLOSE[locale]}</button>
