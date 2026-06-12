@@ -36,6 +36,9 @@ export const  UPLOAD_IMAGE_NAME = {
                 brainImage:'brainSegmented_z47azg',
             }
         },
+        consultation: {
+            consultationPage:'greenTree_djcngj',
+        }
         
     }
 }
