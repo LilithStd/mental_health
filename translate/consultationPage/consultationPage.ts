@@ -41,9 +41,9 @@ export const CONSULTATION_TYPE_CONTENT = {
             ru: 'Основной метод'
         },
         description:{
-            en: 'You can sign up for a consultation with me by following this',
-            lv: 'Jūs varat pierakstīties uz konsultāciju ar mani, sekojot šai ',
-            ru: 'Вы можете записаться на консультацию со мной, перейдя по этой '
+            en: 'You can also sign up for a consultation with me by following this',
+            lv: 'Jūs arī varat pierakstīties uz konsultāciju ar mani, sekojot šai ',
+            ru: 'Вы так же  можете записаться на консультацию со мной, перейдя по этой '
         },
         linkText:{
             en: 'link',
