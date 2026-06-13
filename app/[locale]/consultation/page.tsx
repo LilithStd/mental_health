@@ -47,8 +47,8 @@ export default function Consultation() {
     const mainMethodComponent = () => {
         
         return (
-            <div className={`grid grid-cols-[0.5fr_1fr] gap-4 p-4 items-center`}>
-                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={ConsultationImage} width={400} height={400} alt="Consultation Image" className='rounded-large ' />
+            <div className={`grid grid-cols-[0.8fr_1fr] gap-4 p-4 items-center`}>
+                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={ConsultationImage} width={600} height={600} alt="Consultation Image" className='rounded-large ' />
                 <div>
                     <div className={`flex  justify-center items-center`}>
                         <p className={``}>{CONSULTATION_TYPE_CONTENT.MAIN.description[locale]}</p>

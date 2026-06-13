@@ -6,6 +6,7 @@ export const THEME_COLOR_SCHEME = {
 		text: 'text-black',
 		activeElement: 'bg-teal-300',
 		inactiveElement: 'bg-gray-300',
+		activeLink:'bg-teal-300',
 		container: 'bg-cyan-500',
 		subContainer: 'bg-cyan-400',
 		elementAccent: 'bg-blue-500',
@@ -26,6 +27,7 @@ export const THEME_COLOR_SCHEME = {
 		element: '',
 		input: 'bg-gray-800',
 		hover: 'hover:bg-amber-700',
+		activeLink: 'bg-violet-800',
 	},
 };
 

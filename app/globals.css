@@ -11,6 +11,7 @@
   --active-element: var(--color-lime-500);
   --inactive-element: var(--color-gray-300);
   --input: var(--color-gray-300);
+  --active-link: var(--color-teal-500);
   --primary-color: #7ED9A4;
   --secondary-color: #9CB69C;
   --teritary-color: #546E7A;
@@ -28,6 +29,7 @@
   --active-element: var(--color-amber-700);
   --inactive-element: var(--color-gray-700);
   --input: var(--color-gray-600);
+  --active-link: var(--color-violet-800);
   --primary-color: #98FF98;
   --secondary-color: #50C878;
   --teritary-color: #87A96B;
@@ -45,6 +47,7 @@
   --color-activeElement: var(--active-element);
   --color-inactiveElement: var(--inactive-element);
   --color-input: var(--input);
+  --color-activeLink: var(--active-link);
   --color-primary-color: var(--primary-color);
   --color-secondary-color: var(--secondary-color);
   --color-teritary-color: var(--teritary-color);

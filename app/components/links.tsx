@@ -31,7 +31,7 @@ export default function ListLinks() {
                         href={`/${locale}/${link.path}`}
                         className={`
                             text-md  w-20  text-center
-                            ${isActive && `underline underline-offset-4 text-lime-700 decoration-green-700 text-shadow-lg  scale-105 `}
+                            ${isActive && `underline underline-offset-4 text-activeLink  text-shadow-lg  scale-105 `}
                         `}
                     >
                         {link.translate[locale]}
