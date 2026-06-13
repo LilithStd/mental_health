@@ -67,7 +67,7 @@ export default function Consultation() {
 
     return (
         <div className={`flex flex-col indents-main-container  rounded-medium flex-1 items-center`}>
-            <div className={`flex flex-col w-full  max-w-6xl bg-primary-color/20 border border-primary-color/20 rounded-large `}>
+            <div className={`flex flex-col w-full flex-1  max-w-6xl bg-primary-color/20 border border-primary-color/20 rounded-large shadow-lg p-4 gap-4`}>
                  {methodToChangeTypeConsultationComponent()}
                 {methodToConsult === CONSULTATION_TYPE.MAIN && mainMethodComponent()}
                 {methodToConsult === CONSULTATION_TYPE.ADDITIONAL && additionalMethodComponent()}
