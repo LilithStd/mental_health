@@ -42,8 +42,15 @@ useEffect(() => {
   if (!isOpen) return null
      return createPortal(
     <div
-      className="fixed inset-0 z-999 flex items-center justify-center bg-black/50 backdrop-blur-sm"
-      onClick={onClose} // клик вне окна
+      className="fixed 
+      inset-0 
+      z-999 
+      flex 
+      items-center 
+      justify-center 
+      bg-black/50 
+      backdrop-blur-sm"
+      onClick={onClose} 
     >
       <div
         className="
@@ -63,11 +70,17 @@ useEffect(() => {
         <button
           onClick={onClose}
           className="
-            absolute -top-3 -right-3
-            w-8 h-8
-            flex items-center justify-center
+            absolute 
+            -top-3 
+            -right-3
+            w-8 
+            h-8
+            flex 
+            items-center 
+            justify-center
             rounded-full
-            text-xl font-bold
+            text-xl 
+            font-bold
             bg-activeElement
             hover:bg-hover
             transition-colors

@@ -30,7 +30,7 @@ export default function ModalWindowWrapper({ currentAuthUser }: ModalWindowWrapp
     }
 
     return (
-        <div>
+        <div >
             {currentAuthUser ? (
                 <AuthUserComponent authUser={currentAuthUser} callBackModal={openModalWindowHandler} />
             ) : (
