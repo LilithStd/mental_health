@@ -114,7 +114,7 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
 
     // components
     const AuthSignInComponent = (
-        <div className={`backdrop-blur-md p-6 rounded-lg  flex flex-col items-center justify-center gap-4`}>
+        <div className={`backdrop-blur-md p-6 bg-primary-color/50 rounded-large flex flex-col items-center justify-center gap-4`}>
             {error && (
                     <div
                         className="
@@ -149,7 +149,7 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
 
     )
     const AuthRegistrationComponent = (
-        <div className={`flex flex-col bg-primary-color/50 items-center justify-center gap-2 p-4`}>
+        <div className={`flex flex-col bg-primary-color/50 rounded-large items-center justify-center gap-2 p-4`}>
             <form
                 className="flex flex-col items-center justify-center gap-2"
                 onSubmit={createUserHandler}
@@ -215,10 +215,10 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
     )
     // 
     return (
-        <div className={`flex p-2 flex-col bg-primary-color/50 items-center justify-center rounded-large`}>
-            {/* {succerssfullyCreated ? successfullyUserCreatedComponent() : <>
+        <div className={`flex  flex-col  items-center justify-center`}>
+            {succerssfullyCreated ? successfullyUserCreatedComponent() : <>
                 {props.typeAuthorization === AUTHORIZATION_STATUS.SIGN_IN ? AuthSignInComponent : AuthRegistrationComponent}
-            </>} */}
+            </>}
 
         </div>
     )
