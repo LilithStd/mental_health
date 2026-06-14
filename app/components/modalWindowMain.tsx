@@ -42,13 +42,13 @@ useEffect(() => {
   if (!isOpen) return null
      return createPortal(
     <div
-      className="fixed inset-0 z-999 flex items-center justify-center bg-black/70 backdrop-blur-sm"
+      className="fixed inset-0 z-999 flex items-center justify-center bg-black/50 backdrop-blur-sm"
       onClick={onClose} // клик вне окна
     >
       <div
         className="
           relative
-          w-full max-w-lg
+          w-fit
           p-2
           rounded-large
           bg-primary-color/20

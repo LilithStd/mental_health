@@ -1,9 +1,7 @@
 'use client'
-import { APP_PATH_ROUTER, AUTHORIZATION_STATUS } from "@/app/globalConsts/globalEnum";
+import { AUTHORIZATION_STATUS } from "@/app/globalConsts/globalEnum";
 import { routes } from "@/app/helpers/helpersFunctions";
 import { useLocale } from "@/app/hooks/useLocale";
-import { loginAction } from "@/app/serverActions/auth/auth";
-import { useGlobalStore } from "@/app/store/globalStore";
 import { useMockAuthStore } from "@/app/store/mockAuthStore";
 
 import { LocaleType } from "@/app/types/types";
@@ -29,9 +27,7 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
     // stores
     // global store
 
-    // const currentLanguage = useGlobalStore((state) => state.currentLanguage);
     const checkAlreadyExists = useMockAuthStore((state) => state.checkUserExists);
-    const resetUserStore = useMockAuthStore((state) => state.resetStore);
     const locale = useLocale() as LocaleType;
     const routesAdaptive = routes(locale)
     // 
@@ -118,7 +114,7 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
 
     // components
     const AuthSignInComponent = (
-        <div className={`bg-white/30 backdrop-blur-md p-6 rounded-lg  flex flex-col items-center justify-center gap-4`}>
+        <div className={`backdrop-blur-md p-6 rounded-lg  flex flex-col items-center justify-center gap-4`}>
             {error && (
 
         <div
@@ -221,10 +217,9 @@ export default function ModalWindowAuthorization(props: ModalWindowAuthorization
     )
     // 
     return (
-        <div className={`flex flex-col bg-primary-color/50 items-center justify-center gap-2 p-4 rounded-large`}>
+        <div className={`flex flex-col bg-primary-color/50 items-center justify-center rounded-large`}>
             {succerssfullyCreated ? successfullyUserCreatedComponent() : <>
-                <h2 className={``}>{props.contentTypeAuthorization}</h2>
-                {/* <h2 className="p-2 bg-amber-600" onClick={resetUserStore}>Res</h2> */}
+                {/* <h2 className={``}>{props.contentTypeAuthorization}</h2> */}
                 {props.typeAuthorization === AUTHORIZATION_STATUS.SIGN_IN ? AuthSignInComponent : AuthRegistrationComponent}
             </>}
 
