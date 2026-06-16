@@ -7,15 +7,14 @@ import { IMAGES_UPLOAD_PATH } from "@/app/globalConsts/globalEnum"
 export default function Logo() {
     const logoImageSrc = UPLOAD_IMAGE_NAME.global.header.logo
     return (
-        <div className={`flex items-center gap-2`}>
-            {/* <Image src={LogoImage} alt="Mental Health Logo" className="w-40 h-auto " /> */}
+        <div className={`flex items-center w-full gap-2 bg-primary-color/20 border border-primary-color/10 rounded-large p-2 `}>
             <AppImage
                 type={IMAGES_UPLOAD_PATH.GLOBAL}
                 imageName={logoImageSrc}
                 alt="Mental Health Logo"
-                width={40}
-                height={40}
-                className={`w-10 h-auto `}
+                width={100}
+                height={100}
+                className={``}
             />
             <h2 className={`text-2xl font-geistSans font-bold`}>Mental Health</h2>
         </div>

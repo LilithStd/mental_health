@@ -9,11 +9,9 @@ export default function Header() {
     return (
         <nav className={`flex  justify-center sticky pt-8 pl-8 pr-8 top-0 left-0 w-full z-50`}>
             <HeaderBackground>
-                <div className="grid grid-cols-[1fr_3fr_1fr] gap-10 items-center w-full">
+                <div className="grid grid-cols-[1fr_2fr_1fr] gap-10 items-center w-full">
                     <div className="flex justify-start">
-                        <div className=" rounded-large p-4">
-                            <Logo />
-                        </div>
+                        <Logo />
                     </div>
                     <div className="flex justify-center">
                         <ListLinks />
