@@ -11,21 +11,16 @@ export default async function Footer() {
     const locale = await getLocale() as LocaleType
     return (
         <div className={`flex rounded-medium  justify-center   indents-main-container `}>
-            <div className={`flex  max-w-6xl justify-between items-center w-full bg-primary-color/20 rounded-large min-h-20 border border-primary-color/30 shadow-lg `}>
-                <div className={`flex flex-col gap-2 p-4`}>
+            <div className={`flex  max-w-6xl justify-center items-center w-full bg-primary-color/20 rounded-large min-h-20 border border-primary-color/30 shadow-lg `}>
+                <div className={`flex flex-col justify-center items-center gap-2 p-4`}>
                     <h2 className={`text-2xl font-bold `}>Mental Healths</h2>
                     <h3 className={`text-lg font-medium `}>2026</h3>
                 </div>
-                <div className={`flex flex-col gap-2 p-4`}>
+                {/* <div className={`flex flex-col gap-2 p-4`}>
                     <h3 className={`text-lg font-medium `}>{FooterContent[locale].about}</h3>
                     <h3 className={`text-lg font-medium `}>{FooterContent[locale].contact}</h3>
-                </div>
-                {/* <div className={`flex flex-col gap-2 p-4`}>
-                    <h2 className={`text-2xl font-bold `}>Legal</h2>
-                    <h3 className={`text-lg font-medium `}>Privacy Policy</h3>
-                    <h3 className={`text-lg font-medium `}>Terms of Service</h3>
                 </div> */}
-                <div className={`flex flex-col gap-2 p-4`}>
+                {/* <div className={`flex flex-col gap-2 p-4`}>
                     <h2 className={`text-2xl font-bold `}>{FooterContent[locale].followUs}</h2>
                     <div className={`flex gap-2`}>
                         <InstagramIcon className={`w-6 h-6`} />
@@ -35,7 +30,7 @@ export default async function Footer() {
                         <FacebookIcon className={`w-6 h-6`} />
                         <Link href={SOCIAL_MEDIA_LINKS.facebook} target="_blank" rel="noopener noreferrer" className={`text-lg font-medium `}>{FooterContent[locale].facebook}</Link>
                     </div>
-                </div>
+                </div> */}
             </div>
 
         </div>
