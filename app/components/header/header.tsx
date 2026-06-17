@@ -18,7 +18,7 @@ export default function Header() {
                     </div>
                     <div className="flex justify-end rounded-large p-4">
                         <AdditionalPanel />
-                        <AuthorizationMain />
+                        {/* <AuthorizationMain /> */}
                     </div>
                 </div>
             </HeaderBackground>
