@@ -30,8 +30,10 @@ export default function ListLinks() {
                         key={link.label}
                         href={`/${locale}/${link.path}`}
                         className={`
-                            text-md  w-20  text-center
-                            ${isActive && `underline underline-offset-4 text-activeLink  text-shadow-lg  scale-105 `}
+                            text-md  pl-2 pr-2  text-center
+                            ${isActive && 
+                                `bg-primary-color/20 rounded-large border border-primary-color/30 text-activeLink  text-shadow-lg  scale-105 
+                            `}
                         `}
                     >
                         {link.translate[locale]}
