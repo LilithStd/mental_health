@@ -32,11 +32,13 @@ export default function ListLinks() {
                         className={`
                             text-md  p-2 text-center
                             min-w-10  flex items-center justify-center
+                            rounded-large
+                            border-primary-color/30 
                             transition-[background-color,border-color,color,transform]
                             duration-300
                             ease-in-out
                             ${isActive && 
-                                `bg-primary-color/20 rounded-large border border-primary-color/30 text-activeLink  text-shadow-lg  scale-105 
+                                `bg-primary-color/20 rounded-large border text-activeLink  text-shadow-lg  scale-105 
                             `}
                         `}
                     >
