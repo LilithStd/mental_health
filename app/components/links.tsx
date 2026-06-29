@@ -30,7 +30,11 @@ export default function ListLinks() {
                         key={link.label}
                         href={`/${locale}/${link.path}`}
                         className={`
-                            text-md  pl-2 pr-2  text-center
+                            text-md  p-2 text-center
+                            min-w-10  flex items-center justify-center
+                            transition-[background-color,border-color,color,transform]
+                            duration-300
+                            ease-in-out
                             ${isActive && 
                                 `bg-primary-color/20 rounded-large border border-primary-color/30 text-activeLink  text-shadow-lg  scale-105 
                             `}
