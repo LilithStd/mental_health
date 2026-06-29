@@ -36,6 +36,9 @@ export const  UPLOAD_IMAGE_NAME = {
                 brainImage:'brainSegmented_z47azg',
             }
         },
+        tests: {
+            defaultTestImage:'humanBrainAbstract_zqjsxc',
+        },
         header: {
             logo:'greenTree_djcngj',
         },
