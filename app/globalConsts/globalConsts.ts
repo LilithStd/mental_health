@@ -38,6 +38,7 @@ export const  UPLOAD_IMAGE_NAME = {
         },
         tests: {
             defaultTestImage:'copy_of_humanbrainabstract_zqjsxc',
+            smallTestImage: 'humanBrainAbstractSmall_zqjsxc_wiyqls'
         },
         header: {
             logo:'greenTree_djcngj',
