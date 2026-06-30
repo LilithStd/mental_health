@@ -91,6 +91,13 @@ export enum ADDITIONAL_METHOD_TYPE {
 // 	FULL = 'FULL',
 // }
 
+export enum SEARCH_TYPE {
+	HASH_TAGS = 'HASH_TAGS',
+	ARTICLES = 'ARTICLES',
+	NEWS = 'NEWS',
+	LIBRARY = 'LIBRARY',
+}
+
 export enum LIBRARY_TYPE {
 	SOLO = 'SOLO',
 	GROUP = 'GROUP',
