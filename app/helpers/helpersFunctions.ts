@@ -102,6 +102,10 @@ export const routes = (locale: string) => {
   // pricing:{
   //   root: `${prefix}${APP_PATH_ROUTER.PRICING}`,
   // },
+  search: {
+    root: `${prefix}/search`,
+    byTypeAndQuery: (type: string, query: string) => `${prefix}/search/${type}/${query}`,
+  },
   about: {
     root: `${prefix}${APP_PATH_ROUTER.ABOUT}`,
   },
