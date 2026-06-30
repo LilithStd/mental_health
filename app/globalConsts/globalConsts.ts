@@ -37,7 +37,7 @@ export const  UPLOAD_IMAGE_NAME = {
             }
         },
         tests: {
-            defaultTestImage:'humanBrainAbstract_zqjsxc',
+            defaultTestImage:'copy_of_humanbrainabstract_zqjsxc',
         },
         header: {
             logo:'greenTree_djcngj',
