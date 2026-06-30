@@ -9,7 +9,7 @@ import { getAllTests } from "@/app/service/testSerive";
 import AppImage from "@/app/components/shared/appImage";
 import { UPLOAD_IMAGE_NAME } from "@/app/globalConsts/globalConsts";
 
-const testDefaultImage = UPLOAD_IMAGE_NAME.global.tests.defaultTestImage;
+const testDefaultImage = UPLOAD_IMAGE_NAME.global.tests.smallTestImage;
 
 
 export default async function Tests() {
