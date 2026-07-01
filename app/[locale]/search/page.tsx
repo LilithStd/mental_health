@@ -8,8 +8,8 @@ interface SearchPageProps {
   }
 }
 
-export default function SearchPage({ params }: SearchPageProps) {
-    const { type, query, locale } = params;
+export default async function SearchPage({ params }: SearchPageProps) {
+    const { type, query, locale } = await params;
   return (
     <div>
         <h1>Search Page</h1>
