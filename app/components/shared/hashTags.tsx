@@ -16,11 +16,18 @@ interface HashTagsProps {
 export default function HashTags({ hashTags, type }: HashTagsProps) {
     const locale = useLocale() as LocaleType;
     const routesAdaptive = routes(locale)
+    const params  = new URLSearchParams();
+
+    const createSearchParams = (type: SEARCH_TYPE, query: string) => {
+        params.set('type', type);
+        params.set('query', query);
+        return params.toString();
+    }
 
     return (
         <div className={`flex w-full ${type === SIZE_ELEMENT.FULL ? 'text-md' : 'text-xs'} flex-wrap gap-2`}>
             {hashTags.map((tag, index) => (
-                <Link key={index} className={`cursor-pointer flex items-center gap-1 pl-2 pr-2 bg-buttonContainer/50  rounded-large`} href={routesAdaptive.search.root + `?type=${SEARCH_TYPE.HASH_TAGS}&query=${tag}`}>
+                <Link key={index} className={`cursor-pointer flex items-center gap-1 pl-2 pr-2 bg-buttonContainer/50  rounded-large`} href={routesAdaptive.search.root + `?${createSearchParams(SEARCH_TYPE.HASH_TAGS, tag)}`}>
                 <HashTagIcon width={ type === SIZE_ELEMENT.FULL ? 14 : 8} height={ type === SIZE_ELEMENT.FULL ? 14 : 8} /> 
                     {tag}
                 </Link>
