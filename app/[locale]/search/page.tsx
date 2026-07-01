@@ -1,4 +1,6 @@
 import { SEARCH_TYPE } from "@/app/globalConsts/globalEnum";
+import { getLocale } from "@/app/hooks/server/getLocale";
+import { LocaleType } from "@/app/types/types";
 
 interface SearchPageProps {
   searchParams: Promise<{
@@ -9,8 +11,8 @@ interface SearchPageProps {
 }
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
-  const { type, query, locale } = await searchParams;
-  console.log('SearchPage params:', await searchParams); // Log the params to the console for debugging
+  const { type, query} = await searchParams;
+  const locale = await getLocale() as LocaleType;
   return (
     <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
       <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
