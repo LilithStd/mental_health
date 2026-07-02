@@ -23,6 +23,12 @@ export async function getAllNews() {
     return news.map(mapNews);
 }
 
+export async function searchRequestNews(searchParams: { type: string, query: string }) {
+    await connectDB();
+    
+    // return news.map(mapNews);
+}
+
 export async function getNewsById(id: string) {
     await connectDB();
     const news = await News.findById(new Types.ObjectId(id)).lean();

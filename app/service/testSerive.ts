@@ -23,6 +23,12 @@ export async function getAllTests() {
     return tests.map(mapTest);
 }
 
+export async function searchRequestTests(searchParams: { type: string, query: string }) {
+    await connectDB();
+    
+    // return tests.map(mapTest);
+}
+
 export async function getTestById(id: string) {
     await connectDB();
     const test = await Test.findById(new Types.ObjectId(id)).lean();

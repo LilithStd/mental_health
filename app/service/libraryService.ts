@@ -68,6 +68,10 @@ export async function addElementLibrary(data: Partial<LibraryTypes>) {
     return Library.create(data);
 }
 
+export async function searchRequestLibrary(searchParams: { type: string, query: string }) {
+    await connectDB();
+    
+}
 export async function updateElementLibrary(id: string, data: Partial<LibraryTypes>) {
     await connectDB();
     console.log('Updating library element with id:', id, 'and data:', data);
