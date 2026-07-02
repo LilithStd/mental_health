@@ -98,6 +98,12 @@ export enum SEARCH_TYPE {
 	LIBRARY = 'LIBRARY',
 }
 
+export enum SEARCH_REQUEST_TYPE {
+  HASH_TAG = "hashTag",
+  TITLE = "title",
+  CONTENT = "content",
+}
+
 export enum LIBRARY_TYPE {
 	SOLO = 'SOLO',
 	GROUP = 'GROUP',

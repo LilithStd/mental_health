@@ -3,6 +3,8 @@ import { connectDB } from "../lib/connectDB";
 import { Article, ArticleTypes } from "../models/article";
 import { ArticleType } from "../types/types";
 import { Types } from "mongoose";
+import { Filter } from "mongodb";
+import { SEARCH_REQUEST_TYPE } from "../globalConsts/globalEnum";
 
 function mapArticle(a: ArticleTypes): ArticleType {
   return {
@@ -24,6 +26,13 @@ export async function getAllArticles() {
     await connectDB();
     const articles = await Article.find().lean();
     return articles.map(mapArticle);
+}
+
+export async function searchRequestArticles(searchParams: { type: string, query: string }) {
+  await connectDB();
+
+  
+  // return articles.map(mapArticle);
 }
 
 export async function createArticle(data: Partial<ArticleTypes>) {
