@@ -2,6 +2,7 @@ import { Types } from "mongoose";
 import { connectDB } from "../lib/connectDB";
 import { Test, TestTypes } from "../models/test";
 import { TestType } from "../types/types";
+import { SEARCH_REQUEST_TYPE } from "../globalConsts/globalEnum";
 
 
 
@@ -23,7 +24,7 @@ export async function getAllTests() {
     return tests.map(mapTest);
 }
 
-export async function searchRequestTests(searchParams: { type: string, query: string }) {
+export async function searchRequestTests(searchParams: { type: SEARCH_REQUEST_TYPE, query: string }) {
     await connectDB();
     
     // return tests.map(mapTest);

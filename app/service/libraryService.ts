@@ -2,6 +2,7 @@ import { Types } from "mongoose";
 import { connectDB } from "../lib/connectDB";
 import { LibraryTypes, Library } from "../models/library";
 import { LibraryType } from "../types/types";
+import { SEARCH_REQUEST_TYPE } from "../globalConsts/globalEnum";
 
 function mapLibrary(library: LibraryTypes): LibraryType {
     return {
@@ -68,7 +69,7 @@ export async function addElementLibrary(data: Partial<LibraryTypes>) {
     return Library.create(data);
 }
 
-export async function searchRequestLibrary(searchParams: { type: string, query: string }) {
+export async function searchRequestLibrary(searchParams: { type: SEARCH_REQUEST_TYPE, query: string }) {
     await connectDB();
     
 }

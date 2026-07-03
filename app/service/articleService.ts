@@ -1,7 +1,7 @@
 
 import { connectDB } from "../lib/connectDB";
 import { Article, ArticleTypes } from "../models/article";
-import { ArticleType } from "../types/types";
+import { ArticleType, LocaleType,} from "../types/types";
 import { Types } from "mongoose";
 import { Filter } from "mongodb";
 import { SEARCH_REQUEST_TYPE } from "../globalConsts/globalEnum";
@@ -28,11 +28,26 @@ export async function getAllArticles() {
     return articles.map(mapArticle);
 }
 
-export async function searchRequestArticles(searchParams: { type: string, query: string }) {
+export async function searchRequestArticles(searchParams: { type: SEARCH_REQUEST_TYPE, query: string, locale: LocaleType }) {
   await connectDB();
+  const { type, query, locale } = searchParams;
+  return Article.find({
 
-  
-  // return articles.map(mapArticle);
+    $or: [
+
+        { [`title.${locale}`]: { $regex: query, $options: "i" } },
+
+        { [`description.${locale}`]: { $regex: query, $options: "i" } },
+
+        { [`content.${locale}`]: { $regex: query, $options: "i" } },
+
+        { hashTags: query },
+
+        { slug: { $regex: query, $options: "i" } },
+
+    ],
+
+});
 }
 
 export async function createArticle(data: Partial<ArticleTypes>) {

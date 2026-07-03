@@ -2,6 +2,7 @@ import { connectDB } from "../lib/connectDB";
 import { Types } from "mongoose";
 import { News, NewsTypes } from "../models/news";
 import { NewsType } from "../types/types";
+import { SEARCH_REQUEST_TYPE } from "../globalConsts/globalEnum";
 
 function mapNews(news: NewsTypes): NewsType {
     return {
@@ -23,7 +24,7 @@ export async function getAllNews() {
     return news.map(mapNews);
 }
 
-export async function searchRequestNews(searchParams: { type: string, query: string }) {
+export async function searchRequestNews(searchParams: { type: SEARCH_REQUEST_TYPE, query: string }) {
     await connectDB();
     
     // return news.map(mapNews);
