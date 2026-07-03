@@ -32,7 +32,6 @@ export async function searchRequestArticles(searchParams: { type: SEARCH_REQUEST
   await connectDB();
   const { type, query, locale } = searchParams;
   return Article.find({
-
     $or: [
 
         { [`title.${locale}`]: { $regex: query, $options: "i" } },
