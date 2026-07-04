@@ -28,25 +28,26 @@ export async function getAllArticles() {
     return articles.map(mapArticle);
 }
 
-export async function searchRequestArticles(searchParams: { type: SEARCH_REQUEST_TYPE, query: string, locale: LocaleType }) {
+export async function searchRequestArticles({
+  query,
+  locale,
+}: {
+  query: string;
+  locale: LocaleType;
+}) {
   await connectDB();
-  const { type, query, locale } = searchParams;
-  return Article.find({
+
+  const articles = await Article.find({
     $or: [
-
-        { [`title.${locale}`]: { $regex: query, $options: "i" } },
-
-        { [`description.${locale}`]: { $regex: query, $options: "i" } },
-
-        { [`content.${locale}`]: { $regex: query, $options: "i" } },
-
-        { hashTags: query },
-
-        { slug: { $regex: query, $options: "i" } },
-
+      { [`title.${locale}`]: { $regex: query, $options: "i" } },
+      { [`description.${locale}`]: { $regex: query, $options: "i" } },
+      { [`content.${locale}`]: { $regex: query, $options: "i" } },
+      { hashTags: query },
+      { slug: { $regex: query, $options: "i" } },
     ],
+  }).lean();
 
-});
+  return articles.map(mapArticle);
 }
 
 export async function createArticle(data: Partial<ArticleTypes>) {

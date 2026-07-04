@@ -95,6 +95,7 @@ export enum SEARCH_TYPE {
 	HASH_TAGS = 'HASH_TAGS',
 	ARTICLES = 'ARTICLES',
 	NEWS = 'NEWS',
+	TESTS = 'TESTS',
 	LIBRARY = 'LIBRARY',
 }
 
