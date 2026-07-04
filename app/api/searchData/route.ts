@@ -13,7 +13,7 @@ export const searchData = async (searchParams: {request:SEARCH_TYPE, type: SEARC
             const { searchRequestNews } = await import("../../service/newsService");
             return searchRequestNews({ type: searchParams.type, query: searchParams.query });
         case SEARCH_TYPE.TESTS:
-            const { searchRequestTests } = await import("../../service/testService");
+            const { searchRequestTests } = await import("../../service/testsService");
             return searchRequestTests({ type: searchParams.type, query: searchParams.query });
         default:
             throw new Error("Invalid search type");

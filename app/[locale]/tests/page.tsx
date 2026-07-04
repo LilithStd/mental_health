@@ -5,7 +5,7 @@ import Loading from "@/app/components/shared/loading";
 import Test from "@/app/components/tests/test";
 import { IMAGES_UPLOAD_PATH, SIZE_ELEMENT, TEST_TYPE } from "@/app/globalConsts/globalEnum";
 
-import { getAllTests } from "@/app/service/testSerive";
+import { getAllTests } from "@/app/service/testsService";
 import AppImage from "@/app/components/shared/appImage";
 import { UPLOAD_IMAGE_NAME } from "@/app/globalConsts/globalConsts";
 

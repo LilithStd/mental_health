@@ -9,7 +9,7 @@ import { routes } from "@/app/helpers/helpersFunctions";
 import { LocaleType, TestType } from "@/app/types/types";
 import ReturnButton from "@/app/components/returnButton";
 import { getLocale } from "@/app/hooks/server/getLocale";
-import { getTestById } from "@/app/service/testSerive";
+import { getTestById } from "@/app/service/testsService";
 
 
 export default async function TestCurrent({

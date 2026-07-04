@@ -2,7 +2,7 @@
 // import fs from 'fs'
 // import path from 'path'
 
-import { getAllTests } from "@/app/service/testSerive";
+import { getAllTests } from "@/app/service/testsService";
 
 // type QuestionVariant = {
 //     id:string
