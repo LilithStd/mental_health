@@ -1,16 +1,19 @@
 'use client'
+import { SEARCH_REQUEST_TYPE } from "@/app/globalConsts/globalEnum";
 import { THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles";
 import { searchElementsInArray } from "@/app/helpers/helpersFunctions";
 import { useGlobalStore } from "@/app/store/globalStore";
 import { useState } from "react";
 
 interface SearchProps<T extends Record<string, unknown>> {
-    callBackResultAfterSearch(results: T[]): void
-    isSearchActive: (status: boolean) => void
-    arrayForSearch: T[]
+    requestType:SEARCH_REQUEST_TYPE;
+    query: string;
+    callBackResultAfterSearch: (results: T[]) => void;
+    arrayForSearch: T[];
+    isSearchActive: (status: boolean) => void;
 }
 
-export default function Search<T extends Record<string, unknown>>({ callBackResultAfterSearch, arrayForSearch, isSearchActive }: SearchProps<T>) {
+export default function Search<T extends Record<string, unknown>>({ requestType, query, callBackResultAfterSearch, arrayForSearch, isSearchActive }: SearchProps<T>) {
     // stores
     const currentTheme = useGlobalStore((state) => state.currentTheme);
     // 
