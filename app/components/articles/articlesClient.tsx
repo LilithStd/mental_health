@@ -5,9 +5,10 @@ import { routes } from "@/app/helpers/helpersFunctions";
 import ReturnButton from "../returnButton";
 import {  ArticleType, LocaleType } from "@/app/types/types";
 import { MediaPageContent } from "@/translate/mediaPage/mediaPageContent";
-import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum";
+import { SEARCH_REQUEST_TYPE, SIZE_ELEMENT } from "@/app/globalConsts/globalEnum";
 import { useLocale } from "@/app/hooks/useLocale";
 import Article from "./article";
+import Search from "../shared/search";
 
 
 interface ArticlesClientProps {
@@ -50,6 +51,15 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
               <div className={`flex w-full justify-start mb-4`}>
                     <ReturnButton pathToReturn={routesAdaptive.media.root} />
                 </div>
+                <div className={`flex flex-col items-center justify-center mb-4`}>
+                    <Search requestType={SEARCH_REQUEST_TYPE.TITLE} query={""} callBackResultAfterSearch={function (results: Record<string, unknown>[]): void {
+                        throw new Error("Function not implemented.");
+                    } } arrayForSearch={[]} isSearchActive={function (status: boolean): void {
+                        throw new Error("Function not implemented.");
+                    } }/>
+                </div>
+                    
+                
                 {articles.length === 0 ? (
                     <p>{MediaPageContent[locale].noArticles}</p>
                 ) : (

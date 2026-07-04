@@ -15,7 +15,7 @@ interface SearchProps<T extends Record<string, unknown>> {
 
 export default function Search<T extends Record<string, unknown>>({ requestType, query, callBackResultAfterSearch, arrayForSearch, isSearchActive }: SearchProps<T>) {
     // stores
-    const currentTheme = useGlobalStore((state) => state.currentTheme);
+
     // 
 
     const [searchRequest, setSearchRequest] = useState('')
@@ -33,10 +33,9 @@ export default function Search<T extends Record<string, unknown>>({ requestType,
     }
 
     return (
-        <div className={`bg-subContainer flex  rounded-md text-center items-center justify-center`}>
+        <div className={` flex  text-center items-center justify-center`}>
             <form onSubmit={handleSearchSubmit}>
-                <input type="text" placeholder="Search" className={`${THEME_COLOR_SCHEME[currentTheme].input}
-             p-1 rounded-md w-full text-center`} value={searchRequest} onChange={handleSearchChange} />
+                <input type="text" placeholder="Search" className={`bg-buttonContainer/20  border border-primary-color/30 focus:border-primary-color/50   p-1 rounded-large w-full text-center`} value={searchRequest} onChange={handleSearchChange} />
             </form>
 
 
