@@ -9,6 +9,7 @@ import { SEARCH_REQUEST_TYPE, SIZE_ELEMENT } from "@/app/globalConsts/globalEnum
 import { useLocale } from "@/app/hooks/useLocale";
 import Article from "./article";
 import Search from "../shared/search";
+import { useState } from "react";
 
 
 interface ArticlesClientProps {
@@ -21,6 +22,7 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
     const locale = useLocale() as LocaleType
     const routesAdaptive = routes(locale)
     const articles = initialArticles
+    const [searchResults, setSearchResults] = useState<ArticleType[]>(initialArticles);
 
 
 
@@ -52,11 +54,9 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
                     <ReturnButton pathToReturn={routesAdaptive.media.root} />
                 </div>
                 <div className={`flex flex-col items-center justify-center mb-4`}>
-                    <Search requestType={SEARCH_REQUEST_TYPE.TITLE} query={""} callBackResultAfterSearch={function (results: Record<string, unknown>[]): void {
-                        throw new Error("Function not implemented.");
-                    } } arrayForSearch={[]} isSearchActive={function (status: boolean): void {
-                        throw new Error("Function not implemented.");
-                    } }/>
+                    <Search requestType={SEARCH_REQUEST_TYPE.TITLE} query={""} callBackResultAfterSearch={function (results: ArticleType[]): void {
+                        setSearchResults(results);
+                    } } arrayForSearch={articles}/>
                 </div>
                     
                 
