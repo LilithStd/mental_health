@@ -23,7 +23,7 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
     const routesAdaptive = routes(locale)
     const articles = initialArticles
     const [searchResults, setSearchResults] = useState<ArticleType[]>(initialArticles);
-
+    console.log('Result', searchResults);
 
 
     const randomArticlesComponent = <div className={`flex flex-col indents-main-container rounded-large  `}>
@@ -58,6 +58,7 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
                         setSearchResults(results);
                     } } arrayForSearch={articles}/>
                 </div>
+
                     
                 
                 {articles.length === 0 ? (
