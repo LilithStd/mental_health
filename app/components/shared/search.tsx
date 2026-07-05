@@ -2,6 +2,7 @@
 import { SEARCH_REQUEST_TYPE } from "@/app/globalConsts/globalEnum";
 import { searchElementsInArray } from "@/app/helpers/helpersFunctions";
 import { useState } from "react";
+import SearchArrowIcon from "@/public/icons/ArrowRightCircle.svg";
 
 interface SearchProps<T extends Record<string, unknown>> {
     requestType:SEARCH_REQUEST_TYPE;
@@ -31,12 +32,44 @@ export default function Search<T extends Record<string, unknown>>({ requestType,
     }
 
     return (
-        <div className={` flex  text-center items-center justify-center`}>
-            <form onSubmit={handleSearchSubmit}>
-                <input type="text" placeholder="Search" className={`bg-buttonContainer/20  border border-primary-color/30 focus:border-primary-color/50   p-1 rounded-large w-full text-center`} value={searchRequest} onChange={handleSearchChange} />
+        <div className="flex justify-center">
+            <form
+                onSubmit={handleSearchSubmit}
+                className="relative w-full max-w-md"
+            >
+                <input
+                type="text"
+                placeholder="Search"
+                value={searchRequest}
+                onChange={handleSearchChange}
+                className="
+                    w-full
+                    rounded-large
+                    border border-primary-color/30
+                    bg-buttonContainer/20
+                    p-2
+                    pr-10
+                    focus:border-primary-color/50
+                "
+                />
+                <button
+                type="submit"
+                className="
+                    absolute
+                    right-3
+                    top-1/2
+                    -translate-y-1/2
+                    cursor-pointer
+                ">
+                <SearchArrowIcon
+                    className={`w-5 h-5 ${
+                    isSearchActive
+                        ? 'text-primary-color'
+                        : 'text-primary-color/50'
+                    }`}
+                />
+                </button>
             </form>
-
-
-        </div>
+            </div>
     )
 }
