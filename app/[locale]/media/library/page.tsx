@@ -3,7 +3,7 @@ import CreateElementLibrary from "@/app/components/library/createElementLibrary"
 import ReturnButton from "@/app/components/returnButton"
 import HashTags from "@/app/components/shared/hashTags"
 import Search from "@/app/components/shared/search"
-import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum"
+import { SEARCH_REQUEST_TYPE, SIZE_ELEMENT } from "@/app/globalConsts/globalEnum"
 import { routes } from "@/app/helpers/helpersFunctions"
 import { getLocale } from "@/app/hooks/server/getLocale"
 import { getAllLibrary } from "@/app/service/libraryService"
@@ -26,9 +26,11 @@ export default async function LibraryPage() {
             <div className={`flex w-full justify-center gap-4 mb-4`}>
                 <span>{LibraryContent[locale].title}</span>
             </div>
-            <div className={`flex w-full justify-center gap-4 mb-4`}>
-            <input type="text" placeholder={`Search`} className={` p-2 mb-4 rounded-large bg-primary-color/50 border border-primary-color/30`} />
-            </div>
+            {/* <div className={`flex w-full justify-center gap-4 mb-4`}>
+                <Search requestType={SEARCH_REQUEST_TYPE.TITLE} query={""} callBackResultAfterSearch={function (results: typeof library): void {
+                    console.log('Search results:', results);
+                }} arrayForSearch={library} locale={locale} />
+            </div> */}
             <div className={`flex w-full justify-center pr-4 mb-4`}>
                 <CreateElementLibrary />
             </div>
