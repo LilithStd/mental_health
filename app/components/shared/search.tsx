@@ -54,18 +54,19 @@ export default function Search<T extends Record<string, unknown>>({ requestType,
                 />
                 <button
                 type="submit"
-                className="
+                disabled={!isSearchActive}
+                className={`
                     absolute
                     right-3
                     top-1/2
                     -translate-y-1/2
-                    cursor-pointer
-                ">
+                    ${isSearchActive ? 'cursor-pointer' : 'cursor-not-allowed'}
+                `}>
                 <SearchArrowIcon
-                    className={`w-5 h-5 ${
+                    className={`w-8 h-8 ${
                     isSearchActive
-                        ? 'text-primary-color'
-                        : 'text-primary-color/50'
+                        ? 'text-buttonContainer'
+                        : 'text-buttonContainer/50'
                     }`}
                 />
                 </button>
