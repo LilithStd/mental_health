@@ -56,7 +56,7 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
                 <div className={`flex flex-col items-center justify-center mb-4`}>
                     <Search requestType={SEARCH_REQUEST_TYPE.TITLE} query={""} callBackResultAfterSearch={function (results: ArticleType[]): void {
                         setSearchResults(results);
-                    } } arrayForSearch={articles}/>
+                    } } arrayForSearch={articles} locale={locale}/>
                 </div>
 
                     

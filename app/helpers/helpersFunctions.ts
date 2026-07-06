@@ -8,29 +8,69 @@ const normalize = (str: string) =>
     .replace(/\s+/g, ' ')
     .trim()
 
+export const extractStrings = (value: unknown): string[] => {
+    if (value == null) return [];
+    if (typeof value === "string") return [value];
+    if (typeof value === "number" || typeof value === "boolean") {
+      return [String(value)];
+    }
+    if (Array.isArray(value)) {
+      return value.flatMap(extractStrings);
+    }
+    if (typeof value === "object") {
+      return Object.values(value).flatMap(extractStrings);
+    }
+    return [];
+
+};
+
 export const searchElementsInArray = <T>(
   array: T[],
   request: string,
-  keyExtractors: Array<(item: T) => string | undefined | null>
+  extractor: (item: T) => Array<string | undefined | null>
 ): T[] => {
-  const query = normalize(request)
-  if (!query) return array
+  const query = normalize(request);
+  if (!query) return array;
 
-  const queryWords = query.split(' ')
+  const queryWords = query.split(" ");
 
-  return array.filter(item =>
-    keyExtractors.some(extractor => {
-      const raw = extractor(item)
-      if (!raw) return false
+  return array.filter(item => {
+    const values = extractor(item);
 
-      const valueWords = normalize(raw).split(' ')
+    return values.some(raw => {
+      if (!raw) return false;
+
+      const valueWords = normalize(raw).split(" ");
 
       return queryWords.every(qw =>
         valueWords.some(vw => vw.startsWith(qw))
-      )
-    })
-  )
-}
+      );
+    });
+  });
+};
+    
+// export const searchElementsInArray = <T>(
+//   array: T[],
+//   request: string,
+//   keyExtractors: Array<(item: T) => string | undefined | null>
+// ): T[] => {
+//   const query = normalize(request)
+//   if (!query) return array
+
+//   const queryWords = query.split(' ')
+
+//   return array.filter(item =>
+//     keyExtractors.some(extractor => {
+//       const raw = extractor(item)
+//       if (!raw) return false
+//       const valueWords = normalize(raw).split(' ')
+
+//       return queryWords.every(qw =>
+//         valueWords.some(vw => vw.startsWith(qw))
+//       )
+//     })
+//   )
+// }
 
 export const formattedDate = (date: string) => {
   const tempDate = new Date(date);

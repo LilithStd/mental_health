@@ -1,6 +1,6 @@
 'use client'
 import { SEARCH_REQUEST_TYPE } from "@/app/globalConsts/globalEnum";
-import { searchElementsInArray } from "@/app/helpers/helpersFunctions";
+import { extractStrings, searchElementsInArray } from "@/app/helpers/helpersFunctions";
 import { useState } from "react";
 import SearchArrowIcon from "@/public/icons/ArrowRightCircle.svg";
 
@@ -9,15 +9,17 @@ interface SearchProps<T extends Record<string, unknown>> {
     query: string;
     callBackResultAfterSearch: (results: T[]) => void;
     arrayForSearch: T[];
+    locale: string;
 }
 
-export default function Search<T extends Record<string, unknown>>({ requestType, query, callBackResultAfterSearch, arrayForSearch, }: SearchProps<T>) {
+export default function Search<T extends Record<string, unknown>>({ requestType, query, callBackResultAfterSearch, arrayForSearch, locale }: SearchProps<T>) {
     // stores
 
     // 
 
     const [isSearchActive, setIsSearchActive] = useState(false);
     const [searchRequest, setSearchRequest] = useState('')
+
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setIsSearchActive(e.target.value.length > 0);
         const query = e.target.value;
@@ -26,7 +28,8 @@ export default function Search<T extends Record<string, unknown>>({ requestType,
 
     const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const filteredResults = searchElementsInArray(arrayForSearch, searchRequest, Object.keys(arrayForSearch[0] || {}).map(key => (item: T) => String(item[key])));
+        const filteredResults = searchElementsInArray(arrayForSearch, searchRequest, item => extractStrings(item));
+        console.log(filteredResults[0]);
         callBackResultAfterSearch(filteredResults);
         setIsSearchActive(searchRequest.length > 0);
     }
