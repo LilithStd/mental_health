@@ -9,10 +9,11 @@ interface SearchProps<T extends Record<string, unknown>> {
     query: string;
     callBackResultAfterSearch: (results: T[]) => void;
     arrayForSearch: T[];
+    setResultsFound: (found: boolean) => void;
     locale: string;
 }
 
-export default function Search<T extends Record<string, unknown>>({ requestType, query, callBackResultAfterSearch, arrayForSearch, locale }: SearchProps<T>) {
+export default function Search<T extends Record<string, unknown>>({ requestType, query, callBackResultAfterSearch, arrayForSearch, locale, setResultsFound }: SearchProps<T>) {
     // stores
 
     // 
@@ -32,6 +33,7 @@ export default function Search<T extends Record<string, unknown>>({ requestType,
         console.log(filteredResults[0]);
         callBackResultAfterSearch(filteredResults);
         setIsSearchActive(searchRequest.length > 0);
+        setResultsFound(filteredResults.length > 0);
     }
 
     return (
