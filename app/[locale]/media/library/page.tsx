@@ -26,11 +26,9 @@ export default async function LibraryPage() {
             <div className={`flex w-full justify-center gap-4 mb-4`}>
                 <span>{LibraryContent[locale].title}</span>
             </div>
-            {/* <div className={`flex w-full justify-center gap-4 mb-4`}>
-                <Search requestType={SEARCH_REQUEST_TYPE.TITLE} query={""} callBackResultAfterSearch={function (results: typeof library): void {
-                    console.log('Search results:', results);
-                }} arrayForSearch={library} locale={locale} />
-            </div> */}
+            <div className={`flex w-full justify-center gap-4 mb-4`}>
+                <Search requestType={SEARCH_REQUEST_TYPE.TITLE} query={""} callBackResultAfterSearch={() => {}} arrayForSearch={library} locale={locale} />
+            </div>
             <div className={`flex w-full justify-center pr-4 mb-4`}>
                 <CreateElementLibrary />
             </div>
