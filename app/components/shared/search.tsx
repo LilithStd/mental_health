@@ -3,6 +3,7 @@ import { SEARCH_REQUEST_TYPE } from "@/app/globalConsts/globalEnum";
 import { extractStrings, searchElementsInArray } from "@/app/helpers/helpersFunctions";
 import { useState } from "react";
 import SearchArrowIcon from "@/public/icons/ArrowRightCircle.svg";
+import CancelSearchIcon from "@/public/icons/PlusCircle.svg";
 
 interface SearchProps<T extends Record<string, unknown>> {
     requestType:SEARCH_REQUEST_TYPE;
@@ -59,21 +60,21 @@ export default function Search<T extends Record<string, unknown>>({ requestType,
                 />
                 <button
                 type="submit"
-                disabled={!isSearchActive}
                 className={`
                     absolute
                     right-3
                     top-1/2
                     -translate-y-1/2
-                    ${isSearchActive ? 'cursor-pointer' : 'cursor-not-allowed'}
+                    ${isSearchActive ? 'cursor-pointer' : ''}
                 `}>
-                <SearchArrowIcon
+                {isSearchActive ? <CancelSearchIcon className={`w-8 h-8 ${isSearchActive ? 'text-buttonContainer' : 'text-buttonContainer/50'} rotate-45`} onClick={() => (setIsSearchActive(false), setSearchRequest(''))} /> 
+                : <SearchArrowIcon
                     className={`w-8 h-8 ${
                     isSearchActive
                         ? 'text-buttonContainer'
                         : 'text-buttonContainer/50'
                     }`}
-                />
+                />}
                 </button>
             </form>
             </div>

@@ -23,6 +23,7 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
     const routesAdaptive = routes(locale)
     const articles = initialArticles
     const [searchResults, setSearchResults] = useState<ArticleType[]>(initialArticles);
+    const [resultsFound, setResultsFound] = useState<boolean>(true);
     console.log('Result', searchResults);
 
 
@@ -56,7 +57,7 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
                 <div className={`flex flex-col items-center justify-center mb-4`}>
                     <Search requestType={SEARCH_REQUEST_TYPE.TITLE} query={""} callBackResultAfterSearch={function (results: ArticleType[]): void {
                         setSearchResults(results);
-                    } } arrayForSearch={articles} locale={locale}/>
+                    } } arrayForSearch={articles} locale={locale} setResultsFound={setResultsFound} />
                 </div>
 
                     
