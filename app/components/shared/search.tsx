@@ -23,7 +23,7 @@ export default function Search<T extends Record<string, unknown>>({ requestType,
     const [searchRequest, setSearchRequest] = useState('')
 
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setIsSearchActive(e.target.value.length > 0);
+        // setIsSearchActive(e.target.value.length > 0);
         const query = e.target.value;
         setSearchRequest(query);
     }
@@ -31,7 +31,6 @@ export default function Search<T extends Record<string, unknown>>({ requestType,
     const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const filteredResults = searchElementsInArray(arrayForSearch, searchRequest, item => extractStrings(item));
-        console.log(filteredResults[0]);
         callBackResultAfterSearch(filteredResults);
         setIsSearchActive(searchRequest.length > 0);
         setResultsFound(filteredResults.length > 0);
@@ -65,12 +64,12 @@ export default function Search<T extends Record<string, unknown>>({ requestType,
                     right-3
                     top-1/2
                     -translate-y-1/2
-                    ${isSearchActive ? 'cursor-pointer' : ''}
+                    ${searchRequest.length > 0 ? 'cursor-pointer' : ''}
                 `}>
-                {isSearchActive ? <CancelSearchIcon className={`w-8 h-8 ${isSearchActive ? 'text-buttonContainer' : 'text-buttonContainer/50'} rotate-45`} onClick={() => (setIsSearchActive(false), setSearchRequest(''))} /> 
+                {isSearchActive ? <CancelSearchIcon className={`w-8 h-8 ${searchRequest.length > 0 ? 'text-buttonContainer' : 'text-buttonContainer/50'} rotate-45`} onClick={() => (setIsSearchActive(false), setSearchRequest(''))} /> 
                 : <SearchArrowIcon
                     className={`w-8 h-8 ${
-                    isSearchActive
+                    searchRequest.length > 0
                         ? 'text-buttonContainer'
                         : 'text-buttonContainer/50'
                     }`}
