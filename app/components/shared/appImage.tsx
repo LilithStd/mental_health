@@ -11,8 +11,8 @@ interface AppImageProps {
   imageName: string
   entityId?: string
 
-  width: number
-  height: number
+  width: number 
+  height: number 
   alt?: string
 
   priority?: boolean
@@ -39,8 +39,9 @@ export default function AppImage({
       alt={alt}
       width={width}
       height={height}
+      loading={"eager" }
       priority={priority}
-      className={className}
+      className={`${className} object-cover`}
       unoptimized
     />
   )

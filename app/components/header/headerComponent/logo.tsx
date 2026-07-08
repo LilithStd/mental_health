@@ -13,8 +13,8 @@ export default function Logo() {
                 imageName={logoImageSrc}
                 alt="Mental Health Logo"
                 width={100}
-                height={100}
-                className={``}
+                height={40}
+                className={`rounded-large`}
             />
             <h2 className={`text-2xl font-geistSans font-bold`}>Mental Health</h2>
         </div>
