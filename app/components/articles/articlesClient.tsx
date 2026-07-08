@@ -22,10 +22,9 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
     const locale = useLocale() as LocaleType
     const routesAdaptive = routes(locale)
     const articles = initialArticles
-    const [searchResults, setSearchResults] = useState<ArticleType[]>(initialArticles);
-    const [resultsFound, setResultsFound] = useState<boolean>(true);
-    console.log('Result', searchResults);
-
+    const [searchResults, setSearchResults] = useState<ArticleType[]>([]);
+    const [resultsFound, setResultsFound] = useState<boolean>(false);
+    console.log(searchResults, resultsFound, "searchResults, resultsFound")
 
     const randomArticlesComponent = <div className={`flex flex-col indents-main-container rounded-large  `}>
         <h2 className={`text-3xl  bg-primary-color/30 rounded-large  p-4 mb-4`}>{MediaPageContent[locale].randomArticles}</h2>
@@ -60,13 +59,33 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
                     } } arrayForSearch={articles} locale={locale} setResultsFound={setResultsFound} />
                 </div>
 
-                    
-                
-                {articles.length === 0 ? (
+                {searchResults && searchResults.length > 0 ? (
+                    <div className={`flex flex-col gap-4`}>
+                        {searchResults.map((article) =>
+                            <Article key={article.id} article={article} typeArticle={typeArticle} />
+                        )}
+                    </div>
+                ) : resultsFound && searchResults.length === 0 ? (
+                    <p>{MediaPageContent[locale].noArticles}</p>
+                ) : articles && articles.length > 0 ? (
+                    typeArticle === SIZE_ELEMENT.SMALL ? randomArticlesComponent : regularArticlesComponent
+                ) : null}
+                {/* {searchResults && searchResults.length > 0 ? (
+                    <div className={`flex flex-col gap-4`}>
+                        {searchResults.map((article) =>
+                            <Article key={article.id} article={article} typeArticle={typeArticle} />
+                        )}
+                    </div>
+                ) : searchResults && searchResults.length === 0 ? (
+                    <p>{MediaPageContent[locale].noArticles}</p>
+                ) : articles && articles.length > 0 ? (
+                    typeArticle === SIZE_ELEMENT.SMALL ? randomArticlesComponent : regularArticlesComponent
+                ) : null} */}
+                {/* {articles.length === 0 && !resultsFound ? (
                     <p>{MediaPageContent[locale].noArticles}</p>
                 ) : (
-                    typeArticle === SIZE_ELEMENT.SMALL ? randomArticlesComponent : regularArticlesComponent
-                )}
+                    !searchResults && !resultsFound ? typeArticle === SIZE_ELEMENT.SMALL ? randomArticlesComponent : regularArticlesComponent : null
+                )} */}
             </div>
         </div>
 
