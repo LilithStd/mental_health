@@ -35,7 +35,7 @@ export default function Search<T extends Record<string, unknown>>({ requestType,
         setIsSearchActive(searchRequest.length > 0);
         setResultsFound(filteredResults.length > 0);
     }
-
+    console.log(isSearchActive, );
     return (
         <div className="flex justify-center">
             <form

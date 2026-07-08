@@ -19,7 +19,7 @@ export default function LibraryClient({ libraryData }: LibraryClientProps) {
     const locale = useLocale() as LocaleType
     const routesAdaptive = routes(locale)
     const [searchResults, setSearchResults] = useState<LibraryType[]>([]);
-    const [resultsFound, setResultsFound] = useState<boolean>(true);
+    const [resultsFound, setResultsFound] = useState<boolean | null>(null);
 
 
     return (
@@ -39,7 +39,7 @@ export default function LibraryClient({ libraryData }: LibraryClientProps) {
                     <CreateElementLibrary />
                 </div>
                 <div className={`flex flex-col gap-4 `}>
-                        {resultsFound ? searchResults.map(item => (
+                        {resultsFound && resultsFound !== null && searchResults.map(item => (
                             <div key={item.id} className={`flex flex-col gap-2 p-4 bg-primary-color/50 rounded-large`}>
                                 <span className={`text-2xl`}>{item.title[locale]}</span>                        
                                 <span className={`text-sm italic`}>{LibraryContent[locale].type}:{item.type}</span>   
@@ -50,9 +50,22 @@ export default function LibraryClient({ libraryData }: LibraryClientProps) {
                                     <p>{item.content[locale]}</p>
                                 </details>
                             </div>
-                        )) : <span className={`text-lg`}>{LibraryContent[locale].notFoundElement}</span>}
-                    </div>
+                        ))  }
+                        {resultsFound === false && <span className={`text-lg`}>{LibraryContent[locale].notFoundElement}</span>}
+                        {searchResults.length === 0 && resultsFound === null && libraryData.map(item => (
+                            <div key={item.id} className={`flex flex-col gap-2 p-4 bg-primary-color/50 rounded-large`}>
+                                <span className={`text-2xl`}>{item.title[locale]}</span>
+                                <span className={`text-sm italic`}>{LibraryContent[locale].type}:{item.type}</span>   
+                                <HashTags hashTags={item.hashTags.length > 0 ? item.hashTags : ['depression']} type={SIZE_ELEMENT.SMALL} />
+                                <details key={item.id} className={`flex flex-col gap-2 p-4 bg-primary-color/50 rounded-large`}>
+                                    <summary className={`font-bold cursor-pointer`}>Description</summary>
+                                    <p>{item.content[locale]}</p>
+                                </details>
+                            </div>
+                        ))}
+                </div>
             </div>
         </div>
     )
 }
+          
