@@ -30,7 +30,8 @@ export const  UPLOAD_IMAGE_NAME = {
             aboutConsultation:'helpingAbstract_Big_x9leww',
             tests:{
                 butterFlyBlue:'butterflyBlue_gygdwh',
-                butterFlyViolet:'butterflyViolet_iahnmk'
+                butterFlyViolet:'butterflyViolet_iahnmk',
+                butterFlyBackground:'componentBackGround_hypa6c',
             },
             problemSolvingBlock: {
                 brainImage:'brainSegmented_z47azg',
