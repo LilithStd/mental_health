@@ -10,7 +10,7 @@ interface SearchProps<T extends Record<string, unknown>> {
     query: string;
     callBackResultAfterSearch: (results: T[]) => void;
     arrayForSearch: T[];
-    setResultsFound: (found: boolean) => void;
+    setResultsFound: (found: boolean | null) => void;
     locale: string;
 }
 
@@ -25,6 +25,11 @@ export default function Search<T extends Record<string, unknown>>({ requestType,
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         // setIsSearchActive(e.target.value.length > 0);
         const query = e.target.value;
+        if(query.length === 0) {
+            setIsSearchActive(false);
+            setResultsFound(null);
+            setSearchRequest('');
+        }
         setSearchRequest(query);
     }
 

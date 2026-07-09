@@ -53,7 +53,7 @@ export default function LibraryClient({ libraryData }: LibraryClientProps) {
                         ))  }
                         {resultsFound === false && <span className={`text-lg`}>{LibraryContent[locale].notFoundElement}</span>}
                         {searchResults.length === 0 && resultsFound === null && libraryData.map(item => (
-                            <div key={item.id} className={`flex flex-col gap-2 p-4 bg-primary-color/50 rounded-large`}>
+                            <div key={item.id} className={`flex flex-col gap-2 p-4 bg-primary-color/20 rounded-large`}>
                                 <span className={`text-2xl`}>{item.title[locale]}</span>
                                 <span className={`text-sm italic`}>{LibraryContent[locale].type}:{item.type}</span>   
                                 <HashTags hashTags={item.hashTags.length > 0 ? item.hashTags : ['depression']} type={SIZE_ELEMENT.SMALL} />
