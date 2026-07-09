@@ -23,7 +23,7 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
     const routesAdaptive = routes(locale)
     const articles = initialArticles
     const [searchResults, setSearchResults] = useState<ArticleType[]>([]);
-    const [resultsFound, setResultsFound] = useState<boolean>(false);
+    const [resultsFound, setResultsFound] = useState<boolean | null>(null);
     console.log(searchResults, resultsFound, "searchResults, resultsFound")
 
     const randomArticlesComponent = <div className={`flex flex-col indents-main-container rounded-large  `}>
@@ -65,7 +65,7 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
                             <Article key={article.id} article={article} typeArticle={typeArticle} />
                         )}
                     </div>
-                ) : resultsFound && searchResults.length === 0 ? (
+                ) : resultsFound === false && searchResults.length === 0 ? (
                     <p>{MediaPageContent[locale].noArticles}</p>
                 ) : articles && articles.length > 0 ? (
                     typeArticle === SIZE_ELEMENT.SMALL ? randomArticlesComponent : regularArticlesComponent
