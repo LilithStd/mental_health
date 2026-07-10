@@ -7,8 +7,8 @@ import Link from "next/link";
 import Image from "next/image";
 import AppImage from "../shared/appImage";
 import { IMAGES_UPLOAD_PATH } from "@/app/globalConsts/globalEnum";
-import { UPLOAD_IMAGE_NAME } from "@/app/globalConsts/globalConsts";
-const imageBg = 'https://res.cloudinary.com/dm0mozptw/image/upload/v1783618525/componentBackGround_hypa6c.png'
+import { LINK_RAW_PATH, UPLOAD_IMAGE_NAME } from "@/app/globalConsts/globalConsts";
+
 
 
 
@@ -21,7 +21,7 @@ export default function TestsBlock() {
         <div className={`flex gap-4 p-6 justify-around items-center bg-primary-color/20 backdrop-blur-md rounded-large text-center border border-primary-color/30 shadow-lg`}>
            
 
-            <Image src={imageBg} alt="Background Image" fill className="z-0  w-full h-full object-cover rounded-large opacity-70" />
+            <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="z-0  w-full h-full object-cover rounded-large opacity-70" />
             <div className={`flex flex-col ml-4 gap-4 justify-center items-center text-center`}>
                 <h2 className={`text-5xl font-bold `}>{TestsBlockContent[locale].title}</h2>
                 <p className={`italic text-lg`}>{TestsBlockContent[locale].description}</p>

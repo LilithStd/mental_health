@@ -1,10 +1,11 @@
 'use client'
+import Image from 'next/image'
 import { useLocale } from '@/app/hooks/useLocale'
 import { LocaleType } from '@/app/types/types'
 import { AboutDoctorContent } from '@/translate/mainPage/aboutDoctor'
 import AppImage from '../shared/appImage'
 import { IMAGES_UPLOAD_PATH } from '@/app/globalConsts/globalEnum'
-import { UPLOAD_IMAGE_NAME } from '@/app/globalConsts/globalConsts'
+import { LINK_RAW_PATH, UPLOAD_IMAGE_NAME } from '@/app/globalConsts/globalConsts'
 
 export default function AboutDoctorBlock() {
     const locale = useLocale() as LocaleType
@@ -21,7 +22,8 @@ export default function AboutDoctorBlock() {
             border border-primary-color/30
             shadow-lg`}>
             <div className={`grid grid-cols-2 gap-4 justify-center`}>
-                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={doctorPhotoName} width={500} height={800} alt="Doctor Image" className='rounded-large float-left mr-4' />
+                <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="z-0  w-full h-full object-cover rounded-large opacity-70" />
+                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={doctorPhotoName} width={500} height={800} alt="Doctor Image" className='rounded-large z-100 float-left mr-4' />
                 <div>
                     <div>
                         <h2 className={`text-5xl font-geistSans font-bold `}>{AboutDoctorContent[locale].TITLE}</h2>

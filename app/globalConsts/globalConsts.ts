@@ -19,6 +19,11 @@ export const SOCIAL_MEDIA_LINKS = {
     facebook: 'https://www.facebook.com',
 }
 
+export const LINK_RAW_PATH = {
+    butterflyBG: 'https://res.cloudinary.com/dm0mozptw/image/upload/v1783618525/componentBackGround_hypa6c.png',
+    butterflyBlue: 'https://res.cloudinary.com/dm0mozptw/image/upload/v1783618525/butterflyBlue_gygdwh.png',
+    butterflyViolet: 'https://res.cloudinary.com/dm0mozptw/image/upload/v1783618525/butterflyViolet_iahnmk.png',
+}
 
 export const  UPLOAD_IMAGE_NAME = {
 	bio: {
