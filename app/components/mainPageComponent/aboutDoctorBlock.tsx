@@ -22,8 +22,8 @@ export default function AboutDoctorBlock() {
             border border-primary-color/30
             shadow-lg`}>
             <div className={`grid grid-cols-2 gap-4 justify-center`}>
-                <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="z-0  w-full h-full object-cover rounded-large opacity-70" />
-                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={doctorPhotoName} width={500} height={800} alt="Doctor Image" className='rounded-large z-100 float-left mr-4' />
+                
+                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={doctorPhotoName} width={500} height={800} alt="Doctor Image" className='rounded-large  z-100 float-left mr-4' />
                 <div>
                     <div>
                         <h2 className={`text-5xl font-geistSans font-bold `}>{AboutDoctorContent[locale].TITLE}</h2>
@@ -47,6 +47,7 @@ export default function AboutDoctorBlock() {
                     <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_4}</p> */}
                 </div>
             </div>
+            <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="z-0  w-full h-full object-cover rounded-large opacity-30" />
 
         </div>
 

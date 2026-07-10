@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import AppImage from '../shared/appImage'
 import { IMAGES_UPLOAD_PATH } from '@/app/globalConsts/globalEnum'
-import { CROP_CONTAINER_SIZE, UPLOAD_IMAGE_NAME } from '@/app/globalConsts/globalConsts'
+import { CROP_CONTAINER_SIZE, LINK_RAW_PATH, UPLOAD_IMAGE_NAME } from '@/app/globalConsts/globalConsts'
 import Link from 'next/link'
 import { cropContent, routes } from '@/app/helpers/helpersFunctions'
 
@@ -91,7 +91,7 @@ export default function ProblemSolvingBlock() {
     const probmlemSolvingBlock = () => {
         return (
             <div className="flex gap-4 m-20  items-start relative">
-                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={UPLOAD_IMAGE_NAME.global.mainPage.problemSolvingBlock.brainImage} width={600} height={600} alt="Human with Problem" className=' p-4 rounded-large z-1' />
+                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={UPLOAD_IMAGE_NAME.global.mainPage.problemSolvingBlock.brainImage} width={600} height={600} alt="Human with Problem" className=' p-4 rounded-large z-10' />
                     <div  
                         className={`
                             absolute 
