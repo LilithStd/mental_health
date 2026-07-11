@@ -5,12 +5,10 @@ import { LocaleType } from "@/app/types/types";
 import { AboutConsultationContent } from "@/translate/mainPage/aboutConsultationBlock";
 import Link from "next/link";
 import Image from "next/image";
-import HelpingAbstract from "@/public/images/problems/helpingAbstract(Big).png";
 import CheckIcon from "@/public/icons/Check.svg";
-import CheckIconList from "@/public/icons/ClipboardDocumentCheck.svg";
 import { IMAGES_UPLOAD_PATH } from "@/app/globalConsts/globalEnum";
 import AppImage from "../shared/appImage";
-import { UPLOAD_IMAGE_NAME } from "@/app/globalConsts/globalConsts";
+import { LINK_RAW_PATH, UPLOAD_IMAGE_NAME } from "@/app/globalConsts/globalConsts";
 
 
 export default function AboutConsultation() {
@@ -20,7 +18,6 @@ export default function AboutConsultation() {
     return (
         <div className={`grid grid-cols-2 gap-4 p-6 justify-center items-center bg-primary-color/20 backdrop-blur-md rounded-large text-center border border-primary-color/30 shadow-lg`}>
             <div className={`flex justify-center items-center`}>
-                {/* <Image src={HelpingAbstract} alt="Helping Abstract" className='cover scale-170 rounded-large' /> */}
                 <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={HelpingAbstractImage} width={1280} height={1024} alt="Helping Abstract" className='rounded-large scale-170' />
             </div>
             <div className={`flex flex-col gap-4 p-6 justify-center items-center text-left`}>
@@ -40,6 +37,7 @@ export default function AboutConsultation() {
                 
                 <Link href={routesAdaptive.consultation.root} className={`mt-4 px-4 py-2 font-bold bg-buttonContainer rounded-large`}>{AboutConsultationContent[locale].SIGN_UP_BUTTON}</Link>
             </div>
+            <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-10" />
 
         </div>
     )
