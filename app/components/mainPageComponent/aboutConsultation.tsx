@@ -37,7 +37,7 @@ export default function AboutConsultation() {
                 
                 <Link href={routesAdaptive.consultation.root} className={`mt-4 px-4 py-2 font-bold bg-buttonContainer rounded-large`}>{AboutConsultationContent[locale].SIGN_UP_BUTTON}</Link>
             </div>
-            <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-10" />
+            <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" />
 
         </div>
     )

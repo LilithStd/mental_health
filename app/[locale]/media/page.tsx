@@ -1,11 +1,13 @@
 
 import RandomArticleBlock from "@/app/components/blockRandomElements/randomArticleBlock";
 import RandomNewsBlock from "@/app/components/news/randomNewsBlock";
+import { LINK_RAW_PATH } from "@/app/globalConsts/globalConsts";
 import { routes } from "@/app/helpers/helpersFunctions";
 import { getLocale } from "@/app/hooks/server/getLocale";
 import { LocaleType } from "@/app/types/types";
 import { MediaPageContent } from "@/translate/mediaPage/mediaPageContent";
 import Link from "next/link";
+import Image from "next/image";
 
 
 
@@ -25,8 +27,9 @@ export default async function MediaPage() {
 
                 {/* <RandomArticleBlock /> */}
                 {/* <RandomNewsBlock /> */}
-
+            <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" />
             </div>
+            
         </div>
     )
 }
