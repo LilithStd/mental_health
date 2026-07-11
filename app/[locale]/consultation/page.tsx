@@ -1,13 +1,14 @@
 'use client';
 import ConsultationForm from "@/app/components/consultation/consultationForm";
 import AppImage from "@/app/components/shared/appImage";
-import { UPLOAD_IMAGE_NAME } from "@/app/globalConsts/globalConsts";
+import { LINK_RAW_PATH, UPLOAD_IMAGE_NAME } from "@/app/globalConsts/globalConsts";
 import { CONSULTATION_TYPE, IMAGES_UPLOAD_PATH } from "@/app/globalConsts/globalEnum";
 import { routes } from "@/app/helpers/helpersFunctions";
 import { useLocale } from "@/app/hooks/useLocale";
 import { LocaleType } from "@/app/types/types";
 import { CONSULTATION_TYPE_CONTENT, LINK_TO_CONSULTATION } from "@/translate/consultationPage/consultationPage";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 
@@ -67,10 +68,11 @@ export default function Consultation() {
 
     return (
         <div className={`flex flex-col indents-main-container  rounded-medium flex-1 items-center`}>
-            <div className={`flex flex-col w-full flex-1  max-w-6xl bg-primary-color/20 border border-primary-color/20 rounded-large shadow-lg p-4 gap-4`}>
+            <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
                  {methodToChangeTypeConsultationComponent()}
                 {methodToConsult === CONSULTATION_TYPE.MAIN && mainMethodComponent()}
                 {methodToConsult === CONSULTATION_TYPE.ADDITIONAL && additionalMethodComponent()}
+                <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" />
             </div>
            
         </div>
