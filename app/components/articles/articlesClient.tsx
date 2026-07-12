@@ -1,5 +1,6 @@
 'use client'
 
+import Image from "next/image";
 import NewArticleButton from "./articleComponents/newArticleButton";
 import { routes } from "@/app/helpers/helpersFunctions";
 import ReturnButton from "../returnButton";
@@ -10,6 +11,7 @@ import { useLocale } from "@/app/hooks/useLocale";
 import Article from "./article";
 import Search from "../shared/search";
 import { useState } from "react";
+import { LINK_RAW_PATH } from "@/app/globalConsts/globalConsts";
 
 
 interface ArticlesClientProps {
@@ -26,7 +28,7 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
     const [resultsFound, setResultsFound] = useState<boolean | null>(null);
     console.log(searchResults, resultsFound, "searchResults, resultsFound")
 
-    const randomArticlesComponent = <div className={`flex flex-col indents-main-container rounded-large  `}>
+    const randomArticlesComponent = <div className={`flex flex-col indents-main-container rounded-large  z-10`}>
         <h2 className={`text-3xl  bg-primary-color/30 rounded-large  p-4 mb-4`}>{MediaPageContent[locale].randomArticles}</h2>
         <div className={`flex flex-col gap-4`}>
             {articles.map((article) =>
@@ -36,7 +38,7 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
     </div>
 
     const regularArticlesComponent =
-            <div className={`flex flex-col flex-1 rounded-large p-4`}>
+            <div className={`flex flex-col flex-1 rounded-large p-4 z-10`}>
               
                 <div className={`flex flex-col justify-center items-center`}>
                     <NewArticleButton />
@@ -49,18 +51,18 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
             </div>
     return (
         <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
-            <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 border border-primary-color/30 p-4 shadow-md`}>
-              <div className={`flex w-full justify-start mb-4`}>
+            <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
+              <div className={`flex w-full justify-start mb-4 z-10`}>
                     <ReturnButton pathToReturn={routesAdaptive.media.root} />
                 </div>
-                <div className={`flex flex-col items-center justify-center mb-4`}>
+                <div className={`flex flex-col items-center justify-center mb-4 z-10`}>
                     <Search requestType={SEARCH_REQUEST_TYPE.TITLE} query={""} callBackResultAfterSearch={function (results: ArticleType[]): void {
                         setSearchResults(results);
                     } } arrayForSearch={articles} locale={locale} setResultsFound={setResultsFound} />
                 </div>
 
                 {searchResults && searchResults.length > 0 ? (
-                    <div className={`flex flex-col gap-4`}>
+                    <div className={`flex flex-col gap-4 z-10`}>
                         {searchResults.map((article) =>
                             <Article key={article.id} article={article} typeArticle={typeArticle} />
                         )}
@@ -70,22 +72,7 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
                 ) : articles && articles.length > 0 ? (
                     typeArticle === SIZE_ELEMENT.SMALL ? randomArticlesComponent : regularArticlesComponent
                 ) : null}
-                {/* {searchResults && searchResults.length > 0 ? (
-                    <div className={`flex flex-col gap-4`}>
-                        {searchResults.map((article) =>
-                            <Article key={article.id} article={article} typeArticle={typeArticle} />
-                        )}
-                    </div>
-                ) : searchResults && searchResults.length === 0 ? (
-                    <p>{MediaPageContent[locale].noArticles}</p>
-                ) : articles && articles.length > 0 ? (
-                    typeArticle === SIZE_ELEMENT.SMALL ? randomArticlesComponent : regularArticlesComponent
-                ) : null} */}
-                {/* {articles.length === 0 && !resultsFound ? (
-                    <p>{MediaPageContent[locale].noArticles}</p>
-                ) : (
-                    !searchResults && !resultsFound ? typeArticle === SIZE_ELEMENT.SMALL ? randomArticlesComponent : regularArticlesComponent : null
-                )} */}
+                <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" />
             </div>
         </div>
 
