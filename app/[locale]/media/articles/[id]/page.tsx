@@ -9,6 +9,9 @@ import { LocaleType } from '@/app/types/types'
 import { getLocale } from '@/app/hooks/server/getLocale'
 import { SIZE_ELEMENT } from '@/app/globalConsts/globalEnum'
 import { getArticleById } from '@/app/service/articleService'
+import Image from 'next/image'
+import { LINK_RAW_PATH } from '@/app/globalConsts/globalConsts'
+
 
 
 export default async function ArticlePage({
@@ -30,7 +33,7 @@ export default async function ArticlePage({
 
     return (
         <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
-            <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/30 border border-primary-color/10 p-4 shadow-lg`}>
+            <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
                 <div className={`flex w-full justify-start mb-4`}>
                     <ReturnButton pathToReturn={routesAdaptive.articles.root} />
                 </div>
@@ -39,6 +42,7 @@ export default async function ArticlePage({
                     // initialLikesCount={likes.likesCount}
                     typeArticle={SIZE_ELEMENT.FULL}
                 />
+                <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" />
             </div>
 
         </div>

@@ -1,6 +1,8 @@
 
+import Image from "next/image";
 import LibraryElement from "@/app/components/library/libraryElement";
 import ReturnButton from "@/app/components/returnButton";
+import { LINK_RAW_PATH } from "@/app/globalConsts/globalConsts";
 import { LIBRARY_TYPE } from "@/app/globalConsts/globalEnum";
 import { routes } from "@/app/helpers/helpersFunctions";
 import { getLocale } from "@/app/hooks/server/getLocale";
@@ -24,6 +26,7 @@ export default async function CurrentElementLibraryPage({ params }: { params: { 
             <div className={`flex w-full justify-center gap-4 mb-4`}>
                 <LibraryElement slugs={[libraryElement]} id={id} type={type} />
             </div>
+            <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" />
         </div>
     </div>
   )
