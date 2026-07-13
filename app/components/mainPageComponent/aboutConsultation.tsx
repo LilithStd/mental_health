@@ -20,7 +20,7 @@ export default function AboutConsultation() {
             <div className={`flex justify-center items-center`}>
                 <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={HelpingAbstractImage} width={1280} height={1024} alt="Helping Abstract" className='rounded-large scale-170' />
             </div>
-            <div className={`flex flex-col gap-4 p-6 justify-center items-center text-left`}>
+            <div className={`flex flex-col z-10 gap-4 p-6 justify-center items-center text-left`}>
                 <h2 className={`text-3xl font-bold `}>{AboutConsultationContent[locale].TITLE}</h2>
                 <p className={`italic`}>{AboutConsultationContent[locale].DESCRIPTION}</p>
                 <div className={`flex flex-col gap-4 justify-center items-center bg-primary-color/10 rounded-large p-4 border border-primary-color/30 w-full`}>
@@ -35,7 +35,7 @@ export default function AboutConsultation() {
                     </ul>
                 </div>
                 
-                <Link href={routesAdaptive.consultation.root} className={`mt-4 px-4 py-2 font-bold bg-buttonContainer rounded-large`}>{AboutConsultationContent[locale].SIGN_UP_BUTTON}</Link>
+                <Link href={routesAdaptive.consultation.root} className={`p-4 w-fit bg-primary-color/40 backdrop-blur-md border border-primary-color/50 font-geistSans shadow-lg z-10 font-bold italic rounded-full hover:bg-accentElement hover:scale-105`}>{AboutConsultationContent[locale].SIGN_UP_BUTTON}</Link>
             </div>
             <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" />
 
