@@ -25,10 +25,10 @@ export default function TestsBlock() {
             <div className={`flex flex-col ml-4 gap-4 justify-center items-center text-center`}>
                 <h2 className={`text-5xl font-bold `}>{TestsBlockContent[locale].title}</h2>
                 <p className={`italic text-lg`}>{TestsBlockContent[locale].description}</p>
-                <Link href={routesAdaptive.tests.root} className={`mt-4 z-10 px-4 py-2 bg-buttonContainer rounded-large font-bold`}>{TestsBlockContent[locale].buttonText}</Link>
+                <Link href={routesAdaptive.tests.root} className={`p-4 w-fit bg-primary-color/40 backdrop-blur-md border border-primary-color/50 font-geistSans shadow-lg z-10 font-bold italic rounded-full hover:bg-accentElement hover:scale-105`}>{TestsBlockContent[locale].buttonText}</Link>
             </div>
             <AppImage width={300} height={300} imageName={UPLOAD_IMAGE_NAME.global.mainPage.tests.butterFlyViolet} alt="Test Butterfly" type={IMAGES_UPLOAD_PATH.GLOBAL}/>
-            <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="z-0  w-full h-full object-cover rounded-large opacity-70" />
+            <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="z-0  w-full h-full object-cover rounded-large opacity-40" />
         </div>
 
     )
