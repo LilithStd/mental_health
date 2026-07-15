@@ -19,7 +19,7 @@ export default function Article({ article, typeArticle }: ArticleProps) {
 
 
     return (
-        <article key={article.id} className={`rounded-large   w-full  flex flex-col`}>
+        <article key={article.id} className={`rounded-large   w-full  flex flex-col z-10`}>
             {typeArticle === SIZE_ELEMENT.SMALL && <SmallSizeArticle article={article}/>}
             {typeArticle === SIZE_ELEMENT.MEDIUM && <MediumSizeArticle article={article}/>}
             {typeArticle === SIZE_ELEMENT.FULL && <FullArticleSize article={article}/>}
