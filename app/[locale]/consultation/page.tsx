@@ -24,19 +24,11 @@ export default function Consultation() {
     // states
     const [methodToConsult, setMethodToConsult] = useState(CONSULTATION_TYPE.MAIN)
     // components
-    const methodToChangeTypeConsultationComponent = () => {
 
-        return (
-            <div className={`flex gap-4 p-4 justify-center`}>
-               
-                
-            </div>
-        )
-    }
     const additionalMethodComponent = () => {
         return (
             <div>
-                <div className={`flex flex-col gap-4 justify-center items-center`}>
+                <div className={`flex flex-col gap-4 justify-center items-center z-10`}>
                     <button onClick={() => setMethodToConsult(CONSULTATION_TYPE.MAIN)} className={`bg-primary-color/50 rounded-large p-2`}>Return</button>
                 </div>
                  
@@ -48,7 +40,7 @@ export default function Consultation() {
     const mainMethodComponent = () => {
         
         return (
-            <div className={`grid grid-cols-[0.8fr_1fr] gap-4 p-4 items-center`}>
+            <div className={`grid grid-cols-[0.8fr_1fr] gap-4 p-4 items-center z-10`}>
                 <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={ConsultationImage} width={600} height={600} alt="Consultation Image" className='rounded-large' />
                 <div>
                     <div className={`flex  justify-center items-center`}>
@@ -57,7 +49,7 @@ export default function Consultation() {
                     </div>
                     <div className={`flex gap-4 justify-center items-center`}>
                         <p className={``}>{CONSULTATION_TYPE_CONTENT.ADDITIONAL.description[locale]}</p>
-                        <button onClick={() => setMethodToConsult(CONSULTATION_TYPE.ADDITIONAL)} className={`bg-primary-color/50 rounded-large p-2`}>Additional</button>
+                        <button onClick={() => setMethodToConsult(CONSULTATION_TYPE.ADDITIONAL)} className={`bg-primary-color/50 rounded-large p-2 cursor-pointer`}>Additional</button>
                     </div>
 
                 </div>
@@ -69,7 +61,6 @@ export default function Consultation() {
     return (
         <div className={`flex flex-col indents-main-container  rounded-medium flex-1 items-center`}>
             <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
-                 {methodToChangeTypeConsultationComponent()}
                 {methodToConsult === CONSULTATION_TYPE.MAIN && mainMethodComponent()}
                 {methodToConsult === CONSULTATION_TYPE.ADDITIONAL && additionalMethodComponent()}
                 <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" />
