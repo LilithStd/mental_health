@@ -19,7 +19,7 @@ export default async function Tests() {
         <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
             {/* <Search /> */}
             <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
-                <div className={`grid grid-cols-1 md:grid-cols-1  mb-4 max-content-main-container`}>
+                <div className={`grid grid-cols-1 md:grid-cols-1  mb-4 max-content-main-container z-10`}>
                     
                     {tests ? tests.map((test) => (
                         <div key={test.id} className={`flex border border-primary-color/30 rounded-large bg-primary-color/10  gap-4 mb-4`}>
