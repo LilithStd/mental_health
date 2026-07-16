@@ -26,7 +26,7 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
     const articles = initialArticles
     const [searchResults, setSearchResults] = useState<ArticleType[]>([]);
     const [resultsFound, setResultsFound] = useState<boolean | null>(null);
-    console.log(searchResults, resultsFound, "searchResults, resultsFound")
+
 
     const randomArticlesComponent = <div className={`flex flex-col indents-main-container rounded-large  z-10`}>
         <h2 className={`text-3xl  bg-primary-color/30 rounded-large  p-4 mb-4`}>{MediaPageContent[locale].randomArticles}</h2>

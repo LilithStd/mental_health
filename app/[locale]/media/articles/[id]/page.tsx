@@ -29,8 +29,6 @@ export default async function ArticlePage({
         return <div>Статья не найдена</div>
     }
 
-    // const likes = await getArticleLikes(article.id)
-
     return (
         <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
             <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
@@ -39,7 +37,6 @@ export default async function ArticlePage({
                 </div>
                 <Article
                     article={articleById}
-                    // initialLikesCount={likes.likesCount}
                     typeArticle={SIZE_ELEMENT.FULL}
                 />
                 <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" />

@@ -7,5 +7,5 @@ import { getAllArticles } from "@/app/service/articleService"
 
 export default async function ArticlesPage() {
     const articles = await getAllArticles()
-    return <ArticlesClient initialArticles={articles} typeArticle={SIZE_ELEMENT.MEDIUM} />
+    return <ArticlesClient initialArticles={articles} typeArticle={SIZE_ELEMENT.SMALL} />
 }
