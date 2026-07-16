@@ -1,13 +1,13 @@
 
-import AboutConsultation from "../components/mainPageComponent/aboutConsultation";
-import AboutDoctorBlock from "../components/mainPageComponent/aboutDoctorBlock";
+import AboutConsultation from "../components/mainPageComponents/aboutConsultation";
+import AboutDoctorBlock from "../components/mainPageComponents/aboutDoctorBlock";
 // import AnalizUserProblemBlock from "../components/mainPageComponent/analizUserProblemBlock";
 // import FaqBlock from "../components/mainPageComponent/faqBlock";
 // import LastStepBlock from "../components/mainPageComponent/lastStepBlock";
 // import PricesBlock from "../components/mainPageComponent/pricesBlock";
-import ProblemSolvingBlock from "../components/mainPageComponent/problemSolvingBlock";
-import TestsBlock from "../components/mainPageComponent/testsBlock";
-import WelcomeBlockComponent from "../components/mainPageComponent/welcomeBlock";
+import ProblemSolvingBlock from "../components/mainPageComponents/problemSolvingBlock";
+import TestsBlock from "../components/mainPageComponents/testsBlock";
+import WelcomeBlockComponent from "../components/mainPageComponents/welcomeBlock";
 
 
 
