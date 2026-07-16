@@ -43,7 +43,7 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
                 <div className={`flex flex-col justify-center items-center`}>
                     <NewArticleButton />
                 </div>
-                <div className={`grid grid-cols-1 md:grid-cols-2 gap-4  max-content-main-container`}>
+                <div className={`grid grid-cols-1 md:grid-cols-1 gap-4  max-content-main-container`}>
                     {articles.map((article) =>
                         <Article key={article.id} article={article} typeArticle={typeArticle} />
                     )}
@@ -69,9 +69,8 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
                     </div>
                 ) : resultsFound === false && searchResults.length === 0 ? (
                     <p>{MediaPageContent[locale].noArticles}</p>
-                ) : articles && articles.length > 0 ? (
-                    typeArticle === SIZE_ELEMENT.SMALL ? randomArticlesComponent : regularArticlesComponent
-                ) : null}
+                ) : articles && articles.length > 0 && regularArticlesComponent
+    }
                 <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" />
             </div>
         </div>
