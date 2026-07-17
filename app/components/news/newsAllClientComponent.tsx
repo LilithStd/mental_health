@@ -9,6 +9,7 @@ import { LocaleType, NewsType } from "@/app/types/types"
 import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum"
 import { MediaPageContent } from "@/translate/mediaPage/mediaPageContent"
 import { LINK_RAW_PATH } from "@/app/globalConsts/globalConsts"
+import PathLinks from "../mediaPageComponents/pathLinks"
 
 interface NewsClientComponentProps {
     initialNews: NewsType[],
@@ -24,6 +25,10 @@ export default async function NewsAllClientComponent({ initialNews }: NewsClient
                 <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
                     <div className={`flex w-full justify-start mb-4 z-10`}>
                         <ReturnButton pathToReturn={routesAdaptive.media.root} />
+                        <PathLinks links={[{
+                            name: MediaPageContent[locale].titleNews,
+                            href: routesAdaptive.news.root
+                        }]} />
                     </div>
                     <CreateNewsButtonComponent />
                     {/* {isCreateArticleVisible && <CreateNews />} */}
