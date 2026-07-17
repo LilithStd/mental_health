@@ -12,6 +12,7 @@ import CreateElementLibrary from "./createElementLibrary"
 import { routes } from "@/app/helpers/helpersFunctions"
 import { useState } from "react"
 import { LINK_RAW_PATH } from "@/app/globalConsts/globalConsts"
+import RedirectAndPathComponent from "../mediaPageComponents/redirectAndPathComponent"
 
 interface LibraryClientProps {
   libraryData: LibraryType[]
@@ -27,9 +28,13 @@ export default function LibraryClient({ libraryData }: LibraryClientProps) {
     return (
         <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
             <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4 z-10`}>
-                <div className={`flex w-full justify-start mb-4 z-10`}>
+                {/* <div className={`flex w-full justify-start mb-4 z-10`}>
                     <ReturnButton pathToReturn={routesAdaptive.media.root} />
-                </div>
+                </div> */}
+                <RedirectAndPathComponent links={[{
+                    name: LibraryContent[locale].title,
+                    href: routesAdaptive.library.root
+                }]} pathToRedirect={routesAdaptive.media.root} />
                 <div className={`flex w-full justify-center gap-4 mb-4 z-10`}>
                     <span>{LibraryContent[locale].title}</span>
                 </div>
