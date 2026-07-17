@@ -12,6 +12,7 @@ import Article from "./article";
 import Search from "../shared/search";
 import { useState } from "react";
 import { LINK_RAW_PATH } from "@/app/globalConsts/globalConsts";
+import RedirectAndPathComponent from "../mediaPageComponents/redirectAndPathComponent";
 
 
 interface ArticlesClientProps {
@@ -52,9 +53,13 @@ export default  function ArticlesClient({ initialArticles, typeArticle }: Articl
     return (
         <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
             <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
-              <div className={`flex w-full justify-start mb-4 z-10`}>
+              {/* <div className={`flex w-full justify-start mb-4 z-10`}>
                     <ReturnButton pathToReturn={routesAdaptive.media.root} />
-                </div>
+                </div> */}
+                <RedirectAndPathComponent links={[{
+                    name: MediaPageContent[locale].titleArticles,
+                    href: routesAdaptive.articles.root
+                }]} pathToRedirect={routesAdaptive.media.root} />
                 <div className={`flex flex-col items-center justify-center mb-4 z-10`}>
                     <Search requestType={SEARCH_REQUEST_TYPE.TITLE} query={""} callBackResultAfterSearch={function (results: ArticleType[]): void {
                         setSearchResults(results);
