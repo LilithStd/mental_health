@@ -10,6 +10,7 @@ import { SIZE_ELEMENT } from "@/app/globalConsts/globalEnum"
 import { MediaPageContent } from "@/translate/mediaPage/mediaPageContent"
 import { LINK_RAW_PATH } from "@/app/globalConsts/globalConsts"
 import PathLinks from "../mediaPageComponents/pathLinks"
+import RedirectAndPathComponent from "../mediaPageComponents/redirectAndPathComponent"
 
 interface NewsClientComponentProps {
     initialNews: NewsType[],
@@ -23,15 +24,11 @@ export default async function NewsAllClientComponent({ initialNews }: NewsClient
     return (
         <div className={`flex flex-col indents-main-container  flex-1 items-center `}>
                 <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
-                    <div className={`flex w-full justify-start mb-4 z-10`}>
-                        <ReturnButton pathToReturn={routesAdaptive.media.root} />
-                        <PathLinks links={[{
-                            name: MediaPageContent[locale].titleNews,
-                            href: routesAdaptive.news.root
-                        }]} />
-                    </div>
+                    <RedirectAndPathComponent links={[{
+                        name: MediaPageContent[locale].titleNews,
+                        href: routesAdaptive.news.root
+                    }]} pathToRedirect={routesAdaptive.media.root} />
                     <CreateNewsButtonComponent />
-                    {/* {isCreateArticleVisible && <CreateNews />} */}
 
                     <div className={`flex text-center w-full flex-col gap-4`}>
                         {news.length === 0 ? (
