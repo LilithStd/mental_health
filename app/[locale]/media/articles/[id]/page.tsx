@@ -11,6 +11,8 @@ import { SIZE_ELEMENT } from '@/app/globalConsts/globalEnum'
 import { getArticleById } from '@/app/service/articleService'
 import Image from 'next/image'
 import { LINK_RAW_PATH } from '@/app/globalConsts/globalConsts'
+import RedirectAndPathComponent from '@/app/components/mediaPageComponents/redirectAndPathComponent'
+import { MediaPageContent } from '@/translate/mediaPage/mediaPageContent'
 
 
 
@@ -32,9 +34,15 @@ export default async function ArticlePage({
     return (
         <div className={`flex flex-col indents-main-container rounded-medium flex-1 items-center`}>
             <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
-                <div className={`flex w-full justify-start mb-4 z-10`}>
-                    <ReturnButton pathToReturn={routesAdaptive.articles.root} />
-                </div>
+               <RedirectAndPathComponent links={[
+                {
+                    name: MediaPageContent[locale].titleArticles,
+                    href: routesAdaptive.articles.root
+                },
+                {
+                    name: articleById.title[locale],
+                    href: routesAdaptive.articles.root
+                }]} pathToRedirect={routesAdaptive.media.root} />
                 <Article
                     article={articleById}
                     typeArticle={SIZE_ELEMENT.FULL}
