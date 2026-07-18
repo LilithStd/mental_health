@@ -8,6 +8,8 @@ import { routes } from "@/app/helpers/helpersFunctions";
 import { getLocale } from "@/app/hooks/server/getLocale";
 import { getElementLibraryById } from "@/app/service/libraryService";
 import { LocaleType } from "@/app/types/types";
+import RedirectAndPathComponent from "@/app/components/mediaPageComponents/redirectAndPathComponent";
+import { LibraryContent } from "@/translate/mediaPage/libraryContent/libraryContent";
 
 
 export default async function CurrentElementLibraryPage({ params }: { params: { id: string, type: LIBRARY_TYPE } }) {
@@ -16,13 +18,13 @@ export default async function CurrentElementLibraryPage({ params }: { params: { 
   const locale = await getLocale() as LocaleType
   const routesAdaptive = routes(locale)
   const libraryElement = await getElementLibraryById(id);
-
+    console.log(libraryElement)
   return (
         <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
         <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
-            <div className={`flex w-full justify-start mb-4`}>
-                <ReturnButton pathToReturn={routesAdaptive.library.root} />
-            </div>
+            <RedirectAndPathComponent links={[{
+                name: LibraryContent[locale].title,
+                href: routesAdaptive.library.root}]} pathToRedirect={routesAdaptive.media.root} />      
             <div className={`flex w-full justify-center gap-4 mb-4`}>
                 <LibraryElement slugs={[libraryElement]} id={id} type={type} />
             </div>
