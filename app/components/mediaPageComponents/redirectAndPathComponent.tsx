@@ -1,4 +1,5 @@
 import ReturnButton from "../returnButton";
+import Link from "next/link";
 
 interface RedirectAndPathComponentProps {
   links: { name: string, href: string }[];
@@ -11,8 +12,8 @@ export default function RedirectAndPathComponent({ links, pathToRedirect }: Redi
         <ReturnButton pathToReturn={pathToRedirect} />
         <div className={`flex gap-2 items-center`}>
             {links.map((link, index) => (
-                <div key={index} className={`flex gap-2 items-center`}>
-                    <a href={link.href}>{link.name}</a>
+                <div key={index} className={`bg-primary-color/50 cursor-pointer pb-2 pt-2 pl-4 pr-4 rounded-circle`}>
+                    <Link href={link.href}>{link.name}</Link>
                 </div>
             ))}
         </div>
