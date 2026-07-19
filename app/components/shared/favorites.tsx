@@ -18,7 +18,7 @@ export default  function Favorites({ isFavorite, type, counterFavorites, callBac
     const locale = useLocale() as LocaleType;
 
     return (
-        <div className={`flex pl-2 items-center cursor-pointer`} onClick={callBackIsFavorite}>
+        <div className={`flex  w-1/5 items-center cursor-pointer`} onClick={callBackIsFavorite}>
             {isFavorite ? <IsFavoritesIcon width={ type === SIZE_ELEMENT.FULL ? 24 : 18} height={ type === SIZE_ELEMENT.FULL ? 24 : 18} /> : <WithOutFavoritesIcon width={ type === SIZE_ELEMENT.FULL ? 24 : 18} height={ type === SIZE_ELEMENT.FULL ? 24 : 18} />}
             <span className={`ml-2 ${type === SIZE_ELEMENT.FULL ? 'text-md' : 'text-xs'}`}>{counterFavorites} {counterFavorites && counterFavorites <= 1 ? FAVORITES[locale].like : FAVORITES[locale].likes}</span>
         </div>
