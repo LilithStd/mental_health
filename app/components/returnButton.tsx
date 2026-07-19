@@ -16,7 +16,7 @@ export default function ReturnButton({ pathToReturn }: ReturnButtonProps) {
     if (!pathToReturn) return null;
 
     return (
-        <button className={` bg-primary-color/50 cursor-pointer w-1/5  p-2 rounded-circle`} onClick={() => router.push(pathToReturn)}>
+        <button className={` bg-primary-color/50 cursor-pointer   p-2 rounded-circle`} onClick={() => router.push(pathToReturn)}>
 
             <span className="cursor-pointer">
                 <ReturnIcon className="inline-block mr-2 w-6" />
