@@ -3,7 +3,7 @@ import { LANGUAGE_APP } from "@/app/globalConsts/globalConsts"
 import { useGlobalStore } from "@/app/store/globalStore"
 import { LOCALES } from "@/app/types/types"
 import LanguageIcon from "@/public/icons/Language.svg"
-import { usePathname, useRouter } from "next/navigation"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useState } from "react"
 
 // const locales = ["en", "ru", "lv"];
@@ -12,13 +12,18 @@ export default function LanguageSwitcher() {
 
     const router = useRouter();
     const pathname = usePathname();
+    const currentLocale = pathname.split("/")[1];
 
-    const segments = pathname.split("/");
-    const currentLocale = segments[1];
+    const searchParams = useSearchParams();
 
     const switchLocale = (locale: string) => {
-        segments[1] = locale;
-        router.push(segments.join("/"));
+
+        const newPath = pathname.replace(/^\/(en|ru|lv)/, `/${locale}`);
+
+        const query = searchParams.toString();
+
+        router.push(query ? `${newPath}?${query}` : newPath);
+
     };
 
     // state

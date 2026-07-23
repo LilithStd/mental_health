@@ -2,7 +2,6 @@
 
 import { useLocale } from "@/app/hooks/useLocale";
 import { LocaleType } from "@/app/types/types";
-import { HASH_TAGS } from "@/translate/shared/hashTags";
 import HashTagIcon from "@/public/icons/Tag.svg";
 import { SEARCH_TYPE, SIZE_ELEMENT } from "@/app/globalConsts/globalEnum";
 import { routes } from "@/app/helpers/helpersFunctions";
