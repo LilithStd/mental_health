@@ -13,8 +13,11 @@ interface RatingArticleProps {
 export default function RatingArticle({ article, typeArticle }: RatingArticleProps) {
   return (
                 <div className={`flex items-center justify-between w-full gap-2 shadow-sm rounded-large bg-primary-color/30 border border-primary-color/30 p-1`}>
-                    <Favorites isFavorite={false} type={typeArticle} />
-                    <HashTags hashTags={['example', 'sample', 'test']} type={typeArticle} />
+                    {/* <Favorites isFavorite={false} type={typeArticle} /> */}
+                    <div className={`flex p-2 items-center`}>
+                        <HashTags hashTags={['example', 'sample', 'test']} type={typeArticle} />
+                    </div>
+                    
                     <RedirectButton articleId={article.id} sizeElement={typeArticle} />
                 </div>
         )
