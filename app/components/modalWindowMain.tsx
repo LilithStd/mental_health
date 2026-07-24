@@ -48,7 +48,7 @@ useEffect(() => {
       flex 
       items-center 
       justify-center 
-      bg-black/50 
+      bg-black/30 
       backdrop-blur-sm"
       onClick={onClose} 
     >
@@ -58,9 +58,9 @@ useEffect(() => {
           w-fit
           p-2
           rounded-large
-          bg-primary-color/20
+          bg-primary-color/30
           backdrop-blur-md
-          border border-primary-color/30
+          border border-primary-color/50
           shadow-xl
           transition-all duration-300
         "
