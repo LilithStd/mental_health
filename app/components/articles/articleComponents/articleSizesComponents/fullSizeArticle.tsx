@@ -38,12 +38,12 @@ export default  function FullArticleSize({article}: FullArticleSizeProps) {
                    <UpdateArticleButtonRedirect articleId={article.id} />
                 </div>
                 <div className={`flex w-full justify-start gap-4 items-center p-2`}>
-                    <Favorites
+                    {/* <Favorites
                         isFavorite={false}
                         type={SIZE_ELEMENT.FULL}
                         counterFavorites={0}
                         // callBackIsFavorite={handleLike}
-                    />
+                    /> */}
                     <HashTags hashTags={['example', 'sample', 'test']} type={SIZE_ELEMENT.FULL}/>
                 </div>
                 <span className={`text-sm p-2  opacity-50 `}>{ArticleContent[locale].publishedOn}: {formattedDate(article.createdAt)}</span>
