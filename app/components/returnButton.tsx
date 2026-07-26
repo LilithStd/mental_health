@@ -17,7 +17,6 @@ export default function ReturnButton({ pathToReturn }: ReturnButtonProps) {
 
     return (
         <button className={` bg-primary-color/50 border border-primary-color/30 cursor-pointer p-2 rounded-circle`} onClick={() => router.push(pathToReturn)}>
-
             <span className="cursor-pointer">
                 <ReturnIcon className="inline-block mr-2 w-6" />
                 {BUTTON_RETURN[locale]}</span>

@@ -15,10 +15,9 @@ import ReturnButton from "@/app/components/returnButton";
 export default async function MediaPage() {
     const locale = await getLocale() as LocaleType
     const routesAdaptive = routes(locale)
-
+    
     return (
         <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
-            
             <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
                 <div className={`flex w-full justify-start mb-4 z-10`}>
                     <ReturnButton pathToReturn={routesAdaptive.media.root} />
