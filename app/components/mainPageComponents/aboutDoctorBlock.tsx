@@ -6,9 +6,12 @@ import { AboutDoctorContent } from '@/translate/mainPage/aboutDoctor'
 import AppImage from '../shared/appImage'
 import { IMAGES_UPLOAD_PATH } from '@/app/globalConsts/globalEnum'
 import { LINK_RAW_PATH, UPLOAD_IMAGE_NAME } from '@/app/globalConsts/globalConsts'
+import Link from 'next/link'
+import { routes } from '@/app/helpers/helpersFunctions'
 
 export default function AboutDoctorBlock() {
     const locale = useLocale() as LocaleType
+    const routesAdaptive = routes(locale)
     const doctorPhotoName = UPLOAD_IMAGE_NAME.bio.photo
 
     return (
@@ -30,22 +33,17 @@ export default function AboutDoctorBlock() {
                         <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION}</p>
                     </div>
                     <div>
-                        <h3 className={`text-2xl font-geistSans font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_2}</h3>
                         <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_2}</p>
                     </div>
                     <div>
-                        <h3 className={`text-2xl font-geistSans font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_3}</h3>
                         <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_3}</p>
                     </div>
+                    <div className={`flex flex-col gap-4 mt-4 `}>
+                        <Link href={routesAdaptive.about.root} className={`p-4 w-fit bg-primary-color/40 backdrop-blur-md border border-primary-color/50 font-geistSans shadow-lg z-10 font-bold italic rounded-full hover:bg-accentElement hover:scale-105`}>{AboutDoctorContent[locale].ABOUT_DOCTOR_BUTTON}</Link>
+                    </div>
+                    
                 </div>
-                {/* <h3 className={`text-2xl font-geistSans font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_4}</h3> */}
-                    {/* <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_4}</p> */}
-            </div>
-            <div className={`flex flex-col gap-4 `}>
-                <div>
-                    {/* <h3 className={`text-2xl font-geistSans font-semibold mt-4`}>{AboutDoctorContent[locale].TITLE_4}</h3>
-                    <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_4}</p> */}
-                </div>
+                
             </div>
             <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="z-0  w-full h-full object-cover rounded-large opacity-30" />
 
