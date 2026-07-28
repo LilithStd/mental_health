@@ -41,7 +41,6 @@ export default function AboutDoctorBlock() {
                     <div className={`flex flex-col gap-4 mt-4 `}>
                         <Link href={routesAdaptive.about.root} className={`p-4 w-fit bg-primary-color/40 backdrop-blur-md border border-primary-color/50 font-geistSans shadow-lg z-10 font-bold italic rounded-full hover:bg-accentElement hover:scale-105`}>{AboutDoctorContent[locale].ABOUT_DOCTOR_BUTTON}</Link>
                     </div>
-                    
                 </div>
                 
             </div>
