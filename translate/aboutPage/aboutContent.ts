@@ -6,6 +6,8 @@ export const ABOUT_PAGE_CONTENT = {
             title:'Contact me',
             name: 'Aleksandra Konevnina',
             email: 'Email:email@gmail.com',
+            or:'or',
+            signUp:'Sign up for a consultation'
         },
     },
     lv: {

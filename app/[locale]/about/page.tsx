@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { LINK_RAW_PATH, UPLOAD_IMAGE_NAME } from "@/app/globalConsts/globalConsts";
 import { getLocale } from "@/app/hooks/server/getLocale";
 import { LocaleType } from "@/app/types/types";
@@ -6,10 +7,13 @@ import { ABOUT_PAGE_CONTENT } from "@/translate/aboutPage/aboutContent";
 import AppImage from "@/app/components/shared/appImage";
 import { IMAGES_UPLOAD_PATH } from "@/app/globalConsts/globalEnum";
 import { AboutDoctorContent } from "@/translate/mainPage/aboutDoctor";
+import { routes } from "@/app/helpers/helpersFunctions";
+import { WelcomeBlockContent } from "@/translate/mainPage/welcomeBlock";
 const DoctorImage = UPLOAD_IMAGE_NAME.bio.photo
 
 export default async function AboutPage() {
     const locale = await getLocale() as LocaleType;
+    const routesAdaptive = routes(locale)
     return  (
         <div className={`flex flex-col indents-main-container  flex-1 items-center `}>
             <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
@@ -24,7 +28,9 @@ export default async function AboutPage() {
                         <div className={`flex w-full flex-col flex-1 mt-6 rounded-large`}>
                             <h2 className={`text-3xl justify-center text-center font-bold`}>{ABOUT_PAGE_CONTENT[locale].contact.title}</h2>
                             <p className={`text-center mt-2`}>{ABOUT_PAGE_CONTENT[locale].contact.email}</p>
-                </div>
+                        </div>
+                         <Link href={routesAdaptive.consultation.root} className={`p-4 w-fit bg-primary-color/40 backdrop-blur-md border border-primary-color/50 font-geistSans shadow-lg z-10 font-bold italic rounded-full hover:bg-accentElement hover:scale-105`}>{WelcomeBlockContent[locale].SIGN_UP_BUTTON}</Link>
+                        
                   
             </div>
   
