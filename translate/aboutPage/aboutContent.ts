@@ -17,6 +17,8 @@ export const ABOUT_PAGE_CONTENT = {
             title: 'Sazinieties ar mani',
             name: 'Aleksandra Koņevnina',
             email: 'E-pasts: email@gmail.com',
+            or:'vai',
+            signUp:'Pieteikties konsultācijai'
         },
     },
     ru: {
@@ -26,6 +28,8 @@ export const ABOUT_PAGE_CONTENT = {
             title: 'Свяжитесь со мной',
             name: 'Александра Коневнина',
             email: 'Электронная почта: email@gmail.com',
+            or:'или',
+            signUp:'Записаться на консультацию'
         },
     },
 } as const
