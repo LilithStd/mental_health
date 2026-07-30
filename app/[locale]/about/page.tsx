@@ -20,7 +20,7 @@ export default async function AboutPage() {
                 <div className={``}>
                     <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={DoctorImage} width={500} height={800} alt="Doctor Image" className='rounded-large  z-100 float-left mr-4' />
                     
-                        <h2 className={`text-5xl text-center font-bold`}>{ABOUT_PAGE_CONTENT[locale].title}</h2>
+                        <h2 className={`text-5xl text-center font-bold mb-4`}>{ABOUT_PAGE_CONTENT[locale].title}</h2>
                         <p className={``}>{ABOUT_PAGE_CONTENT[locale].description}</p>
                         <p>{AboutDoctorContent[locale].DESCRIPTION_2}</p> 
                         <p>{AboutDoctorContent[locale].DESCRIPTION_3}</p>
