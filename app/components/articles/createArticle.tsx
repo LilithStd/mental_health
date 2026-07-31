@@ -229,7 +229,7 @@ return (
             />}
             
             <div className={`flex w-full gap-4`}>
-                <button type="button" onClick={handleCancel} className={`bg-primary-color/50 py-2 rounded-large flex-1`}>{CreateArticleContent[locale].cancelButton}</button>
+                <button type="button" onClick={handleCancel} className={`bg-red-300 py-2 rounded-large flex-1 hover:bg-red-500`}>{CreateArticleContent[locale].cancelButton}</button>
                 <button
                     type="submit"
                     className={`bg-primary-color/50 py-2 rounded-large flex-1`}
