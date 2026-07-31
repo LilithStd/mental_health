@@ -223,7 +223,7 @@ return (
                 
             ): <textarea
                 name="content"
-                placeholder={`${CreateArticleContent[locale].contentInput}`}
+                placeholder={`${CreateArticleContent[locale].placeholderContent[selectedLanguage].content} `}
                 required
                 className={`border border-primary-color/30 p-2 h-32 bg-primary-color/30 rounded-large`}
             />}
