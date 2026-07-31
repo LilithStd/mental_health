@@ -2,10 +2,11 @@
 
 import { useLocale } from '@/app/hooks/useLocale';
 import { LocaleType } from '@/app/types/types';
+import { CreateArticleContent } from '@/translate/mediaPage/articleContent/articleContent';
 import Image from 'next/image'
 import { useState, useRef } from 'react'
 
-export default function ImageUpload({ selectedLanguage }: { selectedLanguage?: string }) {
+export default function ImageUpload({ selectedLanguage }: { selectedLanguage?: LocaleType }) {
   const locale = useLocale() as LocaleType;
   const [file, setFile] = useState<File | null>(null)
   const [preview, setPreview] = useState<string | null>(null)
@@ -61,7 +62,7 @@ export default function ImageUpload({ selectedLanguage }: { selectedLanguage?: s
       >
         {!preview && (
           <span className="text-sm opacity-70">
-            {selectedLanguage ? `Upload image (${selectedLanguage})` : 'Upload image'}
+            {selectedLanguage ? CreateArticleContent[locale].placeholderContent[selectedLanguage].uploadImage : CreateArticleContent[locale].placeholderContent[locale].uploadImage}
           </span>
         )}
 

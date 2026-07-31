@@ -38,19 +38,23 @@ export const PlaceHolderLanguageContent = {
         content: 'Content',
         title: 'Title',
         author: 'Author',
-        hashTags: '# Hash Tags'
+        hashTags: '# Hash Tags',
+        uploadImage: 'Upload image here',
     },
     lv: { 
         content: 'Saturs',
         title: 'Nosaukums',
         author: 'Autors',
-        hashTags: '# Hash Tags'
+        hashTags: '# Hash Tags',
+        uploadImage: 'Augšupielādēt attēlu šeit',
+        
     },
     ru: { 
         content: 'Содержание',
         title: 'Заголовок',
         author: 'Автор',
-        hashTags: '# Хэштеги'
+        hashTags: '# Хэштеги',
+        uploadImage: 'Загрузить изображение сюда',
     },
 } as const
 
