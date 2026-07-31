@@ -1,9 +1,12 @@
 'use client'
 
+import { useLocale } from '@/app/hooks/useLocale';
+import { LocaleType } from '@/app/types/types';
 import Image from 'next/image'
 import { useState, useRef } from 'react'
 
-export default function ImageUpload() {
+export default function ImageUpload({ selectedLanguage }: { selectedLanguage?: string }) {
+  const locale = useLocale() as LocaleType;
   const [file, setFile] = useState<File | null>(null)
   const [preview, setPreview] = useState<string | null>(null)
   const inputRef = useRef<HTMLInputElement | null>(null)
@@ -58,7 +61,7 @@ export default function ImageUpload() {
       >
         {!preview && (
           <span className="text-sm opacity-70">
-            Click or drag image сюда
+            {selectedLanguage ? `Upload image (${selectedLanguage})` : 'Upload image'}
           </span>
         )}
 
