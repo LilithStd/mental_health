@@ -50,7 +50,7 @@ export default function ImageUpload({ selectedLanguage }: { selectedLanguage?: L
           items-center 
           justify-center
           w-full 
-          h-full
+          min-h-[150px]
           rounded-large
           border border-primary-color/30
           bg-primary-color/10
