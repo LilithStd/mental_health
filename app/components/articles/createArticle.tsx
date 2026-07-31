@@ -192,7 +192,7 @@ return (
                 <ImageUpload />
             </div>
             <div className={`flex flex-col gap-4 bg-primary-color/30 border border-primary-color/30 p-2 rounded-large`}>
-                <span>{CreateArticleContent[locale].tags}</span>
+                <span>{CreateArticleContent[locale].placeholderContent[selectedLanguage].hashTags}</span>
                 <AddTagsIcon className="w-6 h-6" fill={'green'} />
             </div>
            
