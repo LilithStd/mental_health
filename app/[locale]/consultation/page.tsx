@@ -3,7 +3,6 @@ import ConsultationForm from "@/app/components/consultation/consultationForm";
 import AppImage from "@/app/components/shared/appImage";
 import { LINK_RAW_PATH, UPLOAD_IMAGE_NAME } from "@/app/globalConsts/globalConsts";
 import { CONSULTATION_TYPE, IMAGES_UPLOAD_PATH } from "@/app/globalConsts/globalEnum";
-import { routes } from "@/app/helpers/helpersFunctions";
 import { useLocale } from "@/app/hooks/useLocale";
 import { LocaleType } from "@/app/types/types";
 import { CONSULTATION_TYPE_CONTENT, LINK_TO_CONSULTATION } from "@/translate/consultationPage/consultationPage";
@@ -11,8 +10,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
+interface ConsultationProps {
+    typeRedirect?: CONSULTATION_TYPE
+}
 
-export default function Consultation() {
+export default function Consultation({ typeRedirect }: ConsultationProps) {
     // methods
     const locale = useLocale() as LocaleType
     // const routesAdaptive = routes(locale)
@@ -22,7 +24,7 @@ export default function Consultation() {
     // functions
 
     // states
-    const [methodToConsult, setMethodToConsult] = useState(CONSULTATION_TYPE.MAIN)
+    const [methodToConsult, setMethodToConsult] = useState(typeRedirect ?? CONSULTATION_TYPE.MAIN)
     // components
 
     const additionalMethodComponent = () => {
