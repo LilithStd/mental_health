@@ -28,8 +28,10 @@ export default async function AboutPage() {
                        
                         <div className={`flex bg-primary-color/20 rounded-large gap-4 mt-4 p-4  items-center justify-around z-10`}>
                              <div className={`flex  flex-col rounded-large`}>
-                                <h2 className={`text-3xl justify-center text-center font-bold`}>{ABOUT_PAGE_CONTENT[locale].contact.title}</h2>
-                                <p className={`text-center mt-2`}>{ABOUT_PAGE_CONTENT[locale].contact.email}</p>
+                               <Link href={routesAdaptive.consultation.root} className={`p-4 bg-primary-color/40 backdrop-blur-md border border-primary-color/50 font-geistSans flex flex-col items-center shadow-lg z-20 font-bold italic rounded-full hover:bg-accentElement hover:scale-105`}>
+                                   <p>{ABOUT_PAGE_CONTENT[locale].contact.title}</p>
+                                   <p>{ABOUT_PAGE_CONTENT[locale].contact.email}</p>
+                               </Link>
                             </div>
                             <div className={`flex flex-col rounded-large items-center`}>
                                 <p>{ABOUT_PAGE_CONTENT[locale].contact.or}</p>
