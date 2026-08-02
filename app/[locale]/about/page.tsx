@@ -9,6 +9,7 @@ import { IMAGES_UPLOAD_PATH } from "@/app/globalConsts/globalEnum";
 import { AboutDoctorContent } from "@/translate/mainPage/aboutDoctor";
 import { routes } from "@/app/helpers/helpersFunctions";
 import { WelcomeBlockContent } from "@/translate/mainPage/welcomeBlock";
+import { LINK_TO_CONSULTATION } from "@/translate/consultationPage/consultationPage";
 const DoctorImage = UPLOAD_IMAGE_NAME.bio.photo
 
 export default async function AboutPage() {
@@ -28,7 +29,7 @@ export default async function AboutPage() {
                        
                         <div className={`flex bg-primary-color/20 rounded-large gap-4 mt-4 p-4  items-center justify-around z-10`}>
                              <div className={`flex  flex-col rounded-large`}>
-                               <Link href={routesAdaptive.consultation.root} className={`p-4 bg-primary-color/40 backdrop-blur-md border border-primary-color/50 font-geistSans flex flex-col items-center shadow-lg z-20 font-bold italic rounded-full hover:bg-accentElement hover:scale-105`}>
+                               <Link href={routesAdaptive.consultation.form} className={`p-4 bg-primary-color/40 backdrop-blur-md border border-primary-color/50 font-geistSans flex flex-col items-center shadow-lg z-20 font-bold italic rounded-full hover:bg-accentElement hover:scale-105`}>
                                    <p>{ABOUT_PAGE_CONTENT[locale].contact.title}</p>
                                    <p>{ABOUT_PAGE_CONTENT[locale].contact.email}</p>
                                </Link>
@@ -38,7 +39,7 @@ export default async function AboutPage() {
                                 <p>{ABOUT_PAGE_CONTENT[locale].contact.signUp}</p>
                             </div>
                             <div className={`flex flex-col rounded-large items-center`}>
-                                 <Link href={routesAdaptive.consultation.root} className={`p-4 bg-primary-color/40 backdrop-blur-md border border-primary-color/50 font-geistSans shadow-lg z-20 font-bold italic rounded-full hover:bg-accentElement hover:scale-105`}>{WelcomeBlockContent[locale].SIGN_UP_BUTTON}</Link>
+                                 <Link href={LINK_TO_CONSULTATION} target="_blank" className={`p-4 bg-primary-color/40 backdrop-blur-md border border-primary-color/50 font-geistSans shadow-lg z-20 font-bold italic rounded-full hover:bg-accentElement hover:scale-105`}>{WelcomeBlockContent[locale].SIGN_UP_BUTTON}</Link>
                             </div>
                            
                         </div>

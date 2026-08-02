@@ -51,7 +51,7 @@ export default function Consultation({ typeRedirect }: ConsultationProps) {
                         <Link  target="_blank" rel="noopener noreferrer" href={LINK_TO_CONSULTATION} className={`ml-2 text-primary-color underline`}>{CONSULTATION_TYPE_CONTENT.MAIN.linkText[locale]}</Link>
                     </div>
                     <div className={`flex gap-4 justify-center items-center`}>
-                        <Link className={`flex items-center gap-4`} href={routesAdaptive.consultation.form()}>{CONSULTATION_TYPE_CONTENT.ADDITIONAL.description[locale]} <p className={`bg-primary-color/50 rounded-large p-2 cursor-pointer`}>Additional</p></Link>
+                        <Link className={`flex items-center gap-4`} href={routesAdaptive.consultation.form}>{CONSULTATION_TYPE_CONTENT.ADDITIONAL.description[locale]} <p className={`bg-primary-color/50 rounded-large p-2 cursor-pointer`}>Additional</p></Link>
                        
                     </div>
 
