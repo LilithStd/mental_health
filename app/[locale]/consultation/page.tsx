@@ -9,6 +9,7 @@ import { CONSULTATION_TYPE_CONTENT, LINK_TO_CONSULTATION } from "@/translate/con
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { routes } from "@/app/helpers/helpersFunctions";
 
 interface ConsultationProps {
     typeRedirect?: CONSULTATION_TYPE
@@ -17,7 +18,7 @@ interface ConsultationProps {
 export default function Consultation({ typeRedirect }: ConsultationProps) {
     // methods
     const locale = useLocale() as LocaleType
-    // const routesAdaptive = routes(locale)
+    const routesAdaptive = routes(locale)
     // stores
     // consts
     const ConsultationImage = UPLOAD_IMAGE_NAME.global.consultation.consultationPage
@@ -50,8 +51,8 @@ export default function Consultation({ typeRedirect }: ConsultationProps) {
                         <Link  target="_blank" rel="noopener noreferrer" href={LINK_TO_CONSULTATION} className={`ml-2 text-primary-color underline`}>{CONSULTATION_TYPE_CONTENT.MAIN.linkText[locale]}</Link>
                     </div>
                     <div className={`flex gap-4 justify-center items-center`}>
-                        <p className={``}>{CONSULTATION_TYPE_CONTENT.ADDITIONAL.description[locale]}</p>
-                        <button onClick={() => setMethodToConsult(CONSULTATION_TYPE.ADDITIONAL)} className={`bg-primary-color/50 rounded-large p-2 cursor-pointer`}>Additional</button>
+                        <Link className={`flex items-center gap-4`} href={routesAdaptive.consultation.form()}>{CONSULTATION_TYPE_CONTENT.ADDITIONAL.description[locale]} <p className={`bg-primary-color/50 rounded-large p-2 cursor-pointer`}>Additional</p></Link>
+                       
                     </div>
 
                 </div>
