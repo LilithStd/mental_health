@@ -26,7 +26,7 @@ export default async function AboutPage() {
                         <p>{AboutDoctorContent[locale].DESCRIPTION_3}</p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam perferendis asperiores aut iure itaque sapiente omnis incidunt culpa eos architecto voluptatibus, natus eum possimus maxime nobis amet magnam vero nisi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis eaque molestias eligendi voluptatum. Culpa quos dolore accusantium, quia vitae illo aliquid officia corporis minus doloremque consectetur mollitia vel eius non?Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, animi debitis, delectus aspernatur nulla ullam, asperiores eum odio suscipit illum inventore ea quasi error qui culpa tempore quod! Aliquam, aliquid. Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit illo nemo asperiores voluptatum aut labore cumque provident consequatur, ad maxime tenetur? Est illum ad facere! Corporis ratione ex voluptatibus omnis?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus obcaecati labore distinctio. Aut sint corporis vero fugiat molestiae ad error harum eaque perspiciatis labore cum, expedita voluptatum officiis repellendus obcaecati!</p>
                        
-                        <div className={`flex bg-primary-color/20 rounded-large gap-4 mt-4 p-4  items-center justify-around`}>
+                        <div className={`flex bg-primary-color/20 rounded-large gap-4 mt-4 p-4  items-center justify-around z-10`}>
                              <div className={`flex  flex-col rounded-large`}>
                                 <h2 className={`text-3xl justify-center text-center font-bold`}>{ABOUT_PAGE_CONTENT[locale].contact.title}</h2>
                                 <p className={`text-center mt-2`}>{ABOUT_PAGE_CONTENT[locale].contact.email}</p>
@@ -35,8 +35,8 @@ export default async function AboutPage() {
                                 <p>{ABOUT_PAGE_CONTENT[locale].contact.or}</p>
                                 <p>{ABOUT_PAGE_CONTENT[locale].contact.signUp}</p>
                             </div>
-                            <div>
-                                 <Link href={routesAdaptive.consultation.root} className={`p-4 bg-primary-color/40 backdrop-blur-md border border-primary-color/50 font-geistSans shadow-lg z-10 font-bold italic rounded-full hover:bg-accentElement hover:scale-105`}>{WelcomeBlockContent[locale].SIGN_UP_BUTTON}</Link>
+                            <div className={`flex flex-col rounded-large items-center`}>
+                                 <Link href={routesAdaptive.consultation.root} className={`p-4 bg-primary-color/40 backdrop-blur-md border border-primary-color/50 font-geistSans shadow-lg z-20 font-bold italic rounded-full hover:bg-accentElement hover:scale-105`}>{WelcomeBlockContent[locale].SIGN_UP_BUTTON}</Link>
                             </div>
                            
                         </div>
