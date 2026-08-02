@@ -155,6 +155,6 @@ export const routes = (locale: string) => {
   },
   consultation: {
     root: `${prefix}${APP_PATH_ROUTER.CONSULTATION}`,
-    byId: (id: number | string) => `${prefix}${APP_PATH_ROUTER.CONSULTATION}/${id}`,
+    form: () => `${prefix}${APP_PATH_ROUTER.CONSULTATION}/form`,
   },
 }}
