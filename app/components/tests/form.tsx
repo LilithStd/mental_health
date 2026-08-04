@@ -20,12 +20,13 @@ export default function Form({ test, formResult, openModalCallback }: FormProps)
     // components
     const ref = useRef<HTMLFormElement>(null)
     async function action(formData: FormData) {
-        await calcTestResult(formData, locale)
         const data = await calcTestResult(formData, locale)
-        formResult(data.result)
-        openModalCallback()
-        ref.current?.reset()
-        setTestAnswer({})
+        if (data) {
+            formResult(data.result)
+            openModalCallback()
+            ref.current?.reset()
+            setTestAnswer({})
+        }
     }
     // functions
     const isFormValid = test.questions.every(
