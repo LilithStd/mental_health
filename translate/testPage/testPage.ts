@@ -30,7 +30,10 @@ export const LOGIN_TO_SAVE_RESULT_BUTTON = {
 
 export const TEST_RESULT = {
     en:{
-        none:'You currently have no signs of depression, but there are some difficulties that definitely need attention.',
+        none:{
+            count: 0,
+            message: 'You currently have no signs of depression, but there are some difficulties that definitely need attention.'
+        },
         mild:'You have mild depression, which on its own causes difficulties and may progress. It is recommended to consult a psychiatrist.',
         moderate:'You have moderate depression, which is a serious signal for your health. It is recommended to consult a psychiatrist in the near future.',
         modereteSevere:'You have moderate-severe depression, which is a serious signal for your health. It is recommended to consult a psychiatrist in the near future.',
