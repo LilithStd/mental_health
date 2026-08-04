@@ -27,3 +27,15 @@ export const LOGIN_TO_SAVE_RESULT_BUTTON = {
     lv:'Pieslēgties, lai saglabātu rezultātu',
     ru:'Войдите, чтобы сохранить результат',
 } as const
+
+export const TEST_RESULT = {
+    en:{
+        title:'Test Result'
+    },
+    lv:{
+        title:'Testa rezultāts'
+    },
+    ru:{
+        title:'Результат теста'
+    },
+} as const
