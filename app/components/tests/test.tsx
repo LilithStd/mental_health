@@ -37,7 +37,6 @@ export default function Test({ test, testType }: TestProps) {
 
     // const currentLanguage = useGlobalStore((state) => state.currentLanguage);
     const router = useRouter();
-    // const id = '1'
     // state 
     const [testResult, setTestResult] = useState<string | null>(null)
     const [isModalOpen, setIsModalOpen] = useState(false);

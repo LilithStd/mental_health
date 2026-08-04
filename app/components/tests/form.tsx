@@ -1,14 +1,7 @@
 'use client'
-
-
-import { rounded, THEME_COLOR_SCHEME } from "@/app/globalConsts/globalStyles"
 import { useLocale } from "@/app/hooks/useLocale";
 import { calcTestResult } from "@/app/serverActions/calcTestResult";
-import { useAuthorizationStore } from "@/app/store/authorizationStore";
-import { useGlobalStore } from "@/app/store/globalStore";
-
 import { useRef, useState } from "react";
-import { useFormState } from "react-dom";
 import { LocaleType, TestType } from "@/app/types/types";
 import { GetTestResultButton } from "@/translate/testPage/testPage";
 
@@ -27,8 +20,8 @@ export default function Form({ test, formResult, openModalCallback }: FormProps)
     // components
     const ref = useRef<HTMLFormElement>(null)
     async function action(formData: FormData) {
-        await calcTestResult(formData)
-        const data = await calcTestResult(formData)
+        await calcTestResult(formData, locale)
+        const data = await calcTestResult(formData, locale)
         formResult(data.result)
         openModalCallback()
         ref.current?.reset()

@@ -18,7 +18,7 @@ export default function TestModalWindow({ result, testId, onCloseCallback }: Tes
     // stores
     const currentAuthUser = useUser();
     const locale = useLocale() as LocaleType
-
+    console.log(result)
     // functions
     // const saveResultTest = async () => {
     //     if (!currentAuthUser || !currentAuthUser.id) {
