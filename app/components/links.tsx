@@ -30,8 +30,14 @@ export default function ListLinks() {
                         key={link.label}
                         href={`/${locale}/${link.path}`}
                         className={`
-                            text-md  p-2 text-center
-                            min-w-10  flex items-center justify-center
+                            text-lg  
+                            p-2 
+                            text-center
+                            min-w-10  
+                            flex
+                            font-poiret
+                            items-center 
+                            justify-center
                             rounded-large
                             border-primary-color/0
                             border 
@@ -39,7 +45,7 @@ export default function ListLinks() {
                             duration-300
                             ease-in-out
                             ${isActive && 
-                                `bg-primary-color/10 border border-primary-color/12 rounded-large text-activeLink
+                                `bg-primary-color/10 border border-primary-color/12 rounded-large text-activeLink font-bold
                             `}
                         `}
                     >

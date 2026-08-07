@@ -37,7 +37,7 @@ export default function LanguageSwitcher() {
       top-14
       left-1/2 -translate-x-1/2
       flex gap-2
-      bg-accentElement/10 
+      bg-primary-color/8
       backdrop-blur-md
       rounded-medium
       p-2
@@ -47,7 +47,7 @@ export default function LanguageSwitcher() {
             {LOCALES.map((item) => (
                 <div
                     key={item}
-                    className={`${currentLocale === item ? 'bg-activeElement' : ''} rounded-medium p-2`}
+                    className={`${currentLocale === item ? 'bg-primary-color/10' : ''} rounded-medium p-2`}
                 >
                     <button
                         className={`text-text ${currentLocale === item ? 'font-bold' : ''} cursor-pointer`}
@@ -67,9 +67,9 @@ export default function LanguageSwitcher() {
 
     return (
         <div className="flex relative items-center p-2 cursor-pointer">
-            {<div className={`bg-accentElement/40 backdrop-blur-md  p-2 w-10 rounded-medium cursor-pointer`}
+            {<div className={`bg-primary-color/8 backdrop-blur-md  p-2 w-10 rounded-large cursor-pointer`}
                 onClick={() => setIsOpen(!isOpen)}>
-                <span className={`font-bold`}>{currentLocale.toUpperCase()}</span>
+                <span className={``}>{currentLocale.toUpperCase()}</span>
             </div>}
             {isOpen && listLanguage}
         </div>
