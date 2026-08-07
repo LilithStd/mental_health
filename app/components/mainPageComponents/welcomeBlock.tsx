@@ -62,7 +62,7 @@ export default function WelcomeBlock() {
                     <ul className={`list-none grid grid-cols-1 md:grid-cols-2 gap-6 mt-6`}>
                         {listPriviliges.map((privilege, index) => (
                             <li key={index} className={`flex items-center gap-2`}>
-                                <span className={`bg-activeElement/20 rounded-full p-2 flex items-center justify-center`}>
+                                <span className={`bg-primary-color/12 border border-primary-color/14 rounded-full p-2 flex items-center justify-center`}>
                                     <privilege.icon className={`w-6 h-6`} fill={'green'} />
                                 </span>
                                 <span className={`font-geistSans font-bold`}>{privilege.text}</span>
