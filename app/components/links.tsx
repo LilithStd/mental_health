@@ -33,12 +33,13 @@ export default function ListLinks() {
                             text-md  p-2 text-center
                             min-w-10  flex items-center justify-center
                             rounded-large
-                            border-primary-color/30 
+                            border-primary-color/0
+                            border 
                             transition-[background-color,border-color,color,transform]
                             duration-300
                             ease-in-out
                             ${isActive && 
-                                `bg-primary-color/20 rounded-large border text-activeLink  text-shadow-lg  scale-105 
+                                `bg-primary-color/10 border border-primary-color/12 rounded-large text-activeLink
                             `}
                         `}
                     >
