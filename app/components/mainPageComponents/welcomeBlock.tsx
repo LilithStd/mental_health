@@ -52,11 +52,11 @@ export default function WelcomeBlock() {
         // </div>
            <div className={`grid gap-6 w-full p-4  rounded-large items-center bg-primary-color/8  backdrop-blur-md border border-primary-color/10`}>
             <div className={`flex flex-col gap-4 items-center justify-center`}>
-                <h2 className={`text-5xl text-center font-geistSans font-bold`}>{WelcomeBlockContent[localeAdapted].TITLE}</h2>
-                <p className={`font-geistSans italic  text-xl`}>{WelcomeBlockContent[localeAdapted].DESCRIPTION}</p>
+                <h2 className={`text-5xl text-center font-poiret`}>{WelcomeBlockContent[localeAdapted].TITLE}</h2>
+                <p className={`font-geistSans italic text-center text-xl`}>{WelcomeBlockContent[localeAdapted].DESCRIPTION}</p>
                 <div className={`flex items-center justify-center  gap-4 mt-4 `}>
-                    <Link href={routesAdaptive.consultation.root} className={`p-4 w-fit bg-primary-color/10 backdrop-blur-md border border-primary-color/12 font-geistSans shadow-lg z-10 font-bold italic rounded-full hover:bg-primary-color/20 hover:scale-105`}>{WelcomeBlockContent[localeAdapted].SIGN_UP_BUTTON}</Link>
-                    <Link href={routesAdaptive.tests.root} className={`p-4 w-fit bg-primary-color/10 backdrop-blur-md border border-primary-color/12 font-geistSans shadow-lg z-10 font-bold italic rounded-full hover:bg-primary-color/20 hover:scale-105`}>{WelcomeBlockContent[localeAdapted].TESTS_BUTTON}</Link>
+                    <Link href={routesAdaptive.consultation.root} className={`p-4 w-fit bg-primary-color/10 backdrop-blur-md border border-primary-color/12 font-geistSans shadow-lg z-10 font-bold italic rounded-full hover:bg-primary-color/40 hover:scale-105`}>{WelcomeBlockContent[localeAdapted].SIGN_UP_BUTTON}</Link>
+                    <Link href={routesAdaptive.tests.root} className={`p-4 w-fit bg-primary-color/10 backdrop-blur-md border border-primary-color/12 font-geistSans shadow-lg z-10 font-bold italic rounded-full hover:bg-primary-color/40 hover:scale-105`}>{WelcomeBlockContent[localeAdapted].TESTS_BUTTON}</Link>
                 </div>
                 <div className={`flex justify-center gap-2`}>
                     <ul className={`list-none grid grid-cols-1 md:grid-cols-2 gap-6 mt-6`}>
