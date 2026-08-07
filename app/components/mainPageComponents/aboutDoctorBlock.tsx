@@ -19,11 +19,11 @@ export default function AboutDoctorBlock() {
         <div className={`
             gap-6
             rounded-large
-            bg-primary-color/20
+            bg-primary-color/8
             backdrop-blur-md
             p-6
-            border border-primary-color/30
-            shadow-lg`}>
+            border border-primary-color/10
+`}>
             <div className={`grid grid-cols-2 gap-4 justify-center`}>
                 
                 <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={doctorPhotoName} width={500} height={800} alt="Doctor Image" className='rounded-large  z-100 float-left mr-4' />
