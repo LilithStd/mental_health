@@ -16,10 +16,32 @@ export default function AboutConsultation() {
     const routesAdaptive = routes(locale)
     const HelpingAbstractImage  = UPLOAD_IMAGE_NAME.global.mainPage.aboutConsultation
     return (
-        <div className={`grid grid-cols-2 gap-4 p-6 justify-center items-center bg-primary-color/20 backdrop-blur-md rounded-large text-center border border-primary-color/30 shadow-lg`}>
-            <div className={`flex justify-center items-center`}>
-                <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={HelpingAbstractImage} width={1280} height={1024} alt="Helping Abstract" className='rounded-large scale-170' />
-            </div>
+        // old code
+        // <div className={`grid grid-cols-2 gap-4 p-6 justify-center items-center bg-primary-color/8 backdrop-blur-md rounded-large text-center border border-primary-color/10 shadow-lg`}>
+        //     <div className={`flex justify-center items-center`}>
+        //         <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={HelpingAbstractImage} width={1280} height={1024} alt="Helping Abstract" className='rounded-large scale-170' />
+        //     </div>
+        //     <div className={`flex flex-col z-10 gap-4 p-6 justify-center items-center text-left`}>
+        //         <h2 className={`text-3xl font-bold `}>{AboutConsultationContent[locale].TITLE}</h2>
+        //         <p className={`italic`}>{AboutConsultationContent[locale].DESCRIPTION}</p>
+        //         <div className={`flex flex-col gap-4 justify-center items-center bg-primary-color/10 rounded-large p-4 border border-primary-color/30 w-full`}>
+        //             <h3 className={`text-2xl font-semibold mt-4`}>{AboutConsultationContent[locale].TITLE_2}</h3>
+        //             <ul className={`list-disc list-inside font-bold`}>
+        //             {AboutConsultationContent[locale].BENEFITS.map((benefit, index) => (
+        //                 <li key={index} className={`flex  items-center gap-2`}>
+        //                     <CheckIcon alt="Check Icon" className={`bg-primary-color/40 rounded-full p-2 w-8 h-8`} />
+        //                     {benefit}
+        //                 </li>
+        //                 ))}
+        //             </ul>
+        //         </div>
+                
+        //         <Link href={routesAdaptive.consultation.root} className={`p-4 w-fit bg-primary-color/40 backdrop-blur-md border border-primary-color/50 font-geistSans shadow-lg z-10 font-bold italic rounded-full hover:bg-accentElement hover:scale-105`}>{AboutConsultationContent[locale].SIGN_UP_BUTTON}</Link>
+        //     </div>
+        //     <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" />
+
+        // </div>
+         <div className={`flex gap-4 p-6 justify-center items-center bg-primary-color/8 backdrop-blur-md rounded-large text-center border border-primary-color/10`}>
             <div className={`flex flex-col z-10 gap-4 p-6 justify-center items-center text-left`}>
                 <h2 className={`text-3xl font-bold `}>{AboutConsultationContent[locale].TITLE}</h2>
                 <p className={`italic`}>{AboutConsultationContent[locale].DESCRIPTION}</p>
@@ -37,8 +59,6 @@ export default function AboutConsultation() {
                 
                 <Link href={routesAdaptive.consultation.root} className={`p-4 w-fit bg-primary-color/40 backdrop-blur-md border border-primary-color/50 font-geistSans shadow-lg z-10 font-bold italic rounded-full hover:bg-accentElement hover:scale-105`}>{AboutConsultationContent[locale].SIGN_UP_BUTTON}</Link>
             </div>
-            <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" />
-
         </div>
     )
 }
