@@ -24,9 +24,9 @@ export default function Main() {
       <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large shadow-lg backdrop-blur-md `}>
         <AboutDoctorBlock />
       </div>
-      <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large  shadow-lg backdrop-blur-md `}>
+      {/* <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large  shadow-lg backdrop-blur-md `}>
         <ProblemSolvingBlock />
-      </div>
+      </div> */}
       {/* <div className={`flex flex-col w-full  max-w-6xl mt-6 rounded-large  shadow-lg backdrop-blur-md `}>
         <AnalizUserProblemBlock />
       </div> */}
