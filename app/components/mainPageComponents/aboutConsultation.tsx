@@ -43,10 +43,10 @@ export default function AboutConsultation() {
         // </div>
          <div className={`flex gap-4 p-6 justify-center items-center bg-primary-color/8 backdrop-blur-md rounded-large text-center border border-primary-color/10`}>
             <div className={`flex flex-col z-10 gap-4 p-6 justify-center items-center text-left`}>
-                <h2 className={`text-3xl font-bold `}>{AboutConsultationContent[locale].TITLE}</h2>
+                <h2 className={`text-3xl font-poiret font-bold`}>{AboutConsultationContent[locale].TITLE}</h2>
                 <p className={`italic`}>{AboutConsultationContent[locale].DESCRIPTION}</p>
                 <div className={`flex flex-col gap-4 justify-center items-center p-4 `}>
-                    <h3 className={`text-2xl font-semibold mt-4`}>{AboutConsultationContent[locale].TITLE_2}</h3>
+                    <h3 className={`text-2xl font-poiret font-bold mt-4`}>{AboutConsultationContent[locale].TITLE_2}</h3>
                     <ul className={`list-disc list-inside font-bold`}>
                     {AboutConsultationContent[locale].BENEFITS.map((benefit, index) => (
                         <li key={index} className={`flex  items-center gap-2`}>
