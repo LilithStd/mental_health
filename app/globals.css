@@ -58,6 +58,8 @@
   --font-jura: var(--font-jura);
   --font-alumni-sans-pinstripe: var(--font-alumni-sans-pinstripe);
   --font-pattaya: var(--font-pattaya);
+  --font-sofia-sans-condensed: var(--font-sofia-sans-condensed);
+  --font-bad-script: var(--font-bad-script);
 }
 
 /* global styles components */
