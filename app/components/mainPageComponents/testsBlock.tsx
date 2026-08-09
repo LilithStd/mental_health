@@ -18,7 +18,7 @@ export default function TestsBlock() {
     const routesAdaptive = routes(locale);
     return (
 
-        <div className={`flex gap-4 p-6 justify-around items-center bg-primary-color/20 backdrop-blur-md rounded-large text-center border border-primary-color/30 shadow-lg`}>
+        <div className={`flex gap-4 p-6 justify-around items-center bg-primary-color/8 backdrop-blur-md rounded-large text-center border border-primary-color/10`}>
            
 
             
