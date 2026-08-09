@@ -11,10 +11,10 @@ export default async function Footer() {
     const locale = await getLocale() as LocaleType
     return (
         <div className={`flex rounded-medium  justify-center   indents-main-container `}>
-            <div className={`flex  max-w-6xl justify-center items-center w-full bg-primary-color/20 rounded-large min-h-20 border border-primary-color/30 shadow-lg `}>
+            <div className={`flex  max-w-6xl justify-center items-center w-full bg-primary-color/8 rounded-large min-h-20 border border-primary-color/10 shadow-lg `}>
                 <div className={`flex flex-col justify-center items-center gap-2 p-4`}>
-                    <h2 className={`text-2xl font-bold `}>Mental Healths</h2>
-                    <h3 className={`text-lg font-medium `}>2026</h3>
+                    <h2 className={`text-2xl font-poiret `}>Mental Healths</h2>
+                    <h3 className={`text-lg font-poiret font-medium `}>2026</h3>
                 </div>
                 {/* <div className={`flex flex-col gap-2 p-4`}>
                     <h3 className={`text-lg font-medium `}>{FooterContent[locale].about}</h3>
