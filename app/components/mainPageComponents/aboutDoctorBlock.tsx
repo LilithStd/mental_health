@@ -29,22 +29,22 @@ export default function AboutDoctorBlock() {
                 <AppImage type={IMAGES_UPLOAD_PATH.GLOBAL} imageName={doctorPhotoName} width={500} height={800} alt="Doctor Image" className='rounded-large  z-100 float-left mr-4' />
                 <div>
                     <div>
-                        <h2 className={`text-5xl font-geistSans font-bold `}>{AboutDoctorContent[locale].TITLE}</h2>
-                        <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION}</p>
+                        <h2 className={`text-5xl font-poiret font-bold `}>{AboutDoctorContent[locale].TITLE}</h2>
+                        <p className={`italic font-poiret text-lg`}>{AboutDoctorContent[locale].DESCRIPTION}</p>
                     </div>
                     <div>
-                        <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_2}</p>
+                        <p className={`italic font-poiret text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_2}</p>
                     </div>
                     <div>
-                        <p className={`italic text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_3}</p>
+                        <p className={`italic font-poiret text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_3}</p>
                     </div>
                     <div className={`flex flex-col gap-4 mt-4 `}>
-                        <Link href={routesAdaptive.about.root} className={`p-4 w-fit bg-primary-color/40 backdrop-blur-md border border-primary-color/50 font-geistSans shadow-lg z-10 font-bold italic rounded-full hover:bg-accentElement hover:scale-105`}>{AboutDoctorContent[locale].ABOUT_DOCTOR_BUTTON}</Link>
+                        <Link href={routesAdaptive.about.root} className={`p-4 w-fit bg-primary-color/40 backdrop-blur-md border border-primary-color/50 font-poiret shadow-lg z-10 font-bold italic rounded-full hover:bg-accentElement hover:scale-105`}>{AboutDoctorContent[locale].ABOUT_DOCTOR_BUTTON}</Link>
                     </div>
                 </div>
                 
             </div>
-            <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="z-0  w-full h-full object-cover rounded-large opacity-30" />
+            {/* <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="z-0  w-full h-full object-cover rounded-large opacity-30" /> */}
 
         </div>
 
