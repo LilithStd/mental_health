@@ -44,10 +44,10 @@ export default function AboutConsultation() {
          <div className={`flex gap-4 p-6 justify-center items-center bg-primary-color/8 backdrop-blur-md rounded-large text-center border border-primary-color/10`}>
             <div className={`flex flex-col z-10 gap-4 p-6 justify-center items-center text-left`}>
                 <h2 className={`text-3xl font-poiret font-bold`}>{AboutConsultationContent[locale].TITLE}</h2>
-                <p className={`italic`}>{AboutConsultationContent[locale].DESCRIPTION}</p>
+                <p className={`italic font-poiret`}>{AboutConsultationContent[locale].DESCRIPTION}</p>
                 <div className={`flex flex-col gap-4 justify-center items-center p-4 `}>
                     <h3 className={`text-2xl font-poiret font-bold mt-4`}>{AboutConsultationContent[locale].TITLE_2}</h3>
-                    <ul className={`list-disc list-inside font-bold`}>
+                    <ul className={`list-disc list-inside font-poiret font-bold`}>
                     {AboutConsultationContent[locale].BENEFITS.map((benefit, index) => (
                         <li key={index} className={`flex  items-center gap-2`}>
                             <CheckIcon alt="Check Icon" className={`bg-primary-color/40 rounded-full p-2 w-8 h-8`} />
@@ -57,7 +57,7 @@ export default function AboutConsultation() {
                     </ul>
                 </div>
                 
-                <Link href={routesAdaptive.consultation.root} className={`p-4 w-fit bg-primary-color/10 backdrop-blur-md border border-primary-color/12 font-geistSans shadow-lg z-10 font-bold italic rounded-full hover:bg-primary-color/40 hover:scale-105`}>{AboutConsultationContent[locale].SIGN_UP_BUTTON}</Link>
+                <Link href={routesAdaptive.consultation.root} className={`p-4 w-fit bg-primary-color/10 backdrop-blur-md border border-primary-color/12 font-poiret shadow-lg z-10 font-bold italic rounded-full hover:bg-primary-color/40 hover:scale-105`}>{AboutConsultationContent[locale].SIGN_UP_BUTTON}</Link>
             </div>
         </div>
     )
