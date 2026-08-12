@@ -63,9 +63,9 @@ export default function Consultation({ typeRedirect }: ConsultationProps) {
 
     return (
         <div className={`flex flex-col indents-main-container  rounded-medium flex-1 items-center`}>
-            <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
+            <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/8 shadow-lg backdrop-blur-md border border-primary-color/10 p-4`}>
                 {mainMethodComponent()}
-                <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" />
+                {/* <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" /> */}
             </div>
            
         </div>
