@@ -39,7 +39,7 @@ export default function AboutDoctorBlock() {
                         <p className={`italic font-poiret text-lg`}>{AboutDoctorContent[locale].DESCRIPTION_3}</p>
                     </div>
                     <div className={`flex flex-col gap-4 mt-4 `}>
-                        <Link href={routesAdaptive.about.root} className={`p-4 w-fit bg-primary-color/40 backdrop-blur-md border border-primary-color/50 font-poiret shadow-lg z-10 font-bold italic rounded-full hover:bg-accentElement hover:scale-105`}>{AboutDoctorContent[locale].ABOUT_DOCTOR_BUTTON}</Link>
+                        <Link href={routesAdaptive.about.root} className={`p-4 w-fit bg-primary-color/10 backdrop-blur-md border border-primary-color/12 font-poiret shadow-lg z-10 font-bold italic rounded-full hover:bg-primary-color/40 hover:scale-105`}>{AboutDoctorContent[locale].ABOUT_DOCTOR_BUTTON}</Link>
                     </div>
                 </div>
                 

@@ -29,7 +29,7 @@ export default async function AboutPage() {
                        
                         <div className={`flex bg-primary-color/20 rounded-large gap-4 mt-4 p-4  items-center justify-around z-10`}>
                              <div className={`flex  flex-col rounded-large`}>
-                               <Link href={routesAdaptive.consultation.form} className={`p-4 bg-primary-color/40 backdrop-blur-md border border-primary-color/50 font-geistSans flex flex-col items-center shadow-lg z-20 font-bold italic rounded-full hover:bg-accentElement hover:scale-105`}>
+                               <Link href={routesAdaptive.consultation.form} className={`p-4 w-fit bg-primary-color/10 backdrop-blur-md border border-primary-color/12 font-poiret shadow-lg z-10 font-bold italic rounded-full hover:bg-primary-color/40 hover:scale-105`}>
                                    <p>{ABOUT_PAGE_CONTENT[locale].contact.title}</p>
                                    <p>{ABOUT_PAGE_CONTENT[locale].contact.email}</p>
                                </Link>
