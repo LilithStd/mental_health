@@ -23,7 +23,7 @@ export default async function TestCurrent({
     const test = await getTestById(id)
     return (
         <div className={`flex flex-col indents-main-container rounded-large flex-1 items-center`}>
-            <div className={`flex flex-col flex-1  max-w-6xl  rounded-large bg-primary-color/20 border border-primary-color/20 shadow-md  p-4`}>
+            <div className={`flex flex-col flex-1  max-w-6xl  rounded-large bg-primary-color/8 border border-primary-color/10 shadow-md  p-4`}>
             <div className={`flex w-full justify-start mb-4 z-10`}>
                 <ReturnButton pathToReturn={routesAdaptive.tests.root} />
             </div>

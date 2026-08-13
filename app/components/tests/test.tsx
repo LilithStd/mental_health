@@ -84,7 +84,7 @@ export default function Test({ test, testType }: TestProps) {
 
         <div className={`p-4 rounded-large   grid gap-4  `}>
             <div className={`flex flex-col  rounded-large  p-4`}>
-                <div className={`flex flex-col mb-4 bg-primary-color/10 border border-primary-color/30 rounded-large p-4`}>
+                <div className={`flex flex-col mb-4 bg-primary-color/8 border border-primary-color/10 rounded-large p-4`}>
                     <h2>{test.title[locale]}</h2>
                     <p>{TYPES_OF_TEST[locale]}: {test.label}</p>
                 </div>
