@@ -52,7 +52,7 @@ export default function Test({ test, testType }: TestProps) {
 
     const socialRatingComponent = (type: SIZE_ELEMENT) => {
         return (
-            <div className={`flex mt-2  w-full bg-primary-color/20 shadow-sm border border-primary-color/30 items-center  rounded-large `}>
+            <div className={`flex mt-2  w-full bg-primary-color/10 shadow-sm border border-primary-color/30 items-center  rounded-large `}>
                     <div className={`flex justify-between items-center w-full gap-2 rounded-large`}>
                         <div className={`flex flex-col p-2`}>
                             <span className={`text-sm italic`}>{HASH_TAGS[locale].hashTags}:</span>
@@ -71,7 +71,7 @@ export default function Test({ test, testType }: TestProps) {
     }
 
     const previewTestComponent =
-        <div className={`bg-primary-color/20 border border-primary-color/30 shadow-md p-4 rounded-large `}>
+        <div className={`bg-primary-color/8 border border-primary-color/10 shadow-md p-4 rounded-large `}>
             <div>
                 <h2 className={`text-lg text-center font-bold`}>{test.title[locale]}</h2>
                 <span className={`text-sm`}>{test.content[locale]}</span>
@@ -82,7 +82,7 @@ export default function Test({ test, testType }: TestProps) {
 
     const fullTestComponent =
 
-        <div className={`bg-primary-color/20 border border-primary-color/30 shadow-md p-4 rounded-large   grid gap-4  `}>
+        <div className={`bg-primary-color/8 border border-primary-color/10 shadow-md p-4 rounded-large   grid gap-4  `}>
             <div className={`flex flex-col  rounded-large  p-4`}>
                 <div className={`flex flex-col mb-4 bg-primary-color/30 border border-primary-color/30 rounded-large p-4`}>
                     <h2>{test.title[locale]}</h2>
