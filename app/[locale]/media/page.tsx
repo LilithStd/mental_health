@@ -21,9 +21,9 @@ export default async function MediaPage() {
             <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/8 shadow-lg backdrop-blur-md border border-primary-color/10 p-4`}>
                 <div className={`flex w-full gap-2 justify-start mb-4 z-10`}>
                     <ReturnButton pathToReturn={routesAdaptive.media.root} />
-                    <Link href={routesAdaptive.news.root} className={`bg-primary-color/50 cursor-pointer border border-primary-color/30 pb-2 pt-2 pl-4 pr-4 rounded-circle`}>{MediaPageContent[locale].titleNews}</Link>
-                    <Link href={routesAdaptive.articles.root} className={`bg-primary-color/50 cursor-pointer border border-primary-color/30 pb-2 pt-2 pl-4 pr-4 rounded-circle`}>{MediaPageContent[locale].titleArticles}</Link>
-                    <Link href={routesAdaptive.library.root} className={`bg-primary-color/50 cursor-pointer border border-primary-color/30 pb-2 pt-2 pl-4 pr-4 rounded-circle`}>{MediaPageContent[locale].titleLibrary}</Link>
+                    <Link href={routesAdaptive.news.root} className={`p-4 w-fit bg-primary-color/10 backdrop-blur-md border border-primary-color/12 font-poiret shadow-lg z-10 font-bold italic rounded-full hover:bg-primary-color/40 hover:scale-105`}>{MediaPageContent[locale].titleNews}</Link>
+                    <Link href={routesAdaptive.articles.root} className={`p-4 w-fit bg-primary-color/10 backdrop-blur-md border border-primary-color/12 font-poiret shadow-lg z-10 font-bold italic rounded-full hover:bg-primary-color/40 hover:scale-105`}>{MediaPageContent[locale].titleArticles}</Link>
+                    <Link href={routesAdaptive.library.root} className={`p-4 w-fit bg-primary-color/10 backdrop-blur-md border border-primary-color/12 font-poiret shadow-lg z-10 font-bold italic rounded-full hover:bg-primary-color/40 hover:scale-105`}>{MediaPageContent[locale].titleLibrary}</Link>
                 </div>
 
                 {/* <RandomArticleBlock /> */}
