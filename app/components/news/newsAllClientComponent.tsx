@@ -23,7 +23,7 @@ export default async function NewsAllClientComponent({ initialNews }: NewsClient
 
     return (
         <div className={`flex flex-col indents-main-container  flex-1 items-center `}>
-                <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
+                <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/8 shadow-lg backdrop-blur-md border border-primary-color/10 p-4`}>
                     <RedirectAndPathComponent links={[{
                         name: MediaPageContent[locale].titleNews,
                         href: routesAdaptive.news.root
@@ -39,7 +39,7 @@ export default async function NewsAllClientComponent({ initialNews }: NewsClient
                         ))
                     )}
                     </div> 
-                     <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" />
+                     {/* <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" /> */}
                 </div>
             
         </div>
