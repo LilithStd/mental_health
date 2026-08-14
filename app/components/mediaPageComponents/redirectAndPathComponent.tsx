@@ -13,7 +13,7 @@ export default function RedirectAndPathComponent({ links, pathToRedirect }: Redi
         <ReturnButton pathToReturn={pathToRedirect} />
         <div className={`flex gap-2 items-center`}>
             {links.map((link, index) => (
-                <div key={index} className={`bg-primary-color/50 cursor-pointer border border-primary-color/30 pb-2 pt-2 pl-4 pr-4 rounded-circle`}>
+                <div key={index} className={`bg-primary-color/10 cursor-pointer border border-primary-color/12 pb-2 pt-2 pl-4 pr-4 rounded-circle`}>
                     <Link href={link.href}>{link.name}</Link>
                     {index < links.length - 1 && <ArrowIcon className="inline-block ml-2 w-6 " />}
                 </div>
