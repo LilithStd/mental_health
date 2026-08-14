@@ -39,7 +39,7 @@ export default function News({ news, typeNews }: NewsProps) {
     // components
     const mediaRatingComponent = (type: SIZE_ELEMENT) => {
         return (
-            <div className={`flex  w-full ${type === SIZE_ELEMENT.FULL ? '' : 'bg-primary-color/30 shadow-md border border-primary-color/30'} h-full  gap-2 justify-center items-center align-center  rounded-large p-2`}>
+            <div className={`flex  w-full ${type === SIZE_ELEMENT.FULL ? '' : 'bg-primary-color/8 shadow-md border border-primary-color/10'} h-full  gap-2 justify-center items-center align-center  rounded-large p-2`}>
                <div className={`flex flex-col w-full gap-2`}>
                     <div>
                         <div className={`flex items-start gap-2`}>
@@ -81,8 +81,8 @@ export default function News({ news, typeNews }: NewsProps) {
 
     </div>
 
-    const mediumNewsComponent = <div className={`grid grid-cols-[0.45fr_1fr] w-full bg-primary-color/30 border border-primary-color/30 rounded-large`}>
-        <div className={`image-size-large   rounded-large items-center justify-center`}>
+    const mediumNewsComponent = <div className={`grid grid-cols-[0.45fr_1fr] w-full bg-primary-color/8 border border-primary-color/10 rounded-large`}>
+        <div className={`image-size-large   rounded-large items-center justify-center bg-primary-color/8 border border-primary-color/10`}>
             <PhotoIcon className={` `} fill={'green'}/>
         </div>
         <div className="flex flex-col p-4 rounded-large  h-full">
