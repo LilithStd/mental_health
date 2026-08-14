@@ -18,7 +18,7 @@ export default async function MediaPage() {
 
     return (
         <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
-            <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
+            <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/8 shadow-lg backdrop-blur-md border border-primary-color/10 p-4`}>
                 <div className={`flex w-full gap-2 justify-start mb-4 z-10`}>
                     <ReturnButton pathToReturn={routesAdaptive.media.root} />
                     <Link href={routesAdaptive.news.root} className={`bg-primary-color/50 cursor-pointer border border-primary-color/30 pb-2 pt-2 pl-4 pr-4 rounded-circle`}>{MediaPageContent[locale].titleNews}</Link>
@@ -28,7 +28,7 @@ export default async function MediaPage() {
 
                 {/* <RandomArticleBlock /> */}
                 {/* <RandomNewsBlock /> */}
-            <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" />
+            {/* <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" /> */}
             </div>
             
         </div>
