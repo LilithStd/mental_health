@@ -17,13 +17,13 @@ export default function MetaDataArticle({ article }: MetaDataArticleProps) {
             <div
                 className={`
                     flex  flex-col items-center gap-2 p-2
-                    bg-primary-color/30
-                    border border-primary-color/30
+                    bg-primary-color/8
+                    border border-primary-color/10
                     shadow-md
                     rounded-large
                 `}
             >
-                <div className={`flex justify-center items-center rounded-circle bg-primary-color/30`}>
+                <div className={`flex justify-center items-center rounded-circle bg-primary-color/10`}>
                     <AuthorIcon className="w-30 h-30 fill-current" />
                 </div>
             </div>
