@@ -60,18 +60,18 @@ export default function LibraryClient({ libraryData }: LibraryClientProps) {
                         ))  }
                         {resultsFound === false && <span className={`text-lg`}>{LibraryContent[locale].notFoundElement}</span>}
                         {searchResults.length === 0 && resultsFound === null && libraryData.map(item => (
-                            <div key={item.id} className={`flex flex-col gap-2 p-4 bg-primary-color/20 rounded-large`}>
+                            <div key={item.id} className={`flex flex-col gap-2 p-4 bg-primary-color/10 rounded-large`}>
                                 <span className={`text-2xl`}>{item.title[locale]}</span>
                                 <span className={`text-sm italic`}>{LibraryContent[locale].type}:{item.type}</span>   
                                 <HashTags hashTags={item.hashTags.length > 0 ? item.hashTags : ['depression']} type={SIZE_ELEMENT.SMALL} />
-                                <details key={item.id} className={`flex flex-col gap-2 p-4 bg-primary-color/50 rounded-large`}>
+                                <details key={item.id} className={`flex flex-col gap-2 p-4 bg-primary-color/14 rounded-large`}>
                                     <summary className={`font-bold cursor-pointer`}>Description</summary>
                                     <p>{item.content[locale]}</p>
                                 </details>
                             </div>
                         ))}
                 </div>
-                <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" />
+                {/* <Image src={LINK_RAW_PATH.butterflyBG} alt="Background Image" fill className="  w-full h-full z-0 object-cover rounded-large opacity-20" /> */}
             </div>
         </div>
     )
