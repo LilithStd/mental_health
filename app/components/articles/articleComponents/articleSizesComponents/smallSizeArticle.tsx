@@ -14,7 +14,7 @@ interface SmallSizeArticleProps {
 export default function SmallSizeArticle({ article }: SmallSizeArticleProps) {
    const locale = useLocale() as LocaleType;
       return    (
-          <div className="flex  flex-col p-2 h-full bg-primary-color/30 border border-primary-color/30 shadow-md rounded-large">
+          <div className="flex  flex-col p-2 h-full bg-primary-color/8 border border-primary-color/10 shadow-md rounded-large">
       
                   <div className={`flex w-full rounded-large`}>
                       <MetaDataArticle article={article} />
