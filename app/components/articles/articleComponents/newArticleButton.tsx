@@ -34,7 +34,7 @@ export default function NewArticleButton() {
 
     return (
 
-        <button className={` bg-buttonContainer mb-4 w-fit  p-2 cursor-pointer rounded-circle`} onClick={() => route.push(routes(locale).articles.create())}>{BUTTON_NEW_ARTICLE[locale]}</button>
+        <button className={`p-4 mb-4 w-fit bg-primary-color/10 backdrop-blur-md border border-primary-color/12  shadow-lg z-10 font-bold italic rounded-full hover:bg-primary-color/40 hover:scale-105`} onClick={() => route.push(routes(locale).articles.create())}>{BUTTON_NEW_ARTICLE[locale]}</button>
 
     )
 }
