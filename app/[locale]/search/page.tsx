@@ -18,14 +18,11 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   return (
     <div className={`flex flex-col indents-main-container  flex-1 items-center`}>
-      <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/20 shadow-lg backdrop-blur-md border border-primary-color/30 p-4`}>
+      <div className={`flex w-full flex-col flex-1 max-w-6xl  rounded-large bg-primary-color/8 shadow-lg backdrop-blur-md border border-primary-color/10 p-4`}>
         <div className={`flex justify-start items-center w-full flex-col flex-1 gap-4`}>
             <div>
               <SearchPageResults query={query} locale={locale} />
             </div>
-            
-          
-          
         </div>
       </div>  
     </div>

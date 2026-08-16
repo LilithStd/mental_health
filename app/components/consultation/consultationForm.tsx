@@ -72,7 +72,7 @@ export default function ConsultationForm() {
                     </label>
                 </div>
                 <div className={`flex justify-center m-4`}>
-                    <button type="submit" className={`font-bold items-center mb-2 mt-2  w-1/4  rounded-large p-4 bg-buttonContainer`}>{ConsultationPageContent[locale].buttonText}</button>
+                    <button type="submit" className={`p-4 w-fit bg-primary-color/10 backdrop-blur-md border border-primary-color/12 font-poiret shadow-lg z-10 font-bold italic rounded-full hover:bg-primary-color/40 hover:scale-105`}>{ConsultationPageContent[locale].buttonText}</button>
                 </div>
 
             </form>
