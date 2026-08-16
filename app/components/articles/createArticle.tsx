@@ -60,7 +60,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 return (
         <form
             onSubmit={handleSubmit}
-            className={`flex flex-col gap-4 p-4 max-content-main-container rounded-large bg-primary-color/30 border border-primary-color/30 w-full`}
+            className={`flex flex-col gap-4 p-4 max-content-main-container rounded-large bg-primary-color/10 border border-primary-color/14 w-full`}
         >
             <h1 className="text-xl font-bold">{CreateArticleContent[locale].title}</h1>
              <label className="flex items-center gap-2 cursor-pointer">
